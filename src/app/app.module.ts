@@ -9,6 +9,7 @@ import { FIREBASE_CONFIG } from './app.firebase.config';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { FacebookProvider } from '../providers/facebook/facebook';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomePage } from '../pages/home/home';
   providers: [
   StatusBar,
   SplashScreen,
-  {provide: ErrorHandler, useClass: IonicErrorHandler}
+  {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FacebookProvider
   ]
 })
 export class AppModule {}
