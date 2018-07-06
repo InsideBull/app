@@ -12,31 +12,33 @@ import { CooperativeListPage } from '../cooperative-list/cooperative-list';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-connected',
-  templateUrl: 'connected.html',
-})
-export class ConnectedPage {
+ @IonicPage()
+ @Component({
+   selector: 'page-connected',
+   templateUrl: 'connected.html',
+ })
+ export class ConnectedPage {
 
-  user:any;
-  constructor(private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
-  }
+   user:any;
+   constructor(private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
+   }
 
-  ionViewDidLoad() {
-    this.user = this.facebookProvider.getUser();
-  }
+   ionViewDidLoad() {
+     this.facebookProvider.getUser().then((user)=>{
+       this.user = user;
+     })
+   }
 
-  logout(){
-  	this.facebookProvider.logout(LoginPage);
-  }
+   logout(){
+     this.facebookProvider.logout(LoginPage);
+   }
 
-  addCooperative(){
-    this.navCtrl.push(CooperativeCreatePage);
-  }
+   addCooperative(){
+     this.navCtrl.push(CooperativeCreatePage);
+   }
 
-  cooperatives(){
-    this.navCtrl.push(CooperativeListPage);
-  }
+   cooperatives(){
+     this.navCtrl.push(CooperativeListPage);
+   }
 
-}
+ }

@@ -28,18 +28,18 @@
 						</ion-label>
 					</ion-item>
 					<ion-item>
-						<ion-avatar  item-start><img src="assets/icon/location.png"></ion-avatar>
+						<ion-avatar item-start><img src="assets/icon/location.png"></ion-avatar>
 						<ion-label>
 							<p>Lieux de residence</p><p>{{ user.city }}</p>
 						</ion-label>
 					</ion-item>
-					<button ion-item>
-						<ion-avatar  item-start (tap)="addCooperative()" ><img src="assets/icon/add.png"></ion-avatar>
+					<button ion-item (tap)="addCooperative()" >
+						<ion-avatar  item-start ><img src="assets/icon/add.png"></ion-avatar>
 						Créer une coopérative
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
-					<button ion-item>
-						<ion-avatar item-start (tap)="cooperatives()" ><img src="assets/icon/list.png"></ion-avatar>
+					<button ion-item (tap)="cooperatives()">
+						<ion-avatar item-start><img src="assets/icon/list.png"></ion-avatar>
 						Mes coopérative
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>

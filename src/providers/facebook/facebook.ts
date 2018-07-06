@@ -22,55 +22,38 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
 
     login(redirection ?: any){
       this.loading = this.loadingCtrl.create();
-      this.loading.present();
-      this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile) => {
-        this.user = {
-          email: profile['email'],
-          name: profile['name'],
-          picture: profile['picture_large']['data']['url'],
-          birthday: profile['birthday'],
-          city: profile['location'].name,
-        };
+      this.facebook.login(['user_birthday', 'email', 'user_location', 'public_profile']).then(()=>{
         this.logged = true;
         this.loading.dismiss();
-
-        if (redirection) {
-          this.app.getActiveNav().setRoot(redirection);
-        }
+        this.app.getActiveNav().setRoot(redirection);
       })
     }
 
-    getUser(informations ?: any){
-
-      if(!this.logged){
-        this.login();
-      }
-
-      let result: any;
-
-      if (informations) {
-        if (typeof informations === 'string') {
-          result = this.user[informations]
-        }
-        else{
-          for(let i in informations){
-            result[i] = this.user[i]
-          }
-        }
-      }
-      else{
-        result = this.user;
-      }
-
-      return result;
-    }
-
-    public logout(redirection: any) {
+    logout(redirection: any) {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
       this.facebook.logout().then(() => {
         this.loading.dismiss();
         this.app.getActiveNav().setRoot(redirection);
+      })
+    }
+
+    getUser(){
+      return new Promise((resolve)=>{
+        if (!this.logged) {
+          this.login();
+        }
+        this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile)=>{
+          let user = {
+            email: profile['email'],
+            name: profile['name'],
+            picture: profile['picture_large']['data']['url'],
+            birthday: profile['birthday'],
+            city: profile['location'].name,
+          };
+
+          resolve(user);
+        })
       })
     }
 
@@ -85,8 +68,11 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
       })
     }
 
-    userFriends(){
+    getUserFriends(){
       return new Promise((resolve)=>{
+        if(!this.logged)  {
+          this.login();
+        }      
         this.facebook.api('me/friends?fields=id,name,picture.width(720).height(720).as(picture_large)',['user_friends'])
         .then((friends)=>{
           resolve(friends);
