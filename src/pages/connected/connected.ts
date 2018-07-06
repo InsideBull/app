@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FacebookProvider } from '../../providers/facebook/facebook';
-import { ConnectedPage } from '../connected/connected';
+import { LoginPage } from '../login/login';
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the ConnectedPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,20 +12,21 @@ import { ConnectedPage } from '../connected/connected';
 
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-connected',
+  templateUrl: 'connected.html',
 })
-export class LoginPage {
+export class ConnectedPage {
 
+  user:any;
   constructor(private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    
+    this.user = this.facebookProvider.getUser();
   }
 
-  login(){
-  	this.facebookProvider.login(ConnectedPage);
+  logout(){
+  	this.facebookProvider.logout(LoginPage);
   }
 
 }

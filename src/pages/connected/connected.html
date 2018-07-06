@@ -1,0 +1,55 @@
+<ion-header>
+	<ion-navbar>
+		<button ion-button menuToggle>
+
+		</button>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-grid class="grid-center-md grid-center-ios" *ngIf="user">
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 class="title_" text-capitalise >Mon espace</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row class="img-profil">
+			<ion-col  col-sm col-auto>
+				<img [src]="user.picture">
+				<h3>{{ user.name }}</h3>
+			</ion-col>
+		</ion-row>
+		<ion-row justify-content-center class="row-center">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+					<ion-item *ngIf="user.birthday">
+						<ion-avatar  item-start><img src="assets/icon/birth.svg"></ion-avatar>
+						<ion-label>
+							<p>Date de naissance</p><p>{{ user.birthday }}</p>
+						</ion-label>
+					</ion-item>
+					<ion-item>
+						<ion-avatar  item-start><img src="assets/icon/location.png"></ion-avatar>
+						<ion-label>
+							<p>Lieux de residence</p><p>{{ user.city }}</p>
+						</ion-label>
+					</ion-item>
+					<button ion-item>
+						<ion-avatar  item-start><img src="assets/icon/add.png"></ion-avatar>
+						Créer une coopérative
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+					<button ion-item>
+						<ion-avatar item-start><img src="assets/icon/list.png"></ion-avatar>
+						Mes coopérative
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+					<button ion-item (tap)="logout()">
+						<ion-avatar  item-start ><img src="assets/icon/logout.png"></ion-avatar>
+						Deconnexion
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

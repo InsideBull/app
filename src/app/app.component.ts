@@ -3,7 +3,7 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { ConnectedPage } from '../pages/connected/connected';
 import { LoginPage } from '../pages/login/login';
 
 import { FacebookProvider } from '../providers/facebook/facebook';
@@ -21,7 +21,7 @@ export class MyApp {
 
       this.facebookProvider.status().then((reponse)=>{
         if (reponse) {
-          this.rootPage = HomePage;
+          this.rootPage = ConnectedPage;
         }
       })
 
