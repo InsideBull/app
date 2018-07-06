@@ -9,31 +9,33 @@ import { AngularFireDatabase } from 'angularfire2/database';
   and Angular DI.
   */
   @Injectable()
-  export class FirebaseProvider {
+  export abstract class FirebaseProvider {
 
-    constructor( private firebase: AngularFireDatabase) {
+    //entity path in firebase database
+    protected __path: string;
+    constructor( public firebase: AngularFireDatabase) {
 
     }
 
-    getOneById( path: string, id : string){
+    getOneById(id : string){
       return new Promise ((resolve)=>{
-        this.firebase.object(`${path}/${id}`).valueChanges().subscribe((object)=>{
+        this.firebase.object(`${this.__path}/${id}`).valueChanges().subscribe((object)=>{
           resolve(object);
         });
       });
 
     }
 
-    getAll(path: string){
-      return this.firebase.object(path).valueChanges();
+    getAll(){
+      return this.firebase.object(this.__path).valueChanges();
     }
 
-    push( path: string, object: any, key ?: string){
+    push(object: any, key ?: string){
       if(key){
-        return this.firebase.list(path).update(key,object);
+        return this.firebase.list(this.__path).update(key,object);
       }
       else{
-        return this.firebase.list(path).push(object).key;
+        return this.firebase.list(this.__path).push(object).key;
       }
     }
 
