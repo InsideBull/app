@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FacebookProvider } from '../../providers/facebook/facebook';
 import { LoginPage } from '../login/login';
+import { CooperativeCreatePage } from '../cooperative-create/cooperative-create';
+import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 
 /**
  * Generated class for the ConnectedPage page.
@@ -27,6 +29,14 @@ export class ConnectedPage {
 
   logout(){
   	this.facebookProvider.logout(LoginPage);
+  }
+
+  addCooperative(){
+    this.navCtrl.push(CooperativeCreatePage);
+  }
+
+  cooperatives(){
+    this.navCtrl.push(CooperativeListPage);
   }
 
 }

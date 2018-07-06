@@ -11,6 +11,8 @@ import { FacebookProvider } from '../providers/facebook/facebook';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ConnectedPage } from '../pages/connected/connected';
+import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
+import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
 import { Facebook } from '@ionic-native/facebook';
 
 @NgModule({
@@ -18,7 +20,9 @@ import { Facebook } from '@ionic-native/facebook';
   MyApp,
   HomePage,
   LoginPage,
-  ConnectedPage
+  ConnectedPage,
+  CooperativeCreatePage,
+  CooperativeListPage
   ],
   imports: [
   BrowserModule,
@@ -31,7 +35,9 @@ import { Facebook } from '@ionic-native/facebook';
   MyApp,
   HomePage,
   LoginPage,
-  ConnectedPage
+  ConnectedPage,
+  CooperativeCreatePage,
+  CooperativeListPage
   ],
   providers: [
   StatusBar,
