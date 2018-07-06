@@ -14,3 +14,150 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.toolbar-background-ios, .toolbar-background-md
+{
+	background-color: black ;
+}
+ion-header {
+   .back-button-text-ios {
+    	 display: none!important;
+   }
+   button {
+   		color: white !important;
+   }
+   .bar-button-default-ios {
+	    margin-left: 17px;
+	    margin-bottom: 7px;
+   }
+}
+
+.img-lock , .img-mail {
+	background-color: transparent;
+}
+.img-lock{
+    background-color: transparent;
+    min-width: 14px;
+    min-height: 20px;
+}
+.img-mail{
+    min-width: 17px;
+    min-height: 14px;
+    contain:size ;
+}
+.ion-icon-md ,.ion-icon-ios {
+	color:black ;
+}
+ion-img {
+	img {
+	   max-width: 91%;
+	}
+}
+.text-input::placeholder {
+	color: #000;
+	opacity: initial;
+}
+.text-input {
+	font-size: 12px;
+}
+.input-cover-md, .input-cover-ios {
+	min-height: inherit;
+	height: 38px;
+	margin-bottom: 27px;
+	font-size: 13px;
+}
+.content {
+	background-color: #f9cc0f !important;
+}
+.footer-text 
+{
+	button {
+		background-color: transparent;
+		font-size: 0.8em ;
+
+	}
+}
+.button-md ,.button-ios{
+	text-transform: capitalize;
+	height: 3.6rem;
+	font-size: 1.3rem; 
+	font-weight: 500;
+	min-height: 37px;
+	background-color: black ;
+	color: white;
+	margin: 51px 0 102px 0;
+	border-radius: unset ;
+}
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: #FFF !important;
+    -webkit-box-shadow: unset!important;
+    box-shadow: unset!important;
+}
+.item-md.item-input.item-input-has-focus .item-inner {
+       border-bottom-color: #FFF !important;
+    -webkit-box-shadow: unset!important;
+    box-shadow: unset!important;
+}
+
+.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: #FFF !important;
+    -webkit-box-shadow: unset!important;
+    box-shadow: unset!important;
+}
+.item-ios.item-input.item-input-has-focus .item-inner {
+       border-bottom-color: #FFF !important;
+    -webkit-box-shadow: unset!important;
+    box-shadow: unset!important;
+}
+
+
+
+page-login {
+		.item-block {
+		border: solid transparent !important;
+		padding-left: 5px;
+		box-shadow: unset!important ;
+		.item-inner {
+			border: transparent !important;
+			box-shadow: unset !important;
+		}
+	}
+}
+.logo-reservation{
+	max-width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+.toolbar-title-md, .toolbar-title-ios {
+    padding: 0 12px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #FFF;
+    text-transform: capitalize;
+}
+.toolbar-ios ion-title {
+    left: 0;
+    top: 0;
+    padding: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    pointer-events: none;
+}
+.title_header{
+	font-size: 1.6rem;
+	text-align: center;
+	position: relative;
+}
+.baged{
+	background: #f9cc0f;
+    padding: 6px;
+    border-radius: 35%;
+    border: 1px solid #FFF;
+    color: #FFF;	
+}

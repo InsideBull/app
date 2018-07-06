@@ -6,15 +6,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './app.firebase.config';
-
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { FacebookProvider } from '../providers/facebook/facebook';
+import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { Facebook } from '@ionic-native/facebook';
 
 @NgModule({
   declarations: [
   MyApp,
-  HomePage
+  HomePage,
+  LoginPage
   ],
   imports: [
   BrowserModule,
@@ -25,13 +27,15 @@ import { FacebookProvider } from '../providers/facebook/facebook';
   bootstrap: [IonicApp],
   entryComponents: [
   MyApp,
-  HomePage
+  HomePage,
+  LoginPage
   ],
   providers: [
   StatusBar,
   SplashScreen,
   {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FacebookProvider
+  Facebook,
+  FacebookProvider
   ]
 })
 export class AppModule {}
