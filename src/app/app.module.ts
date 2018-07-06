@@ -14,6 +14,7 @@ import { ConnectedPage } from '../pages/connected/connected';
 import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
 import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
 import { Facebook } from '@ionic-native/facebook';
+import { FirebaseProvider } from '../providers/firebase/firebase';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { Facebook } from '@ionic-native/facebook';
   SplashScreen,
   {provide: ErrorHandler, useClass: IonicErrorHandler},
   Facebook,
-  FacebookProvider
+  FacebookProvider,
+    FirebaseProvider
   ]
 })
 export class AppModule {}
