@@ -17,7 +17,7 @@ import { ConnectedPage } from '../connected/connected';
 })
 export class LoginPage {
 
-  constructor(private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor( public facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
