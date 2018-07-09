@@ -71,6 +71,7 @@ import { LoginPage } from '../../pages/login/login';
     }
 
     getUserFriends(){
+      
       return new Promise((resolve)=>{
         if(!this.logged)  {
           this.app.getActiveNav().setRoot(this.redirection)
