@@ -40,13 +40,13 @@ import { LoginPage } from '../../pages/login/login';
       })
     }
 
-    getUser(){
+    getUser(fields ?: any){
       return new Promise((resolve)=>{
         if (!this.logged) {
           this.app.getActiveNav().setRoot(this.redirection)
         }
         this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile)=>{
-          let user = {
+          let _user = {
             email: profile['email'],
             name: profile['name'],
             picture: profile['picture_large']['data']['url'],
@@ -54,9 +54,31 @@ import { LoginPage } from '../../pages/login/login';
             city: profile['location'].name,
           };
 
+          let user = {}
+
+          if (!fields) {
+            user = _user;
+          }
+          else { this._check(_user, fields); }
+          
           resolve(user);
         })
       })
+    }
+
+    protected _check(_user: any, fields){
+      let user = {};
+      
+      if(typeof fields === 'string'){
+        user[fields] = _user[fields];
+      }
+      else{
+        for(let key in fields){
+          user[key] = _user[key];
+        }
+      }
+      
+      return user;
     }
 
     status(){

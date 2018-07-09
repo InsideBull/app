@@ -39,6 +39,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
       }
     }
 
+<<<<<<< HEAD
     uploadImg(file: File) {
       return new Promise(
         (resolve, reject)=> {
@@ -59,6 +60,10 @@ import { AngularFireDatabase } from 'angularfire2/database';
           );
         }
       );
+=======
+    setPath(path: string){
+      this.__path = path;
+>>>>>>> 30a1e971b7d875eb6c6ca31d2031adcc488e9dba
     }
 
   }

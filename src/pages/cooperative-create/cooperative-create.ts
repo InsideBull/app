@@ -2,8 +2,14 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
-import { CooperativeProvider } from '../../providers/cooperative/cooperative'
-import { Cooperative } from '../../models/cooperative.model'
+import { Cooperative } from '../../models/cooperative.model';
+import { Administrator } from '../../models/administrator.model';
+
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { AdministratorProvider } from '../../providers/administrator/administrator';
+import { FacebookProvider } from '../../providers/facebook/facebook';
+
+
 
 /**
  * Generated class for the CooperativeCreatePage page.
@@ -23,6 +29,7 @@ import { Cooperative } from '../../models/cooperative.model'
 	 fileUrl: String;
 
  	constructor( private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+
  		this.form = this.formBuilder.group({
 			 name: ['',Validators.required],
 			 logo: ['', Validators.required]
@@ -38,6 +45,7 @@ import { Cooperative } from '../../models/cooperative.model'
  			let value = this.form.value;
  			let cooperative = new Cooperative(value);
  			this.cooperativeProvider.save(cooperative);
+
  		}
 	 }
 	 
