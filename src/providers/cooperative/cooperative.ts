@@ -35,6 +35,9 @@ export class CooperativeProvider extends FirebaseProvider  {
   	return this.getAll();
   }
 
+  uploadImgLogo(file: File) {
+    return this.uploadImg(file);
+  }
 
 
 }

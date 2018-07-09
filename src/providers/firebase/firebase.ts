@@ -39,4 +39,26 @@ import { AngularFireDatabase } from 'angularfire2/database';
       }
     }
 
+    uploadImg(file: File) {
+      return new Promise(
+        (resolve, reject)=> {
+          const almostUniqueName = Date.now().toString();
+          const upload = this.firebase.storage().ref()
+          .child('/images/cooperative/' + almostUniqueName + file.name)
+          .put(file);
+          upload.on(this.firebase.storage.TaskEvent.STATE_CHANGED,
+          () => {
+            console.log("Chargement...");
+          },
+            (error)=>{
+            console.log(error);
+          },
+            ()=>{
+              resolve(upload.snapshot.downloadURL);
+            }
+          );
+        }
+      );
+    }
+
   }

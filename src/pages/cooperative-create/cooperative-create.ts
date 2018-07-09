@@ -19,10 +19,13 @@ import { Cooperative } from '../../models/cooperative.model'
  })
  export class CooperativeCreatePage {
 
- 	form: FormGroup;
+	 form: FormGroup;
+	 fileUrl: String;
+
  	constructor( private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
- 			name: ['',Validators.required],
+			 name: ['',Validators.required],
+			 logo: ['', Validators.required]
  		});
  	}
 
@@ -34,8 +37,22 @@ import { Cooperative } from '../../models/cooperative.model'
  		if(this.form.valid){
  			let value = this.form.value;
  			let cooperative = new Cooperative(value);
- 			this.cooperativeProvider.save(cooperative)
+ 			this.cooperativeProvider.save(cooperative);
  		}
- 	}
+	 }
+	 
+	 detectFiles(event) {
+		this.cooperativeProvider.uploadImgLogo(event.target.files[0]).then(
+			(url: string) => {
+				console.log(url);
+			  	this.fileUrl = url;	  
+			  	this.setURLLogo();
+			}
+		  );
+	}
+
+	setURLLogo(){
+		this.form.value.logo = this.fileUrl;
+	}
 
  }
