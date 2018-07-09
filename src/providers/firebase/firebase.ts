@@ -39,4 +39,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
       }
     }
 
+    setPath(path: string){
+      this.__path = path;
+    }
+
   }

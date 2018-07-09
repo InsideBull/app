@@ -16,6 +16,7 @@ import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list'
 import { Facebook } from '@ionic-native/facebook';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { CooperativeProvider } from '../providers/cooperative/cooperative';
+import { AdministratorProvider } from '../providers/administrator/administrator';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CooperativeProvider } from '../providers/cooperative/cooperative';
   {provide: ErrorHandler, useClass: IonicErrorHandler},
   Facebook,
   FacebookProvider,
-  CooperativeProvider
+  CooperativeProvider,
+    AdministratorProvider
   ]
 })
 export class AppModule {}
