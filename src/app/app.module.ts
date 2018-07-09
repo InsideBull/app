@@ -47,8 +47,7 @@ import { CooperativeProvider } from '../providers/cooperative/cooperative';
   {provide: ErrorHandler, useClass: IonicErrorHandler},
   Facebook,
   FacebookProvider,
-  FirebaseProvider,
-    CooperativeProvider
+  CooperativeProvider
   ]
 })
 export class AppModule {}
