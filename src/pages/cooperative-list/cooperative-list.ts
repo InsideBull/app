@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { Cooperative } from '../../models/cooperative.model';
 
 /**
  * Generated class for the CooperativeListPage page.
@@ -15,11 +17,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CooperativeListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cooperatives: Cooperative[];
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public cooperativeProvider: CooperativeProvider) {
   }
 
+
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CooperativeListPage');
+    this.cooperativeProvider.fetcAll().
+
+    )
   }
 
 }

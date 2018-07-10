@@ -30,7 +30,7 @@ import { CooperativeListPage } from '../cooperative-list/cooperative-list';
    }
 
    logout(){
-     this.facebookProvider.logout(LoginPage);
+     this.facebookProvider.logout();
    }
 
    addCooperative(){

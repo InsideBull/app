@@ -17,6 +17,7 @@ import { Facebook } from '@ionic-native/facebook';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { CooperativeProvider } from '../providers/cooperative/cooperative';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AdministratorProvider } from '../providers/administrator/administrator';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
   {provide: ErrorHandler, useClass: IonicErrorHandler},
   Facebook,
   FacebookProvider,
-  CooperativeProvider
+  CooperativeProvider,
+  AdministratorProvider
   ]
 })
 export class AppModule {}

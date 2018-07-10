@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic-angular';
+import { LoginPage } from '../../pages/login/login';
 
 /*
   Generated class for the FacebookProvider provider.
@@ -15,6 +16,7 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
   	user: any;
   	logged: boolean;
     connected: boolean;
+    redirection: any = LoginPage;
     constructor( private app: App, private facebook: Facebook, public loadingCtrl: LoadingController) {
       this.logged = false;
       this.connected = false;
@@ -29,19 +31,19 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
       })
     }
 
-    logout(redirection: any) {
+    logout() {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
       this.facebook.logout().then(() => {
         this.loading.dismiss();
-        this.app.getActiveNav().setRoot(redirection);
+        this.app.getActiveNav().setRoot(this.redirection);
       })
     }
 
-    getUser(){
+    getUser(fields ?: any){
       return new Promise((resolve)=>{
         this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile)=>{
-          let user = {
+          let _user = {
             email: profile['email'],
             name: profile['name'],
             picture: profile['picture_large']['data']['url'],
@@ -49,9 +51,31 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
             city: profile['location'].name,
           };
 
+          let user = {}
+
+          if (!fields) {
+            user = _user;
+          }
+          else { this._check(_user, fields); }
+          
           resolve(user);
         })
       })
+    }
+
+    protected _check(_user: any, fields){
+      let user = {};
+      
+      if(typeof fields === 'string'){
+        user[fields] = _user[fields];
+      }
+      else{
+        for(let key in fields){
+          user[key] = _user[key];
+        }
+      }
+      
+      return user;
     }
 
     status(){

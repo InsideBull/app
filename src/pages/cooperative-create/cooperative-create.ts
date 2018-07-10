@@ -3,10 +3,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { Cooperative } from '../../models/cooperative.model';
+<<<<<<< HEAD
 
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 
 import { AngularFireStorage } from 'angularfire2/storage';
+=======
+import { Administrator } from '../../models/administrator.model';
+
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { AdministratorProvider } from '../../providers/administrator/administrator';
+import { FacebookProvider } from '../../providers/facebook/facebook';
+
+>>>>>>> 62e701d60bfb658bb7ad1c9a27a153f7bcbcbb27
 
 
 /**

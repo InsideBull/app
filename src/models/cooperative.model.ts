@@ -1,7 +1,7 @@
 export class Cooperative {
 	
-	private _name: string;
-	private _logo: string;
+	name: string;
+	logo ?: string;
 
 	constructor(object?: {}) {
 		for (var key in object) {
