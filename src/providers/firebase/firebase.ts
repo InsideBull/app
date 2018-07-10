@@ -52,7 +52,9 @@ import * as firebase from 'firebase';
 
       return new Promise((resolve)=>{
 
-        let path = `test/cooperative/${file.name}`;
+        let id = 'coop' + Math.floor(Math.random() * 1000000);
+
+        let path = `test/cooperative/${id}`;
 
         let ref = firebase.storage().ref(path);
 
