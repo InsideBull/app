@@ -40,9 +40,6 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
 
     getUser(){
       return new Promise((resolve)=>{
-        if (!this.logged) {
-          this.login();
-        }
         this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile)=>{
           let user = {
             email: profile['email'],
@@ -69,10 +66,7 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
     }
 
     getUserFriends(){
-      return new Promise((resolve)=>{
-        if(!this.logged)  {
-          this.login();
-        }      
+      return new Promise((resolve)=>{    
         this.facebook.api('me/friends?fields=id,name,picture.width(720).height(720).as(picture_large)',['user_friends'])
         .then((friends)=>{
           resolve(friends);

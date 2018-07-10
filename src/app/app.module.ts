@@ -16,6 +16,7 @@ import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list'
 import { Facebook } from '@ionic-native/facebook';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { CooperativeProvider } from '../providers/cooperative/cooperative';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CooperativeProvider } from '../providers/cooperative/cooperative';
   BrowserModule,
   AngularFireModule.initializeApp(FIREBASE_CONFIG),
   AngularFireDatabaseModule,
+  AngularFireStorageModule,
   IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -47,8 +49,7 @@ import { CooperativeProvider } from '../providers/cooperative/cooperative';
   {provide: ErrorHandler, useClass: IonicErrorHandler},
   Facebook,
   FacebookProvider,
-  FirebaseProvider,
-    CooperativeProvider
+  CooperativeProvider
   ]
 })
 export class AppModule {}

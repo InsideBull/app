@@ -1,12 +1,11 @@
-export class Cooperative {
+export class Administrator  {
 	
-	private _name: string;
-	private _logo: string;
-
+	email: string;
+	name: string;
+	
 	constructor(object?: {}) {
 		for (var key in object) {
 			this[key] = object[key];
 		}
 	}
-
 }
