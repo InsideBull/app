@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { finalize } from 'rxjs/operators';
 import { storage } from 'firebase';
+import 'firebase/storage';
 import * as firebase from 'firebase';
 
 
@@ -53,7 +54,7 @@ import * as firebase from 'firebase';
 
         let path = `test/cooperative/${file.name}`;
 
-        let ref = storage().ref(path);
+        let ref = firebase.storage().ref(path);
 
         let task = ref.put(file);
 
