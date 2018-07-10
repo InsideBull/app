@@ -54,13 +54,21 @@ import * as firebase from 'firebase';
 
         let id = 'coop' + Math.floor(Math.random() * 1000000);
 
-        let path = `test/cooperative/${id}`;
+        let path = `cooperative/${id}`;
 
         let ref = firebase.storage().ref(path);
 
         let task = ref.put(file);
 
         task.on('state_changed',
+          (snapshot) => {
+            const snap = snapshot as firebase.storage.UploadTaskSnapshot;
+            let percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+            console.log('Upload is ' + percentage + '% done');
+          },
+          (error) => {
+            console.log(error);
+          },
           () => {
             ref.getDownloadURL().then((url)=>{
               resolve(url);

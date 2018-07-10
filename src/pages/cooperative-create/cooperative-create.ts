@@ -28,6 +28,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  	constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
+ 			logo: ''
  		});
  	}
 
@@ -46,7 +47,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  	saveLogo(event){
  		let file = event.target.files[0];
  		this.cooperativeProvider.uploadLogo(file).then((url: string)=>{
- 			console.log(url);
+ 			this.form.value.logo = url;
  		})
  	}
 
