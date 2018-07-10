@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { finalize } from 'rxjs/operators';
+import { storage } from 'firebase';
+import * as firebase from 'firebase';
+
+
+
+
 
 /*
   Generated class for the FirebaseProvider provider.
@@ -41,23 +47,24 @@ import { finalize } from 'rxjs/operators';
       }
     }
 
-    upload(file){    
+    upload(file){
+
       return new Promise((resolve)=>{
-        let key = 'coop-taxibr' + Math.floor(Math.random() * 1000000);
-        let path = `upload/cooperative/${key}`;
-        let ref = this.storage.ref(path);
-        let task = this.storage.upload(path, file);
 
-        task.snapshotChanges().pipe(
-          finalize(()=>{
-            ref.getDownloadURL().map((value:string)=> value).subscribe((url)=>{
+        let path = `test/cooperative/${file.name}`;
 
-              console.log(url)
+        let ref = storage().ref(path);
 
-              resolve(url)
+        let task = ref.put(file);
+
+        task.on('state_changed',
+          () => {
+            ref.getDownloadURL().then((url)=>{
+              resolve(url);
             })
-          })
+          }
           )
+
       })
     }
 

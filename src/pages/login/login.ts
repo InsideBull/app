@@ -10,22 +10,22 @@ import { ConnectedPage } from '../connected/connected';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
-})
-export class LoginPage {
+ @IonicPage()
+ @Component({
+ 	selector: 'page-login',
+ 	templateUrl: 'login.html',
+ })
+ export class LoginPage {
+ 	facebookProvider: FacebookProvider
+ 	constructor(public navCtrl: NavController, public navParams: NavParams) {
+ 	}
 
-  constructor( public facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
-  }
+ 	ionViewDidLoad() {
+ 		
+ 	}
 
-  ionViewDidLoad() {
-    
-  }
+ 	login(){
+ 		this.facebookProvider.login(ConnectedPage);
+ 	}
 
-  login(){
-  	this.facebookProvider.login(ConnectedPage);
-  }
-
-}
+ }

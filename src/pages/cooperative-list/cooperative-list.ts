@@ -27,9 +27,7 @@ export class CooperativeListPage {
 
 
   ionViewDidLoad() {
-    this.cooperativeProvider.fetcAll().
-
-    )
+    
   }
 
 }
