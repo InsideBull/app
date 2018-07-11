@@ -33,16 +33,29 @@
 							<p>Lieux de residence</p><p>{{ user.city }}</p>
 						</ion-label>
 					</ion-item>
-					<button ion-item (tap)="addCooperative()" >
-						<ion-avatar  item-start ><img src="assets/icon/add.png"></ion-avatar>
-						Créer une coopérative
-						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-					</button>
-					<button ion-item (tap)="cooperatives()">
-						<ion-avatar item-start><img src="assets/icon/list.png"></ion-avatar>
-						Mes coopérative
-						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-					</button>
+
+					<div *ngIf="is_admin">
+						<button ion-item (tap)="addCooperative()" >
+							<ion-avatar  item-start ><img src="assets/icon/add.png"></ion-avatar>
+							Créer une coopérative
+							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+						</button>
+						<button ion-item (tap)="cooperatives()">
+							<ion-avatar item-start><img src="assets/icon/list.png"></ion-avatar>
+							Mes coopératives
+							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+						</button>
+					</div>
+
+					<div *ngIf="pending">
+						<button ion-item (tap)="qrcodeRequest()">
+							<ion-avatar  item-start ><img src="assets/icon/qr-code.png"></ion-avatar>
+							Demander un QRCode
+							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+						</button>
+					</div>
+
+
 					<button ion-item (tap)="logout()">
 						<ion-avatar  item-start ><img src="assets/icon/logout.png"></ion-avatar>
 						Deconnexion

@@ -42,6 +42,7 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
       return new Promise((resolve)=>{
         this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile)=>{
           let _user = {
+            id: profile['id'],
             email: profile['email'],
             name: profile['name'],
             picture: profile['picture_large']['data']['url'],

@@ -13,11 +13,13 @@ import { LoginPage } from '../pages/login/login';
 import { ConnectedPage } from '../pages/connected/connected';
 import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
 import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
+import { ValidationPage } from '../pages/validation/validation';
 import { Facebook } from '@ionic-native/facebook';
 import { FirebaseProvider } from '../providers/firebase/firebase';
 import { CooperativeProvider } from '../providers/cooperative/cooperative';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AdministratorProvider } from '../providers/administrator/administrator';
+import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-validation';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AdministratorProvider } from '../providers/administrator/administrator'
   LoginPage,
   ConnectedPage,
   CooperativeCreatePage,
-  CooperativeListPage
+  CooperativeListPage,
+  ValidationPage
   ],
   imports: [
   BrowserModule,
@@ -42,7 +45,8 @@ import { AdministratorProvider } from '../providers/administrator/administrator'
   LoginPage,
   ConnectedPage,
   CooperativeCreatePage,
-  CooperativeListPage
+  CooperativeListPage,
+  ValidationPage
   ],
   providers: [
   StatusBar,
@@ -51,7 +55,8 @@ import { AdministratorProvider } from '../providers/administrator/administrator'
   Facebook,
   FacebookProvider,
   CooperativeProvider,
-  AdministratorProvider
+  AdministratorProvider,
+  QrcodeValidationProvider
   ]
 })
 export class AppModule {}

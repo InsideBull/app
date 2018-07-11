@@ -1,0 +1,53 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import { FacebookProvider } from '../../providers/facebook/facebook';
+import { QrcodeValidationProvider } from '../../providers/qrcode-validation/qrcode-validation';
+
+import { QRCodeValidation } from '../../models/qrcode-validation.model';
+
+/**
+ * Generated class for the ValidationPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+ @IonicPage()
+ @Component({
+ 	selector: 'page-validation',
+ 	templateUrl: 'validation.html',
+ })
+ export class ValidationPage {
+
+ 	user: any;
+ 	constructor(private facebookProvider: FacebookProvider, private qrcvProvider: QrcodeValidationProvider, public navCtrl: NavController, public navParams: NavParams) {
+ 	}
+
+ 	ionViewDidLoad() {
+ 		this.facebookProvider.getUser().then((user)=>{
+ 			this.user = user;
+ 		})
+ 	}
+
+ 	getQrcode(){
+
+ 		if(this.user){
+
+ 			let qrcv = {
+ 				key: this.user['id'],
+ 				name: this.user['name'],
+ 				status: false
+
+ 			}
+
+ 			let validation = new QRCodeValidation(qrcv);
+
+ 			this.qrcvProvider.save(qrcv);
+
+ 		}
+
+ 	}
+ }
+
+

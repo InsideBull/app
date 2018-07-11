@@ -14,7 +14,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 @Injectable()
 export class AdministratorProvider extends FirebaseProvider {
 
-  protected __path = 'Administrator';
+  protected __path = 'administrator';
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase) {
     super(storage,firebase);
   }
@@ -26,6 +26,10 @@ export class AdministratorProvider extends FirebaseProvider {
   	else{
   		return this.push(admin);
   	}
+  }
+
+  fetch(key: string){
+    return this.getOneById(key);
   }
 
 }

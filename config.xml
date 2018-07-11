@@ -85,4 +85,9 @@
         <variable name="APP_ID" value="566929223661781" />
         <variable name="APP_NAME" value="Taxibr" />
     </plugin>
+    <config-file parent="/resources" target="./res/values/strings.xml">
+        <string name="fb_app_id">566929223661781</string>
+        <string name="fb_app_name">Taxibr</string>
+    </config-file>
+    <engine name="android" spec="7.0.0" />
 </widget>

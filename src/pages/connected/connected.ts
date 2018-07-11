@@ -4,6 +4,9 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 import { LoginPage } from '../login/login';
 import { CooperativeCreatePage } from '../cooperative-create/cooperative-create';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
+import { AdministratorProvider } from '../../providers/administrator/administrator';
+
+import { ValidationPage } from '../validation/validation'
 
 /**
  * Generated class for the ConnectedPage page.
@@ -20,13 +23,30 @@ import { CooperativeListPage } from '../cooperative-list/cooperative-list';
  export class ConnectedPage {
 
    user:any;
-   constructor(private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
+   is_admin: boolean;
+
+   pending: boolean;
+
+   constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
+     this.is_admin = false;
+     this.pending = false;
    }
 
    ionViewDidLoad() {
+
      this.facebookProvider.getUser().then((user)=>{
        this.user = user;
      })
+     
+     this.adminProvider.fetch('id').then((admin)=>{
+       if(admin){
+         this.is_admin = true;
+       }
+       else{
+         this.pending = true;
+       }
+     })
+
    }
 
    logout(){
@@ -39,6 +59,10 @@ import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 
    cooperatives(){
      this.navCtrl.push(CooperativeListPage);
+   }
+
+   qrcodeRequest(){
+     this.navCtrl.push(ValidationPage);
    }
 
  }

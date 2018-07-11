@@ -14,6 +14,7 @@ import { QRCodeValidation } from '../../models/qrcode-validation.model';
 @Injectable()
 export class QrcodeValidationProvider extends FirebaseProvider {
 
+  protected __path = 'validation';
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase) {
     super(storage,firebase);
   }
