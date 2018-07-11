@@ -16,15 +16,15 @@ import { ConnectedPage } from '../connected/connected';
  	templateUrl: 'login.html',
  })
  export class LoginPage {
- 	facebookProvider: FacebookProvider
- 	constructor(public navCtrl: NavController, public navParams: NavParams) {
+ 	
+ 	constructor(public facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
  	}
 
  	ionViewDidLoad() {
  		
  	}
 
- 	login(){
+ 	public login(){
  		this.facebookProvider.login(ConnectedPage);
  	}
 

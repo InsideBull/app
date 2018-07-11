@@ -13,7 +13,7 @@ import { FacebookProvider } from '../providers/facebook/facebook';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CooperativeCreatePage;
+  rootPage:any = LoginPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic-angular';
-import { LoginPage } from '../../pages/login/login';
 
 /*
   Generated class for the FacebookProvider provider.
@@ -16,7 +15,6 @@ import { LoginPage } from '../../pages/login/login';
   	user: any;
   	logged: boolean;
     connected: boolean;
-    redirection: any = LoginPage;
     constructor( private app: App, private facebook: Facebook, public loadingCtrl: LoadingController) {
       this.logged = false;
       this.connected = false;
@@ -36,7 +34,7 @@ import { LoginPage } from '../../pages/login/login';
       this.loading.present();
       this.facebook.logout().then(() => {
         this.loading.dismiss();
-        this.app.getActiveNav().setRoot(this.redirection);
+/*        this.app.getActiveNav().setRoot(this.redirection);*/
       })
     }
 

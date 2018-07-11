@@ -1,0 +1,44 @@
+<!--
+  Generated template for the QrcodeValidationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>QRCode validation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+	<ion-grid class="grid-center-md grid-center-ios">
+	  <ion-row justify-content-center class="row-top">
+	  	<ion-col col-8 col-sm col-auto >
+	  	<br>
+	  	<br>
+	  	<br>
+	      <ion-img  src="assets/imgs/bee-logo.png"></ion-img>
+	  	<br>
+	  	<h1 ></h1>
+	  	</ion-col>
+	  </ion-row>
+
+	  <ion-row justify-content-center class="row-center">
+		<ion-col col-11 col-sm col-auto >
+		  	<button ion-button  block  class="button-md button-ios" (tap)="getQrcode()">
+		  		<ion-icon item-start name="barcode"></ion-icon>
+		  		Demander QRCode
+			</button>
+			<button ion-button  block  class="button-md button-ios" (tap)="getQrcode()">
+		  		<ion-icon item-start name="qr-scanner"></ion-icon>
+		  		Scanner QRCode
+			</button>
+	    </ion-col>
+	  </ion-row>
+
+
+	</ion-grid>
+</ion-content>
