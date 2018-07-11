@@ -19,6 +19,7 @@ import { CooperativeProvider } from '../providers/cooperative/cooperative';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AdministratorProvider } from '../providers/administrator/administrator';
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
+import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-manage';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative
   ConnectedPage,
   CooperativeCreatePage,
   CooperativeListPage,
-  CooperativeDetailsPage
+  CooperativeDetailsPage,
+  CooperativeManagePage
   ],
   imports: [
   BrowserModule,
@@ -45,7 +47,8 @@ import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative
   ConnectedPage,
   CooperativeCreatePage,
   CooperativeListPage,
-  CooperativeDetailsPage
+  CooperativeDetailsPage,
+  CooperativeManagePage
   ],
   providers: [
   StatusBar,
