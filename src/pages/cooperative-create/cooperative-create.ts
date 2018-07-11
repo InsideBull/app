@@ -7,6 +7,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { Administrator } from '../../models/administrator.model';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { FacebookProvider } from '../../providers/facebook/facebook';
+import { CooperativeListPage } from '../../pages/cooperative-list/cooperative-list';
 
 
 
@@ -38,17 +39,25 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
  	onSubmit(){
  		if(this.form.valid){
- 			this.facebookProvider.getUser(['email','name']).then((user)=>{
- 				let admin = new Administrator(user);
- 				let uid = this.adminProvider.save(admin);
- 				let value = this.form.value;
- 				let admins = [];
- 				admins.push(uid);
- 				value.admins = JSON.stringify(admins);
+ 			// this.facebookProvider.getUser(['email','name']).then((user)=>{
+ 			// 	let admin = new Administrator(user);
+ 			// 	let uid = this.adminProvider.save(admin);
+ 			// 	let value = this.form.value;
+ 			// 	let admins = [];
+ 			// 	admins.push(uid);
+ 			// 	value.admins = JSON.stringify(admins);
  				
- 				let cooperative = new Cooperative(value);
- 				this.cooperativeProvider.save(cooperative);
- 			})		
+ 			// 	let cooperative = new Cooperative(value);
+ 			// 	this.cooperativeProvider.save(cooperative);
+
+ 			// 	this.navCtrl.push(CooperativeListPage);
+ 			// })		
+
+ 			this.cooperativeProvider.save(this.form.value);
+
+ 			this.navCtrl.push(CooperativeListPage);
+
+
  		}
  	}
 

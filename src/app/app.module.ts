@@ -18,6 +18,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
 import { CooperativeProvider } from '../providers/cooperative/cooperative';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AdministratorProvider } from '../providers/administrator/administrator';
+import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdministratorProvider } from '../providers/administrator/administrator'
   LoginPage,
   ConnectedPage,
   CooperativeCreatePage,
-  CooperativeListPage
+  CooperativeListPage,
+  CooperativeDetailsPage
   ],
   imports: [
   BrowserModule,
@@ -42,7 +44,8 @@ import { AdministratorProvider } from '../providers/administrator/administrator'
   LoginPage,
   ConnectedPage,
   CooperativeCreatePage,
-  CooperativeListPage
+  CooperativeListPage,
+  CooperativeDetailsPage
   ],
   providers: [
   StatusBar,

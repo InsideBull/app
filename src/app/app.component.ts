@@ -8,12 +8,13 @@ import { LoginPage } from '../pages/login/login';
 import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
 
 import { FacebookProvider } from '../providers/facebook/facebook';
+import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  rootPage:any = CooperativeListPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
