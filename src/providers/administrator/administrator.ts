@@ -14,6 +14,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 @Injectable()
 export class AdministratorProvider extends FirebaseProvider {
 
+  protected __path = 'Administrator';
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase) {
     super(storage,firebase);
   }

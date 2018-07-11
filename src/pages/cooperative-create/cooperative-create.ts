@@ -25,7 +25,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  export class CooperativeCreatePage {
 
  	form: FormGroup;
- 	constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+ 	constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
  			logo: ''
@@ -38,9 +38,17 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
  	onSubmit(){
  		if(this.form.valid){
- 			let value = this.form.value;
- 			let cooperative = new Cooperative(value);
- 			this.cooperativeProvider.save(cooperative);
+ 			this.facebookProvider.getUser(['email','name']).then((user)=>{
+ 				let admin = new Administrator(user);
+ 				let uid = this.adminProvider.save(admin);
+ 				let value = this.form.value;
+ 				let admins = [];
+ 				admins.push(uid);
+ 				value.admins = JSON.stringify(admins);
+ 				
+ 				let cooperative = new Cooperative(value);
+ 				this.cooperativeProvider.save(cooperative);
+ 			})		
  		}
  	}
 
