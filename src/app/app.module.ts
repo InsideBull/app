@@ -23,6 +23,9 @@ import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
 import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-manage';
 import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
+import { ConfirmationPage } from '../pages/confirmation/confirmation';
+import { QRScanner } from '@ionic-native/qr-scanner';
+import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
   ValidationPage,
   CooperativeDetailsPage,
   CooperativeManagePage,
-  QrScannerPage
+  QrScannerPage,
+  ConfirmationPage
   ],
   imports: [
   BrowserModule,
@@ -55,7 +59,8 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
   ValidationPage,
   CooperativeDetailsPage,
   CooperativeManagePage,
-  QrScannerPage
+  QrScannerPage,
+  ConfirmationPage
   ],
   providers: [
   StatusBar,
@@ -65,7 +70,9 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
   FacebookProvider,
   CooperativeProvider,
   AdministratorProvider,
-  QrcodeValidationProvider
+  QrcodeValidationProvider,
+  QRScanner,
+    QrScannerProvider
   ]
 })
 export class AppModule {}

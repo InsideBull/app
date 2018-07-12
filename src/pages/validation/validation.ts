@@ -8,6 +8,10 @@ import { QRCodeValidation } from '../../models/qrcode-validation.model';
 
 import { QrScannerPage } from '../qr-scanner/qr-scanner';
 
+import { Administrator } from '../../models/administrator.model';
+
+import { AdministratorProvider } from '../../providers/administrator/administrator';
+
 /**
  * Generated class for the ValidationPage page.
  *
@@ -23,10 +27,12 @@ import { QrScannerPage } from '../qr-scanner/qr-scanner';
  export class ValidationPage {
 
  	user: any;
- 	constructor(private facebookProvider: FacebookProvider, private qrcvProvider: QrcodeValidationProvider, public navCtrl: NavController, public navParams: NavParams) {
+ 	constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, private qrcvProvider: QrcodeValidationProvider, public navCtrl: NavController, public navParams: NavParams) {
+ 		
  	}
 
  	ionViewDidLoad() {
+ 		
  		this.facebookProvider.getUser().then((user)=>{
  			this.user = user;
  		})
@@ -62,7 +68,6 @@ import { QrScannerPage } from '../qr-scanner/qr-scanner';
  	qrScanner(){
  		this.navCtrl.push(QrScannerPage);
  	}
-
 
  }
 

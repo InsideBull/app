@@ -22,30 +22,41 @@ import { ValidationPage } from '../validation/validation'
  })
  export class ConnectedPage {
 
-   user:any;
    is_admin: boolean;
 
    pending: boolean;
 
+   user: any;
+
    constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
      this.is_admin = false;
+     
      this.pending = false;
+
+     this.isAdmin();
+   }
+
+
+   isAdmin(){
+     this.facebookProvider.getUser().then((user)=>{
+
+       this.user = user;
+
+       this.adminProvider.fetch(user['id']).then((admin)=>{
+
+         if(admin){
+           this.is_admin = true; 
+         }
+         else{
+           this.pending = true;
+         }
+
+       });
+
+     });
    }
 
    ionViewDidLoad() {
-
-     this.facebookProvider.getUser().then((user)=>{
-       this.user = user;
-     })
-     
-     this.adminProvider.fetch('id').then((admin)=>{
-       if(admin){
-         this.is_admin = true;
-       }
-       else{
-         this.pending = true;
-       }
-     })
 
    }
 
