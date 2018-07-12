@@ -20,6 +20,8 @@ import { CooperativeProvider } from '../providers/cooperative/cooperative';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AdministratorProvider } from '../providers/administrator/administrator';
 import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-validation';
+import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
+import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-manage';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-
   ConnectedPage,
   CooperativeCreatePage,
   CooperativeListPage,
-  ValidationPage
+  ValidationPage,
+  CooperativeDetailsPage,
+  CooperativeManagePage
   ],
   imports: [
   BrowserModule,
@@ -46,7 +50,9 @@ import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-
   ConnectedPage,
   CooperativeCreatePage,
   CooperativeListPage,
-  ValidationPage
+  ValidationPage,
+  CooperativeDetailsPage,
+  CooperativeManagePage
   ],
   providers: [
   StatusBar,

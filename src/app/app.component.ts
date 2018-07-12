@@ -6,6 +6,7 @@ import { ConnectedPage } from '../pages/connected/connected';
 import { LoginPage } from '../pages/login/login';
 import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
 import { FacebookProvider } from '../providers/facebook/facebook';
+import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
 
 
 

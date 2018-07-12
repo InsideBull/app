@@ -14,5 +14,14 @@
 
 
 <ion-content padding>
+	<ion-item>
+		<ion-label>{{ cooperative?.name }}</ion-label>
+	</ion-item>
+	<img [src]="cooperative?.logo">
+	<button ion-button  block  class="button-md button-ios" (tap)="goToManage()">
+		  	<ion-icon item-start name="logo-facebook"></ion-icon>
+		  		Editer coopérative
+	</button>
+
 
 </ion-content>

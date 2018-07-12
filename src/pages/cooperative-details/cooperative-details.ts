@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Cooperative } from '../../models/cooperative.model';
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage'
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -15,11 +18,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CooperativeDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	cooperative: any;
+	param: string;
+
+  constructor(public navCtrl: NavController, 
+  	public navParams: NavParams, 
+  	public cooperativeProvider: CooperativeProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CooperativeDetailsPage');
+    this.param = this.navParams.get('key');
+
+    this.cooperativeProvider.fetch(this.param).then(
+  		(data) => {
+  				this.cooperative = data;
+  			});
+
   }
 
+  goToManage(){
+  	this.navCtrl.push(CooperativeManagePage, {'key': this.param});
+  }
 }
+
