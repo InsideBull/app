@@ -7,7 +7,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { Administrator } from '../../models/administrator.model';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { FacebookProvider } from '../../providers/facebook/facebook';
-import { CooperativeListPage } from '../../pages/cooperative-list/cooperative-list';
+import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 
 
 
@@ -29,7 +29,7 @@ import { CooperativeListPage } from '../../pages/cooperative-list/cooperative-li
  	constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
- 			logo: ''
+ 			logo: ''			
  		});
  	}
 
@@ -39,24 +39,20 @@ import { CooperativeListPage } from '../../pages/cooperative-list/cooperative-li
 
  	onSubmit(){
  		if(this.form.valid){
- 			// this.facebookProvider.getUser(['email','name']).then((user)=>{
- 			// 	let admin = new Administrator(user);
- 			// 	let uid = this.adminProvider.save(admin);
- 			// 	let value = this.form.value;
- 			// 	let admins = [];
- 			// 	admins.push(uid);
- 			// 	value.admins = JSON.stringify(admins);
+ 			this.facebookProvider.getUser('id').then((user)=>{
  				
- 			// 	let cooperative = new Cooperative(value);
- 			// 	this.cooperativeProvider.save(cooperative);
+ 				let uid = user['id']; 
+ 				let value = this.form.value;
+ 				let admins = [];
+ 				admins.push(uid);
+ 				value.admins = JSON.stringify(admins);
+ 				
+ 				let cooperative = new Cooperative(value);
 
- 			// 	this.navCtrl.push(CooperativeListPage);
- 			// })		
+ 				let key = this.cooperativeProvider.save(cooperative);
 
- 			this.cooperativeProvider.save(this.form.value);
-
- 			this.navCtrl.push(CooperativeListPage);
-
+ 				this.navCtrl.push(CooperativeDetailsPage, {key:key});
+ 			})		
 
  		}
  	}

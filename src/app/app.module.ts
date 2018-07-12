@@ -26,6 +26,11 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
 import { ConfirmationPage } from '../pages/confirmation/confirmation';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
+import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
+import { VoyageListPage } from '../pages/voyage-list/voyage-list';
+import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
+import { VoyageManagePage } from '../pages/voyage-manage/voyage-manage';
+import { VoyageProvider } from '../providers/voyage/voyage';
 
 @NgModule({
   declarations: [
@@ -39,7 +44,11 @@ import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
   CooperativeDetailsPage,
   CooperativeManagePage,
   QrScannerPage,
-  ConfirmationPage
+  ConfirmationPage,
+  VoyageCreatePage,
+  VoyageListPage,
+  VoyageDetailPage,
+  VoyageManagePage
   ],
   imports: [
   BrowserModule,
@@ -60,7 +69,11 @@ import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
   CooperativeDetailsPage,
   CooperativeManagePage,
   QrScannerPage,
-  ConfirmationPage
+  ConfirmationPage,
+  VoyageCreatePage,
+  VoyageListPage,
+  VoyageDetailPage,
+  VoyageManagePage
   ],
   providers: [
   StatusBar,
@@ -72,7 +85,8 @@ import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
   AdministratorProvider,
   QrcodeValidationProvider,
   QRScanner,
-    QrScannerProvider
+  QrScannerProvider,
+  VoyageProvider
   ]
 })
 export class AppModule {}
