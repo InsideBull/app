@@ -6,6 +6,8 @@ import { QrcodeValidationProvider } from '../../providers/qrcode-validation/qrco
 
 import { QRCodeValidation } from '../../models/qrcode-validation.model';
 
+import { QrScannerPage } from '../qr-scanner/qr-scanner';
+
 /**
  * Generated class for the ValidationPage page.
  *
@@ -55,6 +57,10 @@ import { QRCodeValidation } from '../../models/qrcode-validation.model';
  				this.qrcvProvider.save(qrcv, this.user['id']);
  			}
  		})
+ 	}
+
+ 	qrScanner(){
+ 		this.navCtrl.push(QrScannerPage);
  	}
 
 
