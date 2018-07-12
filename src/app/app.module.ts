@@ -23,6 +23,11 @@ import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
 import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-manage';
 import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
+import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
+import { VoyageListPage } from '../pages/voyage-list/voyage-list';
+import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
+import { VoyageManagePage } from '../pages/voyage-manage/voyage-manage';
+import { VoyageProvider } from '../providers/voyage/voyage';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,11 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
   ValidationPage,
   CooperativeDetailsPage,
   CooperativeManagePage,
-  QrScannerPage
+  QrScannerPage,
+  VoyageCreatePage,
+  VoyageListPage,
+  VoyageDetailPage,
+  VoyageManagePage
   ],
   imports: [
   BrowserModule,
@@ -55,7 +64,11 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
   ValidationPage,
   CooperativeDetailsPage,
   CooperativeManagePage,
-  QrScannerPage
+  QrScannerPage,
+  VoyageCreatePage,
+  VoyageListPage,
+  VoyageDetailPage,
+  VoyageManagePage
   ],
   providers: [
   StatusBar,
@@ -65,7 +78,8 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
   FacebookProvider,
   CooperativeProvider,
   AdministratorProvider,
-  QrcodeValidationProvider
+  QrcodeValidationProvider,
+  VoyageProvider
   ]
 })
 export class AppModule {}

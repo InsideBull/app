@@ -5,6 +5,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { Cooperative } from '../../models/cooperative.model'
 
+
 /**
  * Generated class for the CooperativeManagePage page.
  *
