@@ -44,7 +44,7 @@ export class CooperativeListPage {
   		(data) => {
   			for(let key in data){
   				data[key].key = key;
-  				this.coop.push(data[key]);
+  				this.coop = data[key];
 
           let adminJson = this.coop.admin;
           for(let idAdmin in JSON.parse(adminJson)){
