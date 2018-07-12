@@ -30,6 +30,9 @@ import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
 import { VoyageManagePage } from '../pages/voyage-manage/voyage-manage';
+import { ParametersPage } from '../pages/parameters/parameters';
+import { AdminListPage } from '../pages/admin-list/admin-list';
+import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { VoyageProvider } from '../providers/voyage/voyage';
 
 @NgModule({
@@ -48,7 +51,10 @@ import { VoyageProvider } from '../providers/voyage/voyage';
   VoyageCreatePage,
   VoyageListPage,
   VoyageDetailPage,
-  VoyageManagePage
+  VoyageManagePage,
+  ParametersPage,
+  AdminListPage,
+  AdminAddPage
   ],
   imports: [
   BrowserModule,
@@ -73,7 +79,10 @@ import { VoyageProvider } from '../providers/voyage/voyage';
   VoyageCreatePage,
   VoyageListPage,
   VoyageDetailPage,
-  VoyageManagePage
+  VoyageManagePage,
+  ParametersPage,
+  AdminListPage,
+  AdminAddPage
   ],
   providers: [
   StatusBar,

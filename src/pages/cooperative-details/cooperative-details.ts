@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
-import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage'
+import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
+import { ParametersPage } from '../parameters/parameters';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -38,6 +39,10 @@ export class CooperativeDetailsPage {
 
   goToManage(){
   	this.navCtrl.push(CooperativeManagePage, {'key': this.param});
+  }
+
+  goToParams(){
+    this.navCtrl.push(ParametersPage, {'key': this.param});
   }
 }
 
