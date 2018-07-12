@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../firebase/firebase';
-import { Voyage } from '../../models/voyage.model';
+import { Station } from '../../models/station.model';
 import { AngularFireStorage } from 'angularfire2/storage';
 
 
@@ -12,20 +12,20 @@ import { AngularFireStorage } from 'angularfire2/storage';
   and Angular DI.
 */
 @Injectable()
-export class VoyageProvider extends FirebaseProvider  {
+export class StationProvider extends FirebaseProvider  {
 
-  protected __path = 'voyage';
+  protected __path = 'station';
   
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase) {
     super(storage,firebase);
   }
 
-  save(voyage: Voyage, key ?: string){
+  save(station: Station, key ?: string){
   	if (key) {
-  		return this.push(voyage,key);
+  		return this.push(Station,key);
   	}
   	else{
-  		return this.push(voyage);
+  		return this.push(Station);
   	}
   }
 

@@ -3,7 +3,7 @@ export class Voyage {
 	cooperative: string;
 	date: string;
 	price: number;
-	reservation: any;
+	reservation?: any;
 	startstation: string;
 
 	constructor(object?: {}) {

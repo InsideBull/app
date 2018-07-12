@@ -26,7 +26,12 @@ import { CooperativeListPage } from '../../pages/cooperative-list/cooperative-li
  export class CooperativeCreatePage {
 
  	form: FormGroup;
- 	constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+ 	constructor(private adminProvider: AdministratorProvider, 
+ 		private facebookProvider: FacebookProvider, 
+ 		private cooperativeProvider: CooperativeProvider, 
+ 		public navCtrl: NavController, 
+ 		public navParams: NavParams, 
+ 		public formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
  			logo: ''			

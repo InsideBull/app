@@ -28,58 +28,61 @@ import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
 import { VoyageManagePage } from '../pages/voyage-manage/voyage-manage';
 import { VoyageProvider } from '../providers/voyage/voyage';
+import { StationProvider } from '../providers/voyage/station';
+
 
 @NgModule({
   declarations: [
-  MyApp,
-  HomePage,
-  LoginPage,
-  ConnectedPage,
-  CooperativeCreatePage,
-  CooperativeListPage,
-  ValidationPage,
-  CooperativeDetailsPage,
-  CooperativeManagePage,
-  QrScannerPage,
-  VoyageCreatePage,
-  VoyageListPage,
-  VoyageDetailPage,
-  VoyageManagePage
+    MyApp,
+    HomePage,
+    LoginPage,
+    ConnectedPage,
+    CooperativeCreatePage,
+    CooperativeListPage,
+    ValidationPage,
+    CooperativeDetailsPage,
+    CooperativeManagePage,
+    QrScannerPage,
+    VoyageCreatePage,
+    VoyageListPage,
+    VoyageDetailPage,
+    VoyageManagePage
   ],
   imports: [
-  BrowserModule,
-  AngularFireModule.initializeApp(FIREBASE_CONFIG),
-  AngularFireDatabaseModule,
-  AngularFireStorageModule,
-  IonicModule.forRoot(MyApp)
+    BrowserModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-  MyApp,
-  HomePage,
-  LoginPage,
-  ConnectedPage,
-  CooperativeCreatePage,
-  CooperativeListPage,
-  ValidationPage,
-  CooperativeDetailsPage,
-  CooperativeManagePage,
-  QrScannerPage,
-  VoyageCreatePage,
-  VoyageListPage,
-  VoyageDetailPage,
-  VoyageManagePage
+    MyApp,
+    HomePage,
+    LoginPage,
+    ConnectedPage,
+    CooperativeCreatePage,
+    CooperativeListPage,
+    ValidationPage,
+    CooperativeDetailsPage,
+    CooperativeManagePage,
+    QrScannerPage,
+    VoyageCreatePage,
+    VoyageListPage,
+    VoyageDetailPage,
+    VoyageManagePage
   ],
   providers: [
-  StatusBar,
-  SplashScreen,
-  {provide: ErrorHandler, useClass: IonicErrorHandler},
-  Facebook,
-  FacebookProvider,
-  CooperativeProvider,
-  AdministratorProvider,
-  QrcodeValidationProvider,
-  VoyageProvider
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook,
+    FacebookProvider,
+    CooperativeProvider,
+    AdministratorProvider,
+    QrcodeValidationProvider,
+    VoyageProvider,
+    StationProvider
   ]
 })
 export class AppModule {}
