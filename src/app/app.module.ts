@@ -22,6 +22,7 @@ import { AdministratorProvider } from '../providers/administrator/administrator'
 import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-validation';
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
 import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-manage';
+import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-m
   CooperativeListPage,
   ValidationPage,
   CooperativeDetailsPage,
-  CooperativeManagePage
+  CooperativeManagePage,
+  QrScannerPage
   ],
   imports: [
   BrowserModule,
@@ -52,7 +54,8 @@ import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-m
   CooperativeListPage,
   ValidationPage,
   CooperativeDetailsPage,
-  CooperativeManagePage
+  CooperativeManagePage,
+  QrScannerPage
   ],
   providers: [
   StatusBar,
