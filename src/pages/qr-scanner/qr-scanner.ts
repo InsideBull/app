@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import { QrScannerProvider } from '../../providers/qr-scanner/qr-scanner';
+
+import { ConfirmationPage } from '../confirmation/confirmation';
+
+
 /**
  * Generated class for the QrScannerPage page.
  *
@@ -15,11 +20,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class QrScannerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private qrscannerProvider: QrScannerProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QrScannerPage');
+    this.prepareScanner();
+  }
+
+  prepareScanner(){
+  	this.qrscannerProvider.openScaner(ConfirmationPage);
   }
 
 }

@@ -23,6 +23,9 @@ import { QrcodeValidationProvider } from '../providers/qrcode-validation/qrcode-
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
 import { CooperativeManagePage } from '../pages/cooperative-manage/cooperative-manage';
 import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
+import { ConfirmationPage } from '../pages/confirmation/confirmation';
+import { QRScanner } from '@ionic-native/qr-scanner';
+import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
 import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
@@ -43,6 +46,7 @@ import { StationProvider } from '../providers/voyage/station';
     CooperativeDetailsPage,
     CooperativeManagePage,
     QrScannerPage,
+    ConfirmationPage,
     VoyageCreatePage,
     VoyageListPage,
     VoyageDetailPage,
@@ -67,11 +71,13 @@ import { StationProvider } from '../providers/voyage/station';
     CooperativeDetailsPage,
     CooperativeManagePage,
     QrScannerPage,
+    ConfirmationPage,
     VoyageCreatePage,
     VoyageListPage,
     VoyageDetailPage,
     VoyageManagePage
   ],
+  
   providers: [
     StatusBar,
     SplashScreen,
@@ -81,8 +87,9 @@ import { StationProvider } from '../providers/voyage/station';
     CooperativeProvider,
     AdministratorProvider,
     QrcodeValidationProvider,
-    VoyageProvider,
-    StationProvider
+    QRScanner,
+    QrScannerProvider,
+    VoyageProvider
   ]
 })
 export class AppModule {}
