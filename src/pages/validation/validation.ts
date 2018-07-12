@@ -42,12 +42,22 @@ import { QRCodeValidation } from '../../models/qrcode-validation.model';
  			}
 
  			let validation = new QRCodeValidation(qrcv);
-
- 			this.qrcvProvider.save(qrcv);
-
+ 			this.verifyValidation(validation); 			
  		}
 
  	}
+
+
+ 	verifyValidation(qrcv: QRCodeValidation){
+
+ 		this.qrcvProvider.fetch(qrcv.key).then((validation)=>{
+ 			if(!validation){
+ 				this.qrcvProvider.save(qrcv, this.user['id']);
+ 			}
+ 		})
+ 	}
+
+
  }
 
 

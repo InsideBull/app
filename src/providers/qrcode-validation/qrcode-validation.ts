@@ -28,4 +28,8 @@ export class QrcodeValidationProvider extends FirebaseProvider {
   	}
   }
 
+  fetch(key: string){
+    return this.getOneById(key);
+  }
+
 }
