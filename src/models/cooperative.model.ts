@@ -2,7 +2,7 @@ export class Cooperative {
 	
 	name: string;
 	logo ?: string;
-	admin ?: string;
+	admins ?: string;
 
 	constructor(object?: {}) {
 		for (var key in object) {

@@ -6,13 +6,23 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>admin-list</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Administrateurs</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+	<ion-list>
 
+		<ion-item *ngFor="let admin of admins">
+			<!-- <ion-avatar  item-start><img [src]="admin.picture" class="img_thumbmail" ></ion-avatar> -->
+			<ion-label>
+				<p>{{ admin.name }}</p> <p>{{admin.email}}</p>
+			</ion-label>
+		</ion-item>
+
+
+	</ion-list>
 </ion-content>

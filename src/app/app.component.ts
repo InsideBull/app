@@ -18,7 +18,7 @@ import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 })
 export class MyApp {
 
-  rootPage:any = LoginPage;
+  rootPage:any = CooperativeListPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

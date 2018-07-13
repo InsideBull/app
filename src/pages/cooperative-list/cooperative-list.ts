@@ -53,7 +53,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
            if (cooperative.admins) {
              admins = JSON.parse(cooperative.admins);
 
-             let in_admins = admins.find( me => me == this.user.id );
+             let in_admins = admins.find( me => me == '2186409438249498' );
 
 
              if (in_admins) {              
