@@ -59,8 +59,8 @@ export class VoyageDetailPage {
 
     }
 
-    goToManage(i){
-      this.navCtrl.push(VoyageManagePage, {key: i});
+    goToManage(){
+      this.navCtrl.push(VoyageManagePage, {key: this.param});
     }
 
   }
