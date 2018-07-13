@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
-import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage'
+import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
+import { ParametersPage } from '../parameters/parameters';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -18,7 +19,7 @@ import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperativ
 })
 export class CooperativeDetailsPage {
 
-	cooperative: any;
+	cooperative: Cooperative = new Cooperative();
 	param: string;
 
   constructor(public navCtrl: NavController, 
@@ -27,17 +28,21 @@ export class CooperativeDetailsPage {
   }
 
   ionViewDidLoad() {
-    this.param = this.navParams.get('key');
+    this.param = /*this.navParams.get('key')*/'-LEOMpwiKiZIFVBOCDvZ';
 
     this.cooperativeProvider.fetch(this.param).then(
-  		(data) => {
-  				this.cooperative = data;
-  			});
+      (data: Cooperative) => {
+          this.cooperative = data;
+        });
 
   }
 
   goToManage(){
-  	this.navCtrl.push(CooperativeManagePage, {'key': this.param});
+  	this.navCtrl.push(CooperativeManagePage, {key: this.param});
+  }
+
+  goToParams(){
+    this.navCtrl.push(ParametersPage, {key: this.param});
   }
 }
 

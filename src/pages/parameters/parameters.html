@@ -1,0 +1,38 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>parameters</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-grid class="grid-center-md grid-center-ios" *ngIf="key">
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 class="title_" text-capitalise >{{ cooperative.name }}</h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-center">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+					
+					<button ion-item (tap)="listAdmin()" >
+						<ion-avatar  item-start ><img src="assets/icon/admins.png"></ion-avatar>
+						Liste des Admins
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="addAdmin()" >
+						<ion-avatar  item-start ><img src="assets/icon/admin-add.png"></ion-avatar>
+						Ajouter Admin
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

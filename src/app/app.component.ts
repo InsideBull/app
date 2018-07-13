@@ -6,7 +6,8 @@ import { ConnectedPage } from '../pages/connected/connected';
 import { LoginPage } from '../pages/login/login';
 import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
 import { FacebookProvider } from '../providers/facebook/facebook';
-import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
+import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
+import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 
 
 
@@ -14,7 +15,9 @@ import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
   templateUrl: 'app.html'
 })
 export class MyApp {
+
   rootPage:any = /*LoginPage*/ VoyageListPage;
+
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

@@ -1,0 +1,32 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Administateur</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-grid class="grid-center-md grid-center-ios" *ngIf="param">
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 class="title_" text-capitalise >Ajout admin</h2>
+			</ion-col>
+		</ion-row>
+		<ion-row justify-content-center class="row-center">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+					
+					<ion-item *ngFor="let friend of myFriends">
+						<ion-avatar item-start><img [src]="fiend.picture" ></ion-avatar>
+						<ion-label>
+							<p>nom</p><p>{{ friend.name }}</p>
+						</ion-label>
+					</ion-item>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

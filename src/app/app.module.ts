@@ -30,27 +30,33 @@ import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
 import { VoyageManagePage } from '../pages/voyage-manage/voyage-manage';
+import { ParametersPage } from '../pages/parameters/parameters';
+import { AdminListPage } from '../pages/admin-list/admin-list';
+import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { VoyageProvider } from '../providers/voyage/voyage';
 import { StationProvider } from '../providers/voyage/station';
 
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    ConnectedPage,
-    CooperativeCreatePage,
-    CooperativeListPage,
-    ValidationPage,
-    CooperativeDetailsPage,
-    CooperativeManagePage,
-    QrScannerPage,
-    ConfirmationPage,
-    VoyageCreatePage,
-    VoyageListPage,
-    VoyageDetailPage,
-    VoyageManagePage
+  MyApp,
+  HomePage,
+  LoginPage,
+  ConnectedPage,
+  CooperativeCreatePage,
+  CooperativeListPage,
+  ValidationPage,
+  CooperativeDetailsPage,
+  CooperativeManagePage,
+  QrScannerPage,
+  ConfirmationPage,
+  VoyageCreatePage,
+  VoyageListPage,
+  VoyageDetailPage,
+  VoyageManagePage,
+  ParametersPage,
+  AdminListPage,
+  AdminAddPage
   ],
   imports: [
     BrowserModule,
@@ -61,21 +67,25 @@ import { StationProvider } from '../providers/voyage/station';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    ConnectedPage,
-    CooperativeCreatePage,
-    CooperativeListPage,
-    ValidationPage,
-    CooperativeDetailsPage,
-    CooperativeManagePage,
-    QrScannerPage,
-    ConfirmationPage,
-    VoyageCreatePage,
-    VoyageListPage,
-    VoyageDetailPage,
-    VoyageManagePage
+  MyApp,
+  HomePage,
+  LoginPage,
+  ConnectedPage,
+  CooperativeCreatePage,
+  CooperativeListPage,
+  ValidationPage,
+  CooperativeDetailsPage,
+  CooperativeManagePage,
+  QrScannerPage,
+  ConfirmationPage,
+  VoyageCreatePage,
+  VoyageListPage,
+  VoyageDetailPage,
+  VoyageManagePage,
+  ParametersPage,
+  AdminListPage,
+  AdminAddPage
+
   ],
 
   providers: [

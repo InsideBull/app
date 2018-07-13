@@ -34,7 +34,7 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
       this.loading.present();
       this.facebook.logout().then(() => {
         this.loading.dismiss();
-/*        this.app.getActiveNav().setRoot(this.redirection);*/
+        /*        this.app.getActiveNav().setRoot(this.redirection);*/
       })
     }
 
@@ -92,9 +92,34 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
       return new Promise((resolve)=>{    
         this.facebook.api('me/friends?fields=id,name,picture.width(720).height(720).as(picture_large)',['user_friends'])
         .then((friends)=>{
-          resolve(friends);
+
+          let _friends = this.prepareFriendsProfile(friends);
+
+          resolve(_friends);
+
+
         });
+
       });
+    }
+
+    protected prepareFriendsProfile(friends){
+      let _friends = [];
+
+      for(let key in friends){
+        let friend = {
+          id: friends[key]['id'],
+          email: friends[key]['email'],
+          name: friends[key]['name'],
+          picture: friends[key]['picture_large']['data']['url'],
+          birthday: friends[key]['birthday'],
+          city: friends[key]['location'].name,
+        };
+
+        _friends.push(friend);
+
+      }
+      return _friends;
     }
 
 
