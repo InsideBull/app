@@ -19,7 +19,7 @@ import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 })
 export class MyApp {
 
-  rootPage:any = CooperativeListPage;
+    rootPage: any = /*CooperativeListPage*/CooperativeListPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

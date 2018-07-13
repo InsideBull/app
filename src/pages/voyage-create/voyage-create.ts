@@ -5,6 +5,8 @@ import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/voyage/station';
 import { Voyage } from '../../models/voyage.model';
 import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
+import {CooperativeProvider } from '../../providers/cooperative/cooperative'
+import {Cooperative } from '../../models/cooperative.model'
 
 /**
  * Generated class for the VoyageCreatePage page.
@@ -23,12 +25,15 @@ export class VoyageCreatePage {
 	form: FormGroup;
 	stations: any;
 	voyage: Voyage;
+        param : any;
+        cooperative: Cooperative;
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
   	public voyageProvider: VoyageProvider,
   	public formBuilder: FormBuilder,
-  	public stationProvider: StationProvider) {
+  	public stationProvider: StationProvider,
+        public cooperativeProvider: CooperativeProvider) {
 
   	this.form = this.formBuilder.group({
  			arrivalstation: ['',Validators.required],
@@ -37,10 +42,15 @@ export class VoyageCreatePage {
  			price: [,Validators.required],
  			startstation: ['',Validators.required]
  		});
+                
+      
   }
 
   ionViewDidLoad() {
-  	this.stations = [];
+    this.stations = [];    
+    this.param = this.navParams.get('key');
+
+    
     this.stationProvider.fetcAll().subscribe(
     	(data) => {
     		for(let key in data){
@@ -48,6 +58,14 @@ export class VoyageCreatePage {
   				this.stations.push(data[key]);
   			}
     	});
+    
+      this.form.value.cooperative = this.param;
+          
+      this.cooperativeProvider.fetch(this.param).then(
+      (data: Cooperative) => {
+          this.cooperative = data;
+        });
+        
   }
 
   onSubmit(){
