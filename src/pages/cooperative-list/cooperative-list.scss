@@ -1,3 +1,21 @@
 page-cooperative-list {
+	ion-item ,button.item{
+		background-color : unset !important ;
+		p {
+			color: black !important;
+
+		}
+		ion-avatar img {
+			border-radius: 50% !important;
+			width: 28px ;
+			height: auto;
+		}
+		p:first-child {
+			text-transform: uppercase;
+		}
+		p:nth-child(2) {
+
+		}
+	}
 
 }

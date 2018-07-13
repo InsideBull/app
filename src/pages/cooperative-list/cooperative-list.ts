@@ -32,44 +32,44 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
 
    ionViewDidLoad() {
-     
+
      this.cooperatives = [];
+
      this.facebookProvider.getUser().then((user)=>{
        this.user = user;
      });
 
-
      this.cooperativeProvider.fetcAll().subscribe(
        (cooperatives) => {
-         this.cooperatives = cooperatives;
+
+         for(let key in cooperatives){
+
+           cooperatives[key].key = key;
+           
+           let cooperative = cooperatives[key];
+
+           let admins = [];
+
+           if (cooperative.admins) {
+             admins = JSON.parse(cooperative.admins);
+
+             let in_admins = admins.find( me => me == this.user.id );
+
+
+             if (in_admins) {              
+               this.cooperatives.push(cooperatives[key]);
+             } 
+           }
+
+         }
+
+
        });
      
    }
 
    onClickItem(i: any) {
      this.navCtrl.push(CooperativeDetailsPage, {'key': i});
-   }
-
-   myCooperatives(cooperatives){
-
-     let myCoops = [];
-     
-     for(let key in cooperatives){
-       let cooperative = cooperatives[key];
-
-       let admins = [];
-
-       admins = JSON.parse(cooperative.admins);
-
-       let inAdmin = admins.find(me => me == this.user.id);
-
-       if (inAdmin) {
-         myCoops.push(cooperative);
-       }
-
-     }
-
-     return myCoops;
    }
 
  }
