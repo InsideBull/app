@@ -34,6 +34,8 @@ import { ParametersPage } from '../pages/parameters/parameters';
 import { AdminListPage } from '../pages/admin-list/admin-list';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { VoyageProvider } from '../providers/voyage/voyage';
+import { StationProvider } from '../providers/voyage/station';
+
 
 @NgModule({
   declarations: [
@@ -57,11 +59,11 @@ import { VoyageProvider } from '../providers/voyage/voyage';
   AdminAddPage
   ],
   imports: [
-  BrowserModule,
-  AngularFireModule.initializeApp(FIREBASE_CONFIG),
-  AngularFireDatabaseModule,
-  AngularFireStorageModule,
-  IonicModule.forRoot(MyApp)
+    BrowserModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -83,19 +85,21 @@ import { VoyageProvider } from '../providers/voyage/voyage';
   ParametersPage,
   AdminListPage,
   AdminAddPage
+
   ],
+  
   providers: [
-  StatusBar,
-  SplashScreen,
-  {provide: ErrorHandler, useClass: IonicErrorHandler},
-  Facebook,
-  FacebookProvider,
-  CooperativeProvider,
-  AdministratorProvider,
-  QrcodeValidationProvider,
-  QRScanner,
-  QrScannerProvider,
-  VoyageProvider
+    StatusBar,
+    SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Facebook,
+    FacebookProvider,
+    CooperativeProvider,
+    AdministratorProvider,
+    QrcodeValidationProvider,
+    QRScanner,
+    QrScannerProvider,
+    VoyageProvider
   ]
 })
 export class AppModule {}

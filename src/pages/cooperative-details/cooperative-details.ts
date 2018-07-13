@@ -19,7 +19,7 @@ import { ParametersPage } from '../parameters/parameters';
 })
 export class CooperativeDetailsPage {
 
-	cooperative: any;
+	cooperative = {};
 	param: string;
 
   constructor(public navCtrl: NavController, 
@@ -38,11 +38,11 @@ export class CooperativeDetailsPage {
   }
 
   goToManage(){
-  	this.navCtrl.push(CooperativeManagePage, {'key': this.param});
+  	this.navCtrl.push(CooperativeManagePage, {key: this.param});
   }
 
   goToParams(){
-    this.navCtrl.push(ParametersPage, {'key': this.param});
+    this.navCtrl.push(ParametersPage, {key: this.param});
   }
 }
 

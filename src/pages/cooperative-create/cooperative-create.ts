@@ -26,8 +26,18 @@ import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperat
  export class CooperativeCreatePage {
 
  	form: FormGroup;
+
  	admins: string[] = [];
- 	constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+
+ 	constructor(
+ 		private adminProvider: AdministratorProvider, 
+ 		private facebookProvider: FacebookProvider, 
+ 		private cooperativeProvider: CooperativeProvider, 
+ 		public navCtrl: NavController, 
+ 		public navParams: NavParams, 
+ 		public formBuilder: FormBuilder
+ 	) {
+
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
  			logo: ''			

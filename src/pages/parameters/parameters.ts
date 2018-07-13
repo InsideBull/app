@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AdminListPage } from '../admin-list/admin-list';
 import { AdminAddPage } from '../admin-add/admin-add';
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 
 /**
  * Generated class for the ParametersPage page.
@@ -18,8 +19,14 @@ import { AdminAddPage } from '../admin-add/admin-add';
 export class ParametersPage {
 
   key:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cooperative = {} ;
+  constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams) {
   	this.key = this.navParams.get('key') || null;
+
+    this.cooperativeProvider.fetch(this.key).then((cooperative)=>{
+      this.cooperative = cooperative;
+    })
+
   }
 
   ionViewDidLoad() {
