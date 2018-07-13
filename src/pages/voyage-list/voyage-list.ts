@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { VoyageProvider } from '../../providers/voyage/voyage';
+import { StationProvider } from '../../providers/voyage/station';
+import { Station } from '../../models/station.model';
+import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 
 /**
  * Generated class for the VoyageListPage page.
@@ -15,11 +19,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class VoyageListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+	param: string;
+	voyages: any;
+	stations : any;
+
+    constructor(public navCtrl: NavController, 
+  	public navParams: NavParams,
+  	public stationProvider: StationProvider,
+  	public voyageProvider: VoyageProvider) {
+  	}
+
+	ionViewDidLoad() {
+
+		this.voyages = [];
+	  	this.voyageProvider.fetcAll().subscribe(
+	  		(data) => {
+	  			for(let key in data){
+	  				data[key].key = key;
+
+	  				this.voyages.push(data[key]);				
+	  			}
+	  		});
+
+	  	this.stations = [];
+	    this.stationProvider.fetcAll().subscribe(
+	    	(data) => {
+	    		for(let key in data){
+	  				data[key].key = key;
+	  				
+	  				this.stations.push(data[key]);
+	  			}
+	    	});
+
+	    }
+
+	onClickItem(i: any) {
+  		this.navCtrl.push(VoyageDetailPage, {key: i});
+  	}
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad VoyageListPage');
-  }
-
-}
