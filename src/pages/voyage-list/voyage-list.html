@@ -14,20 +14,19 @@
 
 
 <ion-content padding>
-<!-- 	<ion-list>
+	<ion-list>
 		<ion-item *ngFor="let voyage of voyages" >
 			<ion-label (click)="onClickItem(voyage.key)">
-				<div *ngFor="let station of stations">
-					<span *ngIf="station.key === voyage.arrivalstation">{{ station.city }}, </span>
-				</div>
+				
+				<span>{{voyage.startstation.city}}</span>
 				
 				<span>{{ voyage.date }}, </span>
 				<span>{{ voyage.price }}, </span>
-	 			<div *ngFor="let station of stations">
-					<span *ngIf="station.key === voyage.startstation">{{ station.city }}, </span>
-				</div>
+
+				<span> {{voyage.arrivalstation.city }} </span>
+
 			</ion-label>
 		</ion-item>
-	</ion-list> -->
+	</ion-list>
 
 </ion-content>

@@ -51,13 +51,11 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 
  				voyages[key].key = key;
 
- 				let voyage = voyages[key].key;
-
- 				console.log(this.param);
+ 				let voyage = voyages[key];
 
  				if (voyage.cooperative == this.param) {
 
- 					
+
  					this.stationProvider.fetch(voyage.arrivalstation).then((arrival)=>{
 
  						voyage.arrivalstation = arrival;
@@ -75,6 +73,8 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
  			}
 
  		})
+
+ 		console.log(this.voyages)
  	}
 
  	onClickItem(i: any) {
