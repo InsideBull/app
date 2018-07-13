@@ -12,50 +12,74 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-voyage-list',
-  templateUrl: 'voyage-list.html',
-})
-export class VoyageListPage {
+ @IonicPage()
+ @Component({
+ 	selector: 'page-voyage-list',
+ 	templateUrl: 'voyage-list.html',
+ })
+ export class VoyageListPage {
 
-	param: string;
-	voyages: any;
-	stations : any;
+ 	param: string;
+ 	voyages: any;
+ 	stations : any;
 
-    constructor(public navCtrl: NavController, 
-  	public navParams: NavParams,
-  	public stationProvider: StationProvider,
-  	public voyageProvider: VoyageProvider) {
-  	}
+ 	constructor(public navCtrl: NavController, 
+ 		public navParams: NavParams,
+ 		public stationProvider: StationProvider,
+ 		public voyageProvider: VoyageProvider) {
+ 	}
 
-	ionViewDidLoad() {
+ 	ionViewDidLoad() {
 
-		this.voyages = [];
-	  	this.voyageProvider.fetcAll().subscribe(
-	  		(data) => {
-	  			for(let key in data){
-	  				data[key].key = key;
+ 		this.param = this.navParams.get('key');
 
-	  				this.voyages.push(data[key]);				
-	  			}
-	  		});
+ 		this.voyageFilter();
 
-	  	this.stations = [];
-	    this.stationProvider.fetcAll().subscribe(
-	    	(data) => {
-	    		for(let key in data){
-	  				data[key].key = key;
-	  				
-	  				this.stations.push(data[key]);
-	  			}
-	    	});
+ 	}
 
-	    }
 
-	onClickItem(i: any) {
-  		this.navCtrl.push(VoyageDetailPage, {key: i});
-  	}
 
-  }
+ 	voyageFilter(){
+ 		this.voyages = [];
+
+
+ 		this.voyageProvider.fetcAll().subscribe((voyages)=>{
+
+
+
+ 			for(let key in voyages){
+
+ 				voyages[key].key = key;
+
+ 				let voyage = voyages[key].key;
+
+ 				console.log(this.param);
+
+ 				if (voyage.cooperative == this.param) {
+
+ 					
+ 					this.stationProvider.fetch(voyage.arrivalstation).then((arrival)=>{
+
+ 						voyage.arrivalstation = arrival;
+ 					})
+ 					.then(()=>{
+ 						this.stationProvider.fetch(voyage.startstation).then((start)=>{
+ 							voyage.startstation = start;
+ 						})
+ 					})
+ 					.then(()=>{
+ 						this.voyages.push(voyage)
+ 					})
+ 				}
+
+ 			}
+
+ 		})
+ 	}
+
+ 	onClickItem(i: any) {
+ 		this.navCtrl.push(VoyageDetailPage, {key: i});
+ 	}
+
+ }
 

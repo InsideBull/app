@@ -59,7 +59,6 @@ export class VoyageCreatePage {
   			}
     	});
     
-      this.form.value.cooperative = this.param;
           
       this.cooperativeProvider.fetch(this.param).then(
       (data: Cooperative) => {
@@ -69,8 +68,14 @@ export class VoyageCreatePage {
   }
 
   onSubmit(){
-  	if(this.form.valid){
-  		this.voyage = new Voyage(this.form.value);
+    if(this.form.valid){
+
+      this.form.value.cooperative = this.param;
+  		
+      this.voyage = new Voyage(this.form.value);
+
+      console.log(this.voyage);
+
   		let key = this.voyageProvider.save(this.voyage);
   		this.navCtrl.push(VoyageDetailPage, {key: key});
   	}
