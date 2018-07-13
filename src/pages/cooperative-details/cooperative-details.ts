@@ -19,7 +19,7 @@ import { ParametersPage } from '../parameters/parameters';
 })
 export class CooperativeDetailsPage {
 
-	cooperative = {};
+	cooperative: Cooperative = new Cooperative();
 	param: string;
 
   constructor(public navCtrl: NavController, 
@@ -28,12 +28,12 @@ export class CooperativeDetailsPage {
   }
 
   ionViewDidLoad() {
-    this.param = this.navParams.get('key');
+    this.param = /*this.navParams.get('key')*/'-LEOMpwiKiZIFVBOCDvZ';
 
     this.cooperativeProvider.fetch(this.param).then(
-  		(data) => {
-  				this.cooperative = data;
-  			});
+      (data: Cooperative) => {
+          this.cooperative = data;
+        });
 
   }
 

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AdminListPage } from '../admin-list/admin-list';
 import { AdminAddPage } from '../admin-add/admin-add';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { Cooperative } from '../../models/cooperative.model';
 
 /**
  * Generated class for the ParametersPage page.
@@ -11,34 +12,33 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-parameters',
-  templateUrl: 'parameters.html',
-})
-export class ParametersPage {
+ @IonicPage()
+ @Component({
+   selector: 'page-parameters',
+   templateUrl: 'parameters.html',
+ })
+ export class ParametersPage {
 
-  key:any;
-  cooperative = {} ;
-  constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams) {
-  	this.key = this.navParams.get('key') || null;
+   key:any;
+   cooperative: Cooperative = new Cooperative();
+   constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams) {
 
-    this.cooperativeProvider.fetch(this.key).then((cooperative)=>{
-      this.cooperative = cooperative;
-    })
+   }
 
-  }
+   ionViewDidLoad() {
+     this.key = this.navParams.get('key');
+     this.cooperativeProvider.fetch(this.key).then(
+       (data: Cooperative) => {
+         this.cooperative = data;
+       });
+   }
 
-  ionViewDidLoad() {
-    
-  }
+   listAdmin(){
+     this.navCtrl.push(AdminListPage, {key:this.key});
+   }
 
-  listAdmin(){
-  	this.navCtrl.push(AdminListPage, {key:this.key});
-  }
+   addAdmin(){
+     this.navCtrl.push(AdminAddPage, {key:this.key});
+   }
 
-  addAdmin(){
-  	this.navCtrl.push(AdminAddPage, {key:this.key});
-  }
-
-}
+ }
