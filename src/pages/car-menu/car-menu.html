@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Voyages</ion-title>
+		<ion-title>Voitures</ion-title>
 	</ion-navbar>
 
 </ion-header>
@@ -19,15 +19,21 @@
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
 					
-					<button ion-item (tap)="listVoyage()" >
-						<ion-avatar  item-start ><img src="assets/icon/list.png"></ion-avatar>
-						Liste des voyages
+					<button ion-item (tap)="addCarType()" >
+						<ion-avatar  item-start ><img src="assets/icon/car-type.png"></ion-avatar>
+						Ajouter type de voiture
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 
-					<button ion-item (tap)="addVoyage()" >
-						<ion-avatar  item-start ><img src="assets/icon/journey-add.png"></ion-avatar>
-						Ajouter voyage
+					<button ion-item (tap)="listCar()" >
+						<ion-avatar  item-start ><img src="assets/icon/list.png"></ion-avatar>
+						List des voiture
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="addCar()" >
+						<ion-avatar  item-start ><img src="assets/icon/bus.png"></ion-avatar>
+						Ajouter voiture
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 

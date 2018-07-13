@@ -5,7 +5,8 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
 import { ParametersPage } from '../parameters/parameters';
 
-import { VoyageMenuPage } from '../voyage-menu/voyage-menu'
+import { VoyageMenuPage } from '../voyage-menu/voyage-menu';
+import { CarMenuPage } from '../car-menu/car-menu';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -49,6 +50,10 @@ export class CooperativeDetailsPage {
 
   goToVoyage(){
     this.navCtrl.push(VoyageMenuPage, {key: this.param});
+  }
+
+  goToCar(){
+    this.navCtrl.push(CarMenuPage, {key: this.param});
   }
   
 }

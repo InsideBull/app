@@ -34,6 +34,7 @@ import { ParametersPage } from '../pages/parameters/parameters';
 import { AdminListPage } from '../pages/admin-list/admin-list';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
+import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { VoyageProvider } from '../providers/voyage/voyage';
 import { StationProvider } from '../providers/voyage/station';
 
@@ -58,7 +59,8 @@ import { StationProvider } from '../providers/voyage/station';
   ParametersPage,
   AdminListPage,
   AdminAddPage,
-  VoyageMenuPage
+  VoyageMenuPage,
+  CarMenuPage
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ import { StationProvider } from '../providers/voyage/station';
   ParametersPage,
   AdminListPage,
   AdminAddPage,
-  VoyageMenuPage
+  VoyageMenuPage,
+  CarMenuPage
 
   ],
 
