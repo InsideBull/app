@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/voyage/station';
 import { Station } from '../../models/station.model';
+import { VoyageManagePage } from '../../pages/voyage-manage/voyage-manage';
 
 
 /**
@@ -56,6 +57,10 @@ export class VoyageDetailPage {
   			}
     	});
 
+    }
+
+    goToManage(i){
+      this.navCtrl.push(VoyageManagePage, {key: i});
     }
 
   }
