@@ -19,13 +19,13 @@
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
 					
-					<button ion-item >
+					<button ion-item (tap)="listAdmin()" >
 						<ion-avatar  item-start ><img src="assets/icon/admins.png"></ion-avatar>
 						Liste des Admins
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 
-					<button ion-item >
+					<button ion-item (tap)="addAdmin()" >
 						<ion-avatar  item-start ><img src="assets/icon/admin-add.png"></ion-avatar>
 						Ajouter Admin
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>

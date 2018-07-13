@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FacebookProvider } from '../../providers/facebook/facebook';
+
+import { Administrator } from '../../models/administrator.model'
 
 /**
  * Generated class for the AdminAddPage page.
@@ -15,11 +18,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AdminAddPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  myFriends: any;
+
+  constructor(private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AdminAddPage');
+    this.myFriends = [];
+    this.facebookProvider.getUserFriends().then((friends)=>{
+    	this.myFriends = friends;
+    })
   }
 
 }
