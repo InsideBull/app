@@ -5,6 +5,8 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
 import { ParametersPage } from '../parameters/parameters';
 
+import { VoyageMenuPage } from '../voyage-menu/voyage-menu'
+
 /**
  * Generated class for the CooperativeDetailsPage page.
  *
@@ -44,5 +46,10 @@ export class CooperativeDetailsPage {
   goToParams(){
     this.navCtrl.push(ParametersPage, {key: this.param});
   }
+
+  goToVoyage(){
+    this.navCtrl.push(VoyageMenuPage, {key: this.param});
+  }
+  
 }
 
