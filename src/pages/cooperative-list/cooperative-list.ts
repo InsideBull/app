@@ -32,8 +32,7 @@ export class CooperativeListPage {
 
 
   ionViewDidLoad() {
-
-  	this.coop = [];
+    
     this.cooperatives = [];
     this.facebookProvider.getUser().then((user)=>{
                this.user = user;

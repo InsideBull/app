@@ -25,19 +25,23 @@
 			<ion-row justify-content-center class="center-block-reservation">
 				<ion-col col-12 col-sm col-auto >
 					<ion-list class="list_" padding-top maring-top>
-						
-						<ion-item class="input-cover-md input-cover-ios" >
-							<ion-label no-padding no-margin>
-								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-							</ion-label>
-							<ion-input formControlName="arrivalstation" id="arrivalstation" type="text" placeholder="Lieu de destination" stacked required></ion-input>
+
+
+						<ion-item>
+							  <ion-label no-padding no-margin>
+									<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>Lieu de destination
+								</ion-label>
+							  <ion-select formControlName="arrivalstation">
+							    <ion-option  *ngFor="let station of stations" [value]="station.key">{{station.city}}, {{station.location}}, {{station.name}}</ion-option>
+							  </ion-select>
 						</ion-item>
 
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
 								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
 							</ion-label>
-							<ion-input formControlName="cooperative" id="cooperative" type="text" placeholder="Cooperative" stacked required></ion-input>
+							<!-- <ion-input formControlName="cooperative" id="cooperative" type="text" placeholder="Cooperative" stacked required></ion-input> -->
+							<ion-label>Cooperative courante</ion-label>
 						</ion-item>
 
 
@@ -55,27 +59,22 @@
 							<ion-input formControlName="price" id="price" type="text" placeholder="Prix du voyage" stacked required></ion-input>
 						</ion-item>
 
-
-						<ion-item class="input-cover-md input-cover-ios" >
-							<ion-label no-padding no-margin>
-								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-							</ion-label>
-							<ion-input formControlName="reservation" id="reservation" type="text" placeholder="Réservation" stacked required></ion-input>
-						</ion-item>
-
-						<ion-item class="input-cover-md input-cover-ios" >
-							<ion-label no-padding no-margin>
-								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-							</ion-label>
-							<ion-input formControlName="startstation" id="startstation" type="text" placeholder="Lieu de depart" stacked required></ion-input>
+						<ion-item>
+							  <ion-label no-padding no-margin>
+									<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>Lieu de départ
+								</ion-label>
+							  <ion-select formControlName="startstation">
+							    <ion-option  *ngFor="let stat of stations" [value]="stat.key">{{stat.city}}, {{stat.location}}, {{stat.name}}</ion-option>
+							  </ion-select>
 						</ion-item>
 
 
 
 					</ion-list>
 					<div >
-						<button ion-button block class="button-and button-ios">Enregistrer</button>
+						<button ion-button block class="button-and button-ios" type="onSubmit">Enregistrer</button>
 					</div>
+
 				</ion-col>
 			</ion-row>		
 		</ion-grid>

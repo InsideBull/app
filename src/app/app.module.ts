@@ -87,7 +87,7 @@ import { StationProvider } from '../providers/voyage/station';
   AdminAddPage
 
   ],
-  
+
   providers: [
     StatusBar,
     SplashScreen,
@@ -99,7 +99,8 @@ import { StationProvider } from '../providers/voyage/station';
     QrcodeValidationProvider,
     QRScanner,
     QrScannerProvider,
-    VoyageProvider
+    VoyageProvider,
+    StationProvider
   ]
 })
 export class AppModule {}
