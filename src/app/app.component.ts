@@ -14,7 +14,7 @@ import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = CooperativeDetailsPage;
+  rootPage:any = LoginPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

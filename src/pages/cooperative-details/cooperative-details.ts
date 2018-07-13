@@ -28,7 +28,7 @@ export class CooperativeDetailsPage {
   }
 
   ionViewDidLoad() {
-    this.param = /*this.navParams.get('key')*/'-LEOMpwiKiZIFVBOCDvZ';
+    this.param = this.navParams.get('key');
 
     this.cooperativeProvider.fetch(this.param).then(
       (data: Cooperative) => {

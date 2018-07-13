@@ -12,54 +12,64 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-cooperative-list',
-  templateUrl: 'cooperative-list.html',
-})
-export class CooperativeListPage {
+ @IonicPage()
+ @Component({
+   selector: 'page-cooperative-list',
+   templateUrl: 'cooperative-list.html',
+ })
+ export class CooperativeListPage {
 
-  cooperatives : any;
-  user: any;
-  coop: any;
+   cooperatives : any;
+   user: any;
+   coop: any;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    public cooperativeProvider: CooperativeProvider,
-    public facebookProvider: FacebookProvider) {
-  }
-
-
-
-  ionViewDidLoad() {
-    
-    this.cooperatives = [];
-    this.facebookProvider.getUser().then((user)=>{
-               this.user = user;
-              });
+   constructor(public navCtrl: NavController, 
+     public navParams: NavParams,
+     public cooperativeProvider: CooperativeProvider,
+     public facebookProvider: FacebookProvider) {
+   }
 
 
-  	this.cooperativeProvider.fetcAll().subscribe(
-  		(data) => {
-  			for(let key in data){
-  				data[key].key = key;
 
-  				this.coop = data[key];
+   ionViewDidLoad() {
+     
+     this.cooperatives = [];
+     this.facebookProvider.getUser().then((user)=>{
+       this.user = user;
+     });
 
-          let adminJson = this.coop.admins;
 
-          for(let idAdmin in JSON.parse(adminJson)){
-            if(idAdmin == this.user.id){
-              this.cooperatives.push(data[key]);
-            }
-          }
-  			}
-  		});
-    
-  }
+     this.cooperativeProvider.fetcAll().subscribe(
+       (cooperatives) => {
+         this.cooperatives = cooperatives;
+       });
+     
+   }
 
-  onClickItem(i: any) {
-  	this.navCtrl.push(CooperativeDetailsPage, {'key': i});
-  }
+   onClickItem(i: any) {
+     this.navCtrl.push(CooperativeDetailsPage, {'key': i});
+   }
 
-}
+   myCooperatives(cooperatives){
+
+     let myCoops = [];
+     
+     for(let key in cooperatives){
+       let cooperative = cooperatives[key];
+
+       let admins = [];
+
+       admins = JSON.parse(cooperative.admins);
+
+       let inAdmin = admins.find(me => me == this.user.id);
+
+       if (inAdmin) {
+         myCoops.push(cooperative);
+       }
+
+     }
+
+     return myCoops;
+   }
+
+ }

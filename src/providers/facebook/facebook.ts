@@ -22,7 +22,7 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
 
     login(redirection ?: any){
       this.loading = this.loadingCtrl.create();
-      this.facebook.login(['user_birthday', 'email', 'user_location', 'public_profile']).then(()=>{
+      this.facebook.login(['user_birthday', 'email', 'user_location', 'public_profile','user_friends']).then(()=>{
         this.logged = true;
         this.loading.dismiss();
         this.app.getActiveNav().setRoot(redirection);
@@ -89,14 +89,14 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
     }
 
     getUserFriends(){
-      return new Promise((resolve)=>{    
-        this.facebook.api('me/friends?fields=id,name,picture.width(720).height(720).as(picture_large)',['user_friends'])
+      return new Promise((resolve)=>{   
+      this.loading = this.loadingCtrl.create();
+      this.loading.present(); 
+        this.facebook.api('me/friends?fields=id,email,name,picture.width(720).height(720).as(picture_large)',['user_friends'])
         .then((friends)=>{
-
-          let _friends = this.prepareFriendsProfile(friends);
-
+          let _friends = this.prepareFriendsProfile(friends.data);
           resolve(_friends);
-
+          this.loading.dismiss();
 
         });
 
@@ -104,16 +104,18 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
     }
 
     protected prepareFriendsProfile(friends){
+      
       let _friends = [];
 
       for(let key in friends){
+
+      alert(friends[key]['id'])
+        
         let friend = {
           id: friends[key]['id'],
           email: friends[key]['email'],
           name: friends[key]['name'],
           picture: friends[key]['picture_large']['data']['url'],
-          birthday: friends[key]['birthday'],
-          city: friends[key]['location'].name,
         };
 
         _friends.push(friend);
