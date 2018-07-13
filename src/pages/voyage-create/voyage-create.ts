@@ -53,8 +53,8 @@ export class VoyageCreatePage {
   onSubmit(){
   	if(this.form.valid){
   		this.voyage = new Voyage(this.form.value);
-  		this.voyageProvider.save(this.voyage);
-  		this.navCtrl.push(VoyageDetailPage);
+  		let key = this.voyageProvider.save(this.voyage);
+  		this.navCtrl.push(VoyageDetailPage, {key: key});
   	}
   }
 

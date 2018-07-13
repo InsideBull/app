@@ -2,6 +2,7 @@ export class Station {
 	city: string;
 	location: string;
 	name: string;
+	key?: string;
 
 
 	constructor(object?: {}) {

@@ -14,7 +14,7 @@ import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = /*LoginPage*/ VoyageCreatePage;
+  rootPage:any = /*LoginPage*/ VoyageListPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
