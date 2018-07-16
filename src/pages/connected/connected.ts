@@ -6,7 +6,10 @@ import { CooperativeCreatePage } from '../cooperative-create/cooperative-create'
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 
-import { ValidationPage } from '../validation/validation'
+import { ValidationPage } from '../validation/validation';
+import { StationMenuPage } from '../station-menu/station-menu'
+
+
 
 /**
  * Generated class for the ConnectedPage page.
@@ -74,6 +77,10 @@ import { ValidationPage } from '../validation/validation'
 
    qrcodeRequest(){
      this.navCtrl.push(ValidationPage);
+   }
+
+   goToStation(){
+     this.navCtrl.push(StationMenuPage);
    }
 
  }
