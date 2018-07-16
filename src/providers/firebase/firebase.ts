@@ -6,6 +6,7 @@ import { finalize } from 'rxjs/operators';
 import { storage } from 'firebase';
 import 'firebase/storage';
 import * as firebase from 'firebase';
+import { IonicPage, LoadingController, Loading } from 'ionic-angular';
 
 
 
@@ -22,7 +23,8 @@ import * as firebase from 'firebase';
 
     //entity path in firebase database
     protected __path: string;
-    constructor(public storage: AngularFireStorage,  public firebase: AngularFireDatabase) {
+    public loading: Loading;
+    constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
 
     }
 
@@ -51,26 +53,37 @@ import * as firebase from 'firebase';
     upload(file){
 
       return new Promise((resolve)=>{
+        this.loading = this.loadingCtrl.create({
+          content: '0 %'
+        });
+        this.loading.present();
 
-        let id = 'coop' + Math.floor(Math.random() * 1000000);
+        let id = '' + Math.floor(Math.random() * 1000000);
 
-        let path = `cooperative/${id}`;
+        let _path = this.getPath();
+
+        let path = `${_path}/${id}`;
 
         let ref = firebase.storage().ref(path);
 
-        let task = ref.put(file);
+        //let task = ref.put(file);
+
+        let task = ref.putString(file, 'base64', {contentType: 'image/png'})
+
 
         task.on('state_changed',
           (snapshot) => {
             const snap = snapshot as firebase.storage.UploadTaskSnapshot;
             let percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
-            console.log('Upload is ' + percentage + '% done');
+
+            this.loading.data.content = percentage + ' %';
           },
           (error) => {
-            console.log(error);
+            alert (JSON.stringify(error));
           },
           () => {
             ref.getDownloadURL().then((url)=>{
+              this.loading.dismiss()
               resolve(url);
             })
           }
@@ -87,7 +100,7 @@ import * as firebase from 'firebase';
       return this.__path;
     }
 
-    uploadImage(image: any){
+    /*uploadImage(image: any){
       return new Promise((resolve)=>{
         let id = Math.floor(Math.random() * 1000000) + '';
         let ref = firebase.storage().ref(this.getPath() + '/');
@@ -97,6 +110,6 @@ import * as firebase from 'firebase';
           resolve(picture.downloadURL);
         })
       })
-    }
+    }*/
 
   }

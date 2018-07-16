@@ -30,6 +30,8 @@ import { CameraProvider } from '../../providers/camera/camera';
  	cartypes: any;
  	statusList = ['available', 'breakdown', 'travelling'];
  	nbplace: number = 0;
+ 	image :any;
+ 	url:any;
  	constructor(private cameraProvider: CameraProvider, private carProvider: CarProvider, private cartypeProvider: CarTypeProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
  			matricule: ['',Validators.required],			
@@ -41,6 +43,7 @@ import { CameraProvider } from '../../providers/camera/camera';
  	}
 
  	ionViewDidLoad() {
+ 		this.url = "assets/icon/bus.png"
  		this.key = this.navParams.get('key');
  		this.cooperativeProvider.fetch(this.key).then(
  			(data: Cooperative) => {
@@ -70,6 +73,9 @@ import { CameraProvider } from '../../providers/camera/camera';
 
  	onSubmit(){
  		let value = this.form.value;
+ 		if(this.url){
+ 			value.image = this.url;
+ 		}
  		let car = new Car(value);
  		let customPath = `cooperative/${this.key}/car`;
  		this.carProvider.customPath(customPath);
@@ -80,7 +86,19 @@ import { CameraProvider } from '../../providers/camera/camera';
 
  	fromGallery(){
  		this.cameraProvider.selectPhoto().then((image)=>{
- 			console.log(image);
+ 			this.image = image;
+ 			this.carProvider.uploadImage(this.image).then((url)=>{
+ 				this.url = url;
+ 			})
+ 		})
+ 	}
+
+ 	fromCamera(){
+ 		this.cameraProvider.takePhoto().then((image)=>{
+ 			this.image = image;
+ 			this.carProvider.uploadImage(this.image).then((url)=>{
+ 				this.url = url;
+ 			})
  		})
  	}
 

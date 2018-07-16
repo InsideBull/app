@@ -4,6 +4,7 @@ import { FirebaseProvider } from '../firebase/firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { QRCodeValidation } from '../../models/qrcode-validation.model';
+import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
 
 /*
   Generated class for the QrcodeValidationProvider provider.
@@ -15,8 +16,8 @@ import { QRCodeValidation } from '../../models/qrcode-validation.model';
 export class QrcodeValidationProvider extends FirebaseProvider {
 
   protected __path = 'validation';
-  constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase) {
-    super(storage,firebase);
+  constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
+    super(storage,firebase,loadingCtrl);
   }
 
   save(qrcv: QRCodeValidation, key ?: string){

@@ -21,7 +21,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   					quality: 100,
   					targetHeight:500,
   					targetWidth:410,
-  					destinationType: this.camera.DestinationType.FILE_URI,
+  					destinationType: this.camera.DestinationType.DATA_URL,
   					sourceType: this.camera.PictureSourceType.CAMERA,
   					allowEdit: false,
   					encodingType: this.camera.EncodingType.PNG,

@@ -3,6 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../firebase/firebase';
 import { Cooperative } from '../../models/cooperative.model';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
 
 
 /*
@@ -16,8 +17,8 @@ export class CooperativeProvider extends FirebaseProvider  {
 
   protected __path = 'cooperative';
   
-  constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase) {
-    super(storage,firebase);
+  constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
+    super(storage,firebase,loadingCtrl);
   }
 
   save(cooperative: Cooperative, key ?: string){
