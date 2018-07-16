@@ -2,7 +2,8 @@ export class Station {
 	city: string;
 	location: string;
 	name: string;
-	key?: string;
+	longitude: number;
+	latitude:number;
 
 
 	constructor(object?: {}) {
