@@ -6,7 +6,8 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { Car } from '../../models/car.model';
 import { CarProvider } from '../../providers/car/car';
-import { CarDetailsPage } from '../car-details/car-details'
+import { CarDetailsPage } from '../car-details/car-details';
+import { CameraProvider } from '../../providers/camera/camera';
 
 
 /**
@@ -29,7 +30,7 @@ import { CarDetailsPage } from '../car-details/car-details'
  	cartypes: any;
  	statusList = ['available', 'breakdown', 'travelling'];
  	nbplace: number = 0;
- 	constructor(private carProvider: CarProvider, private cartypeProvider: CarTypeProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+ 	constructor(private cameraProvider: CameraProvider, private carProvider: CarProvider, private cartypeProvider: CarTypeProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
  			matricule: ['',Validators.required],			
  			cartype: ['',Validators.required],	
@@ -75,6 +76,12 @@ import { CarDetailsPage } from '../car-details/car-details'
  		let key = this.carProvider.save(car);
  		this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
  		
+ 	}
+
+ 	fromGallery(){
+ 		this.cameraProvider.selectPhoto().then((image)=>{
+ 			console.log(image);
+ 		})
  	}
 
  }

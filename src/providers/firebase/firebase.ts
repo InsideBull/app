@@ -83,4 +83,20 @@ import * as firebase from 'firebase';
       this.__path = customPath;
     }
 
+    getPath(){
+      return this.__path;
+    }
+
+    uploadImage(image: any){
+      return new Promise((resolve)=>{
+        let id = Math.floor(Math.random() * 1000000) + '';
+        let ref = firebase.storage().ref(this.getPath() + '/');
+        ref.child(id)
+        .putString(image, 'base64', {contentType: 'image/png'})
+        .then((picture)=>{
+          resolve(picture.downloadURL);
+        })
+      })
+    }
+
   }

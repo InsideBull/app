@@ -41,6 +41,8 @@ import { CarTypeProvider } from '../providers/car-type/car-type';
 import { CarAddPage } from '../pages/car-add/car-add';
 import { CarProvider } from '../providers/car/car';
 import { CarDetailsPage } from '../pages/car-details/car-details';
+import { Camera } from '@ionic-native/camera';
+import { CameraProvider } from '../providers/camera/camera';
 
 
 @NgModule({
@@ -116,7 +118,9 @@ import { CarDetailsPage } from '../pages/car-details/car-details';
     VoyageProvider,
     StationProvider,
     CarTypeProvider,
-    CarProvider
+    CarProvider,
+    Camera,
+    CameraProvider
   ]
 })
 export class AppModule {}
