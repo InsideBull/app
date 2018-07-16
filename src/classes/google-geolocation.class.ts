@@ -1,5 +1,4 @@
 import { AlertController, Platform, Events, ViewController } from 'ionic-angular';
-import { Storage } from '@ionic/Storage';
  
 declare var google;
 export class GoogleGeolocation {
