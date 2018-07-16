@@ -31,4 +31,12 @@ export class CarProvider extends FirebaseProvider {
     this.setPath(path)
   }
 
+  fetch(key: string){
+    return this.getOneById(key);
+  }
+
+  fetcAll(){
+    return this.getAll();
+  }
+
 }

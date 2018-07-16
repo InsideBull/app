@@ -40,6 +40,7 @@ import { StationProvider } from '../providers/voyage/station';
 import { CarTypeProvider } from '../providers/car-type/car-type';
 import { CarAddPage } from '../pages/car-add/car-add';
 import { CarProvider } from '../providers/car/car';
+import { CarDetailsPage } from '../pages/car-details/car-details';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { CarProvider } from '../providers/car/car';
   AdminAddPage,
   VoyageMenuPage,
   CarMenuPage,
-  CarAddPage
+  CarAddPage,
+  CarDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,8 @@ import { CarProvider } from '../providers/car/car';
   AdminAddPage,
   VoyageMenuPage,
   CarMenuPage,
-  CarAddPage
+  CarAddPage,
+  CarDetailsPage
 
   ],
 

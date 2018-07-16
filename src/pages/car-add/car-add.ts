@@ -6,6 +6,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { Car } from '../../models/car.model';
 import { CarProvider } from '../../providers/car/car';
+import { CarDetailsPage } from '../car-details/car-details'
 
 
 /**
@@ -31,9 +32,9 @@ import { CarProvider } from '../../providers/car/car';
  	constructor(private carProvider: CarProvider, private cartypeProvider: CarTypeProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
  		this.form = this.formBuilder.group({
  			matricule: ['',Validators.required],			
- 			cartype: ['type de voiture',Validators.required],	
+ 			cartype: ['',Validators.required],	
  			nbplace: [0,Validators.required],	
- 			status: ['status',Validators.required],	
+ 			status: ['',Validators.required],	
 
  		});
  	}
@@ -71,7 +72,8 @@ import { CarProvider } from '../../providers/car/car';
  		let car = new Car(value);
  		let customPath = `cooperative/${this.key}/car`;
  		this.carProvider.customPath(customPath);
- 		this.carProvider.save(car);
+ 		let key = this.carProvider.save(car);
+ 		this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
  		
  	}
 
