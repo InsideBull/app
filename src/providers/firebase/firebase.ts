@@ -79,4 +79,8 @@ import * as firebase from 'firebase';
       })
     }
 
+    setPath(customPath: string){
+      this.__path = customPath;
+    }
+
   }

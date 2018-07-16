@@ -37,6 +37,9 @@ import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { VoyageProvider } from '../providers/voyage/voyage';
 import { StationProvider } from '../providers/voyage/station';
+import { CarTypeProvider } from '../providers/car-type/car-type';
+import { CarAddPage } from '../pages/car-add/car-add';
+import { CarProvider } from '../providers/car/car';
 
 
 @NgModule({
@@ -60,7 +63,8 @@ import { StationProvider } from '../providers/voyage/station';
   AdminListPage,
   AdminAddPage,
   VoyageMenuPage,
-  CarMenuPage
+  CarMenuPage,
+  CarAddPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +94,8 @@ import { StationProvider } from '../providers/voyage/station';
   AdminListPage,
   AdminAddPage,
   VoyageMenuPage,
-  CarMenuPage
+  CarMenuPage,
+  CarAddPage
 
   ],
 
@@ -106,7 +111,9 @@ import { StationProvider } from '../providers/voyage/station';
     QRScanner,
     QrScannerProvider,
     VoyageProvider,
-    StationProvider
+    StationProvider,
+    CarTypeProvider,
+    CarProvider
   ]
 })
 export class AppModule {}

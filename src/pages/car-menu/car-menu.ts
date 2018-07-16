@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
+import { CarAddPage } from '../car-add/car-add'
 
 /**
  * Generated class for the CarMenuPage page.
@@ -39,7 +40,7 @@ import { Cooperative } from '../../models/cooperative.model';
  	}
 
  	addCar(){
- 		
+ 		this.navCtrl.push(CarAddPage, {key:this.key});
  	}
 
  }
