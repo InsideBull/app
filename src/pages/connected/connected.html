@@ -45,6 +45,12 @@
 							Mes coopératives
 							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 						</button>
+
+						<button ion-item (tap)="goToStation()">
+							<ion-avatar item-start><img src="assets/icon/home.png"></ion-avatar>
+							Station
+							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+						</button>
 					</div>
 
 					<div *ngIf="pending">
