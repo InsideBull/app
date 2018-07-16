@@ -43,6 +43,7 @@ import { CarProvider } from '../providers/car/car';
 import { CarDetailsPage } from '../pages/car-details/car-details';
 import { Camera } from '@ionic-native/camera';
 import { CameraProvider } from '../providers/camera/camera';
+import { StationMenuPage } from '../pages/station-menu/station-menu';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { CameraProvider } from '../providers/camera/camera';
   VoyageMenuPage,
   CarMenuPage,
   CarAddPage,
-  CarDetailsPage
+  CarDetailsPage,
+  StationMenuPage
   ],
   imports: [
     BrowserModule,
@@ -100,7 +102,8 @@ import { CameraProvider } from '../providers/camera/camera';
   VoyageMenuPage,
   CarMenuPage,
   CarAddPage,
-  CarDetailsPage
+  CarDetailsPage,
+  StationMenuPage
 
   ],
 
