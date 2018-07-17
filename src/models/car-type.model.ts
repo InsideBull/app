@@ -1,4 +1,5 @@
 export class CarType{
+	
 	type : string;
 	nbplace ?: number;
 	placelist ?: string;

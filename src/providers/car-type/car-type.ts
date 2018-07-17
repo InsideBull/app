@@ -3,6 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../firebase/firebase';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { CarType } from '../../models/car-type.model'
 
 /*
   Generated class for the CarTypeProvider provider.
@@ -15,15 +16,24 @@ import { IonicPage, AlertController, LoadingController, ToastController } from '
 
   	protected __path = 'cartype';
     constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
-  		super(storage,firebase,loadingCtrl);
-  	}
+      super(storage,firebase,loadingCtrl);
+    }
 
-  	fetch(key: string){
-  		return this.getOneById(key);
-  	}
+    save(cartype: CarType, key ?: string){
+      if (key) {
+        return this.push(cartype,key);
+      }
+      else{
+        return this.push(cartype);
+      }
+    }
 
-  	fetcAll(){
-  		return this.getAll();
-  	}
+    fetch(key: string){
+      return this.getOneById(key);
+    }
+
+    fetcAll(){
+      return this.getAll();
+    }
 
   }
