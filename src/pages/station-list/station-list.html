@@ -15,4 +15,17 @@
 
 <ion-content padding>
 
+  <ion-list>
+    <ion-row *ngFor="let station of stations">
+      <ion-label (click)="onClickLabel(station.key)">
+        <span>{{ this.station.name }}, </span>
+        <span>{{ this.station.location }}, </span>
+        <span>{{ this.station.city }} </span>
+        <!-- <a (click)="onDelete()">Supprimer</a> -->      
+      </ion-label>
+      <ion-icon ios="ios-close" md="md-close" class="item item-icon-right"
+      (click)="onClickIcon(station.key)"></ion-icon>
+    </ion-row>
+  </ion-list>
+
 </ion-content>

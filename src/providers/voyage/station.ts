@@ -37,6 +37,9 @@ export class StationProvider extends FirebaseProvider  {
   fetcAll(){
   	return this.getAll();
   }
+  deleteStation(i: string){
+    this.delete(i);
+  }
 
 
 }
