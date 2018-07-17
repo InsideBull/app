@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StationProvider } from '../../providers/voyage/station';
 
 /**
  * Generated class for the StationDetailPage page.
@@ -15,11 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StationDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  param: string;
+  station: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public stationProvider: StationProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StationDetailPage');
+    this.param = this.navParams.get('key');
+    this.stationProvider.fetch(this.param).then(
+      (data)=>{
+        this.station = data;
+      }
+    );
   }
 
 }
