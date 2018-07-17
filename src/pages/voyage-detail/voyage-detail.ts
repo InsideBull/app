@@ -6,6 +6,7 @@ import { Station } from '../../models/station.model';
 import { VoyageManagePage } from '../../pages/voyage-manage/voyage-manage';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
+import { Voyage } from '../../models/voyage.model';
 
 
 /**
@@ -23,12 +24,10 @@ import { Cooperative } from '../../models/cooperative.model';
 export class VoyageDetailPage {
 
 	param: string;
-	voyage: any;
-	stations : any;
-	arrivalStation: any;
-	startstation: any;
-	cooperative: any;
-
+  voyage: Voyage = new Voyage();
+  startstation: Station = new Station();
+  arrivalstation: Station = new Station();
+  cooperative: Cooperative = new Cooperative();
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
@@ -39,44 +38,42 @@ export class VoyageDetailPage {
 
   ionViewDidLoad() {
 
-  	this.param = this.navParams.get('key');
+    this.param = this.navParams.get('key');
 
-  	this.voyageProvider.fetch(this.param).then(
-  		(data) => {
-  				this.voyage = data;
-  				// console.log(data);
-  			});
-
-  	this.stations = [];
-    this.stationProvider.fetcAll().subscribe(
-    	(data) => {
-    		for(let key in data){
-  				data[key].key = key;
-  				
-  				if(this.voyage.arrivalstation == key){
-  					this.arrivalStation = data[key];
-  				}else if(this.voyage.startstation == key){
-  					this.startstation = data[key];
-  				}
-  			}
-			});
-			
-			this.cooperative = {};
-			setTimeout(
-
-				() => {
-	
-					this.cooperativeProvider.fetch(this.voyage.cooperative).then(
-						(data)=>{
-							this.cooperative = data;
-						}
-					);
-	
-				}, 4000
-	
-			);
+    this.showDetails();
 
     }
+
+
+    showDetails(){
+      
+      this.voyageProvider.fetch(this.param).then((voyage: Voyage)=>{
+        this.voyage = voyage;
+
+        let startstation = this.voyage.startstation;
+
+        let arrivalstation = this.voyage.arrivalstation;
+
+        let cooperative$ = this.voyage.cooperative;
+
+        this.stationProvider.fetch(startstation).then((start: Station)=>{
+          this.startstation = start;
+        })
+        .then(()=>{
+          this.stationProvider.fetch(arrivalstation).then((arrival: Station)=>{
+            this.arrivalstation = arrival;
+          })
+        })
+        .then(()=>{
+          this.cooperativeProvider.fetch(cooperative$).then((cooperative: Cooperative)=>{
+            this.cooperative = cooperative;
+          })
+        })
+
+      })
+    }
+
+
 
     goToManage(){
       this.navCtrl.push(VoyageManagePage, {key: this.param});
