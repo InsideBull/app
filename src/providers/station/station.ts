@@ -6,12 +6,6 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
 
 
-/*
-  Generated class for the CooperativeProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class StationProvider extends FirebaseProvider  {
 
@@ -23,10 +17,10 @@ export class StationProvider extends FirebaseProvider  {
 
   save(station: Station, key ?: string){
   	if (key) {
-  		return this.push(Station,key);
+  		return this.push(station,key);
   	}
   	else{
-  		return this.push(Station);
+  		return this.push(station);
   	}
   }
 

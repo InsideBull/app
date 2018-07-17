@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
-import { StationProvider } from '../../providers/voyage/station';
+import { StationProvider } from '../../providers/station/station';
 import { Voyage } from '../../models/voyage.model';
 import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 import {CooperativeProvider } from '../../providers/cooperative/cooperative'

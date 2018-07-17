@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Station</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content >
+	<form (ngSubmit)=[onSubmit()] [formGroup]="form">
+		<ion-grid class="grid-center-md grid-center-ios">
+			<ion-row justify-content-center class="row-top">
+				<ion-col col-8 col-sm col-auto >
+					<img src="assets/imgs/bee-logo.png" class="logo-reservation">
+					<h3 class="title_reservation" text-capitalise >Création</h3>
+				</ion-col>
+			</ion-row>
+			<ion-row justify-content-center class="center-block-reservation">
+				<ion-col col-12 col-sm col-auto >
+					<ion-list class="list_" padding-top maring-top>
+						<ion-item class="input-cover-md input-cover-ios" >
+							<ion-label no-padding no-margin>
+								<ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
+							</ion-label>
+							<ion-input formControlName="name" id="name" type="text" placeholder="Nom" stacked required></ion-input>
+						</ion-item>
+
+						<ion-item class="input-cover-md input-cover-ios" >
+							<ion-label no-padding no-margin>
+								<ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
+							</ion-label>
+							<ion-input formControlName="city" id="city" type="text" placeholder="Ville" stacked required></ion-input>
+						</ion-item>
+
+						<ion-item class="input-cover-md input-cover-ios" >
+							<ion-label no-padding no-margin>
+								<ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
+							</ion-label>
+							<ion-input formControlName="location" id="location" type="text" placeholder="Emplacement" stacked required></ion-input>
+						</ion-item>
+
+					</ion-list>
+					<div >
+						<button ion-button block class="button-and button-ios">Rechercher</button>
+					</div>
+				</ion-col>
+			</ion-row>		
+		</ion-grid>
+	</form>
+</ion-content>
