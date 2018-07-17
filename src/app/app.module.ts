@@ -47,6 +47,9 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { StationProvider } from '../providers/station/station';
 import { StationListPage } from '../pages/station-list/station-list';
 import { StationDetailPage } from '../pages/station-detail/station-detail';
+import { VoyageParametersPage } from '../pages/voyage-parameters/voyage-parameters';
+import { TripAffectPage } from '../pages/trip-affect/trip-affect';
+import { TripProvider } from '../providers/trip/trip';
 
 
 @NgModule({
@@ -76,7 +79,9 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
   StationMenuPage,
   StationCreatePage,
   StationListPage,
-  StationDetailPage
+  StationDetailPage,
+  VoyageParametersPage,
+  TripAffectPage
   ],
   imports: [
     BrowserModule,
@@ -112,7 +117,9 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
   StationMenuPage,
   StationCreatePage,
   StationMenuPage,StationListPage,
-  StationDetailPage
+  StationDetailPage,
+  VoyageParametersPage,
+  TripAffectPage
 
   ],
 
@@ -132,7 +139,8 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
     CarProvider,
     Camera,
     CameraProvider,
-    StationProvider
+    StationProvider,
+    TripProvider
   ]
 })
 export class AppModule {}

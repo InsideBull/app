@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { StationProvider } from '../../providers/voyage/station';
+import { StationProvider } from '../../providers/station/station';
 
 /**
  * Generated class for the StationDetailPage page.

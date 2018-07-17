@@ -7,6 +7,7 @@ import { VoyageManagePage } from '../../pages/voyage-manage/voyage-manage';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 import { Voyage } from '../../models/voyage.model';
+import { VoyageParametersPage } from '../voyage-parameters/voyage-parameters'
 
 
 /**
@@ -74,9 +75,8 @@ export class VoyageDetailPage {
     }
 
 
-
-    goToManage(){
-      this.navCtrl.push(VoyageManagePage, {key: this.param});
+    goToParameters(){
+      this.navCtrl.push(VoyageParametersPage, {key: this.param});
     }
 
   }
