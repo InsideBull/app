@@ -20,7 +20,7 @@ import { StationListPage } from '../pages/station-list/station-list';
 })
 export class MyApp {
 
-    rootPage: any = /*CooperativeListPage*/StationListPage;
+    rootPage: any = CooperativeListPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

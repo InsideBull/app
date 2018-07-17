@@ -72,4 +72,11 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
      this.navCtrl.push(CooperativeDetailsPage, {'key': i});
    }
 
+   onClickIcon(i: string){
+    this.cooperatives.splice(i, 1);
+    this.cooperativeProvider.deleteCooperative(i);
+    this.navCtrl.push(CooperativeListPage);
+
+ }
+
  }

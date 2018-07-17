@@ -4,6 +4,8 @@ import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/voyage/station';
 import { Station } from '../../models/station.model';
 import { VoyageManagePage } from '../../pages/voyage-manage/voyage-manage';
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { Cooperative } from '../../models/cooperative.model';
 
 
 /**
@@ -25,12 +27,14 @@ export class VoyageDetailPage {
 	stations : any;
 	arrivalStation: any;
 	startstation: any;
+	cooperative: any;
 
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
   	public stationProvider: StationProvider,
-  	public voyageProvider: VoyageProvider) {
+		public voyageProvider: VoyageProvider,
+		public cooperativeProvider: CooperativeProvider) {
   }
 
   ionViewDidLoad() {
@@ -55,7 +59,22 @@ export class VoyageDetailPage {
   					this.startstation = data[key];
   				}
   			}
-    	});
+			});
+			
+			this.cooperative = {};
+			setTimeout(
+
+				() => {
+	
+					this.cooperativeProvider.fetch(this.voyage.cooperative).then(
+						(data)=>{
+							this.cooperative = data;
+						}
+					);
+	
+				}, 4000
+	
+			);
 
     }
 

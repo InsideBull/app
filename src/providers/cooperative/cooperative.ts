@@ -42,5 +42,9 @@ export class CooperativeProvider extends FirebaseProvider  {
     return this.upload(file);
   }
 
+  deleteCooperative(i: string){
+    this.delete(i);
+  }
+
 
 }
