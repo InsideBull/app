@@ -13,7 +13,7 @@
 </ion-header>
 
 
-<ion-content >
+<ion-content *ngIf="param">
     <form (ngSubmit)=[onSubmit()] [formGroup]="form">
         <ion-grid class="grid-center-md grid-center-ios">
                 <!-- <ion-row justify-content-center class="row-top">
@@ -41,7 +41,7 @@
                                             <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
                                     </ion-label>
                                     <!-- <ion-input formControlName="cooperative" id="cooperative" type="text" placeholder="Cooperative" stacked required></ion-input> -->
-                                    <ion-label>Nom de la cooperative : {{ cooperative?.name }}</ion-label>
+                                    <ion-label>Nom de la cooperative : {{ cooperative.name }}</ion-label>
                             </ion-item>
 
 
