@@ -1,4 +1,7 @@
 import { AlertController, Platform, Events, ViewController } from 'ionic-angular';
+
+import { Storage } from '@ionic/Storage';
+import { Address } from '../classes/address.class';
  
 declare var google;
 export class GoogleGeolocation {
@@ -46,6 +49,10 @@ export class GoogleGeolocation {
     protected autocomplete(selector: string) {
         let input = <HTMLInputElement>document.querySelector(selector);
         return new google.maps.places.Autocomplete(input);
+    }
+
+    protected getAddress(place: any) {
+        return new Address(place);
     }
  
 }

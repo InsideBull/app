@@ -36,7 +36,6 @@ import { AdminAddPage } from '../pages/admin-add/admin-add';
 import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { VoyageProvider } from '../providers/voyage/voyage';
-import { StationProvider } from '../providers/voyage/station';
 import { CarTypeProvider } from '../providers/car-type/car-type';
 import { CarAddPage } from '../pages/car-add/car-add';
 import { CarProvider } from '../providers/car/car';
@@ -44,6 +43,8 @@ import { CarDetailsPage } from '../pages/car-details/car-details';
 import { Camera } from '@ionic-native/camera';
 import { CameraProvider } from '../providers/camera/camera';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
+import { StationCreatePage } from '../pages/station-create/station-create';
+import { StationProvider } from '../providers/station/station';
 import { StationListPage } from '../pages/station-list/station-list';
 import { StationDetailPage } from '../pages/station-detail/station-detail';
 
@@ -73,6 +74,7 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
   CarAddPage,
   CarDetailsPage,
   StationMenuPage,
+  StationCreatePage,
   StationListPage,
   StationDetailPage
   ],
@@ -107,6 +109,8 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
   CarMenuPage,
   CarAddPage,
   CarDetailsPage,
+  StationMenuPage,
+  StationCreatePage,
   StationMenuPage,StationListPage,
   StationDetailPage
 
@@ -124,11 +128,11 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
     QRScanner,
     QrScannerProvider,
     VoyageProvider,
-    StationProvider,
     CarTypeProvider,
     CarProvider,
     Camera,
-    CameraProvider
+    CameraProvider,
+    StationProvider
   ]
 })
 export class AppModule {}

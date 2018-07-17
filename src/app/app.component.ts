@@ -10,6 +10,7 @@ import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list'
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
 import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
+import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationListPage } from '../pages/station-list/station-list';
 
 
@@ -20,7 +21,8 @@ import { StationListPage } from '../pages/station-list/station-list';
 })
 export class MyApp {
 
-    rootPage: any = /* CooperativeListPage */ StationListPage;
+    rootPage: any = /*CooperativeListPage*/StationMenuPage;
+
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

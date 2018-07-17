@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
-import { StationProvider } from '../../providers/voyage/station';
+import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';
 import { Voyage } from '../../models/voyage.model';
 
