@@ -38,5 +38,9 @@ export class VoyageProvider extends FirebaseProvider  {
   	return this.getAll();
   }
 
+  deleteVoyage(i: string){
+    this.delete(i);
+  }
+
 
 }

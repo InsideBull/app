@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { StationProvider } from '../../providers/voyage/station';
+import { StationDetailPage } from '../station-detail/station-detail';
 
 /**
  * Generated class for the StationListPage page.
@@ -15,11 +17,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class StationListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  stations: any;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public stationProvider: StationProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StationListPage');
+    this.stations = [];
+    this.stationProvider.fetcAll().subscribe(
+      (data)=>{
+        for(let key in data){
+          data[key].key= key;
+         this.stations.push(data[key]); 
+        }
+      }
+    );
+
+  }
+
+  onClickLabel(key){
+    this.navCtrl.push(StationDetailPage, {key: key});
+  }
+
+  onClickIcon(i){
+    this.stations.splice(i, 1);
+    this.stationProvider.deleteStation(i);
+    this.navCtrl.push(StationListPage);
   }
 
 }

@@ -45,6 +45,8 @@ import { CameraProvider } from '../providers/camera/camera';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationCreatePage } from '../pages/station-create/station-create';
 import { StationProvider } from '../providers/station/station';
+import { StationListPage } from '../pages/station-list/station-list';
+import { StationDetailPage } from '../pages/station-detail/station-detail';
 
 
 @NgModule({
@@ -72,7 +74,9 @@ import { StationProvider } from '../providers/station/station';
   CarAddPage,
   CarDetailsPage,
   StationMenuPage,
-  StationCreatePage
+  StationCreatePage,
+  StationListPage,
+  StationDetailPage
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,9 @@ import { StationProvider } from '../providers/station/station';
   CarAddPage,
   CarDetailsPage,
   StationMenuPage,
-  StationCreatePage
+  StationCreatePage,
+  StationMenuPage,StationListPage,
+  StationDetailPage
 
   ],
 
