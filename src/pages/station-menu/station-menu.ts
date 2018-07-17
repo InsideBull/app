@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StationCreatePage } from '../station-create/station-create'
+import { StationListPage } from '../station-list/station-list';
 
 /**
  * Generated class for the StationMenuPage page.
@@ -24,7 +25,7 @@ export class StationMenuPage {
   }
 
   listStation(){
-
+    this.navCtrl.push(StationListPage);
   }
 
   addStation(){

@@ -50,6 +50,7 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
 import { VoyageParametersPage } from '../pages/voyage-parameters/voyage-parameters';
 import { TripAffectPage } from '../pages/trip-affect/trip-affect';
 import { TripProvider } from '../providers/trip/trip';
+import { StationManagePage } from '../pages/station-manage/station-manage';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { TripProvider } from '../providers/trip/trip';
   StationListPage,
   StationDetailPage,
   VoyageParametersPage,
-  TripAffectPage
+  TripAffectPage,
+  StationManagePage,
   ],
   imports: [
     BrowserModule,
@@ -119,7 +121,8 @@ import { TripProvider } from '../providers/trip/trip';
   StationMenuPage,StationListPage,
   StationDetailPage,
   VoyageParametersPage,
-  TripAffectPage
+  TripAffectPage,
+  StationManagePage,
 
   ],
 
