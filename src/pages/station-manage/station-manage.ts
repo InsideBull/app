@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StationProvider } from '../../providers/station/station';
-import { StationManagePage } from '../station-manage/station-manage';
 
 /**
- * Generated class for the StationDetailPage page.
+ * Generated class for the StationManagePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,13 +11,16 @@ import { StationManagePage } from '../station-manage/station-manage';
 
 @IonicPage()
 @Component({
-  selector: 'page-station-detail',
-  templateUrl: 'station-detail.html',
+  selector: 'page-station-manage',
+  templateUrl: 'station-manage.html',
 })
-export class StationDetailPage {
+export class StationManagePage {
 
   param: string;
   station: any;
+  name: string;
+  location: string;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public stationProvider: StationProvider) {
   }
@@ -30,9 +32,6 @@ export class StationDetailPage {
         this.station = data;
       }
     );
-  }
-  manageStation(){
-    this.navCtrl.push(StationManagePage, {key: this.param});
   }
 
 }

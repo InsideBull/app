@@ -47,6 +47,7 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { StationProvider } from '../providers/station/station';
 import { StationListPage } from '../pages/station-list/station-list';
 import { StationDetailPage } from '../pages/station-detail/station-detail';
+import { StationManagePage } from '../pages/station-manage/station-manage';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
   StationMenuPage,
   StationCreatePage,
   StationListPage,
-  StationDetailPage
+  StationDetailPage,
+  StationManagePage
   ],
   imports: [
     BrowserModule,
@@ -112,7 +114,8 @@ import { StationDetailPage } from '../pages/station-detail/station-detail';
   StationMenuPage,
   StationCreatePage,
   StationMenuPage,StationListPage,
-  StationDetailPage
+  StationDetailPage,
+  StationManagePage
 
   ],
 
