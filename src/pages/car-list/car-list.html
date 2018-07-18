@@ -1,25 +1,39 @@
-<!--
-  Generated template for the CarListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>car-list</ion-title>
+    <ion-title>Voiture</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
+  <ion-grid class="grid-center-md grid-center-ios" >
 
-  <ion-list>
-    <ion-item *ngFor="let car of cars" (click)="goToDetail(car.key)">
-      <ion-label>{{ car.cartype?.type }}</ion-label>
-      <ion-label>{{ car.matricule }}</ion-label>
-    </ion-item> 
-  </ion-list>
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto >
+        <h2 class="title_" text-capitalise >Liste</h2>
+      </ion-col>
+    </ion-row>
 
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto>
+        <img src="assets/icon/list.png" class="logo-reservation">
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="row-center">
+      <ion-col col-11 col-sm col-auto>
+        <ion-list>
+          
+          <button ion-item *ngFor="let car of cars" (click)="goToDetail(car.key)">
+            <ion-avatar  item-start ><img [src]="car?.image"></ion-avatar>
+            {{ car.matricule }} - {{ car.cartype?.type }}
+            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </button>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

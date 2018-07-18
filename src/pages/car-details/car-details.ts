@@ -40,7 +40,10 @@ export class CarDetailsPage {
     this.carProvider.fetch(this.key).then(
       (data: Car)=>{
           this.cartypeProvider.fetch(data.type).then((cartype)=>{
-            this.car = data;    
+            this.car = data;
+            if (!this.car.image) {
+                  this.car.image = "assets/icon/bus.png";
+                }    
             this.cartype = cartype;     
           });
       });

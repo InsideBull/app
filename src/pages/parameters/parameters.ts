@@ -30,6 +30,9 @@ import { Cooperative } from '../../models/cooperative.model';
      this.cooperativeProvider.fetch(this.key).then(
        (data: Cooperative) => {
          this.cooperative = data;
+         if(!this.cooperative.logo){
+           this.cooperative.logo = "assets/icon/copyright.png";
+         }
        });
    }
 

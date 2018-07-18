@@ -30,6 +30,9 @@ import { CarTypePage } from '../car-type/car-type'
  		this.cooperativeProvider.fetch(this.key).then(
  			(data: Cooperative) => {
  				this.cooperative = data;
+ 				if(!this.cooperative.logo){
+ 					this.cooperative.logo = "assets/icon/copyright.png";
+ 				}
  			});
  	}
 

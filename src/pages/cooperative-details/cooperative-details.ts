@@ -37,6 +37,9 @@ export class CooperativeDetailsPage {
     this.cooperativeProvider.fetch(this.param).then(
       (data: Cooperative) => {
           this.cooperative = data;
+          if(!this.cooperative.logo){
+            this.cooperative.logo = "assets/icon/copyright.png"
+          }
         });
 
   }

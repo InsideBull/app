@@ -38,6 +38,9 @@ export class CarListPage {
           data[key].key = key;
           this.cartypeProvider.fetch(data[key].type).then((cartype)=>{
             data[key].cartype = cartype;
+            if (!data[key].image) {
+              data[key].image = "assets/icon/bus.png";
+            }
             this.cars.push(data[key]);
             
           });

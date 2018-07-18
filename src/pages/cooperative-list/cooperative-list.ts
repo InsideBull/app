@@ -36,7 +36,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    ionViewDidLoad() {
 
      this.loading = this.loadingCtrl.create();
-      this.loading.present();
+     this.loading.present();
      this.cooperatives = [];
 
      this.facebookProvider.getUser().then((user)=>{
@@ -60,7 +60,10 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
              let in_admins = admins.find( me => me == '2186409438249498' );
 
 
-             if (in_admins) {              
+             if (in_admins) {  
+               if (!cooperatives[key].logo) {
+                 cooperatives[key].logo = "assets/icon/copyright.png"
+               }            
                this.cooperatives.push(cooperatives[key]);
              } 
            }
