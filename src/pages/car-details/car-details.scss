@@ -52,3 +52,23 @@ page-car-details {
     	border-bottom: 0.55px solid black!important;
     }
 }
+
+
+	.seat {
+		padding-right: 5px;
+		font-size: 45px !important;
+	}
+
+.reservedSeat {
+		color: #ce4844;
+	}
+	.selectedSeat {
+		color: #5cb85c;
+	}
+	.freeSeat {
+		color: #958f8f;
+	}
+
+	.notAvailable{
+		color: #fff;
+	}

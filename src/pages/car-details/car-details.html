@@ -23,7 +23,7 @@
     <ion-row justify-content-center class="row-center">
       <ion-col col-11 col-sm col-auto>
         <ion-list>
-          
+
 
           <ion-item>
             <ion-avatar item-start><img src="assets/icon/car-type.png"></ion-avatar>
@@ -52,7 +52,7 @@
             <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
           </button>
 
-           <button ion-item (click)="delete()">
+          <button ion-item (click)="delete()">
             <ion-avatar  item-start ><img src="assets/icon/trash.png"></ion-avatar>
             Supprimer
             <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
@@ -61,5 +61,32 @@
         </ion-list>
       </ion-col>
     </ion-row>
-  </ion-grid>
+
+
+    <div class="center-content">
+      <ion-grid class="grid-center">
+        <ion-row justify-content-center margin-top class="content-center">
+          <ion-col col-auto>
+            <div *ngFor="let row of rows">
+              <span class="seat" *ngFor="let col of cols"
+              [ngSwitch]="getStatus(row + col)">
+
+              <span *ngSwitchCase="'reserved'">
+                <ion-icon ios="ios-square" md="md-square" class="ion-icon-md ion-icon-ios reservedSeat width-icon-center"></ion-icon>
+              </span>              
+              <span *ngSwitchCase="'notavailable'">
+                <ion-icon ios="ios-expand" md="md-expand" class="ion-icon-md ion-icon-ios notAvailable width-icon-center"></ion-icon>
+              </span>
+              <span *ngSwitchDefault>
+                <ion-icon ios="ios-square" md="md-square" class="ion-icon-md ion-icon-ios freeSeat width-icon-center"></ion-icon>
+              </span>
+            </span>
+          </div>
+          <div class="footer-img"></div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-grid>
 </ion-content>
