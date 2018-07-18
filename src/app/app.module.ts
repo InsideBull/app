@@ -52,6 +52,8 @@ import { TripAffectPage } from '../pages/trip-affect/trip-affect';
 import { TripProvider } from '../providers/trip/trip';
 import { StationManagePage } from '../pages/station-manage/station-manage';
 import { CarTypePage } from '../pages/car-type/car-type' ;
+import { CarListPage } from '../pages/car-list/car-list';
+import { CarEditPage } from '../pages/car-edit/car-edit';
 
 
 
@@ -86,7 +88,9 @@ import { CarTypePage } from '../pages/car-type/car-type' ;
   VoyageParametersPage,
   TripAffectPage,
   StationManagePage,
-  CarTypePage
+  CarTypePage,
+  CarListPage,
+  CarEditPage
   ],
   imports: [
     BrowserModule,
@@ -126,7 +130,7 @@ import { CarTypePage } from '../pages/car-type/car-type' ;
   VoyageParametersPage,
   TripAffectPage,
   StationManagePage,
-  CarTypePage
+  CarTypePage,CarListPage, CarEditPage
 
   ],
 

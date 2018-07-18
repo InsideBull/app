@@ -15,4 +15,27 @@
 
 <ion-content padding>
 
+    <ion-list>
+        <ion-item>
+          <ion-label>{{ cartype?.type }}</ion-label>
+        </ion-item> 
+        <ion-item>
+            <ion-label>{{ car?.matricule }}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>{{ cartype?.placelist }}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>{{ cartype?.notavailable }}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>{{ cartype?.nbRows }}</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>{{ cartype?.nbCols }}</ion-label>
+        </ion-item>
+      </ion-list>
+      <button ion-button (click)="supprimer()">Supprimer</button>
+      <button ion-button (click)="editer()">Editer</button>
+
 </ion-content>
