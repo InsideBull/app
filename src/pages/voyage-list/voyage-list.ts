@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';
@@ -21,19 +21,25 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 
  	param: string;
  	voyages: any;
- 	stations : any;
+	 stations : any;
+	private loading: Loading;
 
  	constructor(public navCtrl: NavController, 
  		public navParams: NavParams,
  		public stationProvider: StationProvider,
- 		public voyageProvider: VoyageProvider) {
+		public voyageProvider: VoyageProvider,
+		private loadingCtrl: LoadingController) {
  	}
 
  	ionViewDidLoad() {
+		this.loading = this.loadingCtrl.create();
+		this.loading.present();
 
  		this.param = this.navParams.get('key');
 
- 		this.voyageFilter();
+		 this.voyageFilter();
+		 
+		 this.loading.dismiss();
 
  	}
 

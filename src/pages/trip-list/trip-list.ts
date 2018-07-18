@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { TripProvider } from '../../providers/trip/trip';
 
 /**
@@ -18,10 +18,17 @@ export class TripListPage {
 
   key: any;
   trips: any;
-  constructor(private tripProvider: TripProvider, public navCtrl: NavController, public navParams: NavParams) {
+  private loading: Loading;
+
+  constructor(private tripProvider: TripProvider, 
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    private loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
     this.key = this.navParams.get('key');
     this.trips = [];
     
@@ -32,7 +39,8 @@ export class TripListPage {
     	for(let key in trips){
     		this.trips.push(trips[key]);
     	}
-    })
+    });
+    this.loading.dismiss();
 
   }
 

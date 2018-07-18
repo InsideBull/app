@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { CarProvider } from '../../providers/car/car';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { CarDetailsPage } from '../car-details/car-details';
@@ -20,14 +20,19 @@ export class CarListPage {
   param: string;
   cars: any;
   cartypes: any;
+  private loading: Loading;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public carProvider: CarProvider,
-    public cartypeProvider: CarTypeProvider) {
+    public cartypeProvider: CarTypeProvider,
+    private loadingCtrl: LoadingController
+  ) {
   }
 
   ionViewDidLoad() {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
     this.param = this.navParams.get('key');
     this.cars = [];
     let customPath = `cooperative/${this.param}/car`;
@@ -43,7 +48,7 @@ export class CarListPage {
           });
         }
       });
-      console.log(this.cars);
+    this.loading.dismiss();
   }
 
   goToDetail(i: string){
