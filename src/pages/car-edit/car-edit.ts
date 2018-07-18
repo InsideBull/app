@@ -55,6 +55,10 @@ export class CarEditPage {
     this.carProvider.fetch(this.key).then(
       (data: Car)=>{
         this.car = data;
+        if (!this.car.image) {
+          this.car.image = "assets/icon/bus.png";
+          this.url = this.car.image;
+        }
       }
     );
 
@@ -69,9 +73,7 @@ export class CarEditPage {
           this.nbplace = nbplace;
         }
       }
-    });
-
-    this.url = this.car.image;
+    });    
   }
 
   getNbplace(cartypeKey: string){
