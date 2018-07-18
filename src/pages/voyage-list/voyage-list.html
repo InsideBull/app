@@ -1,34 +1,39 @@
-<!--
-  Generated template for the VoyageListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>voyage-list</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<ion-title>Voyages</ion-title>
+	</ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-	<ion-list>
-		<ion-item *ngFor="let voyage of voyages" >
-			<ion-label (click)="onClickItem(voyage.key)">
-				
-				<span>{{voyage.startstation.city}}</span>
-				
-				<span>{{ voyage.date }}, </span>
-				<span>{{ voyage.price }}, </span>
+<ion-content >
+	<ion-grid class="grid-center-md grid-center-ios" >
 
-				<span> {{voyage.arrivalstation.city }} </span>
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 class="title_" text-capitalise >Liste</h2>
+			</ion-col>
+		</ion-row>
 
-			</ion-label>
-			<ion-label align="right"><ion-icon ios="ios-close" md="md-close" class="item item-icon-right"
-				(click)="onClickIcon(voyage.key)"></ion-icon></ion-label>
-		</ion-item>
-	</ion-list>
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto>
+				<img src="assets/icon/journey.png" class="logo-reservation">
+			</ion-col>
+		</ion-row>
 
+		<ion-row justify-content-center class="row-center">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+					
+					<button ion-item (tap)="onClickItem(voyage.key)" *ngFor="let voyage of voyages">
+						<!-- <ion-avatar  item-start ><img src="assets"></ion-avatar> -->
+						{{voyage.startstation.city}} - {{voyage.arrivalstation.city }}, {{ voyage.date }} - {{ voyage.price }},
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>
