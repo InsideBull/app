@@ -1,0 +1,67 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Model Voiture</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+<ion-content >
+	<form (ngSubmit)=[onSubmit()] [formGroup]="form">
+		<ion-grid class="grid-center-md grid-center-ios">
+
+			<ion-row justify-content-center class="center-block-reservation">
+				<ion-col col-12 col-sm col-auto >
+					<ion-list class="list_" padding-top maring-top>
+						
+						<ion-item class="input-cover-md input-cover-ios" >
+							<ion-label no-padding no-margin>
+								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+							</ion-label>
+							<ion-input formControlName="type" id="type" type="text" placeholder="type" stacked required></ion-input>
+						</ion-item>
+
+						<ion-item class="input-cover-md input-cover-ios" >
+							<ion-label no-padding no-margin>
+								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+							</ion-label>
+							<ion-input (keyup)="manageSeats(nbRows,nbCols)" [(ngModel)]="nbRows" formControlName="nbRows" id="nbRows" type="text" placeholder="Rangé" stacked required></ion-input>
+						</ion-item>
+
+						<ion-item class="input-cover-md input-cover-ios" >
+							<ion-label no-padding no-margin>
+								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+							</ion-label>
+							<ion-input (keyup)="manageSeats(nbRows,nbCols)" [(ngModel)]="nbCols" formControlName="nbCols" id="nbCols" type="text" placeholder="Rangé" stacked required></ion-input>
+						</ion-item>
+
+						<div class="car">
+							<div *ngFor="let row of rows">
+								<span class="seat" *ngFor="let col of cols" (click)="seatClicked(row + col)" 
+								[ngSwitch]="getStatus(row + col)">
+								<span *ngSwitchCase="'selected'">
+									<ion-icon ios="ios-expand" md="md-expand" class="ion-icon-md ion-icon-ios notAvailable width-icon-center"></ion-icon>
+
+								</span>
+								<span *ngSwitchDefault>
+									<ion-icon ios="ios-square" md="md-square" class="ion-icon-md ion-icon-ios freeSeat width-icon-center"></ion-icon>
+								</span>
+
+
+								
+							</span>
+						</div>
+
+					</div>
+
+
+
+				</ion-list>
+				<div >
+					<button ion-button block class="button-and button-ios">Enregistrer</button>
+				</div>
+			</ion-col>
+		</ion-row>		
+	</ion-grid>
+</form>
+</ion-content>

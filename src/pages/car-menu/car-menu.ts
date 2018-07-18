@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
-import { CarAddPage } from '../car-add/car-add'
 import { CarListPage } from '../car-list/car-list';
+import { CarAddPage } from '../car-add/car-add';
+import { CarTypePage } from '../car-type/car-type'
 
 /**
  * Generated class for the CarMenuPage page.
@@ -33,7 +34,7 @@ import { CarListPage } from '../car-list/car-list';
  	}
 
  	addCarType(){
-
+ 		this.navCtrl.push(CarTypePage);
  	}
 
  	listCar(){
