@@ -80,7 +80,7 @@ import {Cooperative } from '../../models/cooperative.model'
        console.log(this.voyage);
 
        let key = this.voyageProvider.save(this.voyage);
-       this.navCtrl.push(VoyageDetailPage, {key: key});
+       this.navCtrl.push(VoyageDetailPage, {key: key, coop: this.param});
      }
    }
 

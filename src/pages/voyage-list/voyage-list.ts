@@ -78,14 +78,7 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
  	}
 
  	onClickItem(i: any) {
- 		this.navCtrl.push(VoyageDetailPage, {key: i});
-	 }
-	 
-	 onClickIcon(i: string){
-			this.voyages.splice(i, 1);
-			this.voyageProvider.deleteVoyage(i);
-			this.navCtrl.push(VoyageListPage);
-
+ 		this.navCtrl.push(VoyageDetailPage, {key: i, coop: this.param});
 	 }
 
  }
