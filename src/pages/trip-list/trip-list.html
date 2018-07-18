@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Liste des voiture</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="key">
+  <ion-grid class="grid-center-md grid-center-ios" >
+
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto >
+        <h2 class="title_" text-capitalise ></h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto>
+        <img src="assets/icon/number-list.png" class="logo-reservation">
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="row-center">
+      <ion-col col-11 col-sm col-auto>
+        <ion-list>
+        
+           <button ion-item *ngFor="let trip of trips">
+            <!-- <ion-avatar  item-start ><img [src]="admin.picture"></ion-avatar> -->
+            {{ trip.car }}
+            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </button>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
