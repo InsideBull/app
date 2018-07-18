@@ -4,6 +4,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { Cooperative } from '../../models/cooperative.model'
+import { CameraProvider } from '../../providers/camera/camera';
 
 
 /**
@@ -22,10 +23,13 @@ export class CooperativeManagePage {
 
 	cooperative: Cooperative = new Cooperative();
 	param: string;
+	image: any;
+	url: any;
 
   constructor(public navCtrl: NavController,
    			  public navParams: NavParams,
-   			  public cooperativeProvider: CooperativeProvider) {
+				 public cooperativeProvider: CooperativeProvider,
+				public cameraProvider: CameraProvider) {
 	
 
   	
@@ -40,34 +44,33 @@ export class CooperativeManagePage {
   	
   }
 
-  saveLogo(event){
- 		let file = event.target.files[0];
- 		this.cooperativeProvider.uploadLogo(file).then((url: string)=>{
- 		this.cooperative.logo = url;
- 		})
- 	}
-
   onSubmit() {
 
- 			// this.facebookProvider.getUser(['email','name']).then((user)=>{
- 			// 	let admin = new Administrator(user);
- 			// 	let uid = this.adminProvider.save(admin);
- 			// 	let value = this.form.value;
- 			// 	let admins = [];
- 			// 	admins.push(uid);
- 			// 	value.admins = JSON.stringify(admins);
- 				
- 			// 	let cooperative = new Cooperative(value);
- 			// 	this.cooperativeProvider.save(cooperative);
+	if(this.url){
+		this.cooperative.logo = this.url;
+	}
+	this.cooperativeProvider.save(this.cooperative, this.param);
 
- 			// 	this.navCtrl.push(CooperativeListPage);
- 			// })		
-
- 			//let cooperative = new Cooperative(this.cooperative);
- 			this.cooperativeProvider.save(this.cooperative, this.param);
-
- 			this.navCtrl.push(CooperativeDetailsPage, {'key': this.param});
+	this.navCtrl.push(CooperativeDetailsPage, {'key': this.param});
 
   }
+
+  fromGallery(){
+	this.cameraProvider.selectPhoto().then((image)=>{
+		this.image = image;
+		this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
+			this.url = url;
+		});
+	});
+}
+
+fromCamera(){
+	this.cameraProvider.takePhoto().then((image)=>{
+		this.image = image;
+		this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
+			this.url = url;
+		})
+	})
+}
 
 }
