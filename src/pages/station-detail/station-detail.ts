@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StationProvider } from '../../providers/station/station';
 import { StationManagePage } from '../station-manage/station-manage';
+import { StationListPage } from '../station-list/station-list';
 
 /**
  * Generated class for the StationDetailPage page.
@@ -22,7 +23,7 @@ export class StationDetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public stationProvider: StationProvider) {
   }
-
+ 
   ionViewDidLoad() {
     this.param = this.navParams.get('key');
     this.stationProvider.fetch(this.param).then(
@@ -33,6 +34,10 @@ export class StationDetailPage {
   }
   manageStation(){
     this.navCtrl.push(StationManagePage, {key: this.param});
+  }
+  delete(){
+    this.stationProvider.deleteStation(this.param);
+    this.navCtrl.push(StationListPage);
   }
 
 }

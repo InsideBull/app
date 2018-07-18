@@ -46,5 +46,4 @@ export class CooperativeProvider extends FirebaseProvider  {
     this.delete(i);
   }
 
-
 }

@@ -8,6 +8,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 import { Voyage } from '../../models/voyage.model';
 import { VoyageParametersPage } from '../voyage-parameters/voyage-parameters'
+import { VoyageListPage } from '../voyage-list/voyage-list';
 
 
 /**
@@ -29,6 +30,7 @@ export class VoyageDetailPage {
   startstation: Station = new Station();
   arrivalstation: Station = new Station();
   cooperative: Cooperative = new Cooperative();
+  coop: any;
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
@@ -40,6 +42,7 @@ export class VoyageDetailPage {
   ionViewDidLoad() {
 
     this.param = this.navParams.get('key');
+    this.coop = this.navParams.get('coop');
 
     this.showDetails();
 
@@ -77,6 +80,11 @@ export class VoyageDetailPage {
 
     goToParameters(){
       this.navCtrl.push(VoyageParametersPage, {key: this.param});
+    }
+
+    delete(){
+      this.voyageProvider.deleteVoyage(this.param);
+      this.navCtrl.push(VoyageListPage, {key: this.coop});
     }
 
   }

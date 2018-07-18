@@ -7,6 +7,7 @@ import { ParametersPage } from '../parameters/parameters';
 
 import { VoyageMenuPage } from '../voyage-menu/voyage-menu';
 import { CarMenuPage } from '../car-menu/car-menu';
+import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -54,6 +55,11 @@ export class CooperativeDetailsPage {
 
   goToCar(){
     this.navCtrl.push(CarMenuPage, {key: this.param});
+  }
+
+  delete(){
+    this.cooperativeProvider.deleteCooperative(this.param);
+    this.navCtrl.push(CooperativeListPage);
   }
   
 }

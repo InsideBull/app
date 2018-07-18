@@ -43,7 +43,7 @@ import { CameraProvider } from '../../providers/camera/camera';
  	}
 
  	ionViewDidLoad() {
- 		this.url = "assets/icon/bus.png"
+ 		this.url = "assets/icon/bus.png" 
  		this.key = this.navParams.get('key');
  		this.cooperativeProvider.fetch(this.key).then(
  			(data: Cooperative) => {

@@ -40,13 +40,18 @@
 						<ion-input id="name" type="text" placeholder="Nom de votre coopérative" [(ngModel)]="cooperative.name" stacked required></ion-input>
 					</ion-item>
 
-					<ion-item>
-						<ion-label no-padding no-margin>
-							<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-						</ion-label>
-
-						<ion-input id="logo" type="file" (change)="saveLogo($event)" ></ion-input>
-					</ion-item>
+					<ion-row>
+							<ion-col width-50>
+								<button ion-button color="danger" type="button" full round large (click)="fromCamera()">
+									<ion-icon name="md-camera"></ion-icon>
+								</button>
+							</ion-col>
+							<ion-col width-50>
+								<button ion-button color="secondary" type="button" full round large (click)="fromGallery()">
+									<ion-icon name="md-image"></ion-icon>
+								</button>
+							</ion-col>
+						</ion-row>
 
 				</ion-list>
 				<div >

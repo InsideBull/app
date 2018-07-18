@@ -34,6 +34,7 @@
         <ion-item>
             <ion-label>{{ cartype?.nbCols }}</ion-label>
         </ion-item>
+        <img [src]="car.image">
       </ion-list>
       <button ion-button (click)="supprimer()">Supprimer</button>
       <button ion-button (click)="editer()">Editer</button>
