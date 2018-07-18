@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
+import { CarListPage } from '../car-list/car-list';
 import { CarAddPage } from '../car-add/car-add';
 import { CarTypePage } from '../car-type/car-type'
 
@@ -37,7 +38,7 @@ import { CarTypePage } from '../car-type/car-type'
  	}
 
  	listCar(){
-
+		this.navCtrl.push(CarListPage, {key: this.key});
  	}
 
  	addCar(){

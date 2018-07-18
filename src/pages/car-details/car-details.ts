@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CarProvider } from '../../providers/car/car';
 import { Car } from '../../models/car.model';
+import { CarTypeProvider } from '../../providers/car-type/car-type';
 
 /**
  * Generated class for the CarDetailsPage page.
@@ -20,8 +21,9 @@ export class CarDetailsPage {
   key: any;
   coop: any;
   car: Car = new Car();
+  cartype: any;
 
-  constructor(private carProvider: CarProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private carProvider: CarProvider, public cartypeProvider: CarTypeProvider,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -29,10 +31,17 @@ export class CarDetailsPage {
     this.coop = this.navParams.get('coop');
 
     let customPath = `cooperative/${this.coop}/car`;
+    this.carProvider.customPath(customPath);
+
+    this.cartype = {};
     
-    this.carProvider.fetch(this.key).then((data:Car)=>{
-    	this.car = data;
-    })
+    this.carProvider.fetch(this.key).then(
+      (data: Car)=>{
+          this.cartypeProvider.fetch(data.type).then((cartype)=>{
+            this.car = data;    
+            this.cartype = cartype;     
+          });
+      });
   }
 
 }
