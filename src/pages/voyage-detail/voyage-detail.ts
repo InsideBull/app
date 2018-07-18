@@ -86,7 +86,7 @@ export class VoyageDetailPage {
     delete(){
       
       let alert = this.alertCtrl.create({
-        title: 'Alert',
+        title: 'Suppression',
         message: 'Voulez vous supprimer ce voyage ?',
         buttons: [
           {

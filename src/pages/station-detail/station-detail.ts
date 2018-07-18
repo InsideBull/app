@@ -43,8 +43,8 @@ export class StationDetailPage {
   delete(){
       
     let alert = this.alertCtrl.create({
-      title: 'Alert',
-      message: 'Voulez vous supprimer cette station ?',
+      title: 'Suppression',
+      message: 'Voulez vous supprimer la station ' + this.station.name + ' ?',
       buttons: [
         {
           text: 'annuler',

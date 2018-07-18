@@ -60,8 +60,8 @@ export class CarDetailsPage {
   delete(){
       
     let alert = this.alertCtrl.create({
-      title: 'Alert',
-      message: 'Voulez vous supprimer cette voiture ?',
+      title: 'Suppression',
+      message: 'Voulez vous supprimer la voiture N° ' + this.car.matricule + ' ?',
       buttons: [
         {
           text: 'annuler',

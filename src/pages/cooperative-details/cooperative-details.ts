@@ -64,8 +64,8 @@ export class CooperativeDetailsPage {
   delete(){
       
     let alert = this.alertCtrl.create({
-      title: 'Alert',
-      message: 'Voulez vous supprimer cette cooperative ?',
+      title: 'Suppression',
+      message: 'Voulez vous supprimer la cooperative ' + this.cooperative.name + ' ?',
       buttons: [
         {
           text: 'annuler',
