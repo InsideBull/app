@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 
@@ -22,11 +22,19 @@ import { Administrator } from '../../models/administrator.model';
 
  	key: any;
  	cooperative: Cooperative = new Cooperative();
- 	admins: any;
- 	constructor(private adminProvider: AdministratorProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams) {
+	admins: any;
+	private loading: Loading;
+
+	 constructor(private adminProvider: AdministratorProvider, 
+		private cooperativeProvider: CooperativeProvider, 
+		public navCtrl: NavController, 
+		public navParams: NavParams,
+		private loadingCtrl: LoadingController) {
  	}
 
  	ionViewDidLoad() {
+		this.loading = this.loadingCtrl.create();
+		this.loading.present();
  		this.key = this.navParams.get('key');
  		this.admins = [];
 
@@ -46,7 +54,9 @@ import { Administrator } from '../../models/administrator.model';
  					})
  				}
 
- 			});
+			 });
+	
+			 this.loading.dismiss();
 
  	}
 

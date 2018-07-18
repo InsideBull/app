@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Loading, LoadingController } from 'ionic-angular';
 import { StationProvider } from '../../providers/station/station';
 import { StationDetailPage } from '../station-detail/station-detail';
 
@@ -18,13 +18,17 @@ import { StationDetailPage } from '../station-detail/station-detail';
 export class StationListPage {
 
   stations: any;
+  private loading: Loading;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
-    public stationProvider: StationProvider) {
+    public stationProvider: StationProvider,
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
     this.stations = [];
     this.stationProvider.fetcAll().subscribe(
       (data)=>{
@@ -34,6 +38,7 @@ export class StationListPage {
         }
       }
     );
+    this.loading.dismiss();
 
   }
 
