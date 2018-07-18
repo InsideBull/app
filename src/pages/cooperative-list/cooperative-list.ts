@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
@@ -22,17 +22,21 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    cooperatives : any;
    user: any;
    coop: any;
-
-   constructor(public navCtrl: NavController, 
+   private loading: Loading;
+   constructor(
+     public navCtrl: NavController, 
      public navParams: NavParams,
      public cooperativeProvider: CooperativeProvider,
-     public facebookProvider: FacebookProvider) {
-   }
+     public facebookProvider: FacebookProvider,
+     private loadingCtrl: LoadingController
+     ){}
 
 
 
    ionViewDidLoad() {
 
+     this.loading = this.loadingCtrl.create();
+      this.loading.present();
      this.cooperatives = [];
 
      this.facebookProvider.getUser().then((user)=>{
@@ -63,7 +67,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
          }
 
-
+         this.loading.dismiss();
        });
      
    }
@@ -73,10 +77,10 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    }
 
    onClickIcon(i: string){
-    this.cooperatives.splice(i, 1);
-    this.cooperativeProvider.deleteCooperative(i);
-    this.navCtrl.push(CooperativeListPage);
+     this.cooperatives.splice(i, 1);
+     this.cooperativeProvider.deleteCooperative(i);
+     this.navCtrl.push(CooperativeListPage);
 
- }
+   }
 
  }
