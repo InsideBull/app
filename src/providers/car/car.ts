@@ -44,4 +44,8 @@ export class CarProvider extends FirebaseProvider {
     return this.upload(image);
   }
 
+  deleteCar(i: string){
+    this.delete(i);
+  }
+
 }

@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CarProvider } from '../../providers/car/car';
 import { Car } from '../../models/car.model';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
+import { CarEditPage } from '../car-edit/car-edit';
+import { CarListPage } from '../car-list/car-list';
 
 /**
  * Generated class for the CarDetailsPage page.
@@ -42,6 +44,14 @@ export class CarDetailsPage {
             this.cartype = cartype;     
           });
       });
+  }
+
+  supprimer(){
+    this.carProvider.deleteCar(this.key);
+    this.navCtrl.push(CarListPage, {key: this.coop});
+  }
+  editer(){
+    this.navCtrl.push(CarEditPage, {key: this.key, coop: this.coop});
   }
 
 }

@@ -37,12 +37,13 @@ export class CarListPage {
         for(let key in data){
           data[key].key = key;
           this.cartypeProvider.fetch(data[key].type).then((cartype)=>{
-            data[key].type = cartype;
+            data[key].cartype = cartype;
             this.cars.push(data[key]);
             
           });
         }
       });
+      console.log(this.cars);
   }
 
   goToDetail(i: string){
