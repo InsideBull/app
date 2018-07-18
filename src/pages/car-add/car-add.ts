@@ -39,7 +39,7 @@ import { CameraProvider } from '../../providers/camera/camera';
  			nbplace: [0,Validators.required],	
  			status: ['',Validators.required],	
 
- 		});
+ 		}); 
  	}
 
  	ionViewDidLoad() {
