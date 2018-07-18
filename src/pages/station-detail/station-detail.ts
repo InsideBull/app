@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { StationProvider } from '../../providers/station/station';
 import { StationManagePage } from '../station-manage/station-manage';
 import { StationListPage } from '../station-list/station-list';
@@ -21,7 +21,10 @@ export class StationDetailPage {
   param: string;
   station: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public stationProvider: StationProvider) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public stationProvider: StationProvider,
+  public alertCtrl: AlertController) {
   }
  
   ionViewDidLoad() {
@@ -35,9 +38,31 @@ export class StationDetailPage {
   manageStation(){
     this.navCtrl.push(StationManagePage, {key: this.param});
   }
+
+
   delete(){
-    this.stationProvider.deleteStation(this.param);
-    this.navCtrl.push(StationListPage);
+      
+    let alert = this.alertCtrl.create({
+      title: 'Alert',
+      message: 'Voulez vous supprimer cette station ?',
+      buttons: [
+        {
+          text: 'annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'supprimer',
+          handler: () => {
+            this.stationProvider.deleteStation(this.param);
+            this.navCtrl.push(StationListPage);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

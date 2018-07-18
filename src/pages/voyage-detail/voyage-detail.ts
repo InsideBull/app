@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';
@@ -36,7 +36,8 @@ export class VoyageDetailPage {
   	public navParams: NavParams,
   	public stationProvider: StationProvider,
 		public voyageProvider: VoyageProvider,
-		public cooperativeProvider: CooperativeProvider) {
+    public cooperativeProvider: CooperativeProvider,
+  public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -83,8 +84,28 @@ export class VoyageDetailPage {
     }
 
     delete(){
-      this.voyageProvider.deleteVoyage(this.param);
-      this.navCtrl.push(VoyageListPage, {key: this.coop});
+      
+      let alert = this.alertCtrl.create({
+        title: 'Alert',
+        message: 'Voulez vous supprimer ce voyage ?',
+        buttons: [
+          {
+            text: 'annuler',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'supprimer',
+            handler: () => {
+              this.voyageProvider.deleteVoyage(this.param);
+              this.navCtrl.push(VoyageListPage, {key: this.coop});
+            }
+          }
+        ]
+      });
+      alert.present();
     }
 
   }

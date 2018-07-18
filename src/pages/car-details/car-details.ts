@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { CarProvider } from '../../providers/car/car';
 import { Car } from '../../models/car.model';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
@@ -25,7 +25,11 @@ export class CarDetailsPage {
   car: Car = new Car();
   cartype: any;
 
-  constructor(private carProvider: CarProvider, public cartypeProvider: CarTypeProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private carProvider: CarProvider, 
+    public cartypeProvider: CarTypeProvider,
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -46,12 +50,33 @@ export class CarDetailsPage {
       });
   }
 
-  supprimer(){
-    this.carProvider.deleteCar(this.key);
-    this.navCtrl.push(CarListPage, {key: this.coop});
-  }
   editer(){
     this.navCtrl.push(CarEditPage, {key: this.key, coop: this.coop});
+  }
+
+  delete(){
+      
+    let alert = this.alertCtrl.create({
+      title: 'Alert',
+      message: 'Voulez vous supprimer cette voiture ?',
+      buttons: [
+        {
+          text: 'annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'supprimer',
+          handler: () => {
+            this.carProvider.deleteCar(this.key);
+            this.navCtrl.push(CarListPage, {key: this.coop});
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

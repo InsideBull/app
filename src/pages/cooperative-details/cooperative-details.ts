@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
@@ -28,7 +28,8 @@ export class CooperativeDetailsPage {
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams, 
-  	public cooperativeProvider: CooperativeProvider) {
+    public cooperativeProvider: CooperativeProvider,
+    public alertCtrl:AlertController) {
   }
 
   ionViewDidLoad() {
@@ -58,8 +59,28 @@ export class CooperativeDetailsPage {
   }
 
   delete(){
-    this.cooperativeProvider.deleteCooperative(this.param);
-    this.navCtrl.push(CooperativeListPage);
+      
+    let alert = this.alertCtrl.create({
+      title: 'Alert',
+      message: 'Voulez vous supprimer cette cooperative ?',
+      buttons: [
+        {
+          text: 'annuler',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'supprimer',
+          handler: () => {
+            this.cooperativeProvider.deleteCooperative(this.param);
+            this.navCtrl.push(CooperativeListPage);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
   
 }

@@ -21,7 +21,7 @@ import { StationListPage } from '../pages/station-list/station-list';
 })
 export class MyApp {
 
-  rootPage: any = CooperativeListPage;
+  rootPage: any = StationMenuPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
