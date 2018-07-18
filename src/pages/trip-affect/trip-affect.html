@@ -7,13 +7,28 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>trip-affect</ion-title>
+		<ion-title>Affectation voiture</ion-title>
 	</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding *ngIf="key">
+<ion-grid class="grid-center-md grid-center-ios" *ngIf="key">
+
+	<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 class="title_" text-capitalise ></h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<img src="assets/icon/bus.png" class="logo-reservation">
+			</ion-col>
+		</ion-row>
+
+
 	<ion-item>
 		<ion-label>Voiture</ion-label>
 		<ion-select  multiple="true" [(ngModel)]="selectedCar">
@@ -23,4 +38,5 @@
 	<div >
 		<button ion-button block class="button-and button-ios" type="onSubmit" (click)="save()" >Enregistrer</button>
 	</div>
+</ion-grid>
 </ion-content>

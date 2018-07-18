@@ -1,32 +1,67 @@
-<!--
-  Generated template for the StationDetailPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>station-detail</ion-title>
+    <ion-title>Station</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-grid class="grid-center-md grid-center-ios" >
 
-  <ion-list>
-    <ion-label>Nom du station : </ion-label>
-    <ion-item>{{ station?.name }}</ion-item>
-    <ion-label>Lieu du station : </ion-label>
-    <ion-item>{{ station?.location }}</ion-item>
-    <ion-label>Ville du station : </ion-label>
-    <ion-item>{{ station?.city }}</ion-item>
-    <ion-label>Latitude : </ion-label>
-    <ion-item>{{ station?.latitude }}</ion-item>
-    <ion-label>Longitude : </ion-label>
-    <ion-item>{{ station?.longitude }}</ion-item>
-  </ion-list>
-  <button ion-button (click)="manageStation()">Editer</button>
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto >
+        <h2 class="title_" text-capitalise >{{ station?.name }}</h2>
+      </ion-col>
+    </ion-row>
+    <ion-row class="">
+      <ion-col  col-sm col-auto>
+        <img src="assets/icon/station-car.png" class="logo-reservation">
+        
+      </ion-col>
+    </ion-row>
 
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto >
+        <h3>Details</h3>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row justify-content-center class="row-center">
+      <ion-col col-11 col-sm col-auto>
+        <ion-list>
+          
+
+          <ion-item>
+            <ion-avatar item-start><img src="assets/icon/marker.png"></ion-avatar>
+            <ion-label>
+              <p>Localisation</p><p>{{ station?.location }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-avatar item-start><img src="assets/icon/city-location.png"></ion-avatar>
+            <ion-label>
+              <p>Ville</p><p>{{ station?.city }}</p>
+            </ion-label>
+          </ion-item>
+
+          <button ion-item (click)="manageStation()">
+            <ion-avatar  item-start ><img src="assets/icon/edit.png"></ion-avatar>
+            Modifier
+            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </button>
+
+           <button ion-item >
+            <ion-avatar  item-start ><img src="assets/icon/trash.png"></ion-avatar>
+            Supprimer
+            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </button>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -54,6 +54,8 @@ import { StationManagePage } from '../pages/station-manage/station-manage';
 import { CarTypePage } from '../pages/car-type/car-type' ;
 import { CarListPage } from '../pages/car-list/car-list';
 import { CarEditPage } from '../pages/car-edit/car-edit';
+import { TripListPage } from '../pages/trip-list/trip-list'
+
 
 
 
@@ -90,7 +92,8 @@ import { CarEditPage } from '../pages/car-edit/car-edit';
   StationManagePage,
   CarTypePage,
   CarListPage,
-  CarEditPage
+  CarEditPage,
+  TripListPage
   ],
   imports: [
     BrowserModule,
@@ -130,7 +133,9 @@ import { CarEditPage } from '../pages/car-edit/car-edit';
   VoyageParametersPage,
   TripAffectPage,
   StationManagePage,
-  CarTypePage,CarListPage, CarEditPage
+  CarTypePage,CarListPage, 
+  CarEditPage,
+  TripListPage
 
   ],
 
