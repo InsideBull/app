@@ -7,6 +7,7 @@ import { Car } from '../../models/car.model';
 import { CarType } from '../../models/car-type.model';
 import { CarDetailsPage } from '../car-details/car-details';
 import { CameraProvider } from '../../providers/camera/camera';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the CarEditPage page.
@@ -37,7 +38,8 @@ import { CameraProvider } from '../../providers/camera/camera';
      public formBuilder: FormBuilder,
      public carProvider: CarProvider,
      public carTypeProvider: CarTypeProvider,
-     public cameraProvider: CameraProvider,) {
+     public cameraProvider: CameraProvider,
+    public notif: NotificationProvider) {
      this.form = formBuilder.group({
        matricule: ['',Validators.required],			
        cartype: ['',Validators.required],	
@@ -85,15 +87,18 @@ import { CameraProvider } from '../../providers/camera/camera';
    }
 
    onSubmit(){
-     let value = this.form.value;
+    let message = "Voulez vous enregistrer les modifications?"
+    let title = "Modification";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      let value = this.form.value;
      if(this.url){
        value.image = this.url;
      }
      let car = new Car(value);
-    // let customPath = `cooperative/${this.coop}/car`;
-    // this.carProvider.customPath(customPath);
     this.carProvider.save(car, this.key);
     this.navCtrl.push(CarDetailsPage, {key: this.key, coop: this.coop});
+    },()=>{});
+  
     
   }
 

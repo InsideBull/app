@@ -5,6 +5,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { Cooperative } from '../../models/cooperative.model'
 import { CameraProvider } from '../../providers/camera/camera';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 
 /**
@@ -29,7 +30,8 @@ export class CooperativeManagePage {
   constructor(public navCtrl: NavController,
    			  public navParams: NavParams,
 				 public cooperativeProvider: CooperativeProvider,
-				public cameraProvider: CameraProvider) {
+				public cameraProvider: CameraProvider,
+			public notif: NotificationProvider) {
 	
 
   	
@@ -51,14 +53,17 @@ export class CooperativeManagePage {
   }
 
   onSubmit() {
-
-	if(this.url){
-		this.cooperative.logo = this.url;
-	}
-	this.cooperativeProvider.save(this.cooperative, this.param);
-
-	this.navCtrl.push(CooperativeDetailsPage, {'key': this.param});
-
+	let message = "Voulez vous enregistrer les modifications?"
+    let title = "Modification";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+		if(this.url){
+			this.cooperative.logo = this.url;
+		}
+		this.cooperativeProvider.save(this.cooperative, this.param);
+	
+		this.navCtrl.push(CooperativeDetailsPage, {'key': this.param});
+	},()=>{});
+	
   }
 
   fromGallery(){

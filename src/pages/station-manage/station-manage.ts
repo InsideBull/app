@@ -6,6 +6,7 @@ import { Address } from '../../classes/address.class';
 import { StationDetailPage } from '../station-detail/station-detail';
 import { Station } from '../../models/station.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the StationManagePage page.
@@ -34,7 +35,8 @@ export class StationManagePage extends GoogleGeolocation{
     public stationProvider: StationProvider, 
     public alertCtrl: AlertController, 
     public platform: Platform,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    public notif: NotificationProvider) {
     super(alertCtrl, platform);
     this.form = this.formBuilder.group({
       name: ['',Validators.required],			
@@ -83,16 +85,21 @@ export class StationManagePage extends GoogleGeolocation{
 
   onSubmit(){
 
-    if(this.form.valid){
-      let value = this.form.value;
-      value.city = this.cityGoogle.location;
-      value.location = this.locationGoogle.location;
-      value.longitude = this.locationGoogle.longitude;
-      value.latitude = this.locationGoogle.latitude;
-      let station = new Station(value);
-      this.stationProvider.save(station, this.param);
-      this.navCtrl.push(StationDetailPage, {key: this.param});
-    }
+    let message = "Voulez vous enregistrer les modifications?"
+    let title = "Modification";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      if(this.form.valid){
+        let value = this.form.value;
+        value.city = this.cityGoogle.location;
+        value.location = this.locationGoogle.location;
+        value.longitude = this.locationGoogle.longitude;
+        value.latitude = this.locationGoogle.latitude;
+        let station = new Station(value);
+        this.stationProvider.save(station, this.param);
+        this.navCtrl.push(StationDetailPage, {key: this.param});
+      }
+    },()=>{});
+ 
       
   }
 
