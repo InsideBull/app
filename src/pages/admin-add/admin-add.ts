@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FacebookProvider } from '../../providers/facebook/facebook';
 import { Administrator } from '../../models/administrator.model'
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 
 /**
@@ -25,7 +26,13 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
    key: any;
    cooperative: Cooperative = new Cooperative();
 
-   constructor(private adminProvider: AdministratorProvider, private alertCtrl: AlertController, private cooperativeProvider: CooperativeProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
+   constructor(private adminProvider: AdministratorProvider, 
+    private cooperativeProvider: 
+    CooperativeProvider, 
+    private facebookProvider: FacebookProvider, 
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public notificationProvider: NotificationProvider) {
    }
 
    ionViewDidLoad() {
@@ -48,27 +55,12 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
    }
 
    addToAdmins(uid, uname){
-
-     let alert = this.alertCtrl.create({
-       title: 'Administrateur',
-       message: 'Voulez vous ajouter ' + uname + ' comme administateur de ' + this.cooperative.name + ' ?',
-       buttons: [
-       {
-         text: 'annuler',
-         role: 'cancel',
-         handler: () => {
-           console.log('Cancel clicked');
-         }
-       },
-       {
-         text: 'Ajouter',
-         handler: () => {
-           this.confirm(uid, uname);
-         }
-       }
-       ]
-     });
-     alert.present();
+     let message = 'Voulez vous ajouter ' + uname + ' comme administateur de ' + this.cooperative.name + ' ?';
+     let title = 'Administrateur';
+    this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
+      this.confirm(uid, uname);
+    },
+    (cancel)=>{});
 
    }
 
@@ -94,16 +86,10 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
      }
 
      else{
-       let alert = this.alertCtrl.create({
-         title: 'Administrateur',
-         subTitle: name + ' est déjà administrateur de ' + this.cooperative.name + ' !',
-         buttons: ['Dismiss']
-       });
-       alert.present();
-     }
-
-
-
+      let message = name + ' est déjà administrateur de ' + this.cooperative.name + ' !';
+      let title = 'Administrateur';
+      
+      this.notificationProvider.presentAlert(message, title);
    }
 
 

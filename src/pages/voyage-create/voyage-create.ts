@@ -7,6 +7,7 @@ import { Voyage } from '../../models/voyage.model';
 import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 import {CooperativeProvider } from '../../providers/cooperative/cooperative'
 import {Cooperative } from '../../models/cooperative.model'
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the VoyageCreatePage page.
@@ -33,7 +34,8 @@ import {Cooperative } from '../../models/cooperative.model'
      public voyageProvider: VoyageProvider,
      public formBuilder: FormBuilder,
      public stationProvider: StationProvider,
-     public cooperativeProvider: CooperativeProvider) {
+     public cooperativeProvider: CooperativeProvider,
+      public notif: NotificationProvider) {
 
      this.form = this.formBuilder.group({
        arrivalstation: ['',Validators.required],
@@ -71,17 +73,21 @@ import {Cooperative } from '../../models/cooperative.model'
    }
 
    onSubmit(){
-     if(this.form.valid){
+    let message = "voulez vous créer ce voyage ?";
+    let title = "Création voyage";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      if(this.form.valid){
 
-       this.form.value.cooperative = this.param;
-
-       this.voyage = new Voyage(this.form.value);
-
-       console.log(this.voyage);
-
-       let key = this.voyageProvider.save(this.voyage);
-       this.navCtrl.push(VoyageDetailPage, {key: key, coop: this.param});
-     }
+        this.form.value.cooperative = this.param;
+ 
+        this.voyage = new Voyage(this.form.value);
+ 
+        console.log(this.voyage);
+ 
+        let key = this.voyageProvider.save(this.voyage);
+        this.navCtrl.push(VoyageDetailPage, {key: key, coop: this.param});
+      }
+    },()=>{})
    }
 
 

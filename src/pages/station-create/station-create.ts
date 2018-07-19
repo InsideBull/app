@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { GoogleGeolocation } from '../../classes/google-geolocation.class';
-import { AlertController, Platform, Events, ViewController } from 'ionic-angular';
+import { Platform, Events, ViewController } from 'ionic-angular';
 import { Address } from '../../classes/address.class';
 import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the StationCreatePage page.
@@ -26,8 +27,8 @@ import { Station } from '../../models/station.model';
  	form: FormGroup;
  	city: Address;
  	location: Address;
- 	constructor(private stationProvider: StationProvider, public alertCtrl:AlertController, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
- 		super(alertCtrl,platform)
+ 	constructor(private stationProvider: StationProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
+ 		super( alertCtrl, platform);
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],			
  			city: ['',Validators.required],	
@@ -63,15 +64,19 @@ import { Station } from '../../models/station.model';
  	}
 
  	onSubmit(){
- 		if(this.form.valid){
- 			let value = this.form.value;
- 			value.city = this.city.location;
- 			value.location = this.location.location;
- 			value.longitude = this.location.longitude;
- 			value.latitude = this.location.latitude;
- 			let station = new Station(value);
- 			this.stationProvider.save(station);
- 		}
+		 let message = "voulez vous ajouter " + this.form.value.name + " station ?";
+		 let title = "Ajout";
+		this.notif.presentConfirm(message, title).then((confirm)=>{
+			if(this.form.valid){
+				let value = this.form.value;
+				value.city = this.city.location;
+				value.location = this.location.location;
+				value.longitude = this.location.longitude;
+				value.latitude = this.location.latitude;
+				let station = new Station(value);
+				this.stationProvider.save(station);
+			}
+		}, ()=>{}); 		
  	}
 
  }

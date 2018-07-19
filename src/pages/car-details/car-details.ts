@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CarProvider } from '../../providers/car/car';
 import { Car } from '../../models/car.model';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
@@ -33,11 +33,11 @@ import { NotificationProvider } from '../../providers/notification/notification'
    nbRows: number;
    nbCols: number;
 
-   constructor(private notif: NotificationProvider, private carProvider: CarProvider, 
+   constructor( private carProvider: CarProvider, 
      public cartypeProvider: CarTypeProvider,
      public navCtrl: NavController, 
      public navParams: NavParams,
-     public alertCtrl: AlertController) {
+     public notif: NotificationProvider) {
    }
 
    ionViewDidLoad() {

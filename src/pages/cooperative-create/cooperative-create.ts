@@ -10,6 +10,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { CameraProvider } from '../../providers/camera/camera';
 import { CarProvider } from '../../providers/car/car';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 
 
@@ -40,7 +41,8 @@ import { CarProvider } from '../../providers/car/car';
  		public navCtrl: NavController, 
  		public navParams: NavParams, 
  		public formBuilder: FormBuilder,
- 		public cameraProvider: CameraProvider,
+		 public cameraProvider: CameraProvider,
+		 public notif: NotificationProvider
  		) {
 
  		this.form = this.formBuilder.group({
@@ -54,25 +56,30 @@ import { CarProvider } from '../../providers/car/car';
  	}
 
  	onSubmit(){
- 		if(this.form.valid){
- 			this.facebookProvider.getUser().then((user)=>{
- 				
- 				let uid = user['id']; 
- 				let value = this.form.value;
- 				value.logo = this.url;
- 				value.status = false;
- 				
- 				this.admins.push(uid);
- 				value.admins = JSON.stringify(this.admins);
- 				
- 				let cooperative = new Cooperative(value);
-
- 				let key = this.cooperativeProvider.save(cooperative);
-
- 				this.navCtrl.push(CooperativeDetailsPage, {key:key});
- 			})		
-
- 		}
+		let message = "Voulez vous créer la cooperative" + this.form.value.name + " ?";
+		let title = "Ajout cooperative";
+		this.notif.presentConfirm(message, title).then(
+			(confirm)=>{
+				if(this.form.valid){
+					this.facebookProvider.getUser().then((user)=>{
+						
+						let uid = user['id']; 
+						let value = this.form.value;
+						value.logo = this.url;
+						value.status = false;
+						
+						this.admins.push(uid);
+						value.admins = JSON.stringify(this.admins);
+						
+						let cooperative = new Cooperative(value);
+	   
+						let key = this.cooperativeProvider.save(cooperative);
+	   
+						this.navCtrl.push(CooperativeDetailsPage, {key:key});
+					});		
+	   
+				}
+			},()=>{});	
  	}
 
 

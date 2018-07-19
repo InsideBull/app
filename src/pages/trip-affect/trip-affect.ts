@@ -5,6 +5,7 @@ import { VoyageProvider } from '../../providers/voyage/voyage';
 import { CarProvider } from '../../providers/car/car';
 import { TripProvider } from '../../providers/trip/trip';
 import { Trip } from '../../models/trip.model'
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the TripAffectPage page.
@@ -24,7 +25,7 @@ import { Trip } from '../../models/trip.model'
  	voyage: Voyage = new Voyage();
  	cars = [];
  	selectedCar = [];
- 	constructor(private tripProvider: TripProvider, private carProvider: CarProvider, private voyageProvider: VoyageProvider, public navCtrl: NavController, public navParams: NavParams) {
+ 	constructor(private tripProvider: TripProvider, private carProvider: CarProvider, private voyageProvider: VoyageProvider, public navCtrl: NavController, public navParams: NavParams, public notif: NotificationProvider) {
  	}
 
  	ionViewDidLoad() {
@@ -54,13 +55,17 @@ import { Trip } from '../../models/trip.model'
  	}
 
  	save(){
- 		
- 		let path = `trip/${this.key}/`;
- 		this.tripProvider.customPath(path);
+		 let message = "Voulez vous affecter cette voiture à ce voyage";
+		 let title = "Affection de voiture";
 
- 		for(let key in this.selectedCar){
- 			this.tripProvider.save(new Trip({car:this.selectedCar[key], voyage:this.key}));
- 		}
+		 this.notif.presentConfirm(message, title).then((confirm)=>{
+			let path = `trip/${this.key}/`;
+			this.tripProvider.customPath(path);
+
+			for(let key in this.selectedCar){
+ 				this.tripProvider.save(new Trip({car:this.selectedCar[key], voyage:this.key}));
+ 			}
+		 },()=>{});
  	}
 
  }
