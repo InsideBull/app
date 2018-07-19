@@ -22,6 +22,7 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
 
     login(redirection ?: any){
       this.loading = this.loadingCtrl.create();
+      this.loading.present();
       this.facebook.login(['user_birthday', 'email', 'user_location', 'public_profile','user_friends']).then(()=>{
         this.logged = true;
         this.loading.dismiss();
@@ -90,13 +91,13 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
 
     getUserFriends(){
       return new Promise((resolve)=>{   
-      this.loading = this.loadingCtrl.create();
-      this.loading.present(); 
+        this.loading = this.loadingCtrl.create();
+        this.loading.present(); 
         this.facebook.api('me/friends?fields=id,email,name,picture.width(720).height(720).as(picture_large)',['user_friends'])
         .then((friends)=>{
           let _friends = this.prepareFriendsProfile(friends.data);
-          resolve(_friends);
           this.loading.dismiss();
+          resolve(_friends);
 
         });
 
@@ -104,24 +105,33 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
     }
 
     protected prepareFriendsProfile(friends){
-      
-      let _friends = [];
+
+      let _friends  = [];
 
       for(let key in friends){
 
-      alert(friends[key]['id'])
+        let friend = {};
+
+        friend['id'] = friends[key]['id'];
         
-        let friend = {
-          id: friends[key]['id'],
-          email: friends[key]['email'],
-          name: friends[key]['name'],
-          picture: friends[key]['picture_large']['data']['url'],
-        };
+        friend['name'] = friends[key]['name'];
+
+        alert(friend['name']);
+
+        if (friends[key]['email']) {
+          friend['email'] = friends[key]['email'];
+        }
+
+        if (friends[key]['picture_large']['data']['url']) {
+          friend['picture'] = friends[key]['picture_large']['data']['url'];
+        }
 
         _friends.push(friend);
 
       }
+
       return _friends;
+
     }
 
 
