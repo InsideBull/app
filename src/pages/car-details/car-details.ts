@@ -122,7 +122,9 @@ import { NotificationProvider } from '../../providers/notification/notification'
      this.notif.presentConfirm(message).then((confirm)=>{
        this.carProvider.deleteCar(this.key);
        this.navCtrl.push(CarListPage, {key: this.coop});
-     })
+     },
+     (cancel)=>{}
+     )
    }
 
  }
