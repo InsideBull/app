@@ -114,13 +114,8 @@ import { User } from '../../models/user.model';
       for(let key in friends){
 
         let friend = {};
-
-        friend['id'] = friends[key]['id'];
-        
+        friend['id'] = friends[key]['id'];       
         friend['name'] = friends[key]['name'];
-
-        alert(friend['name']);
-
         if (friends[key]['email']) {
           friend['email'] = friends[key]['email'];
         }

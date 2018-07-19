@@ -26,10 +26,10 @@
       <ion-col col-11 col-sm col-auto>
         <ion-list>
         
-           <button ion-item *ngFor="let friend of myFriends" (tap)="addToAdmins(friend.id,friend.name)" >
+           <button ion-item *ngFor="let friend of myFriends" (tap)="addToAdmins(friend.id,friend.name,friend?.email)" >
             <ion-avatar  item-start ><img [src]="friend?.picture"></ion-avatar>
             {{ friend.name }} - {{friend?.email}}
-            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            <ion-icon item-end ios="ios-add" md="md-add"></ion-icon>
           </button>
 
         </ion-list>
