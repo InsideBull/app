@@ -19,6 +19,12 @@
 				<img [src]="cooperative.logo">
 			</ion-col>
 		</ion-row>
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h4 text-capitalise *ngIf="!cooperative.status">En attente de validation</h4>
+			</ion-col>
+		</ion-row>
+
 		<ion-row justify-content-center class="row-center">
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>

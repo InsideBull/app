@@ -1,6 +1,6 @@
 export class Administrator  {
 	
-	email: string;
+	email?: string;
 	name: string;
 	
 	constructor(object?: {}) {

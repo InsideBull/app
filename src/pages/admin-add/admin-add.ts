@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FacebookProvider } from '../../providers/facebook/facebook';
-
 import { Administrator } from '../../models/administrator.model'
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
+import { AdministratorProvider } from '../../providers/administrator/administrator';
 
 
 /**
@@ -25,7 +25,7 @@ import { Cooperative } from '../../models/cooperative.model';
    key: any;
    cooperative: Cooperative = new Cooperative();
 
-   constructor(private alertCtrl: AlertController, private cooperativeProvider: CooperativeProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
+   constructor(private adminProvider: AdministratorProvider, private alertCtrl: AlertController, private cooperativeProvider: CooperativeProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
    }
 
    ionViewDidLoad() {
@@ -72,23 +72,31 @@ import { Cooperative } from '../../models/cooperative.model';
 
    }
 
-   protected confirm(uid, uname){
+   protected confirm(uid: any ,name: string, email?: string){
      let admins = []
      admins = JSON.parse(this.cooperative.admins);
 
      let in_admins = admins.find( id => id == uid );
 
-     if (in_admins) {
-       // code...
+     if (!in_admins) {
        admins.push(uid);
        this.cooperative.admins = JSON.stringify(admins);
        this.cooperativeProvider.save(this.cooperative,this.key);
+
+       let admin = new Administrator({name: name});
+
+       if (email) {
+         admin.email = email
+       }
+       
+       this.adminProvider.save(admin,uid);
+
      }
 
      else{
        let alert = this.alertCtrl.create({
          title: 'Administrateur',
-         subTitle: uname + ' est déjà administrateur de ' + this.cooperative.name + ' !',
+         subTitle: name + ' est déjà administrateur de ' + this.cooperative.name + ' !',
          buttons: ['Dismiss']
        });
        alert.present();

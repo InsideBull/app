@@ -29,9 +29,9 @@ import { CarProvider } from '../../providers/car/car';
 
  	form: FormGroup;
 
-	 admins: string[] = [];
-	 url: any;
-	 image: any;
+ 	admins: string[] = [];
+ 	url: any;
+ 	image: any;
 
  	constructor(
  		private adminProvider: AdministratorProvider, 
@@ -39,9 +39,9 @@ import { CarProvider } from '../../providers/car/car';
  		private cooperativeProvider: CooperativeProvider, 
  		public navCtrl: NavController, 
  		public navParams: NavParams, 
-		 public formBuilder: FormBuilder,
-		 public cameraProvider: CameraProvider,
- 	) {
+ 		public formBuilder: FormBuilder,
+ 		public cameraProvider: CameraProvider,
+ 		) {
 
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
@@ -58,8 +58,9 @@ import { CarProvider } from '../../providers/car/car';
  			this.facebookProvider.getUser().then((user)=>{
  				
  				let uid = user['id']; 
-				 let value = this.form.value;
-				 value.logo = this.url;
+ 				let value = this.form.value;
+ 				value.logo = this.url;
+ 				value.status = false;
  				
  				this.admins.push(uid);
  				value.admins = JSON.stringify(this.admins);
@@ -74,23 +75,23 @@ import { CarProvider } from '../../providers/car/car';
  		}
  	}
 
-	 
-	 fromGallery(){
-		this.cameraProvider.selectPhoto().then((image)=>{
-			this.image = image;
-			this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
-				this.url = url;
-			})
-		})
-	}
 
-	fromCamera(){
-		this.cameraProvider.takePhoto().then((image)=>{
-			this.image = image;
-			this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
-				this.url = url;
-			})
-		})
-	}
+ 	fromGallery(){
+ 		this.cameraProvider.selectPhoto().then((image)=>{
+ 			this.image = image;
+ 			this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
+ 				this.url = url;
+ 			})
+ 		})
+ 	}
+
+ 	fromCamera(){
+ 		this.cameraProvider.takePhoto().then((image)=>{
+ 			this.image = image;
+ 			this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
+ 				this.url = url;
+ 			})
+ 		})
+ 	}
 
  }

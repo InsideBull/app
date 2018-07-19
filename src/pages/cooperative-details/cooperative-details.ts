@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController,ToastController  } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
@@ -29,7 +29,8 @@ export class CooperativeDetailsPage {
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams, 
     public cooperativeProvider: CooperativeProvider,
-    public alertCtrl:AlertController) {
+    public alertCtrl:AlertController,
+    private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
