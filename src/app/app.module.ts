@@ -55,6 +55,7 @@ import { CarTypePage } from '../pages/car-type/car-type' ;
 import { CarListPage } from '../pages/car-list/car-list';
 import { CarEditPage } from '../pages/car-edit/car-edit';
 import { TripListPage } from '../pages/trip-list/trip-list'
+import { NotificationProvider } from '../providers/notification/notification';
 
 
 
@@ -156,7 +157,9 @@ import { TripListPage } from '../pages/trip-list/trip-list'
     Camera,
     CameraProvider,
     StationProvider,
-    TripProvider
+    TripProvider,
+    AlertProvider,
+    NotificationProvider
   ]
 })
 export class AppModule {}
