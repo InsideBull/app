@@ -94,6 +94,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
 
 
-
+  }
 
  }

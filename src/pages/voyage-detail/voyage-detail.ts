@@ -81,7 +81,7 @@ export class VoyageDetailPage {
 
 
     goToParameters(){
-      this.navCtrl.push(VoyageParametersPage, {key: this.param});
+      this.navCtrl.push(VoyageParametersPage, {key: this.param, coop: this.coop});
     }
 
     delete(){

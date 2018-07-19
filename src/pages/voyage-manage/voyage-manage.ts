@@ -4,6 +4,7 @@ import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';
 import { Voyage } from '../../models/voyage.model';
+import { VoyageDetailPage } from '../voyage-detail/voyage-detail';
 
 /**
  * Generated class for the VoyageManagePage page.
@@ -28,7 +29,7 @@ export class VoyageManagePage {
   	public stationProvider: StationProvider,
   	public voyageProvider: VoyageProvider) {
   }
-
+ 
   ionViewDidLoad() {
     this.param = this.navParams.get('key');
 
@@ -48,6 +49,11 @@ export class VoyageManagePage {
 
     	});
 
-  }
+	}
+	
+	change(){
+		this.voyageProvider.save(this.voyage, this.param);
+		this.navCtrl.push(VoyageDetailPage, {key: this.param});
+	}
 
 }
