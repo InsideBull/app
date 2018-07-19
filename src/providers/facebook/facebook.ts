@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
 import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic-angular';
+import { User } from '../../models/user.model';
 
 /*
   Generated class for the FacebookProvider provider.
@@ -42,6 +43,7 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
     getUser(fields ?: any){
       return new Promise((resolve)=>{
         this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile)=>{
+                
           let _user = {
             id: profile['id'],
             email: profile['email'],
@@ -51,16 +53,17 @@ import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic
             city: profile['location'].name,
           };
 
-          let user = {}
+          let user: User;
 
           if (!fields) {
-            user = _user;
+            user = new User(_user);
           }
           else { this._check(_user, fields); }
-          
-          resolve(user);
-        })
-      })
+
+            resolve(user);
+
+        });
+      });
     }
 
     protected _check(_user: any, fields){
