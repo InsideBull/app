@@ -5,6 +5,7 @@ import { Car } from '../../models/car.model';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { CarEditPage } from '../car-edit/car-edit';
 import { CarListPage } from '../car-list/car-list';
+import { NotificationProvider } from '../../providers/notification/notification'
 
 /**
  * Generated class for the CarDetailsPage page.
@@ -32,7 +33,7 @@ import { CarListPage } from '../car-list/car-list';
    nbRows: number;
    nbCols: number;
 
-   constructor(private carProvider: CarProvider, 
+   constructor(private notif: NotificationProvider, private carProvider: CarProvider, 
      public cartypeProvider: CarTypeProvider,
      public navCtrl: NavController, 
      public navParams: NavParams,
@@ -117,28 +118,11 @@ import { CarListPage } from '../car-list/car-list';
    }
 
    delete(){
-
-     let alert = this.alertCtrl.create({
-       title: 'Suppression',
-       message: 'Voulez vous supprimer la voiture N° ' + this.car.matricule + ' ?',
-       buttons: [
-       {
-         text: 'annuler',
-         role: 'cancel',
-         handler: () => {
-           console.log('Cancel clicked');
-         }
-       },
-       {
-         text: 'supprimer',
-         handler: () => {
-           this.carProvider.deleteCar(this.key);
-           this.navCtrl.push(CarListPage, {key: this.coop});
-         }
-       }
-       ]
-     });
-     alert.present();
+     let message = 'Voulez vous supprimer la voiture N° ' + this.car.matricule + ' ?';
+     this.notif.presentConfirm(message).then((confirm)=>{
+       this.carProvider.deleteCar(this.key);
+       this.navCtrl.push(CarListPage, {key: this.coop});
+     })
    }
 
  }

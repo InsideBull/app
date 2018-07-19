@@ -158,7 +158,6 @@ import { NotificationProvider } from '../providers/notification/notification';
     CameraProvider,
     StationProvider,
     TripProvider,
-    AlertProvider,
     NotificationProvider
   ]
 })
