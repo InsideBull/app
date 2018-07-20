@@ -58,6 +58,7 @@ import { TripListPage } from '../pages/trip-list/trip-list'
 import { NotificationProvider } from '../providers/notification/notification';
 import { GoogleMapsComponent } from '../components/google-maps/google-maps'
 import { GoogleMaps } from '@ionic-native/google-maps';
+import { MapPage } from '../pages/map/map';
 
 
 @NgModule({
@@ -95,7 +96,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   CarListPage,
   CarEditPage,
   TripListPage,
-  GoogleMapsComponent
+  GoogleMapsComponent,
+  MapPage
   ],
   imports: [
     BrowserModule,
@@ -138,7 +140,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
   CarTypePage,CarListPage, 
   CarEditPage,
   TripListPage,
-  GoogleMapsComponent
+  GoogleMapsComponent,
+  MapPage
 
   ],
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, DateTime } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/station/station';
 import { Voyage } from '../../models/voyage.model';
@@ -28,6 +28,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
    voyage: Voyage;
    param : any;
    cooperative: Cooperative = new Cooperative();
+   min: any;
+   max: any;
 
    constructor(public navCtrl: NavController, 
      public navParams: NavParams,
@@ -56,8 +58,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
      this.cooperativeProvider.fetch(this.param).then(
        (data: Cooperative) => {
          this.cooperative = data;
-
-         console.log(this.cooperative);
        });
 
      this.stationProvider.fetcAll().subscribe(
@@ -68,7 +68,11 @@ import { NotificationProvider } from '../../providers/notification/notification'
          }
        });
 
-
+       this.min = this.monent().toISOString();
+       console.log(this.min);
+       let max = this.monent();
+       max.setDate(this.max.getDate()+1);
+       this.max = this.max.toISOString();
 
    }
 
@@ -88,6 +92,10 @@ import { NotificationProvider } from '../../providers/notification/notification'
         this.navCtrl.push(VoyageDetailPage, {key: key, coop: this.param});
       }
     },()=>{})
+   }
+
+   monent(){
+     return new Date();
    }
 
 
