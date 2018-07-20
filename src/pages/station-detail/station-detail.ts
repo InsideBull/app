@@ -4,6 +4,8 @@ import { StationProvider } from '../../providers/station/station';
 import { StationManagePage } from '../station-manage/station-manage';
 import { StationListPage } from '../station-list/station-list';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { Station } from '../../models/station.model';
+import { Coordinate } from '../../classes/coordinate.class'
 
 /**
  * Generated class for the StationDetailPage page.
@@ -20,7 +22,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
 export class StationDetailPage {
 
   param: string;
-  station: any;
+  station: Station = new Station();
+  position : Coordinate;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -31,8 +34,12 @@ export class StationDetailPage {
   ionViewDidLoad() {
     this.param = this.navParams.get('key');
     this.stationProvider.fetch(this.param).then(
-      (data)=>{
+      (data: Station)=>{
         this.station = data;
+        this.position = new Coordinate({
+          lat: this.station.latitude,
+          lng: this.station.longitude
+        })
       }
     );
   }

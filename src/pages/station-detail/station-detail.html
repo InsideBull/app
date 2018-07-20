@@ -7,7 +7,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content *ngIf="param">
   <ion-grid class="grid-center-md grid-center-ios" >
 
     <ion-row justify-content-center class="row-top">
@@ -63,4 +63,8 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <google-maps *ngIf="position" [position]="position"></google-maps>
+
+
 </ion-content>

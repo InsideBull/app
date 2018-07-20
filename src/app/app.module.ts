@@ -56,8 +56,8 @@ import { CarListPage } from '../pages/car-list/car-list';
 import { CarEditPage } from '../pages/car-edit/car-edit';
 import { TripListPage } from '../pages/trip-list/trip-list'
 import { NotificationProvider } from '../providers/notification/notification';
-
-
+import { GoogleMapsComponent } from '../components/google-maps/google-maps'
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 
 @NgModule({
@@ -94,7 +94,8 @@ import { NotificationProvider } from '../providers/notification/notification';
   CarTypePage,
   CarListPage,
   CarEditPage,
-  TripListPage
+  TripListPage,
+  GoogleMapsComponent
   ],
   imports: [
     BrowserModule,
@@ -136,7 +137,8 @@ import { NotificationProvider } from '../providers/notification/notification';
   StationManagePage,
   CarTypePage,CarListPage, 
   CarEditPage,
-  TripListPage
+  TripListPage,
+  GoogleMapsComponent
 
   ],
 
@@ -158,7 +160,8 @@ import { NotificationProvider } from '../providers/notification/notification';
     CameraProvider,
     StationProvider,
     TripProvider,
-    NotificationProvider
+    NotificationProvider,
+    GoogleMaps
   ]
 })
 export class AppModule {}
