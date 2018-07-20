@@ -1,7 +1,7 @@
 export class Voyage {
 	arrivalstation: string;
 	cooperative?: string;
-	date: string;
+	date: Date;
 	price: string;
 	reservation?: any;
 	startstation: string;
