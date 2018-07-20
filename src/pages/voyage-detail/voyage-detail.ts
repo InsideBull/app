@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';
@@ -9,6 +9,7 @@ import { Cooperative } from '../../models/cooperative.model';
 import { Voyage } from '../../models/voyage.model';
 import { VoyageParametersPage } from '../voyage-parameters/voyage-parameters'
 import { VoyageListPage } from '../voyage-list/voyage-list';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 
 /**
@@ -37,7 +38,7 @@ export class VoyageDetailPage {
   	public stationProvider: StationProvider,
 		public voyageProvider: VoyageProvider,
     public cooperativeProvider: CooperativeProvider,
-  public alertCtrl: AlertController) {
+    public notif: NotificationProvider) {
   }
 
   ionViewDidLoad() {
@@ -80,32 +81,17 @@ export class VoyageDetailPage {
 
 
     goToParameters(){
-      this.navCtrl.push(VoyageParametersPage, {key: this.param});
+      this.navCtrl.push(VoyageParametersPage, {key: this.param, coop: this.coop});
     }
 
     delete(){
-      
-      let alert = this.alertCtrl.create({
-        title: 'Suppression',
-        message: 'Voulez vous supprimer ce voyage ?',
-        buttons: [
-          {
-            text: 'annuler',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'supprimer',
-            handler: () => {
-              this.voyageProvider.deleteVoyage(this.param);
-              this.navCtrl.push(VoyageListPage, {key: this.coop});
-            }
-          }
-        ]
-      });
-      alert.present();
+      let message : 'Voulez vous supprimer ce voyage ?'; 
+      let title = 'Suppression';
+
+      this.notif.presentConfirm(message, title).then((confirm)=>{
+        this.voyageProvider.deleteVoyage(this.param);
+        this.navCtrl.push(VoyageListPage, {key: this.coop});
+      },()=>{});
     }
 
   }

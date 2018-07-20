@@ -27,7 +27,7 @@ export class VoyageParametersPage {
   }
 
   editVoyage(){
-  	this.navCtrl.push(VoyageManagePage, {key: this.key})
+  	this.navCtrl.push(VoyageManagePage, {key: this.key, coop: this.navParams.get('coop')})
   }
 
   affectCar(){

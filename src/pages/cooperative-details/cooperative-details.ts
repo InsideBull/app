@@ -8,6 +8,7 @@ import { ParametersPage } from '../parameters/parameters';
 import { VoyageMenuPage } from '../voyage-menu/voyage-menu';
 import { CarMenuPage } from '../car-menu/car-menu';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -30,7 +31,8 @@ export class CooperativeDetailsPage {
   	public navParams: NavParams, 
     public cooperativeProvider: CooperativeProvider,
     public alertCtrl:AlertController,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    private notif: NotificationProvider) {
   }
 
   ionViewDidLoad() {
@@ -63,29 +65,13 @@ export class CooperativeDetailsPage {
   }
 
   delete(){
-      
-    let alert = this.alertCtrl.create({
-      title: 'Suppression',
-      message: 'Voulez vous supprimer la cooperative ' + this.cooperative.name + ' ?',
-      buttons: [
-        {
-          text: 'annuler',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'supprimer',
-          handler: () => {
-            this.cooperativeProvider.deleteCooperative(this.param);
-            this.navCtrl.push(CooperativeListPage);
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
+    let title = 'Suppression';
+    let message = 'Voulez vous supprimer la cooperative ' + this.cooperative.name + ' ?';
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      this.cooperativeProvider.deleteCooperative(this.param);
+      this.navCtrl.push(CooperativeListPage);
+    },()=>{})
   
 }
 
+}

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { CarType } from '../../models/car-type.model'
+import { NotificationProvider } from '../../providers/notification/notification';
 /**
  * Generated class for the CarTypePage page.
  *
@@ -26,7 +27,8 @@ import { CarType } from '../../models/car-type.model'
  	alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
  	notavailable: string[] = [];
  	selected: string[] = [];
- 	constructor(private cartypeProvider: CarTypeProvider, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+	 constructor(private cartypeProvider: CarTypeProvider, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,
+	public notif: NotificationProvider) {
  		this.form = this.formBuilder.group({
  			type: ['',Validators.required],			
  			nbRows: ['',Validators.required],			
@@ -87,21 +89,27 @@ import { CarType } from '../../models/car-type.model'
     }
 
     onSubmit(){
-    	if(this.form.value){
+		let message = "Voulez vous ajouter ce type de voiture ?";
+		let title = "Ajout type de voiture";
+		this.notif.presentConfirm(message, title).then(
+			(confirm)=>{
+				if(this.form.value){
 
-    		let value = this.form.value;
-
-    		value.nbplace = this.seats.length - this.notavailable.length;
-
-    		value.placelist = JSON.stringify(this.seats);
-
-    		value.notavailable = JSON.stringify(this.notavailable);
-
-    		let cartype = new CarType(value);
-
-    		this.cartypeProvider.save(cartype);
-
-    	}
+					let value = this.form.value;
+		
+					value.nbplace = this.seats.length - this.notavailable.length;
+		
+					value.placelist = JSON.stringify(this.seats);
+		
+					value.notavailable = JSON.stringify(this.notavailable);
+		
+					let cartype = new CarType(value);
+		
+					this.cartypeProvider.save(cartype);
+		
+				}
+			},()=>{});
+    	
     }
 
  }

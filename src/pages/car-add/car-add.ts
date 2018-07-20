@@ -8,6 +8,7 @@ import { Car } from '../../models/car.model';
 import { CarProvider } from '../../providers/car/car';
 import { CarDetailsPage } from '../car-details/car-details';
 import { CameraProvider } from '../../providers/camera/camera';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 
 /**
@@ -32,7 +33,13 @@ import { CameraProvider } from '../../providers/camera/camera';
  	nbplace: number = 0;
  	image :any;
  	url:any;
- 	constructor(private cameraProvider: CameraProvider, private carProvider: CarProvider, private cartypeProvider: CarTypeProvider, private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+	 constructor(private cameraProvider: CameraProvider, 
+		private carProvider: CarProvider, 
+		private cartypeProvider: CarTypeProvider, 
+		private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, 
+		public navParams: NavParams, 
+		public formBuilder: FormBuilder,
+		public notif: NotificationProvider) {
  		this.form = this.formBuilder.group({
  			matricule: ['',Validators.required],			
  			cartype: ['',Validators.required],	
@@ -72,15 +79,21 @@ import { CameraProvider } from '../../providers/camera/camera';
  	}
 
  	onSubmit(){
- 		let value = this.form.value;
- 		if(this.url){
- 			value.image = this.url;
- 		}
- 		let car = new Car(value);
- 		let customPath = `cooperative/${this.key}/car`;
- 		this.carProvider.customPath(customPath);
- 		let key = this.carProvider.save(car);
- 		this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
+		 let message = "Voulez vous vraimment ajouter cette voiture ?";
+		 let title = "Ajout voiture"
+		this.notif.presentConfirm(message, title).then(
+			(confirm)=>{
+				let value = this.form.value;
+				if(this.url){
+					value.image = this.url;
+				}
+				let car = new Car(value);
+				let customPath = `cooperative/${this.key}/car`;
+				this.carProvider.customPath(customPath);
+				let key = this.carProvider.save(car);
+				this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
+			},
+			()=>{});	
  		
  	}
 
