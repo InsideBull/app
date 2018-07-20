@@ -54,9 +54,9 @@ import { Administrator } from '../../models/administrator.model';
  					})
  				}
 
+				 this.loading.dismiss();
 			 });
 	
-			 this.loading.dismiss();
 
  	}
 

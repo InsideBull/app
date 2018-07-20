@@ -39,47 +39,47 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 
 		 this.voyageFilter();
 		 
-		 this.loading.dismiss();
+		 
+		}
+		
+		
+		
+		voyageFilter(){
+			this.voyages = [];
 
- 	}
+			
+			this.voyageProvider.fetcAll().subscribe((voyages)=>{
+				
+				
 
+				for(let key in voyages){
 
+					voyages[key].key = key;
 
- 	voyageFilter(){
- 		this.voyages = [];
+					let voyage = voyages[key];
 
+					if (voyage.cooperative == this.param) {
 
- 		this.voyageProvider.fetcAll().subscribe((voyages)=>{
-
-
-
- 			for(let key in voyages){
-
- 				voyages[key].key = key;
-
- 				let voyage = voyages[key];
-
- 				if (voyage.cooperative == this.param) {
-
-
+						
  					this.stationProvider.fetch(voyage.arrivalstation).then((arrival)=>{
-
+						 
  						voyage.arrivalstation = arrival;
- 					})
- 					.then(()=>{
- 						this.stationProvider.fetch(voyage.startstation).then((start)=>{
- 							voyage.startstation = start;
- 						})
- 					})
- 					.then(()=>{
- 						this.voyages.push(voyage)
- 					})
- 				}
-
- 			}
-
- 		})
-
+					})
+					.then(()=>{
+						this.stationProvider.fetch(voyage.startstation).then((start)=>{
+							voyage.startstation = start;
+						})
+					})
+					.then(()=>{
+						this.voyages.push(voyage)
+					})
+				}
+				
+			}
+			
+			this.loading.dismiss();
+		})
+		
  		console.log(this.voyages)
  	}
 

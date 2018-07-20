@@ -39,8 +39,8 @@ export class TripListPage {
     	for(let key in trips){
     		this.trips.push(trips[key]);
     	}
+      this.loading.dismiss();
     });
-    this.loading.dismiss();
 
   }
 

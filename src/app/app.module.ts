@@ -56,7 +56,7 @@ import { CarListPage } from '../pages/car-list/car-list';
 import { CarEditPage } from '../pages/car-edit/car-edit';
 import { TripListPage } from '../pages/trip-list/trip-list'
 import { NotificationProvider } from '../providers/notification/notification';
-
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 
 
@@ -158,7 +158,8 @@ import { NotificationProvider } from '../providers/notification/notification';
     CameraProvider,
     StationProvider,
     TripProvider,
-    NotificationProvider
+    NotificationProvider,
+    GoogleMaps
   ]
 })
 export class AppModule {}

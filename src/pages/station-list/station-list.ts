@@ -36,9 +36,9 @@ export class StationListPage {
           data[key].key= key;
          this.stations.push(data[key]); 
         }
+        this.loading.dismiss();
       }
     );
-    this.loading.dismiss();
 
   }
 
