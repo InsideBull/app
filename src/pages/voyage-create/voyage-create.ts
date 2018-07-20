@@ -40,7 +40,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
      this.form = this.formBuilder.group({
        arrivalstation: ['',Validators.required],
        cooperative: ['', ],
-       date: ['',Validators.required],
+       date: [Date,Validators.required],
        price: [,Validators.required],
        startstation: ['',Validators.required]
      });

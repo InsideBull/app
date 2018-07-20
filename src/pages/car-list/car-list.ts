@@ -50,8 +50,8 @@ export class CarListPage {
             
           });
         }
+        this.loading.dismiss();
       });
-    this.loading.dismiss();
   }
 
   goToDetail(i: string){

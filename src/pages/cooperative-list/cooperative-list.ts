@@ -66,11 +66,11 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
                }            
                this.cooperatives.push(cooperatives[key]);
              } 
-           }
+            }
+            
+          }
+          this.loading.dismiss();
 
-         }
-
-         this.loading.dismiss();
        });
      
    }
