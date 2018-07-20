@@ -85,14 +85,14 @@
         <variable name="APP_ID" value="566929223661781" />
         <variable name="APP_NAME" value="Taxibr" />
     </plugin>
-    <config-file parent="/resources" target="./res/values/strings.xml">
-        <string name="fb_app_id">566929223661781</string>
-        <string name="fb_app_name">Taxibr</string>
-    </config-file>
     <plugin name="cordova-plugin-qrscanner" spec="^2.6.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
+    <config-file parent="/resources" target="./res/values/strings.xml">
+        <string name="fb_app_id">566929223661781</string>
+        <string name="fb_app_name">Taxibr</string>
+    </config-file>
     <engine name="android" spec="7.0.0" />
 </widget>
