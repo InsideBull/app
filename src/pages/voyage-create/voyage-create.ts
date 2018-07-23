@@ -69,10 +69,13 @@ import { NotificationProvider } from '../../providers/notification/notification'
        });
 
        this.min = this.monent().toISOString();
-       console.log(this.min);
        let max = this.monent(); 
-       max.setDate(max.getDate()+1);
-       this.max = this.max.toISOString();
+       max.setDate(max.getDate()+365);
+       this.max = max.toISOString();
+
+      console.log(max);
+       console.log(this.max);
+
 
    }
 

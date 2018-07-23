@@ -19,7 +19,7 @@ import { Platform } from 'ionic-angular';
  	map: GoogleMap;
 
  	@Input('position') position: Coordinate;
- 	@Input('origin') origin: Coordinate;
+ 	@Input('origin') origin: Coordinate;   
  	@Input('destination') destination: Coordinate;
 
 
