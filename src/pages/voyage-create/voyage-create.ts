@@ -70,8 +70,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
        this.min = this.monent().toISOString();
        console.log(this.min);
-       let max = this.monent();
-       max.setDate(this.max.getDate()+1);
+       let max = this.monent(); 
+       max.setDate(max.getDate()+1);
        this.max = this.max.toISOString();
 
    }

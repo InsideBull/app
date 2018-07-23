@@ -11,7 +11,7 @@ import { Platform } from 'ionic-angular';
 
  @Component({
  	selector: 'google-maps',
- 	templateUrl: 'google-maps.html'
+ 	templateUrl: 'google-maps.html' 
  })
  export class GoogleMapsComponent implements OnInit {
 
@@ -30,14 +30,14 @@ import { Platform } from 'ionic-angular';
  	}
 
  	ngOnInit(){
- 		//this.initMap();
+ 		this.initMap();	
  	}
 
  	initMap(){
  		
  		//this.loadMap();
 
- 		/*if (this.position) {
+ 		if (this.position) {
  			this.addMarker(this.position);
  		}
 
@@ -45,7 +45,7 @@ import { Platform } from 'ionic-angular';
  			this.addMarker(this.origin);
  			this.addMarker(this.destination);
  			this.traceRoute();
- 		}*/
+ 		}
 
 
  	}
@@ -73,19 +73,19 @@ import { Platform } from 'ionic-angular';
  			alert('map is ready')
  		})
 
- 		let _marker: MarkerOptions = {
- 			position: {
- 					lat: -18.8862074,
- 					lng: 47.54780019999998
- 				},
- 		}
- 		this.map.addMarker(_marker)
- 		.then((marker)=>{
- 			alert('marker is added')
- 		})
+ 		// let _marker: MarkerOptions = {
+ 		// 	position: {
+ 		// 			lat: -18.8862074,
+ 		// 			lng: 47.54780019999998
+ 		// 		},
+ 		// }
+ 		// this.map.addMarker(_marker)
+ 		// .then((marker)=>{
+ 		// 	alert('marker is added')
+ 		// })
  	}
 
- 	/*addMarker(position: Coordinate){
+ 	addMarker(position: Coordinate){
 
 
 
@@ -104,6 +104,6 @@ import { Platform } from 'ionic-angular';
 
  	traceRoute(){
 
- 	}*/
+ 	}
 
  }
