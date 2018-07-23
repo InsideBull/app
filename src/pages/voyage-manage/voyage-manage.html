@@ -28,7 +28,7 @@
             </ion-row>
 
             <ion-row justify-content-center class="center-block-reservation">
-                    <ion-col col-12 col-sm col-auto >
+                    <ion-col col-12 col-sm col-auto *ngIf="param">
                             <ion-list class="list_" padding-top maring-top *ngIf="param">
 
 
@@ -42,20 +42,19 @@
                                     </ion-item>
 
                                     <ion-item class="input-cover-md input-cover-ios" >
-                                            <ion-label no-padding no-margin>
-                                                    <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                                            </ion-label>
-                                            <!-- <ion-input formControlName="cooperative" id="cooperative" type="text" placeholder="Cooperative" stacked required></ion-input> -->
-                                            <ion-label>Cooperative courante</ion-label>
-                                    </ion-item>
+                                        <ion-label no-padding no-margin>
+                                                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                                        </ion-label>
+                                        <ion-label>Nom de la cooperative : {{ cooperative?.name }}</ion-label>
+                                </ion-item>
 
 
                                     <ion-item class="input-cover-md input-cover-ios" >
-                                            <ion-label no-padding no-margin>
-                                                    <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                                            </ion-label>
-                                            <ion-input [(ngModel)]="voyage.date" id="date" type="text" placeholder="Date de départ" stacked required></ion-input>
-                                    </ion-item>
+                                        <ion-label no-padding no-margin>
+                                                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                                        </ion-label>
+                                        <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [min]="min" [max]="max" [(ngModel)]="voyage.date" id="date"></ion-datetime>
+                                </ion-item>
 
                                     <ion-item class="input-cover-md input-cover-ios" >
                                             <ion-label no-padding no-margin>
@@ -80,5 +79,7 @@
                                     class="button-and button-ios" 
                                     type="submit" (click)="change()">Modifier</button>
                             </div>
-
-<!-- </ion-content> -->
+</ion-col>
+</ion-row>
+</ion-grid>
+</ion-content>
