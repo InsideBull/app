@@ -13,7 +13,7 @@ import { Platform } from 'ionic-angular';
 
  @Component({
  	selector: 'google-maps',
- 	templateUrl: 'google-maps.html'
+ 	templateUrl: 'google-maps.html' 
  })
  export class GoogleMapsComponent implements OnInit {
 
@@ -22,18 +22,18 @@ import { Platform } from 'ionic-angular';
  	directionsService = new google.maps.DirectionsService();
 
  	@Input('position') position: Coordinate;
- 	@Input('origin') origin: Coordinate;
+ 	@Input('origin') origin: Coordinate;   
  	@Input('destination') destination: Coordinate;
 
 
  	constructor(private platform: Platform) {
  		this.platform.ready().then(()=>{
- 			this.loadMap();
+ 			this.initMap();
  		})
  	}
 
  	ngOnInit(){
- 		this.initMap();
+ 		
  	}
 
  	initMap(){
@@ -47,7 +47,7 @@ import { Platform } from 'ionic-angular';
 
  				else{
  					this.addMarker(this.origin);
- 					this.addMarker(this.destination);
+ 					this.addMarker(this.destination, 'destination');
  					this.traceRoute().then((response: any)=>{
  						this.addPolylines(response).then((target)=>{
  							this.moveCamera(target);
@@ -80,19 +80,24 @@ import { Platform } from 'ionic-angular';
  				resolve(true);
  			})
  		})
-
  		
  	}
 
- 	addMarker(position: Coordinate){
+ 	addMarker(position: Coordinate, type?:string){
 
  		let position$ = new LatLng(position.lat,position.lng);
 
+ 		let url = './assets/icon/start-marker.png';
+ 		
+ 		if (type == 'destination') {
+ 			url = './assets/icon/destination-marker.png';
+ 		}
+
  		let icon : MarkerIcon = {
- 			url: './assets/icon/marker.png',
+ 			url: url ,
  			size: {
- 				width: 47,
- 				height: 60
+ 				width: 40,
+ 				height: 40
  			}
 
  		}
@@ -166,7 +171,6 @@ import { Platform } from 'ionic-angular';
  			zoom: 18
  		})
  	}
-
 
 
  }

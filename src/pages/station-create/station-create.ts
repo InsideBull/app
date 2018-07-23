@@ -7,6 +7,7 @@ import { Address } from '../../classes/address.class';
 import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { StationDetailPage } from '../station-detail/station-detail';
 
 /**
  * Generated class for the StationCreatePage page.
@@ -74,7 +75,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
 				value.longitude = this.location.longitude;
 				value.latitude = this.location.latitude;
 				let station = new Station(value);
-				this.stationProvider.save(station);
+				let key = this.stationProvider.save(station);
+				this.navCtrl.push(StationDetailPage, {key: key});
 			}
 		}, ()=>{}); 		
  	}

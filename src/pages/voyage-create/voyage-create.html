@@ -56,7 +56,7 @@
                                             <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
                                     </ion-label>
                                     <!--<ion-input formControlName="date" id="date" type="text" placeholder="Date de départ" stacked required></ion-input>-->
-                                    <ion-datetime displayFormat="DD MMMM YYYY" min="2018" max="2019" formControlName="date" id="date"></ion-datetime>
+                                    <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [min]="min" [max]="max" formControlName="date" id="date"></ion-datetime>
                             </ion-item>
 
                             <ion-item class="input-cover-md input-cover-ios" >

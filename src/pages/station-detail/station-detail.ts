@@ -6,8 +6,9 @@ import { StationListPage } from '../station-list/station-list';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { Station } from '../../models/station.model';
 import { Coordinate } from '../../classes/coordinate.class'
+import { MapPage } from '../map/map';
 
-/**
+/** 
  * Generated class for the StationDetailPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
@@ -57,5 +58,9 @@ export class StationDetailPage {
       this.navCtrl.push(StationListPage);
     },()=>{});
 
+  }
+
+  showCarte(){
+    this.navCtrl.push(MapPage, {position: this.position});
   }
 }

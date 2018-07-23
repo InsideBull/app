@@ -96,6 +96,8 @@
     </config-file>
     <plugin name="cordova-plugin-googlemaps" spec="^2.3.8">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyDYAs15UwMEkhXAhBqRzoQET2b3aVy4JgM" />
+        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="26.1.0" />
     </plugin>
     <engine name="android" spec="7.0.0" />
 </widget>

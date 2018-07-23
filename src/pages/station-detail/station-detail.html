@@ -47,6 +47,12 @@
             </ion-label>
           </ion-item>
 
+          <button ion-item (click)="showCarte()">
+            <ion-avatar  item-start ><img src="assets/icon/map.png"></ion-avatar>
+            Voir la carte
+            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+          </button>
+
           <button ion-item (click)="manageStation()">
             <ion-avatar  item-start ><img src="assets/icon/edit.png"></ion-avatar>
             Modifier
@@ -63,8 +69,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <google-maps *ngIf="position" [position]="position"></google-maps>
-
 
 </ion-content>
