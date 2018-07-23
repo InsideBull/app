@@ -80,7 +80,6 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 			this.loading.dismiss();
 		})
 		
- 		console.log(this.voyages)
  	}
 
  	onClickItem(i: any) {

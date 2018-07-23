@@ -46,8 +46,6 @@ import { Platform } from 'ionic-angular';
  			this.addMarker(this.destination);
  			this.traceRoute();
 		 }
-		 
-		 console.log(this.origin);
 
 
  	}

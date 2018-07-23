@@ -63,7 +63,6 @@ export class VoyageDetailPage {
       lng: this.arrivalstation.longitude
     });
 
-    console.log(this.startstation);
 
     }
 

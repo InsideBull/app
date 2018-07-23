@@ -73,9 +73,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
        max.setDate(max.getDate()+365);
        this.max = max.toISOString();
 
-      console.log(max);
-       console.log(this.max);
-
 
    }
 
