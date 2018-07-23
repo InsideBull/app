@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MarkerIcon } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MarkerIcon, LatLng } from '@ionic-native/google-maps';
 import { Coordinate } from '../../classes/coordinate.class';
 import { Platform } from 'ionic-angular';
 /**
@@ -86,18 +86,28 @@ import { Platform } from 'ionic-angular';
 
  	addMarker(position: Coordinate){
 
+ 		let position$ = new LatLng(position.lat,position.lng);
+
  		let icon : MarkerIcon = {
- 			url: 'assets/icon/marker.png'
+ 			url: './assets/icon/marker.png',
+ 			size: {
+ 				width: 47,
+ 				height: 60
+ 			}
+
  		}
 
  		let _marker: MarkerOptions = {
- 			position: position,
+ 			position: {
+ 				lat: position.lat,
+ 				lng: position.lng
+ 			},
  			icon: icon
  		}
- 		
+
  		this.map.addMarker(_marker)
  		.then((marker)=>{
- 			alert('marker is added')
+ 			//
  		})
 
  	}
