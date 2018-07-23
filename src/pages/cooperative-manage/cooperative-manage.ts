@@ -53,7 +53,7 @@ export class CooperativeManagePage {
   }
 
   onSubmit() {
-	let message = "Voulez vous enregistrer les modifications?"
+	let message = "Voulez vous enregistrer les modifications de " + this.cooperative.name + " ?";
     let title = "Modification";
     this.notif.presentConfirm(message, title).then((confirm)=>{
 		if(this.url){

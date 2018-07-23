@@ -55,7 +55,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	}
 
  	save(){
-		 let message = "Voulez vous affecter cette voiture à ce voyage";
+		 let message = "Voulez vous affecter ces voiture à ce voyage";
 		 let title = "Affection de voiture";
 
 		 this.notif.presentConfirm(message, title).then((confirm)=>{

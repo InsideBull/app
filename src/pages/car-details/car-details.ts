@@ -119,7 +119,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
    delete(){
      let message = 'Voulez vous supprimer la voiture N° ' + this.car.matricule + ' ?';
-     this.notif.presentConfirm(message).then((confirm)=>{
+     let title = 'Suppression de voiture';
+     this.notif.presentConfirm(message,title).then((confirm)=>{
        this.carProvider.deleteCar(this.key);
        this.navCtrl.push(CarListPage, {key: this.coop});
      },

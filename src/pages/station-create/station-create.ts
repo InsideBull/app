@@ -64,7 +64,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	}
 
  	onSubmit(){
-		 let message = "voulez vous ajouter " + this.form.value.name + " station ?";
+		 let message = "Voulez vous ajouter la station" + this.form.value.name + " ?";
 		 let title = "Ajout";
 		this.notif.presentConfirm(message, title).then((confirm)=>{
 			if(this.form.valid){

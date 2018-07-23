@@ -73,7 +73,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
    }
 
    onSubmit(){
-    let message = "voulez vous créer ce voyage ?";
+    let message = "Voulez vous créer ce voyage ?";
     let title = "Création voyage";
     this.notif.presentConfirm(message, title).then((confirm)=>{
       if(this.form.valid){

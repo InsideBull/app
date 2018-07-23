@@ -85,7 +85,7 @@ export class StationManagePage extends GoogleGeolocation{
 
   onSubmit(){
 
-    let message = "Voulez vous enregistrer les modifications?"
+    let message = "Voulez vous enregistrer les modifications de la station " + this.station.name + " ?";
     let title = "Modification";
     this.notif.presentConfirm(message, title).then((confirm)=>{
       if(this.form.valid){

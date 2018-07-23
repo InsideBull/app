@@ -79,8 +79,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	}
 
  	onSubmit(){
-		 let message = "Voulez vous vraimment ajouter cette voiture ?";
-		 let title = "Ajout voiture"
+		 let message = "Voulez vous vraimment ajouter la voiture N° " + this.form.value.matricule + " dans " + this.cooperative.name;
+		 let title = "Ajout de voiture"
 		this.notif.presentConfirm(message, title).then(
 			(confirm)=>{
 				let value = this.form.value;

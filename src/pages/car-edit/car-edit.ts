@@ -87,7 +87,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
    }
 
    onSubmit(){
-    let message = "Voulez vous enregistrer les modifications?"
+    let message = "Voulez vous enregistrer les modifications pour la voiture N° " + this.form.value.matricule + " ?"
     let title = "Modification";
     this.notif.presentConfirm(message, title).then((confirm)=>{
       let value = this.form.value;
