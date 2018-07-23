@@ -56,7 +56,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
      this.param = this.navParams.get('key');
 
      this.cooperativeProvider.fetch(this.param).then(
-       (data: Cooperative) => {
+       (data: Cooperative) => { 
          this.cooperative = data;
        });
 
@@ -71,7 +71,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
        this.min = this.monent().toISOString();
        let max = this.monent(); 
        max.setDate(max.getDate()+365);
-       this.max = max.toISOString();
+       this.max = max.toISOString(); 
 
 
    }
@@ -90,7 +90,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
  
         let key = this.voyageProvider.save(this.voyage);
         this.navCtrl.push(VoyageDetailPage, {key: key, coop: this.param});
-      }
+      } 
     },()=>{})
    }
 

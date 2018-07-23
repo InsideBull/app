@@ -6,6 +6,8 @@ import { Station } from '../../models/station.model';
 import { Voyage } from '../../models/voyage.model';
 import { VoyageDetailPage } from '../voyage-detail/voyage-detail';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { Cooperative } from '../../models/cooperative.model';
 
 /**
  * Generated class for the VoyageManagePage page.
@@ -22,18 +24,24 @@ import { NotificationProvider } from '../../providers/notification/notification'
 export class VoyageManagePage {
 
 	param: any;
+	coop: any;
+	cooperative: Cooperative = new Cooperative();
 	voyage: Voyage = new Voyage();
 	stations: any;
+	min: any;
+	max: any;
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
   	public stationProvider: StationProvider,
 		public voyageProvider: VoyageProvider,
-		public notif: NotificationProvider) {
+		public notif: NotificationProvider,
+	public cooperativeProvider: CooperativeProvider) {
   }
  
   ionViewDidLoad() {
-    this.param = this.navParams.get('key');
+	this.param = this.navParams.get('key');
+	this.coop = this.navParams.get('coop');
 
     this.voyageProvider.fetch(this.param).then(
   		(data: Voyage) => {
@@ -49,7 +57,17 @@ export class VoyageManagePage {
   				this.stations.push(data[key]);
   			}
 
-    	});
+		});
+
+		this.cooperativeProvider.fetch(this.param).then(
+			(data: Cooperative) => { 
+			  this.cooperative = data;
+			});
+		
+		this.min = this.monent().toISOString();
+       let max = this.monent(); 
+       max.setDate(max.getDate()+365);
+       this.max = max.toISOString(); 
 
 	}
 	
@@ -58,8 +76,12 @@ export class VoyageManagePage {
     let title = "Modification";
     this.notif.presentConfirm(message, title).then((confirm)=>{
 			this.voyageProvider.save(this.voyage, this.param);
-			this.navCtrl.push(VoyageDetailPage, {key: this.param});
+			this.navCtrl.push(VoyageDetailPage, {key: this.param, coop: this.coop});
 		},()=>{});
 	}
-
+	
+ 
+	monent(){
+		return new Date();
+	  }
 }
