@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker, MarkerIcon, LatLng } from '@ionic-native/google-maps';
 import { Coordinate } from '../../classes/coordinate.class';
-import { Platform } from 'ionic-angular';
+import { Platform, LoadingController, Loading } from 'ionic-angular';
 /**
  * Generated class for the GoogleMapsComponent component.
  *
@@ -19,17 +19,20 @@ import { Platform } from 'ionic-angular';
 
  	text: string;
  	map: GoogleMap;
- 	directionsService = new google.maps.DirectionsService();
+	 directionsService = new google.maps.DirectionsService();
+	 loading: Loading;
 
  	@Input('position') position: Coordinate;
  	@Input('origin') origin: Coordinate;   
  	@Input('destination') destination: Coordinate;
 
 
- 	constructor(private platform: Platform) {
- 		this.initMap();
- 	}
-
+	 constructor(private platform: Platform,
+				public loadingCtrl: LoadingController) {
+					this.loading = loadingCtrl.create();
+					this.initMap();
+				}
+				
  	ngOnInit(){
  		
  	}
@@ -52,9 +55,10 @@ import { Platform } from 'ionic-angular';
  						});
  					})
  				}
- 			}
- 		})
-
+			}
+			this.loading.dismiss();
+		 });
+		 
  	}
 
  	loadMap(){
