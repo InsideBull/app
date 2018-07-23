@@ -42,7 +42,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
  			this.carProvider.fetcAll().subscribe((cars)=>{
 
- 				console.log(path, cars);
 
 
  				for(let key in cars){

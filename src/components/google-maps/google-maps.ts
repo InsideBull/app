@@ -27,9 +27,7 @@ import { Platform } from 'ionic-angular';
 
 
  	constructor(private platform: Platform) {
- 		this.platform.ready().then(()=>{
- 			this.initMap();
- 		})
+ 		this.initMap();
  	}
 
  	ngOnInit(){
@@ -80,7 +78,7 @@ import { Platform } from 'ionic-angular';
  				resolve(true);
  			})
  		})
- 		
+
  	}
 
  	addMarker(position: Coordinate, type?:string){
@@ -112,7 +110,7 @@ import { Platform } from 'ionic-angular';
 
  		this.map.addMarker(_marker)
  		.then((marker)=>{
- 			//
+ 			
  		})
 
  	}
@@ -155,7 +153,7 @@ import { Platform } from 'ionic-angular';
 
  			this.map.addPolyline({
  				points: polilynes,
- 				'color' : '#051a27',
+ 				'color' : '#b5ce93',
  				'width': 10,
  				'geodesic': true,
  			}).then(()=>{

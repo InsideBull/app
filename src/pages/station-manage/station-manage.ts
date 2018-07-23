@@ -51,7 +51,6 @@ export class StationManagePage extends GoogleGeolocation{
     this.stationProvider.fetch(this.param).then(
       (data)=>{
         this.station = data;
-        console.log(this.station);
       }
     );
 

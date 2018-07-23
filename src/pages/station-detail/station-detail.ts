@@ -18,7 +18,7 @@ import { MapPage } from '../map/map';
 @IonicPage()
 @Component({
   selector: 'page-station-detail',
-  templateUrl: 'station-detail.html',
+  templateUrl: 'station-detail.html', 
 })
 export class StationDetailPage {
 

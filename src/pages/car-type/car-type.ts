@@ -69,7 +69,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
     manageSeats(nbRows, nbCols){
 
-    	console.log(nbCols,nbRows);
 
     	this.rows = [];
     	let refRows = this.alpha.split('');
