@@ -24,9 +24,9 @@ import { Platform } from 'ionic-angular';
 
 
  	constructor(private platform: Platform) {
- 		this.platform.ready().then(()=>{
- 			this.loadMap();
- 		})
+ 		// this.platform.ready().then(()=>{
+ 		// 	this.loadMap();
+ 		// })
  	}
 
  	ngOnInit(){
@@ -35,7 +35,7 @@ import { Platform } from 'ionic-angular';
 
  	initMap(){
  		
- 		//this.loadMap();
+ 		this.loadMap();
 
  		if (this.position) {
  			this.addMarker(this.position);
@@ -45,7 +45,9 @@ import { Platform } from 'ionic-angular';
  			this.addMarker(this.origin);
  			this.addMarker(this.destination);
  			this.traceRoute();
- 		}
+		 }
+		 
+		 console.log(this.origin);
 
 
  	}
@@ -73,33 +75,40 @@ import { Platform } from 'ionic-angular';
  			alert('map is ready')
  		})
 
- 		// let _marker: MarkerOptions = {
- 		// 	position: {
- 		// 			lat: -18.8862074,
- 		// 			lng: 47.54780019999998
- 		// 		},
- 		// }
- 		// this.map.addMarker(_marker)
- 		// .then((marker)=>{
- 		// 	alert('marker is added')
- 		// })
+ 		let _marker: MarkerOptions = {
+ 			position: {
+ 					lat: -18.8862074,
+ 					lng: 47.54780019999998
+ 				},
+ 		}
+ 		this.map.addMarker(_marker)
+ 		.then((marker)=>{
+ 			alert('marker is added')
+ 		})
  	}
 
  	addMarker(position: Coordinate){
 
 
 
- 		let marker: Marker = this.map.addMarkerSync({
- 			title: 'Ionic',
- 			icon: 'blue',
- 			animation: 'DROP',
- 			position: position
- 		});
+ 		// let marker: Marker = this.map.addMarkerSync({
+ 		// 	title: 'Ionic',
+ 		// 	icon: 'blue',
+ 		// 	animation: 'DROP',
+ 		// 	position: position
+ 		// });
 
- 		marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
- 			alert('clicked');
- 		});
+ 		// marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+ 		// 	alert('clicked');
+ 		// });
 
+		 let _marker: MarkerOptions = {
+			position: position,
+		}
+		this.map.addMarker(_marker)
+		.then((marker)=>{
+			alert('marker is added')
+		})
  	}
 
  	traceRoute(){

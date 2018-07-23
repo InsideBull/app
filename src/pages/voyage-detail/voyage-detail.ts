@@ -10,6 +10,8 @@ import { Voyage } from '../../models/voyage.model';
 import { VoyageParametersPage } from '../voyage-parameters/voyage-parameters'
 import { VoyageListPage } from '../voyage-list/voyage-list';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { MapPage } from '../map/map';
+import { Coordinate } from '../../classes/coordinate.class';
 
 
 /**
@@ -23,7 +25,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 @Component({
   selector: 'page-voyage-detail',
   templateUrl: 'voyage-detail.html',
-})
+}) 
 export class VoyageDetailPage {
 
 	param: string;
@@ -32,6 +34,9 @@ export class VoyageDetailPage {
   arrivalstation: Station = new Station();
   cooperative: Cooperative = new Cooperative();
   coop: any;
+
+  origin: Coordinate;
+  destination: Coordinate;
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
@@ -47,6 +52,18 @@ export class VoyageDetailPage {
     this.coop = this.navParams.get('coop');
 
     this.showDetails();
+
+    this.origin = new Coordinate({
+      lat : this.startstation.latitude,
+      lng: this.startstation.longitude
+    });
+
+    this.destination = new Coordinate({
+      lat : this.arrivalstation.latitude,
+      lng: this.arrivalstation.longitude
+    });
+
+    console.log(this.startstation);
 
     }
 
@@ -92,6 +109,10 @@ export class VoyageDetailPage {
         this.voyageProvider.deleteVoyage(this.param);
         this.navCtrl.push(VoyageListPage, {key: this.coop});
       },()=>{});
+    }
+
+    showCarte(){
+      this.navCtrl.push(MapPage, {origin: this.origin, destination: this.destination});
     }
 
   }
