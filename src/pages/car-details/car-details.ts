@@ -121,6 +121,9 @@ import { NotificationProvider } from '../../providers/notification/notification'
      let message = 'Voulez vous supprimer la voiture N° ' + this.car.matricule + ' ?';
      let title = 'Suppression de voiture';
      this.notif.presentConfirm(message,title).then((confirm)=>{
+       if(this.car.image != "assets/icon/bus.png"){
+        this.carProvider.deleteImg(this.car.image);
+       }
        this.carProvider.deleteCar(this.key);
        this.navCtrl.push(CarListPage, {key: this.coop});
      },

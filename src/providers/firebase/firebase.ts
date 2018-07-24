@@ -104,6 +104,11 @@ import { IonicPage, LoadingController, Loading } from 'ionic-angular';
       this.firebase.list(this.__path).remove(i);
     }
 
+    deleteFile(url: string){
+      let storageRef = firebase.storage().refFromURL(url);
+      storageRef.delete();
+    }
+
     /*uploadImage(image: any){
       return new Promise((resolve)=>{
         let id = Math.floor(Math.random() * 1000000) + '';

@@ -45,5 +45,8 @@ export class CooperativeProvider extends FirebaseProvider  {
   deleteCooperative(i: string){
     this.delete(i);
   }
+  deleteLogo(url: string){
+    this.deleteFile(url);
+  }
 
 }
