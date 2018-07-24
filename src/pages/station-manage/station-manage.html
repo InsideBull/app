@@ -40,14 +40,14 @@
               <ion-label no-padding no-margin>
                 <ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
               </ion-label>
-              <ion-input formControlName="city" id="city" type="text" placeholder="Ville" [(ngModel)]="station.city" (change)="onChange()" stacked required></ion-input>
+              <ion-input formControlName="city" id="city" type="text" placeholder="Ville" [(ngModel)]="station.city" (tap)="onChange(1)" stacked required></ion-input>
             </ion-item>
             
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
                 <ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
               </ion-label>
-              <ion-input formControlName="location" id="location" type="text" placeholder="Emplacement" [(ngModel)]="station.location" (change)="onChange()" stacked required></ion-input>
+              <ion-input formControlName="location" id="location" type="text" placeholder="Emplacement" [(ngModel)]="station.location" (tap)="onChange(2)" stacked required></ion-input>
             </ion-item>
             
           </ion-list>

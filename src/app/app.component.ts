@@ -12,6 +12,7 @@ import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationListPage } from '../pages/station-list/station-list';
+import { StationCreatePage } from '../pages/station-create/station-create';
 
 
 

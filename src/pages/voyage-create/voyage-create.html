@@ -45,15 +45,17 @@
                             <ion-item class="input-cover-md input-cover-ios" >
                                     <ion-label no-padding no-margin>
                                             <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                                            Nom de la cooperative : {{ cooperative.name }}
                                     </ion-label>
                                     <!-- <ion-input formControlName="cooperative" id="cooperative" type="text" placeholder="Cooperative" stacked required></ion-input> -->
-                                    <ion-label>Nom de la cooperative : {{ cooperative.name }}</ion-label>
+                                    
                             </ion-item>
 
 
                             <ion-item class="input-cover-md input-cover-ios" >
                                     <ion-label no-padding no-margin>
                                             <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                                            Date de départ
                                     </ion-label>
                                     <!--<ion-input formControlName="date" id="date" type="text" placeholder="Date de départ" stacked required></ion-input>-->
                                     <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [min]="min" [max]="max" formControlName="date" id="date"></ion-datetime>
