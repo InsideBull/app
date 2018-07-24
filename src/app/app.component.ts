@@ -12,7 +12,6 @@ import { VoyageListPage } from '../pages/voyage-list/voyage-list';
 import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationListPage } from '../pages/station-list/station-list';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 
@@ -24,8 +23,7 @@ export class MyApp {
 
   rootPage: any = CooperativeListPage;
 
-  constructor(private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE)
+  constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
