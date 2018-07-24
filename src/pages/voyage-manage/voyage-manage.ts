@@ -72,7 +72,7 @@ export class VoyageManagePage {
 	}
 	
 	change(){
-		let message = "Voulez vous enregistrer les modifications ?"
+		let message = "Voulez vous enregistrer les modifications?";
     let title = "Modification";
     this.notif.presentConfirm(message, title).then((confirm)=>{
 			this.voyageProvider.save(this.voyage, this.param);
