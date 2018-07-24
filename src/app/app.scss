@@ -61,10 +61,7 @@ ion-img {
 	font-size: 2rem;
 }
 .input-cover-md, .input-cover-ios {
-	min-height: inherit;
-	height: 6rem;
-	margin-bottom: 27px;
-	font-size: 2rem !important;
+	
 }
 .content {
 	background-color: #f9cc0f !important;
@@ -184,4 +181,94 @@ page-login {
 
 ion-row {
 	text-align: center;
+}
+
+ion-app._gmaps_cdv_ .nav-decor {
+	background-color: transparent !important;
+}
+google-maps {
+	#map_canvas {
+		height: 100%;    
+		position: relative;
+		width: 100%;
+	}
+}
+#map_canvas {
+	height: 100%;    
+	position: relative;
+	width: 100%;
+}
+
+ion-item ,button.item{
+	background-color : unset !important ;
+	p {
+		font-size: 2rem !important;
+		color: black !important;
+
+	}
+	ion-avatar img {
+		border-radius: unset !important;
+		width: 28px ;
+		height: auto;
+	}
+	p:first-child {
+		text-transform: uppercase;
+	}
+	p:nth-child(2) {
+
+	}
+}
+.item-inner {
+	border-bottom: 0.55px solid black !important;
+	padding-right: unset !important ;
+	background-image: unset !important ;
+	max-height: 10px ;
+
+}
+.item-block {
+	max-height: 10px ;
+}
+.item-block{
+	border: unset!important;
+	box-shadow: unset!important ;
+}
+.item-ios.item-block .item-inner{
+	padding-right: 8px;
+	padding-right: 8px;
+	border-bottom: 0.55px solid black!important;
+}
+
+h2{
+	font-size: 8rem;
+}
+
+h3{
+	font-size: 4rem;
+}
+
+.alert-wrapper{
+	max-width: 100% !important;
+}
+
+.alert-title{
+	font-size: 5rem !important;
+	text-align: center;
+}
+
+.alert-message{
+	font-size: 3rem !important;
+}
+
+.tb-alert{
+	button {
+	text-transform: inherit !important;
+	height: 4.6rem !important;
+	font-size: 2rem !important; 
+	font-weight: 500 !important;
+	min-height: 45px !important;
+	background-color: #212121  !important;
+	color: white !important;
+	border-radius: unset  !important;
+	border-radius: 8px !important;
+	}
 }

@@ -36,7 +36,8 @@ import { Injectable } from '@angular/core';
               resolve(true)
             }
           }
-          ]
+          ],
+          cssClass: 'tb-alert'
         })
 
         this.alert.present();
