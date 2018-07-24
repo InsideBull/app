@@ -41,7 +41,7 @@ export class CarListPage {
       (data)=>{
         for(let key in data){
           data[key].key = key;
-          this.cartypeProvider.fetch(data[key].type).then((cartype)=>{
+          this.cartypeProvider.fetch(data[key].cartype).then((cartype)=>{
             data[key].cartype = cartype;
             if (!data[key].image) {
               data[key].image = "assets/icon/bus.png";

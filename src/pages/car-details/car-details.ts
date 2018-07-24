@@ -51,7 +51,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
      this.carProvider.fetch(this.key).then(
        (data: Car)=>{
-         this.cartypeProvider.fetch(data.type).then((cartype)=>{
+         this.cartypeProvider.fetch(data.cartype).then((cartype)=>{
            this.car = data;
 
 
