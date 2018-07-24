@@ -37,7 +37,7 @@ import { CarTypePage } from '../car-type/car-type'
  	}
 
  	addCarType(){
- 		this.navCtrl.push(CarTypePage);
+ 		this.navCtrl.push(CarTypePage, {key: this.key});
  	}
 
  	listCar(){

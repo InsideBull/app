@@ -56,7 +56,7 @@ export class StationManagePage extends GoogleGeolocation{
 
   }
 
-  prepareAutocompletion(){
+  prepareAutocompletionCity(){
     this.verifyGoogle().then((verified)=>{
 
       let input_city: any = this.autocomplete('#city input');
@@ -66,6 +66,12 @@ export class StationManagePage extends GoogleGeolocation{
         let place = input_city.getPlace();
         this.cityGoogle = new Address(place);
       });
+
+    });
+  }
+
+  prepareAutocompletionLocation(){
+    this.verifyGoogle().then((verified)=>{
 
       let input_location: any = this.autocomplete('#location input');
       input_location.setComponentRestrictions({'country': ['mg']});
@@ -78,8 +84,13 @@ export class StationManagePage extends GoogleGeolocation{
     });
   }
 
-  onChange(){
-    this.prepareAutocompletion();
+  onChange(i){ 
+    if(i==1){
+      this.prepareAutocompletionCity();
+    }else if(i==2){
+      this.prepareAutocompletionLocation();
+    }
+
   }
 
   onSubmit(){

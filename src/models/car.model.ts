@@ -1,7 +1,7 @@
 export class Car {
 	
 	matricule : string;
-	type : string;
+	cartype : string;
 	nbplace : number;
 	occuped ?: string;
 	status ?: string;

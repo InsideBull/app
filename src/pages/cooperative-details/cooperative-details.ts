@@ -42,7 +42,7 @@ export class CooperativeDetailsPage {
       (data: Cooperative) => {
           this.cooperative = data;
           if(!this.cooperative.logo){
-            this.cooperative.logo = "assets/icon/copyright.png"
+            this.cooperative.logo = "assets/icon/copyright.png";
           }
         });
 
@@ -68,6 +68,9 @@ export class CooperativeDetailsPage {
     let title = 'Suppression';
     let message = 'Voulez vous supprimer la cooperative ' + this.cooperative.name + ' ?';
     this.notif.presentConfirm(message, title).then((confirm)=>{
+      if(this.cooperative.logo == "assets/icon/copyright.png"){
+        this.cooperativeProvider.deleteLogo(this.cooperative.logo);
+      }
       this.cooperativeProvider.deleteCooperative(this.param);
       this.navCtrl.push(CooperativeListPage);
     },()=>{})

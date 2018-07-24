@@ -14,6 +14,7 @@ import { StationListPage } from '../pages/station-list/station-list';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { SplashPage } from '../pages/splash/splash';
 import { ModalController, MenuController } from 'ionic-angular';
+import { StationCreatePage } from '../pages/station-create/station-create';
 
 
 
@@ -28,6 +29,7 @@ export class MyApp {
   constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, ) {
     
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -43,5 +45,6 @@ export class MyApp {
       splash.present() ;
     });
   }
+  
 }
 

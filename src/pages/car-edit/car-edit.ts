@@ -69,7 +69,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
        for(let key in cartypes){
          cartypes[key].key = key;
          this.cartypes.push(cartypes[key]);
-         if(this.car.type == key){
+         if(this.car.cartype == key){
            let notavailable = JSON.parse(cartypes[key]['notavailable']);
            let nbplace = cartypes[key]['nbplace'] - Object.keys(notavailable).length;
            this.nbplace = nbplace;
