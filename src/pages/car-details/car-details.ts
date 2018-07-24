@@ -6,6 +6,7 @@ import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { CarEditPage } from '../car-edit/car-edit';
 import { CarListPage } from '../car-list/car-list';
 import { NotificationProvider } from '../../providers/notification/notification'
+import { StatusCars } from '../../models/statusCar.model';
 
 /**
  * Generated class for the CarDetailsPage page.
@@ -32,6 +33,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
    notavailable: string[] = [];
    nbRows: number;
    nbCols: number;
+   statusList = new StatusCars().statusList;
+   status: any;
 
    constructor( private carProvider: CarProvider, 
      public cartypeProvider: CarTypeProvider,
@@ -54,7 +57,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
          this.cartypeProvider.fetch(data.cartype).then((cartype)=>{
            this.car = data;
 
-
+           this.status = this.statusList.find(status => status.en == this.car.status);
 
 
            if (!this.car.image) {
@@ -68,6 +71,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
            this.showingSeats()
          });
        });
+
    }
 
 

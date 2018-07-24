@@ -8,6 +8,7 @@ import { CarType } from '../../models/car-type.model';
 import { CarDetailsPage } from '../car-details/car-details';
 import { CameraProvider } from '../../providers/camera/camera';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { StatusCars } from '../../models/statusCar.model';
 
 /**
  * Generated class for the CarEditPage page.
@@ -27,7 +28,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
    coop: string;
    cartypes: any;
    car: Car = new Car();
-   statusList = ['available', 'breakdown', 'travelling'];
+   statusList = new StatusCars().statusList;
    nbplace: number = 0;
    image :any;
    url:any;

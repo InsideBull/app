@@ -9,6 +9,7 @@ import { CarProvider } from '../../providers/car/car';
 import { CarDetailsPage } from '../car-details/car-details';
 import { CameraProvider } from '../../providers/camera/camera';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { StatusCars } from '../../models/statusCar.model';
 
 
 /**
@@ -29,8 +30,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	key:any;
  	cooperative: Cooperative = new Cooperative();
  	cartypes: any;
- 	statusList = ['available', 'breakdown', 'travelling'];
- 	nbplace: number = 0;
+	 statusList = new StatusCars().statusList;
+	 nbplace: number = 0;
  	image :any;
  	url:any;
 	 constructor(private cameraProvider: CameraProvider, 

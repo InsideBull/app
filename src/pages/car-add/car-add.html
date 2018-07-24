@@ -66,7 +66,7 @@
 								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
 							</ion-label>
 							<ion-select formControlName="status">
-								<ion-option  *ngFor="let status of statusList" [value]="status">{{status}}</ion-option>
+								<ion-option  *ngFor="let status of statusList" [value]="status.en">{{status.fr}}</ion-option>
 							</ion-select>							
 						</ion-item>
 

@@ -29,6 +29,7 @@
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
                 <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                Matricule :
               </ion-label>
               <ion-input formControlName="matricule" id="matricule" type="text" 
               placeholder="Matricule" [(ngModel)]="car.matricule"
@@ -51,6 +52,7 @@
             <ion-item class="input-cover-md input-cover-ios">
               <ion-label no-padding no-margin>
                 <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                Type : 
               </ion-label>
               <ion-select formControlName="cartype" (ionChange)="getNbplace($event)" [(ngModel)]="car.cartype">
                 <ion-option *ngFor="let cartype of cartypes" [value]="cartype.key">{{cartype.type}}</ion-option>
@@ -60,6 +62,7 @@
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
                 <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                Nombre de place : 
               </ion-label>
               <ion-input formControlName="nbplace" 
               id="nbplace" type="text" placeholder="Nombre de place"
@@ -69,10 +72,11 @@
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
                 <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+                Status
               </ion-label>
               <ion-select formControlName="status" [(ngModel)]="car.status">
                 <ion-option  *ngFor="let status of statusList" 
-                [value]="status">{{status}}</ion-option>
+                [value]="status.en">{{status.fr}}</ion-option>
               </ion-select>							
             </ion-item>
 
