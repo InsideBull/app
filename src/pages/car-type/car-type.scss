@@ -1,41 +1,38 @@
 page-car-type {
-	.title_ {
-		font-size: 2.4em;
-		// margin-top: 224px;
-	}
+	
 }
 
-	.seat {
-		padding-right: 5px;
-		font-size: 45px !important {
-			
-		};
-	}
+.seat {
+	padding-right: 5px;
+	font-size: 45px !important {
+		
+	};
+}
 
-	.legend {
-		font-size: 14px;
-	}
-	.legend > .padding-left {
-		padding-left: 15px;
-	}
-	.screen {
-		background: hsla(216, 72%, 50%, 0.65);
-		height: 3px;
-		border-radius: 15px;
-		margin: -5px 50px 10px;
-		box-shadow: 0px 3px 6px #fff;
-	}
-	.reservedSeat {
-		color: #ce4844;
-	}
-	.selectedSeat {
-		color: #5cb85c;
-	}
-	.freeSeat {
-		color: #958f8f;
-	}
+.legend {
+	font-size: 14px;
+}
+.legend > .padding-left {
+	padding-left: 15px;
+}
+.screen {
+	background: hsla(216, 72%, 50%, 0.65);
+	height: 3px;
+	border-radius: 15px;
+	margin: -5px 50px 10px;
+	box-shadow: 0px 3px 6px #fff;
+}
+.reservedSeat {
+	color: #ce4844;
+}
+.selectedSeat {
+	color: #5cb85c;
+}
+.freeSeat {
+	color: #958f8f;
+}
 
-	.notAvailable{
-		color: #fff;
-	}
+.notAvailable{
+	color: #fff;
+}
 
