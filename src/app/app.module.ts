@@ -60,6 +60,9 @@ import { GoogleMapsComponent } from '../components/google-maps/google-maps'
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { MapPage } from '../pages/map/map';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { SplashPage } from '../pages/splash/splash';
+import { ImageWidgetPage } from '../pages/image-widget/image-widget'
+
 
 
 @NgModule({
@@ -98,7 +101,9 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   CarEditPage,
   TripListPage,
   GoogleMapsComponent,
-  MapPage
+  MapPage,
+  SplashPage,
+  ImageWidgetPage
   ],
   imports: [
     BrowserModule,
@@ -142,7 +147,9 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   CarEditPage,
   TripListPage,
   GoogleMapsComponent,
-  MapPage
+  MapPage,
+  SplashPage,
+  ImageWidgetPage
 
   ],
 
