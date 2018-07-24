@@ -59,6 +59,7 @@ import { NotificationProvider } from '../providers/notification/notification';
 import { GoogleMapsComponent } from '../components/google-maps/google-maps'
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { MapPage } from '../pages/map/map';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 
 @NgModule({
@@ -164,7 +165,8 @@ import { MapPage } from '../pages/map/map';
     StationProvider,
     TripProvider,
     NotificationProvider,
-    GoogleMaps
+    GoogleMaps,
+    ScreenOrientation
   ]
 })
 export class AppModule {}

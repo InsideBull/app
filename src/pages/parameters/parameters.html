@@ -11,12 +11,18 @@
 	<ion-grid class="grid-center-md grid-center-ios" *ngIf="key">
 		<ion-row justify-content-center class="row-top">
 			<ion-col  col-sm col-auto >
-				<h2 class="title_" text-capitalise >{{ cooperative.name }}</h2>
+				<h2 text-capitalise >{{ cooperative.name }}</h2>
 			</ion-col>
 		</ion-row>
 		<ion-row class="img-profil">
 			<ion-col  col-sm col-auto>
 				<img [src]="cooperative.logo">
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h3 text-capitalise *ngIf="!cooperative.status">En attente de validation</h3>
 			</ion-col>
 		</ion-row>
 

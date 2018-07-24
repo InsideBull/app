@@ -18,13 +18,19 @@
 
 		<ion-row justify-content-center class="row-top">
 			<ion-col  col-sm col-auto >
-				<h2 class="title_" text-capitalise >{{ cooperative.name }}</h2>
+				<h2 text-capitalise >{{ cooperative.name }}</h2>
 			</ion-col>
 		</ion-row>
 
 		<ion-row class="img-profil">
 			<ion-col  col-sm col-auto>
 				<img [src]="url">
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h3 text-capitalise *ngIf="!cooperative.status">En attente de validation</h3>
 			</ion-col>
 		</ion-row>
 
@@ -41,17 +47,17 @@
 					</ion-item>
 
 					<ion-row>
-							<ion-col width-50>
-								<button ion-button color="danger" type="button" full round large (click)="fromCamera()">
-									<ion-icon name="md-camera"></ion-icon>
-								</button>
-							</ion-col>
-							<ion-col width-50>
-								<button ion-button color="secondary" type="button" full round large (click)="fromGallery()">
-									<ion-icon name="md-image"></ion-icon>
-								</button>
-							</ion-col>
-						</ion-row>
+						<ion-col width-50>
+							<button ion-button color="danger" type="button" full round large (click)="fromCamera()">
+								<ion-icon name="md-camera"></ion-icon>
+							</button>
+						</ion-col>
+						<ion-col width-50>
+							<button ion-button color="secondary" type="button" full round large (click)="fromGallery()">
+								<ion-icon name="md-image"></ion-icon>
+							</button>
+						</ion-col>
+					</ion-row>
 
 				</ion-list>
 				<div >
