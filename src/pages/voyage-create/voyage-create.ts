@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, DateTime } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VoyageProvider } from '../../providers/voyage/voyage';
 import { StationProvider } from '../../providers/station/station';
 import { Voyage } from '../../models/voyage.model';
@@ -85,8 +85,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
         this.form.value.cooperative = this.param;
  
         this.voyage = new Voyage(this.form.value);
- 
-        console.log(this.voyage);
  
         let key = this.voyageProvider.save(this.voyage);
         this.navCtrl.push(VoyageDetailPage, {key: key, coop: this.param});
