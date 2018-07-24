@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { ConnectedPage } from '../pages/connected/connected';
 import { LoginPage } from '../pages/login/login';
 import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
@@ -13,6 +12,8 @@ import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationListPage } from '../pages/station-list/station-list';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { SplashPage } from '../pages/splash/splash';
+import { ModalController, MenuController } from 'ionic-angular';
 
 
 
@@ -22,10 +23,11 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 })
 export class MyApp {
 
-  rootPage: any = CooperativeListPage;
+  rootPage: any = CooperativeCreatePage;
 
-  constructor(private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE)
+  constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, ) {
+    
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -37,7 +39,8 @@ export class MyApp {
       })
 
       statusBar.styleDefault();
-      splashScreen.hide();
+      let splash = modalCrtl.create(SplashPage) ;
+      splash.present() ;
     });
   }
 }
