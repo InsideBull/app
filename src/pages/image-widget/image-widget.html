@@ -1,19 +1,27 @@
-<ion-content padding class="widget-modal no-scroll content-modal">
+<ion-content padding class="widget-modal no-scroll">
 
-	<ion-row>
-		<button ion-item (tap)="fromCamera()">
-			<ion-avatar  item-start ><img src="assets/icon/photo-camera.png"></ion-avatar>
-			Prendre une nouvelle photo
-			<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-		</button>
-	</ion-row>
+	<ion-row justify-content-center class="row-center content-modal">
 
-	<ion-row>
-		<button ion-item (tap)="fromGallery()">
-			<ion-avatar  item-start ><img src="assets/icon/gallery.png"></ion-avatar>
-			Selectionner dans mon gallerie
-			<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-		</button>
+		<ion-col col-11 col-sm col-auto>
+
+			<ion-row>
+				<button ion-item (tap)="fromCamera()" style="margin-bottom: 2rem !important;">
+					<ion-avatar  item-start ><img src="assets/icon/photo-camera.png"></ion-avatar>
+					Nouvelle photo
+					<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+				</button>
+			</ion-row>
+
+			<ion-row>
+				<button ion-item (tap)="fromGallery()">
+					<ion-avatar  item-start ><img src="assets/icon/gallery.png"></ion-avatar>
+					Gallerie Photo
+					<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+				</button>
+			</ion-row>
+
+		</ion-col>
+
 	</ion-row>
 
 </ion-content>
