@@ -31,6 +31,7 @@ import { TripListPage } from '../trip-list/trip-list';
  	}
 
  	ionViewDidLoad() {
+		 this.cars = [];
 		this.key = this.navParams.get('key');
 		 this.coop = this.navParams.get('coop');
 
