@@ -24,7 +24,7 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 })
 export class MyApp {
 
-  rootPage: any = CooperativeListPage;
+  rootPage: any = CooperativeCreatePage;
 
   constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, ) {
     
