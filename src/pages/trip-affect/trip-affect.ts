@@ -6,6 +6,7 @@ import { CarProvider } from '../../providers/car/car';
 import { TripProvider } from '../../providers/trip/trip';
 import { Trip } from '../../models/trip.model'
 import { NotificationProvider } from '../../providers/notification/notification';
+import { TripListPage } from '../trip-list/trip-list';
 
 /**
  * Generated class for the TripAffectPage page.
@@ -21,7 +22,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
  })
  export class TripAffectPage {
 
- 	key: any;
+	 key: any;
+	 coop: any;
  	voyage: Voyage = new Voyage();
  	cars = [];
  	selectedCar = [];
@@ -29,7 +31,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	}
 
  	ionViewDidLoad() {
- 		this.key = this.navParams.get('key');
+		 this.key = this.navParams.get('key');
+		 this.coop = this.navParams.get('coop');
 
  		this.voyageProvider.fetch(this.key).then((voyage: Voyage)=>{
  			this.voyage = voyage;
@@ -37,17 +40,42 @@ import { NotificationProvider } from '../../providers/notification/notification'
  			let cooperative$ = this.voyage.cooperative;
 
  			let path = `cooperative/${cooperative$}/car`;
-
+ 
  			this.carProvider.customPath(path);
 
  			this.carProvider.fetcAll().subscribe((cars)=>{
 
+				let path = `trip/${this.key}/`;
+				this.tripProvider.customPath(path);
 
+				this.tripProvider.fetcAll().subscribe((tripCars)=>{
+					//console.log(tripCars)
+					if(tripCars){	
+						let x = 0;
+						for(let key in cars){							
 
- 				for(let key in cars){
- 					this.cars.push(cars[key]);
- 				}
- 			})
+							this.cars[key].id = x;
+							x++;
+							this.cars.push(cars[key]);
+
+							for(let i in tripCars){
+								if(this.cars[key].matricule === tripCars[i].car){
+									this.cars.splice(this.cars[key].id, 1);
+								}
+							}
+						}
+
+					}
+					else{
+						alert('ato')
+						for(let key in cars){
+							this.cars.push(cars[key]);
+						}
+					}
+					
+					//console.log(this.cars);
+				});
+ 			});
  		})
 
 
@@ -58,12 +86,13 @@ import { NotificationProvider } from '../../providers/notification/notification'
 		 let title = "Affection de voiture";
 
 		 this.notif.presentConfirm(message, title).then((confirm)=>{
-			let path = `trip/${this.key}/`;
-			this.tripProvider.customPath(path);
+			// let path = `trip/${this.key}/`;
+			// this.tripProvider.customPath(path);
 
 			for(let key in this.selectedCar){
  				this.tripProvider.save(new Trip({car:this.selectedCar[key], voyage:this.key}));
- 			}
+			 }
+			 this.navCtrl.push(TripListPage, {key: this.key, coop: this.coop});
 		 },()=>{});
  	}
 

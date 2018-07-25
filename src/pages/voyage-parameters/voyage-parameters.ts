@@ -18,12 +18,15 @@ import { TripListPage } from '../trip-list/trip-list'
 })
 export class VoyageParametersPage {
 
-  key : any;
+  key : any; 
+  coop: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     this.key = this.navParams.get('key');
+    this.coop = this.navParams.get('coop');
+
   }
 
   editVoyage(){
@@ -31,7 +34,7 @@ export class VoyageParametersPage {
   }
 
   affectCar(){
-    this.navCtrl.push(TripAffectPage, {key: this.key});
+    this.navCtrl.push(TripAffectPage, {key: this.key, coop:this.coop});
   }
 
   listCar(){
