@@ -9,16 +9,18 @@
 <ion-content >
 	<form (ngSubmit)=[onSubmit()] [formGroup]="form">
 		<ion-grid class="grid-center-md grid-center-ios">
+			
 			<ion-row justify-content-center class="row-top">
 				<ion-col col-8 col-sm col-auto  >
 
-					<button class="btn-icon-avatar" (tap)="imageWidget()">
-						<ion-avatar><img [src]="url"></ion-avatar>
+					<button class="btn-icon-avatar img-profil" (tap)="imageWidget()">
+						<ion-avatar><img [src]="url" ></ion-avatar>
 						<p>Ajouter une logo</p>
 					</button>
 
 				</ion-col>
 			</ion-row>
+
 			<ion-row justify-content-center class="center-block-reservation content-body">
 				<ion-col col-12 col-sm col-auto >
 					<ion-list class="list_" padding-top maring-top>

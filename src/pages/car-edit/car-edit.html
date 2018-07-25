@@ -15,9 +15,15 @@
           <h2 text-capitalise >{{ car?.matricule }}</h2>
         </ion-col>
       </ion-row>
-      <ion-row class="img-profil">
-        <ion-col  col-sm col-auto>
-          <img [src]="url" class="logo-reservation">        
+
+      <ion-row justify-content-center class="row-top">
+        <ion-col col-8 col-sm col-auto  >
+
+          <button class="btn-icon-avatar img-profil" (tap)="imageWidget()">
+            <ion-avatar><img [src]="url" ></ion-avatar>
+            <p>Modifier l'image</p>
+          </button>
+
         </ion-col>
       </ion-row>
 
@@ -35,19 +41,6 @@
               placeholder="Matricule" [(ngModel)]="car.matricule"
               stacked required></ion-input>
             </ion-item>
-
-            <ion-row>
-              <ion-col width-50>
-                <button ion-button color="danger" type="button" full round large (click)="fromCamera()">
-                  <ion-icon name="md-camera"></ion-icon>
-                </button>
-              </ion-col>
-              <ion-col width-50>
-                <button ion-button color="secondary" type="button" full round large (click)="fromGallery()">
-                  <ion-icon name="md-image"></ion-icon>
-                </button>
-              </ion-col>
-            </ion-row>
 
             <ion-item class="input-cover-md input-cover-ios">
               <ion-label no-padding no-margin>

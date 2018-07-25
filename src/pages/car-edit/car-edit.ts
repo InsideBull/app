@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, CardTitle } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, CardTitle, ModalController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CarProvider } from '../../providers/car/car';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
@@ -9,6 +9,7 @@ import { CarDetailsPage } from '../car-details/car-details';
 import { CameraProvider } from '../../providers/camera/camera';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { StatusCars } from '../../models/statusCar.model';
+import { ImageWidgetPage } from '../image-widget/image-widget';
 
 /**
  * Generated class for the CarEditPage page.
@@ -35,12 +36,13 @@ import { StatusCars } from '../../models/statusCar.model';
    type: any;
 
    constructor(public navCtrl: NavController, 
+     public modalCtrl: ModalController,
      public navParams: NavParams,
      public formBuilder: FormBuilder,
      public carProvider: CarProvider,
      public carTypeProvider: CarTypeProvider,
      public cameraProvider: CameraProvider,
-    public notif: NotificationProvider) {
+     public notif: NotificationProvider) {
      this.form = formBuilder.group({
        matricule: ['',Validators.required],			
        cartype: ['',Validators.required],	
@@ -88,37 +90,45 @@ import { StatusCars } from '../../models/statusCar.model';
    }
 
    onSubmit(){
-    let message = "Voulez vous enregistrer les modifications pour la voiture N° " + this.form.value.matricule + " ?"
-    let title = "Modification";
-    this.notif.presentConfirm(message, title).then((confirm)=>{
-      let value = this.form.value;
-     if(this.url){
-       value.image = this.url;
-     }
-     let car = new Car(value);
-    this.carProvider.save(car, this.key);
-    this.navCtrl.push(CarDetailsPage, {key: this.key, coop: this.coop});
-    },()=>{});
-  
-    
-  }
+     let message = "Voulez vous enregistrer les modifications pour la voiture N° " + this.form.value.matricule + " ?"
+     let title = "Modification";
+     this.notif.presentConfirm(message, title).then((confirm)=>{
+       let value = this.form.value;
+       if(this.url){
+         value.image = this.url;
+       }
+       let car = new Car(value);
+       this.carProvider.save(car, this.key);
+       this.navCtrl.push(CarDetailsPage, {key: this.key, coop: this.coop});
+     },()=>{});
 
-  fromGallery(){
-    this.cameraProvider.selectPhoto().then((image)=>{
-      this.image = image;
-      this.carProvider.uploadImage(this.image).then((url)=>{
-        this.url = url;
-      })
-    })
-  }
 
-  fromCamera(){
-    this.cameraProvider.takePhoto().then((image)=>{
-      this.image = image;
-      this.carProvider.uploadImage(this.image).then((url)=>{
-        this.url = url;
-      })
-    })
-  }
+   }
 
-}
+   fromGallery(){
+     this.cameraProvider.selectPhoto().then((image)=>{
+       this.image = image;
+       this.carProvider.uploadImage(this.image).then((url)=>{
+         this.url = url;
+       })
+     })
+   }
+
+
+   imageWidget(){
+     let modal = this.modalCtrl.create(ImageWidgetPage, null, {cssClass:'pricebreakup' });
+
+     modal.onDidDismiss(image => {
+       if (image) {
+         this.image = image;
+          this.carProvider.uploadImage(this.image).then((url)=>{
+         this.url = url;
+       })
+       }
+     })
+
+     modal.present();
+
+   }
+
+ }
