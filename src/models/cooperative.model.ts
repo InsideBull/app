@@ -4,6 +4,7 @@ export class Cooperative {
 	logo ?: string;
 	admins ?: string;
 	status: boolean;
+	desc ?: string;
 
 	constructor(object?: {}) {
 		for (var key in object) {

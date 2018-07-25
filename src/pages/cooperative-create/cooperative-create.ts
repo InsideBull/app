@@ -49,7 +49,8 @@ import { ImageWidgetPage } from '../image-widget/image-widget'
 
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
- 			logo: ''			
+			 logo: '',
+			 desc:['', Validators.required]			
  		});
  		
  	}
