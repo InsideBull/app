@@ -50,7 +50,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
  					console.log(tripCars);
 
  					if (!tripCars) {
- 						alert('ato')
  						for(let key in cars){
  							this.cars.push(cars[key]);
  						}
