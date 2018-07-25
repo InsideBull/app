@@ -45,55 +45,56 @@ import { TripListPage } from '../trip-list/trip-list';
 
  			this.carProvider.fetcAll().subscribe((cars)=>{
 
-				let path = `trip/${this.key}/`;
-				this.tripProvider.customPath(path);
+ 				let path = `trip/${this.key}`;
+ 				this.tripProvider.customPath(path);
 
-				this.tripProvider.fetcAll().subscribe((tripCars)=>{
-					//console.log(tripCars)
-					if(tripCars){	
-						let x = 0;
-						for(let key in cars){							
+ 				this.tripProvider.fetcAll().subscribe((tripCars)=>{
 
-							this.cars[key].id = x;
-							x++;
-							this.cars.push(cars[key]);
+ 					console.log(tripCars);
 
-							for(let i in tripCars){
-								if(this.cars[key].matricule === tripCars[i].car){
-									this.cars.splice(this.cars[key].id, 1);
-								}
-							}
-						}
+ 					if (!tripCars) {
+ 						for(let key in cars){
+ 							this.cars.push(cars[key]);
+ 						}
+ 					}
+ 					else{
+ 						for(let key in cars){
 
-					}
-					else{
-						alert('ato')
-						for(let key in cars){
-							this.cars.push(cars[key]);
-						}
-					}
-					
-					//console.log(this.cars);
-				});
- 			});
+ 							let exist = false
+ 							for(let _key in tripCars){
+
+ 								if (cars[key].matricule == tripCars[_key].car) {
+ 									exist = true;
+ 									break;
+ 								}
+ 							}
+
+ 							if (!exist) {
+ 								this.cars.push(cars[key])
+ 							}
+
+ 						}
+ 					}
+
+ 				})
+ 				
+ 			})
  		})
 
 
  	}
 
  	save(){
-		 let message = "Voulez vous affecter ces voiture à ce voyage";
+ 		let message = "Voulez vous affecter ces voiture à ce voyage";
 		 let title = "Affection de voiture";
-
-		 this.notif.presentConfirm(message, title).then((confirm)=>{
-			// let path = `trip/${this.key}/`;
-			// this.tripProvider.customPath(path);
-
-			for(let key in this.selectedCar){
+		 
+ 		this.notif.presentConfirm(message, title).then((confirm)=>{
+ 			let path = `trip/${this.key}/`;
+ 			this.tripProvider.customPath(path);
+ 			for(let key in this.selectedCar){
  				this.tripProvider.save(new Trip({car:this.selectedCar[key], voyage:this.key}));
-			 }
-			 this.navCtrl.push(TripListPage, {key: this.key, coop: this.coop});
-		 },()=>{});
+ 			}
+ 		},()=>{});
  	}
 
  }

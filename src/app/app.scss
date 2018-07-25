@@ -234,7 +234,7 @@ google-maps {
 
 button.btn-icon-avatar{
 	background-color: unset !important;
-	max-width: 15% !important;
+	max-width: 25% !important;
 	p{
 		font-size: 2rem !important;
 	}
@@ -291,29 +291,28 @@ h3{
 }
 
 .alert-title{
-	font-size: 5rem !important;
+	font-size: 3rem !important;
 	text-align: center;
 }
 
 .alert-message{
-	font-size: 3rem !important;
+	font-size: 2rem !important;
 }
 
 .tb-alert{
 	button {
 		text-transform: inherit !important;
-		height: 4.6rem !important;
+		height: 3.6rem !important;
 		font-size: 2rem !important; 
 		font-weight: 500 !important;
 		min-height: 45px !important;
 		background-color: #212121  !important;
 		color: white !important;
-		border-radius: unset  !important;
-		border-radius: 8px !important;
+
 	}
 }
 
-.img-profil{
+.img-profil,img.img-profil{
 	text-align: center;
 	margin: auto;
 	img {
@@ -348,4 +347,8 @@ ion-content.no-scroll {
 
 .content-modal{
 	margin-top: 6rem !important;
+}
+
+.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+   color: #696868 !important;
 }
