@@ -37,11 +37,16 @@ export class TripListPage {
 
     this.tripProvider.fetcAll().subscribe((trips)=>{
     	for(let key in trips){
+        trips[key].key = key;
     		this.trips.push(trips[key]);
     	}
       this.loading.dismiss();
     });
 
+  }
+  delete(key: string){
+    this.tripProvider.deleteTrip(key);
+    this.navCtrl.push(TripListPage, {key: this.key});
   }
 
 }
