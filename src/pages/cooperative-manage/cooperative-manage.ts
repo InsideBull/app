@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { Cooperative } from '../../models/cooperative.model'
 import { CameraProvider } from '../../providers/camera/camera';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { ImageWidgetPage } from '../image-widget/image-widget';
 
 
 /**
@@ -31,7 +32,8 @@ export class CooperativeManagePage {
    			  public navParams: NavParams,
 				 public cooperativeProvider: CooperativeProvider,
 				public cameraProvider: CameraProvider,
-			public notif: NotificationProvider) {
+			public notif: NotificationProvider,
+		public modalCtrl: ModalController) {
 	
 
   	
@@ -66,22 +68,20 @@ export class CooperativeManagePage {
 	
   }
 
-  fromGallery(){
-	this.cameraProvider.selectPhoto().then((image)=>{
-		this.image = image;
-		this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
-			this.url = url;
-		});
-	});
-}
+  imageWidget(){
+	let modal = this.modalCtrl.create(ImageWidgetPage, null, {cssClass:'pricebreakup' });
 
-fromCamera(){
-	this.cameraProvider.takePhoto().then((image)=>{
-		this.image = image;
-		this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
-			this.url = url;
-		})
+	modal.onDidDismiss(image => {
+		if (image) {
+			this.image = image;
+			this.cooperativeProvider.uploadLogo(this.image).then((url)=>{
+				this.url = url;
+			})
+		}
 	})
+
+	modal.present();
+
 }
 
 }
