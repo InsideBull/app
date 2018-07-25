@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-title>Voyage</ion-title>
-  </ion-navbar>
+</ion-navbar>
 
 </ion-header>
 
@@ -16,70 +16,63 @@
 <ion-content padding>
     <ion-grid class="grid-center-md grid-center-ios">
 
-            <ion-row justify-content-center class="row-top">
-                <ion-col  col-sm col-auto >
-                    <h2 text-capitalise >Modification</h2>
-                </ion-col>
-            </ion-row>
-            <ion-row justify-content-center class="row-top">
-                <ion-col  col-sm col-auto>
-                    <img src="assets/icon/edit.png" class="img-top">
-                </ion-col>
-            </ion-row>
+        <ion-row justify-content-center class="row-top">
+            <ion-col  col-sm col-auto >
+                <h2 text-capitalise >Modification</h2>
+            </ion-col>
+        </ion-row>
+        <ion-row justify-content-center class="row-top">
+            <ion-col  col-sm col-auto>
+                <img src="assets/icon/edit.png" class="img-top">
+            </ion-col>
+        </ion-row>
 
-            <ion-row justify-content-center class="center-block-reservation">
-                    <ion-col col-12 col-sm col-auto *ngIf="param">
-                            <ion-list class="list_" padding-top maring-top *ngIf="param">
+        <ion-row justify-content-center class="center-block-reservation">
+            <ion-col col-12 col-sm col-auto *ngIf="param">
+                <ion-list class="list_" padding-top maring-top *ngIf="param">
 
+                    <ion-item>
+                      <ion-label no-padding no-margin>
+                        <span class = "input-label">Ville de départ</span>
+                    </ion-label>
+                    <ion-select [(ngModel)]="voyage.startstation">
+                        <ion-option  *ngFor="let stat of stations" [value]="stat.key">{{stat.city}}, {{stat.location}}, {{stat.name}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-label no-padding no-margin>
+                    <span class = "input-label">Destination</span>
+                </ion-label>
+                <ion-select [(ngModel)]="voyage.arrivalstation">
+                    <ion-option  *ngFor="let station of stations" [value]="station.key">{{station.city}}, {{station.location}}, {{station.name}}</ion-option>
+                </ion-select>
+            </ion-item>
 
-                                    <ion-item>
-                                              <ion-label no-padding no-margin>
-                                                            <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>Lieu de destination
-                                                    </ion-label>
-                                              <ion-select [(ngModel)]="voyage.arrivalstation">
-                                                <ion-option  *ngFor="let station of stations" [value]="station.key">{{station.city}}, {{station.location}}, {{station.name}}</ion-option>
-                                              </ion-select>
-                                    </ion-item>
+            <ion-item class="input-cover-md input-cover-ios" >
+                <ion-label no-padding no-margin>
+                    <span class = "input-label">Date de départ</span>
+                </ion-label>
+                <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [min]="min" [max]="max" [(ngModel)]="voyage.date" id="date"></ion-datetime>
+            </ion-item>
 
-                                    <ion-item class="input-cover-md input-cover-ios" >
-                                        <ion-label no-padding no-margin>
-                                                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                                        </ion-label>
-                                        <ion-label>Nom de la cooperative : {{ cooperative?.name }}</ion-label>
-                                </ion-item>
-
-
-                                    <ion-item class="input-cover-md input-cover-ios" >
-                                        <ion-label no-padding no-margin>
-                                                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                                        </ion-label>
-                                        <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [min]="min" [max]="max" [(ngModel)]="voyage.date" id="date"></ion-datetime>
-                                </ion-item>
-
-                                    <ion-item class="input-cover-md input-cover-ios" >
-                                            <ion-label no-padding no-margin>
-                                                    <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                                            </ion-label>
-                                            <ion-input [(ngModel)]="voyage.price" id="price" type="text" placeholder="Prix du voyage" stacked required></ion-input>
-                                    </ion-item>
-
-                                    <ion-item>
-                                              <ion-label no-padding no-margin>
-                                                            <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>Lieu de départ
-                                                    </ion-label>
-                                              <ion-select [(ngModel)]="voyage.startstation">
-                                                <ion-option  *ngFor="let stat of stations" [value]="stat.key">{{stat.city}}, {{stat.location}}, {{stat.name}}</ion-option>
-                                              </ion-select>
-                                    </ion-item>
+            <ion-item class="input-cover-md input-cover-ios" >
+                <ion-label no-padding no-margin>
+                    <span class = "input-label">Prix du voyage</span>
+                </ion-label>
+                <ion-input [(ngModel)]="voyage.price" id="price" type="text" placeholder="Prix du voyage" stacked required></ion-input>
+            </ion-item>
 
 
-                            </ion-list>
-                            <div>
-                                    <button ion-button block 
-                                    class="button-and button-ios" 
-                                    type="submit" (click)="change()">Modifier</button>
-                            </div>
-</ion-col>
+
+
+        </ion-list>
+        <div>
+            <button ion-button block 
+            class="button-and button-ios" 
+            type="submit" (click)="change()">Modifier</button>
+        </div>
+    </ion-col>
 </ion-row>
 </ion-grid>
 </ion-content>

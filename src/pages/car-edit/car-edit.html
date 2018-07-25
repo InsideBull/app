@@ -34,18 +34,16 @@
 
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
-                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                Matricule :
+                <span class = "input-label">Matricule</span>
               </ion-label>
               <ion-input formControlName="matricule" id="matricule" type="text" 
-              placeholder="Matricule" [(ngModel)]="car.matricule"
+               [(ngModel)]="car.matricule"
               stacked required></ion-input>
             </ion-item>
 
             <ion-item class="input-cover-md input-cover-ios">
               <ion-label no-padding no-margin>
-                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                Type : 
+                <span class = "input-label">Modèle</span>
               </ion-label>
               <ion-select formControlName="cartype" (ionChange)="getNbplace($event)" [(ngModel)]="car.cartype">
                 <ion-option *ngFor="let cartype of cartypes" [value]="cartype.key">{{cartype.type}}</ion-option>
@@ -54,8 +52,7 @@
 
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
-                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                Nombre de place : 
+                <span class = "input-label">Nombre de place</span>
               </ion-label>
               <ion-input formControlName="nbplace" 
               id="nbplace" type="text" placeholder="Nombre de place"
@@ -64,8 +61,7 @@
 
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
-                <ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
-                Status
+                <span class = "input-label">Etat</span>
               </ion-label>
               <ion-select formControlName="status" [(ngModel)]="car.status">
                 <ion-option  *ngFor="let status of statusList" 

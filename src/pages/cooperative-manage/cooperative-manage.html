@@ -46,16 +46,16 @@
 
 					<ion-item class="input-cover-md input-cover-ios" >
 						<ion-label no-padding no-margin>
-							<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+							<span class = "input-label">Nom</span>
 						</ion-label>
-						<ion-input id="name" type="text" placeholder="Nom de votre coopérative" [(ngModel)]="cooperative.name" stacked required></ion-input>
+						<ion-input id="name" type="text" [(ngModel)]="cooperative.name" stacked required></ion-input>
 					</ion-item>
 
 					<ion-item class="input-cover-md input-cover-ios" >
 						<ion-label no-padding no-margin>
-							<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+							<span class = "input-label">Déscription</span>
 						</ion-label>
-						<ion-textarea id="desc" type="text" placeholder="Description de la coopérative" rows="50" cols="60" [(ngModel)]="cooperative.desc" stacked required></ion-textarea>
+						<ion-textarea id="desc" type="text" rows="50" cols="60" [(ngModel)]="cooperative.desc" stacked required></ion-textarea>
 					</ion-item>
 
 				</ion-list>

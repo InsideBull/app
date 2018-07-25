@@ -42,11 +42,40 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
  			this.carProvider.fetcAll().subscribe((cars)=>{
 
+ 				let path = `trip/${this.key}`;
+ 				this.tripProvider.customPath(path);
 
+ 				this.tripProvider.fetcAll().subscribe((tripCars)=>{
 
- 				for(let key in cars){
- 					this.cars.push(cars[key]);
- 				}
+ 					console.log(tripCars);
+
+ 					if (!tripCars) {
+ 						alert('ato')
+ 						for(let key in cars){
+ 							this.cars.push(cars[key]);
+ 						}
+ 					}
+ 					else{
+ 						for(let key in cars){
+
+ 							let exist = false
+ 							for(let _key in tripCars){
+
+ 								if (cars[key].matricule == tripCars[_key].car) {
+ 									exist = true;
+ 									break;
+ 								}
+ 							}
+
+ 							if (!exist) {
+ 								this.cars.push(cars[key])
+ 							}
+
+ 						}
+ 					}
+
+ 				})
+ 				
  			})
  		})
 
@@ -54,17 +83,17 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	}
 
  	save(){
-		 let message = "Voulez vous affecter ces voiture à ce voyage";
-		 let title = "Affection de voiture";
+ 		let message = "Voulez vous affecter ces voiture à ce voyage";
+ 		let title = "Affection de voiture";
 
-		 this.notif.presentConfirm(message, title).then((confirm)=>{
-			let path = `trip/${this.key}/`;
-			this.tripProvider.customPath(path);
+ 		this.notif.presentConfirm(message, title).then((confirm)=>{
+ 			let path = `trip/${this.key}/`;
+ 			this.tripProvider.customPath(path);
 
-			for(let key in this.selectedCar){
+ 			for(let key in this.selectedCar){
  				this.tripProvider.save(new Trip({car:this.selectedCar[key], voyage:this.key}));
  			}
-		 },()=>{});
+ 		},()=>{});
  	}
 
  }
