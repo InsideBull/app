@@ -51,11 +51,11 @@ import { ImageWidgetPage } from '../image-widget/image-widget'
  			name: ['',Validators.required],
  			logo: ''			
  		});
- 		this.url = "assets/imgs/bee-logo.png";
+ 		
  	}
 
  	ionViewDidLoad() {
-
+ 		this.url = "assets/icon/camera.png";
  	}
 
  	onSubmit(){

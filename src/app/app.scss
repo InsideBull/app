@@ -15,6 +15,27 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+.pricebreakup .modal-wrapper{
+	position: absolute;
+	overflow: hidden;
+	max-width: 30%;
+	width: 80vw;
+	height: 40vh !important;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	border: 0;
+	box-shadow: 0 16px 20px rgba(0,0,0,.4);
+	background-color: #fafafa !important;
+}
+
+ion-content.widget-modal{
+	background-color: #FCF9F2!important;
+}
+
+
 .toolbar-background-ios, .toolbar-background-md
 {
 	background-color: black ;
@@ -90,6 +111,8 @@ ion-img {
 		margin-right: 10px;
 	}
 }
+
+
 
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
 	border-bottom-color: #FFF !important;
@@ -175,6 +198,16 @@ page-login {
 	display: block;
 }
 
+.img-top-modal{
+	max-width: 20% !important;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 7rem;
+	height: 7rem;
+}
+
+
 .item-md{
 	font-size: 2rem;
 }
@@ -197,6 +230,14 @@ google-maps {
 	height: 100%;    
 	position: relative;
 	width: 100%;
+}
+
+button.btn-icon-avatar{
+	background-color: unset !important;
+	max-width: 15% !important;
+	p{
+		font-size: 2rem !important;
+	}
 }
 
 ion-item ,button.item{
@@ -288,24 +329,23 @@ h3{
 }
 
 .modal-wrapper {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
-.pricebreakup .modal-wrapper{
-    position: absolute;
-    overflow: hidden;
-    max-width: 40%;
-    border-radius: 10px;
-    width: 90vw;
-    height: 50vh !important;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border: 0;
-    box-shadow: 0 16px 20px rgba(0,0,0,.4);
-    background-color: #fafafa !important;
-  }
+
+h3.subtitle-with-icon{
+	font-size: 3rem !important;
+	color: #444343 !important;
+}
+
+ion-content.no-scroll {
+    scroll-content {
+        overflow-y: hidden;
+    }
+}
+
+.content-modal{
+	margin-top: 11rem !important;
+}

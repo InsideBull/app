@@ -1,15 +1,19 @@
-<ion-content padding>
+<ion-content padding class="widget-modal no-scroll content-modal">
+
 	<ion-row>
-		<button ion-button color="danger" type="button" full round large (click)="fromCamera()">
-			<ion-icon name="md-camera"></ion-icon>
-			Camera
+		<button ion-item (tap)="fromCamera()">
+			<ion-avatar  item-start ><img src="assets/icon/photo-camera.png"></ion-avatar>
+			Prendre une nouvelle photo
+			<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 		</button>
 	</ion-row>
 
 	<ion-row>
-		<button ion-button color="secondary" type="button" full round large (click)="fromGallery()">
-			<ion-icon name="md-image"></ion-icon>
-			Gallery
+		<button ion-item (tap)="fromGallery()">
+			<ion-avatar  item-start ><img src="assets/icon/gallery.png"></ion-avatar>
+			Selectionner dans mon gallerie
+			<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 		</button>
 	</ion-row>
+
 </ion-content>
