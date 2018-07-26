@@ -73,6 +73,7 @@ import { WorkersCarPage } from '../pages/workers-car/workers-car';
 import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list';
 import { WorkersCarAddPage } from '../pages/workers-car-add/workers-car-add';
 import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
+import { PhoneProvider } from '../providers/phone/phone';
 
 @NgModule({
   declarations: [
@@ -205,7 +206,8 @@ import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
     GoogleMaps,
     ScreenOrientation,
     WorkerProvider,
-    WorkerTypeProvider
+    WorkerTypeProvider,
+    PhoneProvider
   ]
 })
 export class AppModule {}

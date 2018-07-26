@@ -35,8 +35,8 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
    ionViewDidLoad() {
 
-     this.loading = this.loadingCtrl.create();
-     this.loading.present();
+     
+
      this.cooperatives = [];
 
      this.facebookProvider.getUser().then((user)=>{
@@ -46,30 +46,35 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
      this.cooperativeProvider.fetcAll().subscribe(
        (cooperatives) => {
 
+         this.loading = this.loadingCtrl.create();
+         this.loading.present();
+
          for(let key in cooperatives){
 
-           cooperatives[key].key = key;
-           
-           let cooperative = cooperatives[key];
+           cooperatives[key].key = key;           
 
-           let admins = [];
 
-           if (cooperative.admins) {
-             admins = JSON.parse(cooperative.admins);
+           if (cooperatives[key].admins) {
 
-             let in_admins = admins.find( me => me == '2186409438249498' );
+             let admins = [];
 
+             admins = JSON.parse(cooperatives[key].admins);
+
+             let in_admins = admins.find( me => me == this.user.id );
 
              if (in_admins) {  
                if (!cooperatives[key].logo) {
                  cooperatives[key].logo = "assets/icon/copyright.png"
-               }            
+               } 
+
                this.cooperatives.push(cooperatives[key]);
              } 
-            }
-            
-          }
-          this.loading.dismiss();
+
+           }
+           
+         }
+         
+         this.loading.dismissAll();
 
        });
      
