@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkerProvider } from '../../providers/worker/worker';
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
+import { Worker } from '../../models/worker.model';
+import { WorkerType } from '../../models/worker-type.model';
 import { NotificationProvider } from '../../providers/notification/notification';
-import { Worker } from '../../models/worker.model'
+
 
 /**
  * Generated class for the WorkerDetailPage page.
@@ -21,7 +24,9 @@ export class WorkerDetailPage {
   key: any;
   cooperativeKey: any;
   worker: Worker = new Worker();
-  constructor(private notificationProvider: NotificationProvider, private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+  workerType: WorkerType = new WorkerType();
+  constructor(private workerTypeProvider: WorkerTypeProvider, private notificationProvider: NotificationProvider, private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
   ionViewDidLoad() {
@@ -39,6 +44,12 @@ export class WorkerDetailPage {
       if (!this.worker.image) {
         this.worker.image = "assets/icon/man.png";
       }
+
+      this.workerTypeProvider.fetch(worker.type).then((workerType: WorkerType)=>{
+        this.workerType = workerType;
+      })
+      this.worker = worker;
+
       
   	})
     

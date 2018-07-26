@@ -21,7 +21,8 @@ export class WorkerListPage {
 
   workers: any;
   cooperativeKey: any;
-  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams,
+  public workerTypeProvider: WorkerTypeProvider) {
   }
 
   ionViewDidLoad() {
@@ -36,10 +37,14 @@ export class WorkerListPage {
 
     this.workerProvider.fetcAll().subscribe((workers)=>{
     	for(let key in workers){
-    		workers[key].key = key;
+        workers[key].key = key;
+        this.workerTypeProvider.fetch(workers[key].type).then((type)=>{
+          workers[key].type = type;
+        })
     		this.workers.push(workers[key]);
     	}
     })
+
   }
 
   showDetails(key){
