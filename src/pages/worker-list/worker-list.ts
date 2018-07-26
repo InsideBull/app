@@ -29,7 +29,7 @@ export class WorkerListPage {
 
     this.workers = [];
 
-    this.cooperativeKey = this.navParams.get('key');
+    this.cooperativeKey = this.navParams.get('cooperativeKey');
 
     let path = `cooperative/${this.cooperativeKey}/worker`;
 

@@ -28,28 +28,25 @@ import { WorkerDetailPage } from '../worker-detail/worker-detail';
 export class WorkerAddPage {
 
   form: FormGroup;
-  param: any
-  name: String;
-  matricule: String;
-  type: String;
+  cooperativeKey: any
   image :any;
  	url:any; 
   workertypes: any;
-  car: Car = new Car();
   cooperative: Cooperative = new Cooperative();
 
  	constructor(private workertypeProvider: WorkerTypeProvider,private cooperativeProvider: CooperativeProvider, private cameraProvider: CameraProvider, private workerProvider: WorkerProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],			
  			matricule: ['',Validators.required],	
- 			type: ['',Validators.required],		
+       type: ['',Validators.required],	
+       tel: [, Validators.required]	
 
  		});
  	}
 
  	ionViewDidLoad() {
-    this.param = this.navParams.get('key');
-    this.cooperativeProvider.fetch(this.param).then(
+    this.cooperativeKey = this.navParams.get('cooperativeKey');
+    this.cooperativeProvider.fetch(this.cooperativeKey).then(
       (data: Cooperative) => { 
         this.cooperative = data;
       });
@@ -76,10 +73,10 @@ export class WorkerAddPage {
          value.image = this.url;
        }
        let worker = new Worker(value);
-       let customPath = `cooperative/${this.param}/worker`;
+       let customPath = `cooperative/${this.cooperativeKey}/worker`;
        this.workerProvider.customPath(customPath);
        let key = this.workerProvider.save(worker);
-       this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.param});
+       this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.cooperativeKey});
      },
      ()=>{});	
     

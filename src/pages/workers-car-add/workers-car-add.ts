@@ -66,7 +66,6 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  					}     			
  				}
 
- 				console.log(this.workersList);
  			})
 
  		});
