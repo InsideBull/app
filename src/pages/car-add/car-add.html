@@ -64,6 +64,13 @@
 							</ion-select>							
 						</ion-item>
 
+						<ion-item>
+							<ion-label>Employés</ion-label>
+							<ion-select  multiple="true" [(ngModel)]="workers" id="workers" formControlName="workers">
+								<ion-option *ngFor="let worker of workersList" [value]="worker.key">{{worker.name}} - {{worker.type.occupation}}</ion-option>
+							</ion-select>
+						</ion-item>
+
 					</ion-list>
 					<div >
 						<button ion-button block class="button-and button-ios">Enregistrer</button>

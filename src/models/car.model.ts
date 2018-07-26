@@ -6,6 +6,7 @@ export class Car {
 	occuped ?: string;
 	status ?: string;
 	image ?: string;
+	workers ?: string;
 
 	constructor(object?: {}) {
 		for (var key in object) {
