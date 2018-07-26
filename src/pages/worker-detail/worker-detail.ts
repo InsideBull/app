@@ -5,6 +5,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { Worker } from '../../models/worker.model';
 import { WorkerType } from '../../models/worker-type.model';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { WorkerEditPage } from '../worker-edit/worker-edit';
 
 
 /**
@@ -58,8 +59,14 @@ export class WorkerDetailPage {
   delete(){
     this.notificationProvider.presentConfirm().then((confirm)=>{
       this.workerProvider.deleteWorker(this.key);
+      if(this.worker.image){
+        this.workerProvider.deleteImg(this.worker.image);
+      }
     },
     ()=>{});
+  }
+  editer(){
+    this.navCtrl.push(WorkerEditPage, {key: this.key, cooperativeKey: this.cooperativeKey});
   }
 
 }

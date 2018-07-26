@@ -69,6 +69,7 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
 import { WorkerTypePage } from '../pages/worker-type/worker-type';
 import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
+import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,8 @@ import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
   WorkerTypePage,
   SplashPage,
   ImageWidgetPage, 
-  WorkerDetailPage
+  WorkerDetailPage,
+  WorkerEditPage
   ],
   imports: [
     BrowserModule,
@@ -166,7 +168,8 @@ import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
   ImageWidgetPage,
   SplashPage,
   ImageWidgetPage,
-  WorkerDetailPage
+  WorkerDetailPage,
+  WorkerEditPage
 
   ],
 

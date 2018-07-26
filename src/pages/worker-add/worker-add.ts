@@ -29,13 +29,9 @@ export class WorkerAddPage {
 
   form: FormGroup;
   param: any
-  name: String;
-  matricule: String;
-  type: String;
   image :any;
  	url:any; 
   workertypes: any;
-  car: Car = new Car();
   cooperative: Cooperative = new Cooperative();
 
  	constructor(private workertypeProvider: WorkerTypeProvider,private cooperativeProvider: CooperativeProvider, private cameraProvider: CameraProvider, private workerProvider: WorkerProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
