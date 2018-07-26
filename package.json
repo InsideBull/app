@@ -34,16 +34,16 @@
     "angularfire2": "^5.0.0-rc.10",
     "cordova-android": "7.0.0",
     "cordova-plugin-camera": "^4.0.3",
-    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-facebook4": "^2.2.0",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-googlemaps": "^2.3.8",
-    "cordova-plugin-ionic-keyboard": "2.0.5",
-    "cordova-plugin-ionic-webview": "1.1.19",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^1.1.19",
     "cordova-plugin-qrscanner": "^2.6.0",
     "cordova-plugin-screen-orientation": "^3.0.1",
-    "cordova-plugin-splashscreen": "5.0.2",
-    "cordova-plugin-whitelist": "1.3.3",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-whitelist": "^1.3.3",
     "es6-promise-plugin": "^4.2.2",
     "firebase": "^5.0.4",
     "ionic-angular": "3.9.2",
@@ -63,7 +63,8 @@
     "plugins": {
       "cordova-plugin-facebook4": {
         "APP_ID": "566929223661781",
-        "APP_NAME": "Taxibr"
+        "APP_NAME": "Taxibr",
+        "ANDROID_SDK_VERSION": "4.+"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
@@ -76,7 +77,9 @@
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
       },
       "cordova-plugin-googlemaps": {
-        "API_KEY_FOR_ANDROID": "AIzaSyDYAs15UwMEkhXAhBqRzoQET2b3aVy4JgM"
+        "API_KEY_FOR_ANDROID": "AIzaSyDYAs15UwMEkhXAhBqRzoQET2b3aVy4JgM",
+        "PLAY_SERVICES_VERSION": "15.0.1",
+        "ANDROID_SUPPORT_V4_VERSION": "26.1.0"
       },
       "cordova-plugin-screen-orientation": {}
     },

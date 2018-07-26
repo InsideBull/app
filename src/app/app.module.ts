@@ -60,6 +60,10 @@ import { GoogleMapsComponent } from '../components/google-maps/google-maps'
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { MapPage } from '../pages/map/map';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { WorkerProvider } from '../providers/worker/worker';
+import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
+import { WorkerAddPage } from '../pages/worker-add/worker-add';
+import { WorkerListPage } from '../pages/worker-list/worker-list';
 
 
 @NgModule({
@@ -98,7 +102,10 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   CarEditPage,
   TripListPage,
   GoogleMapsComponent,
-  MapPage
+  MapPage,
+  WorkerMenuPage,
+  WorkerAddPage,
+  WorkerListPage
   ],
   imports: [
     BrowserModule,
@@ -142,8 +149,10 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   CarEditPage,
   TripListPage,
   GoogleMapsComponent,
-  MapPage
-
+  MapPage,
+  WorkerMenuPage,
+  WorkerAddPage,
+  WorkerListPage
   ],
 
   providers: [
@@ -166,7 +175,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     TripProvider,
     NotificationProvider,
     GoogleMaps,
-    ScreenOrientation
+    ScreenOrientation,
+    WorkerProvider
   ]
 })
 export class AppModule {}

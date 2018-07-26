@@ -13,6 +13,7 @@ import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationListPage } from '../pages/station-list/station-list';
 import { StationCreatePage } from '../pages/station-create/station-create';
+import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 
 
 
@@ -22,7 +23,7 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 })
 export class MyApp {
 
-  rootPage: any = CooperativeListPage;
+  rootPage: any = WorkerMenuPage;
 
   constructor(private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

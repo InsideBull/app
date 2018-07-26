@@ -22,13 +22,13 @@ export class CarListPage {
   cartypes: any;
   private loading: Loading;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    public carProvider: CarProvider,
-    public cartypeProvider: CarTypeProvider,
-    private loadingCtrl: LoadingController
-  ) {
-  }
+  constructor(
+      public navCtrl: NavController, 
+      public navParams: NavParams,
+      public carProvider: CarProvider,
+      public cartypeProvider: CarTypeProvider,
+      private loadingCtrl: LoadingController
+  ) {}
 
   ionViewDidLoad() {
     this.loading = this.loadingCtrl.create();

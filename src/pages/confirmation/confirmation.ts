@@ -26,9 +26,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  		
  	}
 
- 	ionViewDidLoad() {
-
- 		
+ 	ionViewDidLoad() {		
  	}
 
  	confirmAdmin(){
@@ -44,9 +42,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  		})
  	}
 
- 	verification(){
-
- 		
+ 	verification(){	
  	}
 
 
