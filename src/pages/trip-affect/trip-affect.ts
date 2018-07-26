@@ -51,8 +51,6 @@ import { TripListPage } from '../trip-list/trip-list';
 
  				this.tripProvider.fetcAll().subscribe((tripCars)=>{
 
- 					console.log(tripCars);
-
  					if (!tripCars) {
  						for(let key in cars){
  							this.cars.push(cars[key]);

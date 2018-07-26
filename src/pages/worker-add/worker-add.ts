@@ -38,7 +38,8 @@ export class WorkerAddPage {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],			
  			matricule: ['',Validators.required],	
- 			type: ['',Validators.required],		
+       type: ['',Validators.required],	
+       tel: [, Validators.required]	
 
  		});
  	}

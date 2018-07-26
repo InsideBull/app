@@ -38,9 +38,9 @@ export class WorkerDetailPage {
   	this.key = this.navParams.get('key');
   	this.cooperativeKey = this.navParams.get('cooperativeKey');
 
-  	let path = `cooperative/${this.cooperativeKey}/worker`;
+  	let customPath = `cooperative/${this.cooperativeKey}/worker`;
 
-  	this.workerProvider.customPath(path);
+  	this.workerProvider.customPath(customPath);
 
   	this.workerProvider.fetch(this.key).then((worker: Worker)=>{
   		this.worker = worker;

@@ -71,6 +71,9 @@ import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { SmsProvider } from '../providers/sms/sms';
+import { WorkersCarPage } from '../pages/workers-car/workers-car';
+import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list';
+import { WorkersCarAddPage } from '../pages/workers-car-add/workers-car-add';
 import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
 
 @NgModule({
@@ -117,7 +120,11 @@ import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
   SplashPage,
   ImageWidgetPage, 
   WorkerDetailPage,
+  WorkersCarPage,
+  WorkersCarListPage,
+  WorkersCarAddPage,
   WorkerEditPage
+
   ],
   imports: [
     BrowserModule,
@@ -171,6 +178,9 @@ import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
   SplashPage,
   ImageWidgetPage,
   WorkerDetailPage,
+  WorkersCarPage,
+  WorkersCarListPage,
+  WorkersCarAddPage,
   WorkerEditPage
 
   ],
