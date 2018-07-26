@@ -3,6 +3,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { LoadingController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
+import { WorkerType } from '../../models/worker-type.model';
 
 @Injectable()
 export class WorkerTypeProvider extends FirebaseProvider{
@@ -14,7 +15,7 @@ export class WorkerTypeProvider extends FirebaseProvider{
         super(storage,firebase,loadingCtrl);
       }
 
-    save(workerType: string, key ?: string){
+    save(workerType: WorkerType, key ?: string){
         if (key) {
             return this.push(workerType,key);
         }
