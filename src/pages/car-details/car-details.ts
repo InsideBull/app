@@ -7,6 +7,7 @@ import { CarEditPage } from '../car-edit/car-edit';
 import { CarListPage } from '../car-list/car-list';
 import { NotificationProvider } from '../../providers/notification/notification'
 import { StatusCars } from '../../models/statusCar.model';
+import { WorkersCarPage } from '../workers-car/workers-car'
 
 /**
  * Generated class for the CarDetailsPage page.
@@ -133,6 +134,10 @@ import { StatusCars } from '../../models/statusCar.model';
      },
      (cancel)=>{}
      )
+   }
+
+   goToWorkersCar(){
+     this.navCtrl.push(WorkersCarPage, {key: this.key, coop: this.coop});
    }
 
  }

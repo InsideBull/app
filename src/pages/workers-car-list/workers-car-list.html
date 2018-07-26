@@ -1,0 +1,39 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Employés</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+	<ion-grid class="grid-center-md grid-center-ios" >
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 text-capitalise >Liste</h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto>
+				<img src="assets/icon/worker.png" class="img-top">
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-center content-body" *ngIf="key && coop">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+
+					<ion-item *ngFor="let worker of workers">
+						<ion-avatar  item-start ><img [src]="worker?.image" ></ion-avatar>
+						{{worker.matricule}} - {{worker.name }} - {{worker?.type.occupation}}
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</ion-item>					
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
