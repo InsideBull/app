@@ -70,11 +70,11 @@ import { WorkerTypePage } from '../pages/worker-type/worker-type';
 import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
-import { SmsProvider } from '../providers/sms/sms';
 import { WorkersCarPage } from '../pages/workers-car/workers-car';
 import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list';
 import { WorkersCarAddPage } from '../pages/workers-car-add/workers-car-add';
 import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
+import { PhoneProvider } from '../providers/phone/phone';
 
 @NgModule({
   declarations: [
@@ -209,7 +209,7 @@ import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
     ScreenOrientation,
     WorkerProvider,
     WorkerTypeProvider,
-    SmsProvider
+    PhoneProvider
   ]
 })
 export class AppModule {}
