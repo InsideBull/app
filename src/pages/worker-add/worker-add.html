@@ -50,9 +50,9 @@
 							<ion-label no-padding no-margin>
 								<ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
 							</ion-label>
-							<ion-input formControlName="type" id="type" type="text" placeholder="type" stacked required></ion-input>
-							<ion-select formControlName="type" id="type" type="text" placeholder="type" stacked required>
-								<ion-option></ion-option>
+	
+							<ion-select formControlName="type">
+								<ion-option  *ngFor="let types of workertypes" [value]="types.key">{{types.occupation}}</ion-option>
 							</ion-select>
 						</ion-item>
 

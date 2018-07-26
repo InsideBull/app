@@ -3,8 +3,10 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { WorkerProvider } from '../../providers/worker/worker';
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { Platform, Events, ViewController } from 'ionic-angular';
 import { Worker } from '../../models/worker.model';
+import { WorkerType } from '../../models/worker-type.model';
 import { CameraProvider } from '../../providers/camera/camera';
 import { Car } from '../../models/car.model';
 import { Cooperative } from '../../models/cooperative.model';
@@ -32,11 +34,11 @@ export class WorkerAddPage {
   type: String;
   image :any;
  	url:any; 
-
+  workertypes: any;
   car: Car = new Car();
   cooperative: Cooperative = new Cooperative();
 
- 	constructor(private cooperativeProvider: CooperativeProvider, private cameraProvider: CameraProvider, private workerProvider: WorkerProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
+ 	constructor(private workertypeProvider: WorkerTypeProvider,private cooperativeProvider: CooperativeProvider, private cameraProvider: CameraProvider, private workerProvider: WorkerProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],			
  			matricule: ['',Validators.required],	
@@ -51,6 +53,16 @@ export class WorkerAddPage {
       (data: Cooperative) => { 
         this.cooperative = data;
       });
+
+      this.workertypes = [];
+
+ 		this.workertypeProvider.fetcAll().subscribe((workertypes)=>{
+
+ 			for(let key in workertypes){
+         workertypes[key].key = key;
+ 				 this.workertypes.push(workertypes[key]);
+ 			}
+ 		})
  	}
 
  
