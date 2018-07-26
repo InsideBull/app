@@ -71,6 +71,7 @@ import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
 import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { SmsProvider } from '../providers/sms/sms';
+import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { SmsProvider } from '../providers/sms/sms';
   WorkerTypePage,
   SplashPage,
   ImageWidgetPage, 
-  WorkerDetailPage
+  WorkerDetailPage,
+  WorkerEditPage
   ],
   imports: [
     BrowserModule,
@@ -168,7 +170,8 @@ import { SmsProvider } from '../providers/sms/sms';
   ImageWidgetPage,
   SplashPage,
   ImageWidgetPage,
-  WorkerDetailPage
+  WorkerDetailPage,
+  WorkerEditPage
 
   ],
 

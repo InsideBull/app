@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NavController,Platform } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 /*
   Generated class for the SmsProvider provider.
@@ -12,7 +12,7 @@ import { NavController,Platform } from 'ionic-angular';
 export class SmsProvider {
 
   SMS: any;
-  phoneNumber: number; 
+  phoneNumber: String; 
   message: String;
 
   constructor(public http: HttpClient, public platform: Platform) {
