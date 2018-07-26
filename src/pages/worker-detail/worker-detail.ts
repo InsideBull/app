@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkerProvider } from '../../providers/worker/worker';
+
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { Worker } from '../../models/worker.model';
 import { WorkerType } from '../../models/worker-type.model';
+
+import { NotificationProvider } from '../../providers/notification/notification';
+
 
 /**
  * Generated class for the WorkerDetailPage page.
@@ -23,7 +27,7 @@ export class WorkerDetailPage {
   cooperativeKey: any;
   worker: Worker;
   workerType: WorkerType;
-  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams,public workerTypeProvider: WorkerTypeProvider) {
+  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams,public workerTypeProvider: WorkerTypeProvider, private notificationProvider: NotificationProvider) {
   }
 
   ionViewDidLoad() {
@@ -42,9 +46,14 @@ export class WorkerDetailPage {
       this.worker = worker;
       
   	})
-
-
     
+  }
+
+  delete(){
+    this.notificationProvider.presentConfirm().then((confirm)=>{
+      this.workerProvider.deleteWorker(this.key);
+    },
+    ()=>{});
   }
 
 }
