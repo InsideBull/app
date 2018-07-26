@@ -29,8 +29,6 @@ export class WorkerTypePage {
 
   ionViewDidLoad() {
     this.key = this.navParams.get('key');
-    let customPath = `cooperative/${this.key}/workerType`;
-    this.workerTypeProvider.customPath(customPath);
   }
 
   onSubmit(){

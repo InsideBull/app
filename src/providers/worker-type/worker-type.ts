@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class WorkerTypeProvider extends FirebaseProvider{
-    protected __path = 'workerType';
+    protected __path = 'workertype';
 
     constructor(public storage: AngularFireStorage, 
         public firebase: AngularFireDatabase, 
@@ -22,10 +22,7 @@ export class WorkerTypeProvider extends FirebaseProvider{
             return this.push(workerType);
         }
     }
-  
-    customPath(path:string){ 
-      this.setPath(path)
-    }
+
   
     fetch(key: string){
       return this.getOneById(key);

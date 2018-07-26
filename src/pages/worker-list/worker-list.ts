@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 
 /**
  * Generated class for the WorkerListPage page.
@@ -15,11 +16,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WorkerListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public workerTypeProvider: WorkerTypeProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WorkerListPage');
+    
   }
 
 }
