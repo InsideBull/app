@@ -28,7 +28,7 @@
 					
 					<button ion-item (tap)="showDetails(worker.key)" *ngFor="let worker of workers">
 						<!-- <ion-avatar  item-start ><img src="assets"></ion-avatar> -->
-						{{worker.matricule}} - {{worker.name }}
+						{{worker.matricule}} - {{worker.name }} - {{worker?.type.occupation}}
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 
