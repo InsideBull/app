@@ -38,6 +38,7 @@ export class WorkerEditPage {
       name: ['',Validators.required],			
       matricule: ['',Validators.required],	
       type: ['',Validators.required],		
+      tel: [, Validators.required]
 
     });
   }
@@ -96,8 +97,8 @@ export class WorkerEditPage {
        let worker = new Worker(value);
        let customPath = `cooperative/${this.cooperativeKey}/worker`;
        this.workerProvider.customPath(customPath);
-       let key = this.workerProvider.save(worker);
-       this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.cooperativeKey});
+       this.workerProvider.save(worker, this.key);
+       this.navCtrl.push(WorkerDetailPage, {key: this.key, cooperativeKey: this.cooperativeKey});
      },
      ()=>{});	
     
