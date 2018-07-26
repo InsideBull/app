@@ -69,6 +69,8 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
 import { WorkerTypePage } from '../pages/worker-type/worker-type';
 import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { SmsProvider } from '../providers/sms/sms';
 
 @NgModule({
   declarations: [
@@ -171,6 +173,7 @@ import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
   ],
 
   providers: [
+    AndroidPermissions,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
@@ -192,7 +195,8 @@ import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
     GoogleMaps,
     ScreenOrientation,
     WorkerProvider,
-    WorkerTypeProvider
+    WorkerTypeProvider,
+    SmsProvider
   ]
 })
 export class AppModule {}
