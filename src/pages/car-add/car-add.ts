@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
@@ -9,6 +9,8 @@ import { CarProvider } from '../../providers/car/car';
 import { CarDetailsPage } from '../car-details/car-details';
 import { CameraProvider } from '../../providers/camera/camera';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { StatusCars } from '../../models/statusCar.model';
+import { ImageWidgetPage } from '../image-widget/image-widget'
 
 
 /**
@@ -29,11 +31,12 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	key:any;
  	cooperative: Cooperative = new Cooperative();
  	cartypes: any;
- 	statusList = ['available', 'breakdown', 'travelling'];
- 	nbplace: number = 0;
+	 statusList = new StatusCars().statusList;
+	 nbplace: number = 0;
  	image :any;
  	url:any;
 	 constructor(private cameraProvider: CameraProvider, 
+	 	private modalCtrl: ModalController,
 		private carProvider: CarProvider, 
 		private cartypeProvider: CarTypeProvider, 
 		private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, 
@@ -97,22 +100,21 @@ import { NotificationProvider } from '../../providers/notification/notification'
  		
  	}
 
- 	fromGallery(){
- 		this.cameraProvider.selectPhoto().then((image)=>{
- 			this.image = image;
- 			this.carProvider.uploadImage(this.image).then((url)=>{
- 				this.url = url;
- 			})
- 		})
- 	}
 
- 	fromCamera(){
- 		this.cameraProvider.takePhoto().then((image)=>{
- 			this.image = image;
- 			this.carProvider.uploadImage(this.image).then((url)=>{
+ 	imageWidget(){
+ 		let modal = this.modalCtrl.create(ImageWidgetPage, null, {cssClass:'pricebreakup' });
+
+ 		modal.onDidDismiss(image => {
+ 			if (image) {
+ 				this.image = image;
+ 				this.carProvider.uploadImage(this.image).then((url)=>{
  				this.url = url;
  			})
+ 			}
  		})
+
+ 		modal.present();
+
  	}
 
  }

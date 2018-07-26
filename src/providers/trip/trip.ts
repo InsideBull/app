@@ -40,5 +40,9 @@ export class TripProvider extends FirebaseProvider {
     return this.getAll();
   }
 
+  deleteTrip(i: string){
+    this.delete(i);
+  }
+
 
 }

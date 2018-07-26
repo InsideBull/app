@@ -26,11 +26,11 @@
       <ion-col col-11 col-sm col-auto>
         <ion-list>
         
-           <button ion-item *ngFor="let trip of trips">
+           <ion-item *ngFor="let trip of trips"> 
             <!-- <ion-avatar  item-start ><img [src]="admin.picture"></ion-avatar> -->
             {{ trip.car }}
-            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-          </button>
+            <ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(trip.key)"></ion-icon>
+           </ion-item>
 
         </ion-list>
       </ion-col>

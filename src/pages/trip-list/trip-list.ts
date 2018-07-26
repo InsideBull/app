@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { TripProvider } from '../../providers/trip/trip';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the TripListPage page.
@@ -23,7 +24,8 @@ export class TripListPage {
   constructor(private tripProvider: TripProvider, 
     public navCtrl: NavController, 
     public navParams: NavParams,
-    private loadingCtrl: LoadingController) {
+    private loadingCtrl: LoadingController,
+    public notif: NotificationProvider) {
   }
 
   ionViewDidLoad() {
@@ -37,11 +39,20 @@ export class TripListPage {
 
     this.tripProvider.fetcAll().subscribe((trips)=>{
     	for(let key in trips){
+        trips[key].key = key;
     		this.trips.push(trips[key]);
     	}
       this.loading.dismiss();
     });
 
+  }
+  delete(key: string){
+    let message = "Voulez-vous supprimer cette voiture de ce voyage";
+    let title = "Suppression";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      this.tripProvider.deleteTrip(key);
+      this.navCtrl.push(TripListPage, {key: this.key});
+    },()=>{});
   }
 
 }

@@ -22,9 +22,14 @@
 			</ion-col>
 		</ion-row>
 
-		<ion-row class="img-profil">
-			<ion-col  col-sm col-auto>
-				<img [src]="url">
+		<ion-row justify-content-center class="row-top">
+			<ion-col col-8 col-sm col-auto  >
+
+				<button class="btn-icon-avatar img-profil" (tap)="imageWidget()">
+					<ion-avatar><img [src]="url" ></ion-avatar>
+					<p>Modifier la logo</p>
+				</button>
+
 			</ion-col>
 		</ion-row>
 
@@ -35,29 +40,23 @@
 		</ion-row>
 
 
-		<ion-row justify-content-center class="center-block-reservation" >
+		<ion-row justify-content-center class="center-block-reservation content-body" >
 			<ion-col col-12 col-sm col-auto >
 				<ion-list class="list_" padding-top maring-top>
 
 					<ion-item class="input-cover-md input-cover-ios" >
 						<ion-label no-padding no-margin>
-							<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+							<span class = "input-label">Nom</span>
 						</ion-label>
-						<ion-input id="name" type="text" placeholder="Nom de votre coopérative" [(ngModel)]="cooperative.name" stacked required></ion-input>
+						<ion-input id="name" type="text" [(ngModel)]="cooperative.name" stacked required></ion-input>
 					</ion-item>
 
-					<ion-row>
-						<ion-col width-50>
-							<button ion-button color="danger" type="button" full round large (click)="fromCamera()">
-								<ion-icon name="md-camera"></ion-icon>
-							</button>
-						</ion-col>
-						<ion-col width-50>
-							<button ion-button color="secondary" type="button" full round large (click)="fromGallery()">
-								<ion-icon name="md-image"></ion-icon>
-							</button>
-						</ion-col>
-					</ion-row>
+					<ion-item class="input-cover-md input-cover-ios" >
+						<ion-label no-padding no-margin>
+							<span class = "input-label">Déscription</span>
+						</ion-label>
+						<ion-textarea id="desc" type="text" rows="50" cols="60" [(ngModel)]="cooperative.desc" stacked required></ion-textarea>
+					</ion-item>
 
 				</ion-list>
 				<div >

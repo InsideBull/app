@@ -9,35 +9,39 @@
 <ion-content >
 	<form (ngSubmit)=[onSubmit()] [formGroup]="form">
 		<ion-grid class="grid-center-md grid-center-ios">
+			
 			<ion-row justify-content-center class="row-top">
-				<ion-col col-8 col-sm col-auto >
-					<img src="assets/imgs/bee-logo.png" class="logo-reservation">
-					<h3 class="title_reservation" text-capitalise >Création</h3>
+				<ion-col col-8 col-sm col-auto  >
+
+					<button class="btn-icon-avatar img-profil" (tap)="imageWidget()">
+						<ion-avatar><img [src]="url" ></ion-avatar>
+						<p>Ajouter une logo</p>
+					</button>
+
 				</ion-col>
 			</ion-row>
-			<ion-row justify-content-center class="center-block-reservation">
+
+			<ion-row justify-content-center class="center-block-reservation content-body">
 				<ion-col col-12 col-sm col-auto >
 					<ion-list class="list_" padding-top maring-top>
 						
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+								<span class = "input-label">Nom</span>
 							</ion-label>
-							<ion-input formControlName="name" id="name" type="text" placeholder="Nom de votre coopérative" stacked required></ion-input>
+							<ion-input formControlName="name" id="name" type="text" stacked required></ion-input>
 						</ion-item>
 
-						<ion-row>
-							<ion-col width-50>
-								<button ion-button color="danger" type="button" full round large (click)="fromCamera()">
-									<ion-icon name="md-camera"></ion-icon>
-								</button>
-							</ion-col>
-							<ion-col width-50>
-								<button ion-button color="secondary" type="button" full round large (click)="fromGallery()">
-									<ion-icon name="md-image"></ion-icon>
-								</button>
-							</ion-col>
-						</ion-row>
+						<ion-item class="input-cover-md input-cover-ios" >
+							<ion-label no-padding no-margin>
+								<span class = "input-label">Déscription</span>
+							</ion-label>
+<<<<<<< HEAD
+							<ion-textarea id="desc" type="text" formControlName="desc" placeholder="Description de la coopérative" rows="50" cols="60" stacked required></ion-textarea>
+=======
+							<ion-textarea id="desc" type="text" formControlName="desc"  rows="50" cols="60" stacked required></ion-textarea>
+>>>>>>> 69b25b29c6b2ddfec69bca3a20028f4d7fde8aee
+						</ion-item>
 
 					</ion-list>
 					<div >
