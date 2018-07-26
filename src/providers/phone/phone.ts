@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number';
 import { SMS } from '@ionic-native/sms';
-
-
 /*
   Generated class for the PhoneProvider provider.
 
@@ -14,7 +12,6 @@ import { SMS } from '@ionic-native/sms';
 export class PhoneProvider {
 
   constructor(public http: HttpClient, private callNumber: CallNumber, private sms: SMS) {
-    console.log('Hello PhoneProvider Provider');
   }
 
   sendSMS(phoneNumber: string, message: string){
