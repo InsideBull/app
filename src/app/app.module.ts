@@ -69,8 +69,6 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
 import { WorkerTypePage } from '../pages/worker-type/worker-type';
 import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 
-
-
 @NgModule({
   declarations: [
   MyApp,
@@ -162,6 +160,8 @@ import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
   WorkerAddPage,
   WorkerListPage,
   WorkerTypePage,
+  SplashPage,
+  ImageWidgetPage,
   SplashPage,
   ImageWidgetPage
 

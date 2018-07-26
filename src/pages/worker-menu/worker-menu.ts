@@ -8,6 +8,7 @@ import { WorkerTypePage } from '../worker-type/worker-type';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 
+
 /**
  * Generated class for the WorkerMenuPage page.
  *
@@ -24,11 +25,16 @@ export class WorkerMenuPage {
 
   key:any;
   worker: Worker = new Worker();
-  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+  cooperative: Cooperative = new Cooperative();
+  constructor(private cooperativeProvider: CooperativeProvider,private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    
+	this.key = this.navParams.get('key');
+    this.cooperativeProvider.fetch(this.key).then(
+      (data: Cooperative) => { 
+        this.cooperative = data;
+      });
   }
 
  	addWorkerType(){

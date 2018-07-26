@@ -7,6 +7,8 @@ import { Platform, Events, ViewController } from 'ionic-angular';
 import { Worker } from '../../models/worker.model';
 import { CameraProvider } from '../../providers/camera/camera';
 import { Car } from '../../models/car.model';
+import { Cooperative } from '../../models/cooperative.model';
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 
 /**
  * Generated class for the WorkerAddPage page.
@@ -23,7 +25,8 @@ import { Car } from '../../models/car.model';
 export class WorkerAddPage {
 
   form: FormGroup;
-  key:any;
+  key: any;
+  param: any
   name: String;
   matricule: String;
   type: String;
@@ -31,8 +34,9 @@ export class WorkerAddPage {
  	url:any; 
 
   car: Car = new Car();
+  cooperative: Cooperative = new Cooperative();
 
- 	constructor(private cameraProvider: CameraProvider, private workerProvider: WorkerProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
+ 	constructor(private cooperativeProvider: CooperativeProvider, private cameraProvider: CameraProvider, private workerProvider: WorkerProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],			
  			matricule: ['',Validators.required],	
@@ -42,11 +46,16 @@ export class WorkerAddPage {
  	}
 
  	ionViewDidLoad() {
+    this.param = this.navParams.get('key');
+    this.cooperativeProvider.fetch(this.param).then(
+      (data: Cooperative) => { 
+        this.cooperative = data;
+      });
  	}
 
  
    onSubmit(){
-    let message = "Voulez vous vraimment ajouter l'employés N° " + this.form.value.matricule + " dans " + this.car.matricule;
+    let message = "Voulez vous vraimment ajouter l'employés N° " + this.form.value.matricule + " dans " + this.cooperative.name;
     let title = "Ajout d'employés"
    this.notif.presentConfirm(message, title).then(
      (confirm)=>{
@@ -55,7 +64,7 @@ export class WorkerAddPage {
          value.image = this.url;
        }
        let worker = new Worker(value);
-       let customPath = `cooperative/${this.key}/worker`;
+       let customPath = `cooperative/${this.param}/worker`;
        this.workerProvider.customPath(customPath);
        let key = this.workerProvider.save(worker);
        //this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
