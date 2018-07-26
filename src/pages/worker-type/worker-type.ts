@@ -18,7 +18,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 })
 export class WorkerTypePage {
 
-  workerType: any;
+  workerType: string;
   key: any;
 
   constructor(public navCtrl: NavController, 
@@ -30,7 +30,7 @@ export class WorkerTypePage {
   ionViewDidLoad() {
     this.key = this.navParams.get('key');
     let customPath = `cooperative/${this.key}/workerType`;
-    this.workerTypeProvider.setPath(customPath);
+    this.workerTypeProvider.customPath(customPath);
   }
 
   onSubmit(){
