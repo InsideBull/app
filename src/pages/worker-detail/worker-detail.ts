@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkerProvider } from '../../providers/worker/worker';
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
+import { Worker } from '../../models/worker.model';
+import { WorkerType } from '../../models/worker-type.model';
 
 /**
  * Generated class for the WorkerDetailPage page.
@@ -18,8 +21,9 @@ export class WorkerDetailPage {
 
   key: any;
   cooperativeKey: any;
-  worker: any;
-  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+  worker: Worker;
+  workerType: WorkerType;
+  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams,public workerTypeProvider: WorkerTypeProvider) {
   }
 
   ionViewDidLoad() {
@@ -31,8 +35,12 @@ export class WorkerDetailPage {
 
   	this.workerProvider.customPath(path);
 
-  	this.workerProvider.fetch(this.key).then((worker)=>{
-  		this.worker = worker;
+  	this.workerProvider.fetch(this.key).then((worker: Worker)=>{
+      this.workerTypeProvider.fetch(worker.type).then((workerType: WorkerType)=>{
+        this.workerType = workerType;
+      })
+      this.worker = worker;
+      
   	})
 
 

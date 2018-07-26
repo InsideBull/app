@@ -11,6 +11,7 @@ import { CameraProvider } from '../../providers/camera/camera';
 import { Car } from '../../models/car.model';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
+import { WorkerDetailPage } from '../worker-detail/worker-detail';
 
 /**
  * Generated class for the WorkerAddPage page.
@@ -27,7 +28,6 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 export class WorkerAddPage {
 
   form: FormGroup;
-  key: any;
   param: any
   name: String;
   matricule: String;
@@ -79,7 +79,7 @@ export class WorkerAddPage {
        let customPath = `cooperative/${this.param}/worker`;
        this.workerProvider.customPath(customPath);
        let key = this.workerProvider.save(worker);
-       //this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
+       this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.param});
      },
      ()=>{});	
     
