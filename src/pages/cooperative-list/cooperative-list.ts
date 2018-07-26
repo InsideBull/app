@@ -22,32 +22,34 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    cooperatives : any;
    user: any;
    coop: any;
-   private loading: Loading;
+   loading: Loading;
+   uid: any;
    constructor(
      public navCtrl: NavController, 
      public navParams: NavParams,
      public cooperativeProvider: CooperativeProvider,
      public facebookProvider: FacebookProvider,
      private loadingCtrl: LoadingController
-     ){}
+     ){
+
+
+
+
+   }
 
 
 
    ionViewDidLoad() {
 
-     
+     this.showLoading();
+
+     this.uid = this.navParams.get('uid');
 
      this.cooperatives = [];
-
-     this.facebookProvider.getUser().then((user)=>{
-       this.user = user;
-     });
 
      this.cooperativeProvider.fetcAll().subscribe(
        (cooperatives) => {
 
-         this.loading = this.loadingCtrl.create();
-         this.loading.present();
 
          for(let key in cooperatives){
 
@@ -60,7 +62,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
              admins = JSON.parse(cooperatives[key].admins);
 
-             let in_admins = admins.find( me => me == this.user.id );
+             let in_admins = admins.find( me => me == '2186409438249498' );
 
              if (in_admins) {  
                if (!cooperatives[key].logo) {
@@ -73,8 +75,9 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
            }
            
          }
+
+         this.dismissLoading();
          
-         this.loading.dismissAll();
 
        });
      
@@ -89,6 +92,24 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
      this.cooperativeProvider.deleteCooperative(i);
      this.navCtrl.push(CooperativeListPage);
 
+   }
+
+   showLoading() {
+     if(!this.loading){
+       this.loading = this.loadingCtrl.create({
+         content: 'Please Wait...',
+         dismissOnPageChange: false,
+         enableBackdropDismiss: true
+       });
+       this.loading.present();
+     }
+   }
+
+   dismissLoading(){
+     if(this.loading){
+       this.loading.dismiss();
+       this.loading = null;
+     }
    }
 
  }
