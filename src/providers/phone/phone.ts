@@ -19,7 +19,7 @@ export class PhoneProvider {
 
   }
 
-  callNumber(number:number){
+  call(number:number){
 
   }
 
