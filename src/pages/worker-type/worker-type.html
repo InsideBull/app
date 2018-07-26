@@ -7,12 +7,38 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>worker-type</ion-title>
+    <ion-title>Ajout type d'emploi</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-grid class="grid-center-md grid-center-ios">
 
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto >
+        <h2  text-capitalise >Création</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="center-block-reservation">
+      <ion-col col-12 col-sm col-auto >
+        <ion-list class="list_" padding-top maring-top>
+
+          
+          <ion-item class="input-cover-md input-cover-ios" >
+            <ion-label no-padding no-margin class="item item-input">
+              <span class = "input-label">Emploi</span>
+            </ion-label>
+            <ion-input id="workerType" type="text" [(ngModel)]="workerType" stacked required></ion-input>
+          </ion-item>
+
+        </ion-list>
+        <div >
+          <button ion-button block class="button-and button-ios" (click)="onSubmit()">Enregistrer</button>
+        </div>
+      </ion-col> 
+    </ion-row>		
+  </ion-grid>
 </ion-content>

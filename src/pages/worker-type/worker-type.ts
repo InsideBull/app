@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
+import { WorkerMenuPage } from '../worker-menu/worker-menu';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the WorkerTypePage page.
@@ -15,11 +18,28 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WorkerTypePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  workerType: any;
+  key: any;
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public workerTypeProvider: WorkerTypeProvider,
+              public notif: NotificationProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WorkerTypePage');
+    this.key = this.navParams.get('key');
+    let customPath = `cooperative/${this.key}/workerType`;
+    this.workerTypeProvider.setPath(customPath);
+  }
+
+  onSubmit(){
+    let message = "Voulez-vous ajouter ce type d'emploi ?";
+    let title = "Ajout";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      this.workerTypeProvider.save(this.workerType);
+      this.navCtrl.push(WorkerMenuPage, {key: this.key});
+    },()=>{});
   }
 
 }

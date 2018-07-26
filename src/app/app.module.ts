@@ -60,16 +60,15 @@ import { GoogleMapsComponent } from '../components/google-maps/google-maps'
 import { GoogleMaps } from '@ionic-native/google-maps';
 import { MapPage } from '../pages/map/map';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-<<<<<<< HEAD
 import { WorkerProvider } from '../providers/worker/worker';
 import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { WorkerAddPage } from '../pages/worker-add/worker-add';
 import { WorkerListPage } from '../pages/worker-list/worker-list';
-=======
 import { SplashPage } from '../pages/splash/splash';
 import { ImageWidgetPage } from '../pages/image-widget/image-widget'
+import { WorkerTypePage } from '../pages/worker-type/worker-type';
+import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 
->>>>>>> 82b4c4200ba3f99cb6f158321096abfa2e92e639
 
 
 @NgModule({
@@ -80,7 +79,7 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
   ConnectedPage,
   CooperativeCreatePage,
   CooperativeListPage,
-  ValidationPage,
+  ValidationPage, 
   CooperativeDetailsPage,
   CooperativeManagePage,
   QrScannerPage,
@@ -109,14 +108,12 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
   TripListPage,
   GoogleMapsComponent,
   MapPage,
-<<<<<<< HEAD
   WorkerMenuPage,
   WorkerAddPage,
-  WorkerListPage
-=======
+  WorkerListPage,
+  WorkerTypePage,
   SplashPage,
   ImageWidgetPage
->>>>>>> 82b4c4200ba3f99cb6f158321096abfa2e92e639
   ],
   imports: [
     BrowserModule,
@@ -161,15 +158,13 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
   TripListPage,
   GoogleMapsComponent,
   MapPage,
-<<<<<<< HEAD
   WorkerMenuPage,
   WorkerAddPage,
-  WorkerListPage
-=======
+  WorkerListPage,
+  WorkerTypePage,
   SplashPage,
   ImageWidgetPage
 
->>>>>>> 82b4c4200ba3f99cb6f158321096abfa2e92e639
   ],
 
   providers: [
@@ -193,7 +188,8 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
     NotificationProvider,
     GoogleMaps,
     ScreenOrientation,
-    WorkerProvider
+    WorkerProvider,
+    WorkerTypeProvider
   ]
 })
 export class AppModule {}
