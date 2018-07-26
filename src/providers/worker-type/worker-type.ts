@@ -3,10 +3,11 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { LoadingController } from 'ionic-angular';
 import { Injectable } from '@angular/core';
+import { WorkerType } from '../../models/worker-type.model';
 
 @Injectable()
 export class WorkerTypeProvider extends FirebaseProvider{
-    protected __path = 'workerType';
+    protected __path = 'workertype';
 
     constructor(public storage: AngularFireStorage, 
         public firebase: AngularFireDatabase, 
@@ -14,7 +15,7 @@ export class WorkerTypeProvider extends FirebaseProvider{
         super(storage,firebase,loadingCtrl);
       }
 
-    save(workerType: string, key ?: string){
+    save(workerType: WorkerType, key ?: string){
         if (key) {
             return this.push(workerType,key);
         }
@@ -22,10 +23,7 @@ export class WorkerTypeProvider extends FirebaseProvider{
             return this.push(workerType);
         }
     }
-  
-    customPath(path:string){ 
-      this.setPath(path)
-    }
+
   
     fetch(key: string){
       return this.getOneById(key);

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkerProvider } from '../../providers/worker/worker';
 import { WorkerDetailPage } from '../worker-detail/worker-detail'
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
+
 
 /**
  * Generated class for the WorkerListPage page.

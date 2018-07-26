@@ -14,31 +14,40 @@
 
 
 <ion-content padding>
-  <ion-grid class="grid-center-md grid-center-ios">
+    <form (ngSubmit)=[onSubmit()] [formGroup]="form">
+    <ion-grid class="grid-center-md grid-center-ios">
 
-    <ion-row justify-content-center class="row-top">
-      <ion-col  col-sm col-auto >
-        <h2  text-capitalise >Création</h2>
-      </ion-col>
-    </ion-row>
+      <ion-row justify-content-center class="row-top">
+        <ion-col  col-sm col-auto >
+          <h2  text-capitalise >Création</h2>
+        </ion-col>
+      </ion-row> 
 
-    <ion-row justify-content-center class="center-block-reservation">
-      <ion-col col-12 col-sm col-auto >
-        <ion-list class="list_" padding-top maring-top>
+      <ion-row justify-content-center class="center-block-reservation">
+        <ion-col col-12 col-sm col-auto >
+          <ion-list class="list_" padding-top maring-top>
 
-          
-          <ion-item class="input-cover-md input-cover-ios" >
-            <ion-label no-padding no-margin class="item item-input">
-              <span class = "input-label">Emploi</span>
-            </ion-label>
-            <ion-input id="workerType" type="text" [(ngModel)]="workerType" stacked required></ion-input>
-          </ion-item>
+            
+            <ion-item class="input-cover-md input-cover-ios" >
+              <ion-label no-padding no-margin class="item item-input">
+                <span class = "input-label">Occupation</span>
+              </ion-label>
+              <ion-input formControlName="occupation" id="occupation" type="text" stacked required></ion-input>
+            </ion-item>
 
-        </ion-list>
-        <div >
-          <button ion-button block class="button-and button-ios" (click)="onSubmit()">Enregistrer</button>
-        </div>
-      </ion-col> 
-    </ion-row>		
-  </ion-grid>
+            <ion-item class="input-cover-md input-cover-ios" >
+                <ion-label no-padding no-margin class="item item-input">
+                  <span class = "input-label">Description</span>
+                </ion-label>
+                <ion-input formControlName="description" id="description" type="text" stacked required></ion-input>
+              </ion-item>
+
+          </ion-list>
+          <div >
+            <button ion-button block class="button-and button-ios">Enregistrer</button>
+          </div>
+        </ion-col> 
+      </ion-row>		
+    </ion-grid>
+    </form>
 </ion-content>
