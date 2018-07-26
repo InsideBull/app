@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { WorkerProvider } from '../../providers/worker/worker';
 
 /**
  * Generated class for the WorkerDetailPage page.
@@ -15,11 +16,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class WorkerDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  key: any;
+  cooperativeKey: any;
+  worker: any;
+  constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WorkerDetailPage');
+
+  	this.key = this.navParams.get('key');
+  	this.cooperativeKey = this.navParams.get('cooperativeKey');
+
+  	let path = `cooperative/${this.cooperativeKey}/worker`;
+
+  	this.workerProvider.customPath(path);
+
+  	this.workerProvider.fetch(this.key).then((worker)=>{
+  		this.worker = worker;
+  	})
+
+
+    
   }
 
 }
