@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Voyages</ion-title>
+		<ion-title>Employés</ion-title>
 	</ion-navbar>
 
 </ion-header>
@@ -18,7 +18,7 @@
 
 		<ion-row justify-content-center class="row-top">
 			<ion-col  col-sm col-auto>
-				<img src="assets/icon/journey.png" class="img-top">
+				<img src="assets/icon/worker.png" class="img-top">
 			</ion-col>
 		</ion-row>
 
@@ -27,7 +27,7 @@
 				<ion-list>
 					
 					<button ion-item (tap)="showDetails(worker.key)" *ngFor="let worker of workers">
-						<!-- <ion-avatar  item-start ><img src="assets"></ion-avatar> -->
+						<ion-avatar  item-start ><img [src]="worker.image" ></ion-avatar>
 						{{worker.matricule}} - {{worker.name }} - {{worker?.type.occupation}}
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>

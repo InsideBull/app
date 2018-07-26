@@ -41,6 +41,11 @@ export class WorkerListPage {
         this.workerTypeProvider.fetch(workers[key].type).then((type)=>{
           workers[key].type = type;
         })
+
+        if (!workers[key].image) {
+          workers[key].image = "assets/icon/man.png";
+        }
+
     		this.workers.push(workers[key]);
     	}
     })
