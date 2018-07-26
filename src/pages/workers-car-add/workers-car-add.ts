@@ -31,6 +31,8 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  		this.key = this.navParams.get('key');
  		this.coop = this.navParams.get('coop');
 
+ 		this.workersList = [];
+
  		let path = `cooperative/${this.coop}/car`;
 
  		this.carProvider.customPath(path);
@@ -52,7 +54,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  					workers[w].key = w;
 
- 					let in_workers = myWorkers.find( me => me == workers[w].key );
+ 					let in_workers = myWorkers.find( key => key == workers[w].key );
 
  					if (!in_workers) {
 
@@ -63,6 +65,8 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  					}     			
  				}
+
+ 				console.log(this.workersList);
  			})
 
  		});

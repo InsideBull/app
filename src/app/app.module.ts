@@ -70,7 +70,8 @@ import { WorkerTypePage } from '../pages/worker-type/worker-type';
 import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
 import { WorkersCarPage } from '../pages/workers-car/workers-car';
-import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list'
+import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list';
+import { WorkersCarAddPage } from '../pages/workers-car-add/workers-car-add'
 
 @NgModule({
   declarations: [
@@ -117,7 +118,8 @@ import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list'
   ImageWidgetPage, 
   WorkerDetailPage,
   WorkersCarPage,
-  WorkersCarListPage
+  WorkersCarListPage,
+  WorkersCarAddPage
   ],
   imports: [
     BrowserModule,
@@ -172,7 +174,8 @@ import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list'
   ImageWidgetPage,
   WorkerDetailPage,
   WorkersCarPage,
-  WorkersCarListPage
+  WorkersCarListPage,
+  WorkersCarAddPage
 
   ],
 

@@ -14,7 +14,7 @@
 
 
 <ion-content padding *ngIf="key">
-<ion-grid class="grid-center-md grid-center-ios" *ngIf="key">
+<ion-grid class="grid-center-md grid-center-ios" *ngIf="coop">
 
 	<ion-row justify-content-center class="row-top">
 			<ion-col  col-sm col-auto >
@@ -32,7 +32,7 @@
 	<ion-item>
 		<ion-label>Employés</ion-label>
 		<ion-select  multiple="true" [(ngModel)]="workers">
-			<ion-option *ngFor="let worker of workerList" [value]="worker.key" >{{worker.name}} - {{worker.type.occupation}}</ion-option>
+			<ion-option *ngFor="let worker of workersList" [value]="worker.key" >{{worker.name}} - {{worker.type.occupation}}</ion-option>
 		</ion-select>
 	</ion-item>
 	<div >
