@@ -7,6 +7,7 @@ import { ParametersPage } from '../parameters/parameters';
 
 import { VoyageMenuPage } from '../voyage-menu/voyage-menu';
 import { CarMenuPage } from '../car-menu/car-menu';
+import { WorkerMenuPage } from '../worker-menu/worker-menu';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 import { NotificationProvider } from '../../providers/notification/notification';
 
@@ -62,6 +63,10 @@ export class CooperativeDetailsPage {
 
   goToCar(){
     this.navCtrl.push(CarMenuPage, {key: this.param});
+  }
+
+  goToWorker(){
+    this.navCtrl.push(WorkerMenuPage, {key: this.param});
   }
 
   delete(){

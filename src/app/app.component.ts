@@ -25,7 +25,7 @@ import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 })
 export class MyApp {
 
-  rootPage: any = WorkerMenuPage;
+  rootPage: any = CooperativeListPage;
 
   constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, ) {
     

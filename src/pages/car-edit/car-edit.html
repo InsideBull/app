@@ -64,13 +64,8 @@
                 <span class = "input-label">Etat</span>
               </ion-label>
               <ion-select formControlName="status" [(ngModel)]="car.status">
-<<<<<<< HEAD
-                <ion-option *ngFor="let status of statusList" 
-                [value]="status">{{status}}</ion-option>
-=======
                 <ion-option  *ngFor="let status of statusList" 
                 [value]="status.en">{{status.fr}}</ion-option>
->>>>>>> 82b4c4200ba3f99cb6f158321096abfa2e92e639
               </ion-select>							
             </ion-item>
 
