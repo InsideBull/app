@@ -23,30 +23,31 @@ import { Cooperative } from '../../models/cooperative.model';
 })
 export class WorkerMenuPage {
 
-  key:any;
+  cooperativeKey:any;
   worker: Worker = new Worker();
+
   cooperative: Cooperative = new Cooperative();
   constructor(private cooperativeProvider: CooperativeProvider,private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-	this.key = this.navParams.get('key');
-    this.cooperativeProvider.fetch(this.key).then(
+	this.cooperativeKey = this.navParams.get('key');
+    this.cooperativeProvider.fetch(this.cooperativeKey).then(
       (data: Cooperative) => { 
         this.cooperative = data;
       });
   }
 
  	addWorkerType(){
- 		this.navCtrl.push(WorkerTypePage, {key: this.key});
+ 		this.navCtrl.push(WorkerTypePage, {cooperativeKey: this.cooperativeKey});
  	}
 
  	listWorker(){
-		this.navCtrl.push(WorkerListPage, {key: this.key});
+		this.navCtrl.push(WorkerListPage, {cooperativeKey: this.cooperativeKey});
  	}
 
  	addWorker(){
- 		this.navCtrl.push(WorkerAddPage, {key:this.key});
+ 		this.navCtrl.push(WorkerAddPage, {cooperativeKey:this.cooperativeKey});
  	}
 
 

@@ -6,6 +6,7 @@ import { Worker } from '../../models/worker.model';
 import { WorkerType } from '../../models/worker-type.model';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { WorkerEditPage } from '../worker-edit/worker-edit';
+import { WorkerListPage } from '../worker-list/worker-list';
 
 
 /**
@@ -26,6 +27,8 @@ export class WorkerDetailPage {
   cooperativeKey: any;
   worker: Worker = new Worker();
   workerType: WorkerType = new WorkerType();
+  photo = false;
+
   constructor(private workerTypeProvider: WorkerTypeProvider, private notificationProvider: NotificationProvider, private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
 
   }
@@ -44,6 +47,7 @@ export class WorkerDetailPage {
 
       if (!this.worker.image) {
         this.worker.image = "assets/icon/man.png";
+        this.photo = true;
       }
 
       this.workerTypeProvider.fetch(worker.type).then((workerType: WorkerType)=>{
@@ -59,9 +63,10 @@ export class WorkerDetailPage {
   delete(){
     this.notificationProvider.presentConfirm().then((confirm)=>{
       this.workerProvider.deleteWorker(this.key);
-      if(this.worker.image){
+      if(!this.photo){
         this.workerProvider.deleteImg(this.worker.image);
       }
+      this.navCtrl.push(WorkerListPage, {cooperativeKey: this.cooperativeKey});
     },
     ()=>{});
   }

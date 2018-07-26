@@ -28,7 +28,7 @@ import { WorkerDetailPage } from '../worker-detail/worker-detail';
 export class WorkerAddPage {
 
   form: FormGroup;
-  param: any
+  cooperativeKey: any
   image :any;
  	url:any; 
   workertypes: any;
@@ -44,8 +44,8 @@ export class WorkerAddPage {
  	}
 
  	ionViewDidLoad() {
-    this.param = this.navParams.get('key');
-    this.cooperativeProvider.fetch(this.param).then(
+    this.cooperativeKey = this.navParams.get('cooperativeKey');
+    this.cooperativeProvider.fetch(this.cooperativeKey).then(
       (data: Cooperative) => { 
         this.cooperative = data;
       });
@@ -72,10 +72,10 @@ export class WorkerAddPage {
          value.image = this.url;
        }
        let worker = new Worker(value);
-       let customPath = `cooperative/${this.param}/worker`;
+       let customPath = `cooperative/${this.cooperativeKey}/worker`;
        this.workerProvider.customPath(customPath);
        let key = this.workerProvider.save(worker);
-       this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.param});
+       this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.cooperativeKey});
      },
      ()=>{});	
     
