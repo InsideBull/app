@@ -5,6 +5,9 @@ import { Car } from '../../models/car.model';
 import { WorkerProvider } from '../../providers/worker/worker';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { CarDetailsPage } from '../car-details/car-details'
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
+import { NotificationProvider } from '../../providers/notification/notification';
+
 
 /**
  * Generated class for the WorkersCarListPage page.
@@ -24,7 +27,7 @@ import { CarDetailsPage } from '../car-details/car-details'
  	coop: any;
  	car: Car = new Car();
  	workers: any;
- 	constructor(private workerTypeProvider: WorkerTypeProvider, private workerProvider: WorkerProvider, private carProvider: CarProvider, public navCtrl: NavController, public navParams: NavParams) {
+ 	constructor(private workerTypeProvider: WorkerTypeProvider, private workerProvider: WorkerProvider, private carProvider: CarProvider, public navCtrl: NavController, public navParams: NavParams, public notif: NotificationProvider) {
  	}
 
  	ionViewDidLoad() {
@@ -60,7 +63,7 @@ import { CarDetailsPage } from '../car-details/car-details'
  							}
 
  							this.workerTypeProvider.fetch(worker['type']).then((type)=>{
- 								worker['type'] = type;
+ 								worker['typeO'] = type;
  								this.workers.push(worker);
  							})
  						}
@@ -72,7 +75,19 @@ import { CarDetailsPage } from '../car-details/car-details'
 
  		})
 
- 	}
+	 }
+	 
+	 delete(i: any){
+		 let message = "Voulez vous enlever cette personne de cette voiture";
+		 let title = "Suppression";
+		this.notif.presentConfirm(message, title).then((confirm)=>{
+			let workers = [];
+			workers = JSON.parse(this.car.workers);
+			workers.splice(workers.indexOf(i), 1);
+		   this.car.workers = JSON.stringify(workers);
+		   this.carProvider.save(this.car, this.car.matricule);
+		},()=>{});
+	 }
 
  	showDetails(){
  		this.navCtrl.push(CarDetailsPage, {key: this.key, coop: this.coop})

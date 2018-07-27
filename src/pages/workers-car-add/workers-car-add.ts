@@ -10,7 +10,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
- */
+ */ 
 
  @IonicPage()
  @Component({
@@ -48,7 +48,9 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  				let myWorkers = [];
 
- 				myWorkers = JSON.parse(this.car.workers);
+ 				if (this.car.workers) {
+ 					myWorkers = JSON.parse(this.car.workers);
+ 				}
 
  				for(let w in workers){
 
@@ -80,7 +82,9 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  		let workers = [];
 
- 		workers = JSON.parse(this.car.workers);
+ 		if (this.car.workers) {
+ 			workers = JSON.parse(this.car.workers);
+ 		}
 
 
  		for(let w in this.workers){
