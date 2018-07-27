@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CarProvider } from '../../providers/car/car';
 import { Car } from '../../models/car.model';
 import { WorkerProvider } from '../../providers/worker/worker';
-import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
+import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
+import { CarDetailsPage } from '../car-details/car-details'
 
 /**
  * Generated class for the WorkersCarListPage page.
@@ -71,6 +72,10 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  		})
 
+ 	}
+
+ 	showDetails(){
+ 		this.navCtrl.push(CarDetailsPage, {key: this.key, coop: this.coop})
  	}
 
  }
