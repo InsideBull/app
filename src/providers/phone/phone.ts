@@ -13,19 +13,20 @@ import { SMS } from '@ionic-native/sms';
     constructor(private callNumber: CallNumber, private sms: SMS) {
     }
 
-    sendSMS(phoneNumber: string, message: string){
-      this.sms.send(phoneNumber, message);
-    }
+  sendSMS(phoneNumber: string, message: string){
+    this.sms.send(phoneNumber, message).then(()=>{
+        console.log("Calling...");
+    }).catch((err)=>{
+        alert(JSON.stringify(err));
+    });
+  }
 
-
-    call(phoneNumber: string){
-      this.callNumber.callNumber(phoneNumber, true)
-      .then((result) => {
-        console.log(result)
-      })
-      .catch((error) => {
-        alert(error)
-      });
-    }
+  call(phoneNumber: string){
+    this.callNumber.callNumber(phoneNumber, true).then(()=>{
+        console.log("Sent!");
+    }).catch((err)=>{
+        alert(JSON.stringify(err));
+    });
+  }
 
   }
