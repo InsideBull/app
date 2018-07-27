@@ -13,6 +13,7 @@ import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { WorkerDetailPage } from '../worker-detail/worker-detail';
 import { ImageWidgetPage } from '../image-widget/image-widget'
+import { WorkersCarPage } from '../workers-car/workers-car';
 
 /**
  * Generated class for the WorkerAddPage page.
@@ -34,6 +35,7 @@ export class WorkerAddPage {
  	url:any; 
   workertypes: any;
   cooperative: Cooperative = new Cooperative();
+  carKey: any;
 
  	constructor(private modalCtrl : ModalController, private workertypeProvider: WorkerTypeProvider,private cooperativeProvider: CooperativeProvider, private cameraProvider: CameraProvider, private workerProvider: WorkerProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
  		this.form = this.formBuilder.group({
@@ -52,6 +54,8 @@ export class WorkerAddPage {
   
   toConstruct(){
     this.cooperativeKey = this.navParams.get('cooperativeKey');
+    this.carKey = this.navParams.get('carKey');
+    
     this.cooperativeProvider.fetch(this.cooperativeKey).then(
       (data: Cooperative) => { 
         this.cooperative = data;
@@ -81,6 +85,9 @@ export class WorkerAddPage {
        let customPath = `cooperative/${this.cooperativeKey}/worker`;
        this.workerProvider.customPath(customPath);
        let key = this.workerProvider.save(worker);
+       if(this.carKey){
+        this.navCtrl.push(WorkersCarPage, {key: this.carKey, coop: this.cooperativeKey});
+       }
        this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.cooperativeKey});
      },
      ()=>{});	
