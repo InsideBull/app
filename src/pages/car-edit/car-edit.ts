@@ -48,37 +48,41 @@ import { ImageWidgetPage } from '../image-widget/image-widget';
        cartype: ['',Validators.required],	
        nbplace: [0,Validators.required],	
        status: ['',Validators.required]
-     })
+     });
+     this.toConstruct();
    }
 
    ionViewWillEnter() {
-     this.key = this.navParams.get('key');
-     this.coop = this.navParams.get('coop');
+        
+   }
+   toConstruct(){
+    this.key = this.navParams.get('key');
+    this.coop = this.navParams.get('coop');
 
-     let customPath = `cooperative/${this.coop}/car`;
-     this.carProvider.customPath(customPath);
-     this.carProvider.fetch(this.key).then(
-       (data: Car)=>{
-         this.car = data;
-         if (!this.car.image) {
-           this.car.image = "assets/icon/bus.png";
-         }
-         this.url = this.car.image;
-       }
-       );
+    let customPath = `cooperative/${this.coop}/car`;
+    this.carProvider.customPath(customPath);
+    this.carProvider.fetch(this.key).then(
+      (data: Car)=>{
+        this.car = data;
+        if (!this.car.image) {
+          this.car.image = "assets/icon/bus.png";
+        }
+        this.url = this.car.image;
+      }
+      );
 
-     this.cartypes = [];
-     this.carTypeProvider.fetcAll().subscribe((cartypes)=>{
-       for(let key in cartypes){
-         cartypes[key].key = key;
-         this.cartypes.push(cartypes[key]);
-         if(this.car.cartype == key){
-           let notavailable = JSON.parse(cartypes[key]['notavailable']);
-           let nbplace = cartypes[key]['nbplace'] - Object.keys(notavailable).length;
-           this.nbplace = nbplace;
-         }
-       }
-     });    
+    this.cartypes = [];
+    this.carTypeProvider.fetcAll().subscribe((cartypes)=>{
+      for(let key in cartypes){
+        cartypes[key].key = key;
+        this.cartypes.push(cartypes[key]);
+        if(this.car.cartype == key){
+          let notavailable = JSON.parse(cartypes[key]['notavailable']);
+          let nbplace = cartypes[key]['nbplace'] - Object.keys(notavailable).length;
+          this.nbplace = nbplace;
+        }
+      }
+    }); 
    }
 
    getNbplace(cartypeKey: string){

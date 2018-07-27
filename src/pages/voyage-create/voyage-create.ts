@@ -46,34 +46,38 @@ import { NotificationProvider } from '../../providers/notification/notification'
        price: [,Validators.required],
        startstation: ['',Validators.required]
      });
-
+     this.toConstruct();
 
    }
 
    ionViewWillEnter() {
-     this.stations = [];    
-
-     this.param = this.navParams.get('key');
-
-     this.cooperativeProvider.fetch(this.param).then(
-       (data: Cooperative) => { 
-         this.cooperative = data;
-       });
-
-     this.stationProvider.fetcAll().subscribe(
-       (data) => {
-         for(let key in data){
-           data[key].key = key;
-           this.stations.push(data[key]);
-         }
-       });
-
-       this.min = this.monent().toISOString();
-       let max = this.monent(); 
-       max.setDate(max.getDate()+365);
-       this.max = max.toISOString(); 
-
-
+     
+     
+  }
+  
+  toConstruct(){
+    this.stations = [];    
+  
+    this.param = this.navParams.get('key');
+  
+    this.cooperativeProvider.fetch(this.param).then(
+      (data: Cooperative) => { 
+        this.cooperative = data;
+      });
+  
+    this.stationProvider.fetcAll().subscribe(
+      (data) => {
+        for(let key in data){
+          data[key].key = key;
+          this.stations.push(data[key]);
+        }
+      });
+  
+      this.min = this.monent().toISOString();
+      let max = this.monent(); 
+      max.setDate(max.getDate()+365);
+      this.max = max.toISOString(); 
+    
    }
 
    onSubmit(){

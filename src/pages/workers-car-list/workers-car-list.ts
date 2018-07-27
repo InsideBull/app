@@ -28,52 +28,56 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	workers: any;
  	empty: boolean = false;
  	constructor(private workerTypeProvider: WorkerTypeProvider, private workerProvider: WorkerProvider, private carProvider: CarProvider, public navCtrl: NavController, public navParams: NavParams, public notif: NotificationProvider) {
- 	}
+	this.toConstruct(); 
+	}
 
  	ionViewWillEnter() {
-
- 		this.workers = [];
-
- 		this.key = this.navParams.get('key');
- 		this.coop = this.navParams.get('coop');
-
- 		let path = `cooperative/${this.coop}/car`;
-
- 		this.carProvider.customPath(path);
-
- 		this.carProvider.fetch(this.key).then((car:Car)=>{
- 			this.car = car;
-
- 			if(this.car.workers){
- 				let workers = JSON.parse(this.car.workers);
-
- 				let wpath = `cooperative/${this.coop}/worker`;
-
- 				this.workerProvider.customPath(wpath);
-
- 				for(let w in workers){
-
-
- 					this.workerProvider.fetch(workers[w]).then((worker)=>{
-
- 						if (worker) {
-
- 							if (!worker['image']) {
- 								worker['image'] = "assets/icon/man.png";
- 							}
-
- 							this.workerTypeProvider.fetch(worker['type']).then((type)=>{
- 								worker['type'] = type;
- 								this.workers.push(worker);
- 							})
- 						}
-
- 					})
-
- 				}
- 			}
-
- 		})
+		 
+	}
+	toConstruct(){
+		
+				 this.workers = [];
+		
+				 this.key = this.navParams.get('key');
+				 this.coop = this.navParams.get('coop');
+		
+				 let path = `cooperative/${this.coop}/car`;
+		
+				 this.carProvider.customPath(path);
+		
+				 this.carProvider.fetch(this.key).then((car:Car)=>{
+					 this.car = car;
+		
+					 if(this.car.workers){
+						 let workers = JSON.parse(this.car.workers);
+		
+						 let wpath = `cooperative/${this.coop}/worker`;
+		
+						 this.workerProvider.customPath(wpath);
+		
+						 for(let w in workers){
+		
+		
+							 this.workerProvider.fetch(workers[w]).then((worker)=>{
+		
+								 if (worker) {
+		
+									 if (!worker['image']) {
+										 worker['image'] = "assets/icon/man.png";
+									 }
+		
+									 this.workerTypeProvider.fetch(worker['type']).then((type)=>{
+										 worker['type'] = type;
+										 this.workers.push(worker);
+									 });
+								 }
+		
+							 });
+		
+						 }
+					 }
+		
+				 });
 
 	 }
 	 

@@ -44,27 +44,30 @@ export class WorkerAddPage {
 
  		});
      this.url = "assets/icon/camera";
+     this.toConstruct();
  	}
 
  	ionViewWillEnter() {
+  }
+  
+  toConstruct(){
     this.cooperativeKey = this.navParams.get('cooperativeKey');
     this.cooperativeProvider.fetch(this.cooperativeKey).then(
       (data: Cooperative) => { 
         this.cooperative = data;
       });
-
+  
       this.workertypes = [];
-
- 		this.workertypeProvider.fetcAll().subscribe((workertypes)=>{
-
- 			for(let key in workertypes){
+  
+     this.workertypeProvider.fetcAll().subscribe((workertypes)=>{
+  
+       for(let key in workertypes){
          workertypes[key].key = key;
- 				 this.workertypes.push(workertypes[key]);
- 			}
- 		})
- 	}
+          this.workertypes.push(workertypes[key]);
+       }
+     });
 
- 
+   }
    onSubmit(){
     let message = "Voulez vous vraimment ajouter l'employés N° " + this.form.value.matricule + " dans " + this.cooperative.name;
     let title = "Ajout d'employés"

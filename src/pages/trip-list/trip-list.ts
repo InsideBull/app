@@ -29,10 +29,10 @@ import { NotificationProvider } from '../../providers/notification/notification'
      public notif: NotificationProvider) {
 
      this.key = this.navParams.get('key');
+     this.tripList();
    }
 
    ionViewWillEnter (){
-     this.tripList();
    }
 
    tripList(){

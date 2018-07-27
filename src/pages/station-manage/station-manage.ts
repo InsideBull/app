@@ -43,9 +43,6 @@ export class StationManagePage extends GoogleGeolocation{
  			city: ['',Validators.required],	
  			location: ['',Validators.required]
     })
-  } 
-
-  ionViewWillEnter() {
     this.station = {};
     this.param = this.navParams.get('key');
     this.stationProvider.fetch(this.param).then(
@@ -53,6 +50,9 @@ export class StationManagePage extends GoogleGeolocation{
         this.station = data;
       }
     );
+  } 
+
+  ionViewWillEnter() {
 
   }
 

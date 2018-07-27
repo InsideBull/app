@@ -42,10 +42,16 @@ import { WorkersCarPage } from '../workers-car/workers-car'
      public navCtrl: NavController, 
      public navParams: NavParams,
      public notif: NotificationProvider) {
+       this.toConstruct();
    }
 
    ionViewWillEnter() {
-     this.key = this.navParams.get('key');
+     
+
+   }
+
+   toConstruct(){
+    this.key = this.navParams.get('key');
      this.coop = this.navParams.get('coop');
 
      let customPath = `cooperative/${this.coop}/car`;
@@ -72,7 +78,6 @@ import { WorkersCarPage } from '../workers-car/workers-car'
            this.showingSeats()
          });
        });
-
    }
 
 

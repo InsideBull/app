@@ -30,9 +30,6 @@ export class StationDetailPage {
     public navParams: NavParams, 
     public stationProvider: StationProvider,
   public notif: NotificationProvider) {
-  }
- 
-  ionViewWillEnter() {
     this.param = this.navParams.get('key');
     this.stationProvider.fetch(this.param).then(
       (data: Station)=>{
@@ -43,6 +40,9 @@ export class StationDetailPage {
         })
       }
     );
+  }
+ 
+  ionViewWillEnter() {
   }
   manageStation(){
     this.navCtrl.push(StationManagePage, {key: this.param});

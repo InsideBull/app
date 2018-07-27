@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
 import { WorkersCarAddPage } from '../workers-car-add/workers-car-add' ;
-import {} from '../'
 
 
 /**
@@ -22,11 +21,11 @@ export class WorkersCarPage {
   key: any;
   coop: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.key = this.navParams.get('key');
+    this.coop = this.navParams.get('coop');  
   }
 
   ionViewWillEnter() {
-  	this.key = this.navParams.get('key');
-  	this.coop = this.navParams.get('coop');  
   }
 
   listWorkers(){

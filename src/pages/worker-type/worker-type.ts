@@ -34,10 +34,10 @@ export class WorkerTypePage {
         occupation:['', Validators.required],
         description:['', Validators.required]
       })
+      this.key = this.navParams.get('key');
   }
 
   ionViewWillEnter() {
-    this.key = this.navParams.get('key');
   }
 
   onSubmit(){

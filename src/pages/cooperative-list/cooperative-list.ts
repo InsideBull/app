@@ -32,54 +32,53 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
      public facebookProvider: FacebookProvider,
      private loadingCtrl: LoadingController
      ){
-
-
-
-
+        this.toConstruct();
    }
 
    
    ionViewWillEnter() {
+ 
+   }
 
-     this.showLoading();
+   toConstruct(){
+    this.showLoading();
 
-     this.uid = this.navParams.get('uid');
-     this.cooperativeProvider.fetcAll().subscribe((cooperatives) => {
+    this.uid = this.navParams.get('uid');
+    this.cooperativeProvider.fetcAll().subscribe((cooperatives) => {
 
-       this.cooperatives = [];
-         if (cooperatives) {
-           for(let key in cooperatives){
+      this.cooperatives = [];
+        if (cooperatives) {
+          for(let key in cooperatives){
 
-           cooperatives[key].key = key;           
+          cooperatives[key].key = key;           
 
-           if (cooperatives[key].admins) {
+          if (cooperatives[key].admins) {
 
-             let admins = [];
-             admins = JSON.parse(cooperatives[key].admins);
+            let admins = [];
+            admins = JSON.parse(cooperatives[key].admins);
 
-             let in_admins = admins.find( me => me == "2186409438249498" );
+            let in_admins = admins.find( me => me == "2186409438249498" );
 
-             if (in_admins) {  
-               if (!cooperatives[key].logo) {
-                 cooperatives[key].logo = "assets/icon/copyright.png"
-               } 
+            if (in_admins) {  
+              if (!cooperatives[key].logo) {
+                cooperatives[key].logo = "assets/icon/copyright.png"
+              } 
 
-               this.cooperatives.push(cooperatives[key]);
-             } 
+              this.cooperatives.push(cooperatives[key]);
+            } 
 
-           }
-           
-         }
-         }
-         else{
-           this.empty = true;
-         }
+          }
+          
+        }
+        }
+        else{
+          this.empty = true;
+        }
 
-         this.dismissLoading();
-         
+        this.dismissLoading();
+        
 
-       });
-     
+      });
    }
 
    onClickItem(i: any) {

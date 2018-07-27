@@ -57,12 +57,17 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  			status: ['',Validators.required],
  			workers: [],	
 
- 		}); 
+		 }); 
+		 
+		 this.toConstruct();
  	}
 
  	ionViewWillEnter() {
 
- 		this.workersList = [];
+	 }
+	 
+	 toConstruct(){
+		this.workersList = [];
 
  		this.url = "assets/icon/bus.png" 
  		this.key = this.navParams.get('key');
@@ -83,8 +88,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
 
  		this.getWorkers();
-
- 	}
+	 }
 
  	getWorkers(){
 

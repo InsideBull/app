@@ -30,15 +30,15 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
  		public stationProvider: StationProvider,
  		public voyageProvider: VoyageProvider,
  		private loadingCtrl: LoadingController) {
+			 this.loading = this.loadingCtrl.create();
+			 this.loading.present();
+		
+			 this.param = this.navParams.get('key');
+		
+			 this.voyageFilter();
  	}
 
  	ionViewWillEnter() {
- 		this.loading = this.loadingCtrl.create();
- 		this.loading.present();
-
- 		this.param = this.navParams.get('key');
-
- 		this.voyageFilter();
 
 
  	}

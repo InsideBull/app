@@ -28,14 +28,14 @@ export class WorkerMenuPage {
 
   cooperative: Cooperative = new Cooperative();
   constructor(private cooperativeProvider: CooperativeProvider,private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+    this.cooperativeKey = this.navParams.get('key');
+      this.cooperativeProvider.fetch(this.cooperativeKey).then(
+        (data: Cooperative) => { 
+          this.cooperative = data;
+        });
   }
 
   ionViewWillEnter() {
-	this.cooperativeKey = this.navParams.get('key');
-    this.cooperativeProvider.fetch(this.cooperativeKey).then(
-      (data: Cooperative) => { 
-        this.cooperative = data;
-      });
   }
 
  	addWorkerType(){

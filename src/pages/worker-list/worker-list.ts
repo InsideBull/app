@@ -24,37 +24,41 @@ export class WorkerListPage {
   empty: boolean = false;
   constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams,
   public workerTypeProvider: WorkerTypeProvider) {
+    this.toConstruct();
   }
 
   ionViewWillEnter() {
 
+    
+  }
+  toConstruct(){
     this.workers = [];
-
+  
     this.cooperativeKey = this.navParams.get('cooperativeKey');
-
+  
     let path = `cooperative/${this.cooperativeKey}/worker`;
-
+  
     this.workerProvider.customPath(path);
-
+  
     this.workerProvider.fetcAll().subscribe((workers)=>{
-    	if (workers) {
+      if (workers) {
         for(let key in workers){
         workers[key].key = key;
         this.workerTypeProvider.fetch(workers[key].type).then((type)=>{
           workers[key].type = type;
         })
-
+  
         if (!workers[key].image) {
           workers[key].image = "assets/icon/man.png";
         }
-
+  
         this.workers.push(workers[key]);
       }
       }
       else{
         this.empty = true;
       }
-    })
+    });
 
   }
 
