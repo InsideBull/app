@@ -10,7 +10,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
- */
+ */ 
 
  @IonicPage()
  @Component({
