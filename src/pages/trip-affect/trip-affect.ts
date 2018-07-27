@@ -16,7 +16,7 @@ import { Car } from '../../models/car.model';
 import { WorkerType } from '../../models/worker-type.model';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { PhoneProvider } from '../../providers/phone/phone';
-import { WorkerProvider } from '../../providers/worker/worker'
+import { WorkerProvider } from '../../providers/worker/worker';
 
 /**
  * Generated class for the TripAffectPage page.
@@ -98,7 +98,6 @@ import { WorkerProvider } from '../../providers/worker/worker'
 
  	save(){
 
- 		console.log(this.selectedCar)
  		
  		let message = "Voulez vous affecter ces voiture à ce voyage";
  		let title = "Affection de voiture";
