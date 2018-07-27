@@ -32,7 +32,7 @@ import { Administrator } from '../../models/administrator.model';
 		private loadingCtrl: LoadingController) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
 		this.loading = this.loadingCtrl.create();
 		this.loading.present();
  		this.key = this.navParams.get('key');

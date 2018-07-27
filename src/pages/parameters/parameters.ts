@@ -25,7 +25,7 @@ import { Cooperative } from '../../models/cooperative.model';
 
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
      this.key = this.navParams.get('key');
      this.cooperativeProvider.fetch(this.key).then(
        (data: Cooperative) => {

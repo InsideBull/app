@@ -51,7 +51,7 @@ import { ImageWidgetPage } from '../image-widget/image-widget';
      })
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
      this.key = this.navParams.get('key');
      this.coop = this.navParams.get('coop');
 

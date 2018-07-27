@@ -25,7 +25,7 @@ import { CarTypePage } from '../car-type/car-type'
  	constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		this.key = this.navParams.get('key');
  		this.cooperativeProvider.fetch(this.key).then(
  			(data: Cooperative) => {

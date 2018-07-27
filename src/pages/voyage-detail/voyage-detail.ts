@@ -46,7 +46,7 @@ import { Coordinate } from '../../classes/coordinate.class';
      public notif: NotificationProvider) {
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
 
      this.param = this.navParams.get('key');
      this.coop = this.navParams.get('coop');

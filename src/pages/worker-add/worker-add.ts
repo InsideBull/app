@@ -46,7 +46,7 @@ export class WorkerAddPage {
      this.url = "assets/icon/camera";
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
     this.cooperativeKey = this.navParams.get('cooperativeKey');
     this.cooperativeProvider.fetch(this.cooperativeKey).then(
       (data: Cooperative) => { 

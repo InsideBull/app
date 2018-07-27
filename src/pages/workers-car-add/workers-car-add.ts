@@ -29,7 +29,7 @@ import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
  	constructor(private workerTypeProvider: WorkerTypeProvider, private workerProvider: WorkerProvider, private carProvider: CarProvider, public navCtrl: NavController, public navParams: NavParams) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		this.key = this.navParams.get('key');
  		this.coop = this.navParams.get('coop');
 

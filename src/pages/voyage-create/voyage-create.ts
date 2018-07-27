@@ -50,7 +50,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
      this.stations = [];    
 
      this.param = this.navParams.get('key');

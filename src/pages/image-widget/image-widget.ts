@@ -19,7 +19,7 @@ import { CameraProvider } from '../../providers/camera/camera'
  	constructor(public navCtrl: NavController, public navParams: NavParams, private cameraProvider: CameraProvider, private viewCtrl: ViewController) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		
  	}
 

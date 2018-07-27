@@ -44,7 +44,7 @@ import { WorkersCarPage } from '../workers-car/workers-car'
      public notif: NotificationProvider) {
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
      this.key = this.navParams.get('key');
      this.coop = this.navParams.get('coop');
 

@@ -6,6 +6,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { AdminListPage } from '../admin-list/admin-list'
 
 
 /**
@@ -35,7 +36,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
     public notificationProvider: NotificationProvider) {
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
 
      this.key = this.navParams.get('key');
      this.cooperativeProvider.fetch(this.key).then(
@@ -59,6 +60,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
      let title = 'Administrateur';
     this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
       this.confirm(uid, uname);
+      this.navCtrl.push(AdminListPage, {key:this.key})
     },
     (cancel)=>{});
 

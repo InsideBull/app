@@ -36,7 +36,7 @@ export class WorkerTypePage {
       })
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.key = this.navParams.get('key');
   }
 

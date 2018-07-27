@@ -43,7 +43,7 @@ import { WorkerProvider } from '../../providers/worker/worker';
  	constructor(private workerProvider: WorkerProvider, private phoneProvider: PhoneProvider, private workerTypeProvider: WorkerTypeProvider, private cooperativeProvider: CooperativeProvider, private stationProvider: StationProvider, private tripProvider: TripProvider, private carProvider: CarProvider, private voyageProvider: VoyageProvider, public navCtrl: NavController, public navParams: NavParams, public notif: NotificationProvider) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		this.cars = [];
  		this.key = this.navParams.get('key');
  		this.coop = this.navParams.get('coop');
@@ -99,7 +99,7 @@ import { WorkerProvider } from '../../providers/worker/worker';
  	save(){
 
  		
- 		let message = "Voulez vous affecter ces voiture à ce voyage";
+ 		let message = "Voulez vous affecter ces voitures à ce voyage";
  		let title = "Affection de voiture";
 
  		this.notif.presentConfirm(message, title).then((confirm)=>{
@@ -135,11 +135,14 @@ import { WorkerProvider } from '../../providers/worker/worker';
  							}
  						}
 
+ 						
+
  					});
 
  				}
 
  			}
+ 			this.navCtrl.push(TripListPage, {key:this.key});
 
  		},()=>{});
  	}

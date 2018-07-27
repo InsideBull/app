@@ -10,49 +10,61 @@ import { NotificationProvider } from '../../providers/notification/notification'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-trip-list',
-  templateUrl: 'trip-list.html',
-})
-export class TripListPage {
+ @IonicPage()
+ @Component({
+   selector: 'page-trip-list',
+   templateUrl: 'trip-list.html',
+ })
+ export class TripListPage {
 
-  key: any;
-  trips: any;
-  private loading: Loading;
+   key: any;
+   trips: any;
+   private loading: Loading;
+   empty: boolean = false;
 
-  constructor(private tripProvider: TripProvider, 
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    private loadingCtrl: LoadingController,
-    public notif: NotificationProvider) {
-  }
+   constructor(private tripProvider: TripProvider, 
+     public navCtrl: NavController, 
+     public navParams: NavParams,
+     private loadingCtrl: LoadingController,
+     public notif: NotificationProvider) {
 
-  ionViewDidLoad() {
-    this.loading = this.loadingCtrl.create();
-    this.loading.present();
-    this.key = this.navParams.get('key');
-    this.trips = [];
-    
-    let path = `trip/${this.key}`;
-    this.tripProvider.customPath(path);
+     this.key = this.navParams.get('key');
+   }
 
-    this.tripProvider.fetcAll().subscribe((trips)=>{
-    	for(let key in trips){
-        trips[key].key = key;
-    		this.trips.push(trips[key]);
-    	}
-      this.loading.dismiss();
-    });
+   ionViewWillEnter (){
+     this.tripList();
+   }
 
-  }
-  delete(key: string){
-    let message = "Voulez-vous supprimer cette voiture de ce voyage";
-    let title = "Suppression";
-    this.notif.presentConfirm(message, title).then((confirm)=>{
-      this.tripProvider.deleteTrip(key);
-      this.navCtrl.push(TripListPage, {key: this.key});
-    },()=>{});
-  }
+   tripList(){
+     this.loading = this.loadingCtrl.create();
+     this.loading.present();
 
-}
+     this.trips = [];
+
+     let path = `trip/${this.key}`;
+     this.tripProvider.customPath(path);
+
+     this.tripProvider.fetcAll().subscribe((trips)=>{
+       if (trips) {
+         for(let key in trips){
+         trips[key].key = key;
+         this.trips.push(trips[key]);
+       }
+       }
+       else{
+         this.empty = true;
+       }
+       this.loading.dismiss();
+     });
+   }
+
+   delete(key: string){
+     let message = "Voulez-vous supprimer cette voiture de ce voyage";
+     let title = "Suppression";
+     this.notif.presentConfirm(message, title).then((confirm)=>{
+       this.tripProvider.deleteTrip(key);
+       this.navCtrl.push(TripListPage, {key: this.key});
+     },()=>{});
+   }
+
+ }

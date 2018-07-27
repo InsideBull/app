@@ -34,7 +34,7 @@ export class WorkerDetailPage {
 
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 
   	this.key = this.navParams.get('key');
   	this.cooperativeKey = this.navParams.get('cooperativeKey');

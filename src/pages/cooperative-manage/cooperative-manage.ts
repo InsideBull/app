@@ -39,7 +39,7 @@ import { ImageWidgetPage } from '../image-widget/image-widget';
  		
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		this.param = this.navParams.get('key');
  		this.cooperativeProvider.fetch(this.param).then(
  			(data: Cooperative) => {
