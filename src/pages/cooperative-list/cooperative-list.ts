@@ -45,13 +45,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
      this.uid = this.navParams.get('uid');
 
-<<<<<<< HEAD
-    //  this.facebookProvider.getUser().then((user)=>{
-    //    this.user = user;
-    //  });
-=======
      this.cooperatives = [];
->>>>>>> d736b20f68cafb56f2f22da4780ad3f0a92555b1
 
      this.cooperativeProvider.fetcAll().subscribe(
        (cooperatives) => {
@@ -67,12 +61,8 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
              let admins = [];
 
              admins = JSON.parse(cooperatives[key].admins);
-
-<<<<<<< HEAD
-             let in_admins = admins.find( me => me == /*this.user.id*/"2186409438249498" );
-=======
+             
              let in_admins = admins.find( me => me == '2186409438249498' );
->>>>>>> d736b20f68cafb56f2f22da4780ad3f0a92555b1
 
              if (in_admins) {  
                if (!cooperatives[key].logo) {
@@ -88,10 +78,6 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
          this.dismissLoading();
          
-<<<<<<< HEAD
-         this.loading.dismiss();
-=======
->>>>>>> d736b20f68cafb56f2f22da4780ad3f0a92555b1
 
        });
      

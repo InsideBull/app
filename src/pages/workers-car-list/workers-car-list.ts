@@ -77,6 +77,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 		 let workers = [];
 		 workers = JSON.parse(this.car.workers);
 		console.log(workers);
+
 	 }
 
  }
