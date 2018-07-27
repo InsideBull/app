@@ -40,33 +40,33 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  		this.carProvider.fetch(this.key).then((car:Car)=>{
  			this.car = car;
 
- 			let workers = JSON.parse(this.car.workers);
+ 			if(this.car.workers){
+ 				let workers = JSON.parse(this.car.workers);
 
- 			console.log(workers);
+ 				let wpath = `cooperative/${this.coop}/worker`;
 
- 			let wpath = `cooperative/${this.coop}/worker`;
+ 				this.workerProvider.customPath(wpath);
 
- 			this.workerProvider.customPath(wpath);
-
- 			for(let w in workers){
+ 				for(let w in workers){
 
 
- 				this.workerProvider.fetch(workers[w]).then((worker)=>{
+ 					this.workerProvider.fetch(workers[w]).then((worker)=>{
 
- 					if (worker) {
+ 						if (worker) {
 
- 						if (!worker['image']) {
- 							worker['image'] = "assets/icon/man.png";
+ 							if (!worker['image']) {
+ 								worker['image'] = "assets/icon/man.png";
+ 							}
+
+ 							this.workerTypeProvider.fetch(worker['type']).then((type)=>{
+ 								worker['type'] = type;
+ 								this.workers.push(worker);
+ 							})
  						}
 
- 						this.workerTypeProvider.fetch(worker['type']).then((type)=>{
- 							worker['type'] = type;
- 							this.workers.push(worker);
- 						})
- 					}
+ 					})
 
- 				})
-
+ 				}
  			}
 
  		})
