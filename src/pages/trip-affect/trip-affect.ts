@@ -18,7 +18,7 @@ import { TripListPage } from '../trip-list/trip-list';
  @IonicPage()
  @Component({
  	selector: 'page-trip-affect',
- 	templateUrl: 'trip-affect.html',
+ 	templateUrl: 'trip-affect.html', 
  })
  export class TripAffectPage {
 

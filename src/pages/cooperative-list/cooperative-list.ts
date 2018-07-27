@@ -39,9 +39,9 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
      this.cooperatives = [];
 
-     this.facebookProvider.getUser().then((user)=>{
-       this.user = user;
-     });
+    //  this.facebookProvider.getUser().then((user)=>{
+    //    this.user = user;
+    //  });
 
      this.cooperativeProvider.fetcAll().subscribe(
        (cooperatives) => {
@@ -74,7 +74,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
            
          }
          
-         this.loading.dismissAll();
+         this.loading.dismiss();
 
        });
      
