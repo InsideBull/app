@@ -31,34 +31,38 @@ export class WorkerDetailPage {
   photo = false;
 
   constructor(private phoneProvider:PhoneProvider, private workerTypeProvider: WorkerTypeProvider, private notificationProvider: NotificationProvider, private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
-
+    this.toConstruct()
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 
-  	this.key = this.navParams.get('key');
-  	this.cooperativeKey = this.navParams.get('cooperativeKey');
-
-  	let customPath = `cooperative/${this.cooperativeKey}/worker`;
-
-  	this.workerProvider.customPath(customPath);
-
-  	this.workerProvider.fetch(this.key).then((worker: Worker)=>{
-  		this.worker = worker;
-
+    
+  }
+  
+  toConstruct(){
+    this.key = this.navParams.get('key');
+    this.cooperativeKey = this.navParams.get('cooperativeKey');
+  
+    let customPath = `cooperative/${this.cooperativeKey}/worker`;
+  
+    this.workerProvider.customPath(customPath);
+  
+    this.workerProvider.fetch(this.key).then((worker: Worker)=>{
+      this.worker = worker;
+  
       if (!this.worker.image) {
         this.worker.image = "assets/icon/man.png";
         this.photo = true;
       }
-
+  
       this.workerTypeProvider.fetch(worker.type).then((workerType: WorkerType)=>{
         this.workerType = workerType;
       })
       this.worker = worker;
-
+  
       
-  	})
-    
+    });
+
   }
 
   delete(){

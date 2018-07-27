@@ -57,12 +57,17 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  			status: ['',Validators.required],
  			workers: [],	
 
- 		}); 
+		 }); 
+		 
+		 this.toConstruct();
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
 
- 		this.workersList = [];
+	 }
+	 
+	 toConstruct(){
+		this.workersList = [];
 
  		this.url = "assets/icon/bus.png" 
  		this.key = this.navParams.get('key');
@@ -83,8 +88,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
 
  		this.getWorkers();
-
- 	}
+	 }
 
  	getWorkers(){
 
@@ -131,8 +135,8 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  				let car = new Car(value);
  				let customPath = `cooperative/${this.key}/car`;
  				this.carProvider.customPath(customPath);
- 				let key = this.carProvider.save(car);
- 				this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
+ 				this.carProvider.save(car,car.matricule);
+ 				this.navCtrl.push(CarDetailsPage, {key: car.matricule, coop: this.key});
  			},
  			()=>{});
  		

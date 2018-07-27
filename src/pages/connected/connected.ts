@@ -61,7 +61,7 @@ import { StationMenuPage } from '../station-menu/station-menu'
      });
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
 
    }
 

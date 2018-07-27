@@ -22,7 +22,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row justify-content-center class="row-center content-body" *ngIf="uid">
+    <ion-row justify-content-center class="row-center content-body" >
       <ion-col col-11 col-sm col-auto>
         <ion-list>
         
@@ -31,6 +31,11 @@
             {{ coop?.name }}
             <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
           </button>
+
+          <ion-item *ngIf="empty">
+            <ion-avatar item-start><img src="assets/icon/warning.png"></ion-avatar>
+            Aucune coopérative
+          </ion-item>
 
         </ion-list>
       </ion-col>

@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Employés du voiture</ion-title>
+		<ion-title>Equipages du voiture</ion-title>
 	</ion-navbar>
 
 </ion-header>
@@ -12,11 +12,11 @@
 
 		<ion-row justify-content-center class="row-top">
 			<ion-col  col-sm col-auto >
-				<h2 text-capitalise >Employés</h2>
+				<h2 text-capitalise >Equipages</h2>
 			</ion-col>
 		</ion-row>
 
-		<ion-row class="img-profil">
+		<ion-row class="img-top">
 			<ion-col  col-sm col-auto >
 				<img src="assets/icon/worker.png" >
 			</ion-col>
@@ -26,15 +26,21 @@
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
 					
+					<button ion-item (tap)="goToWorkerAdd()" >
+						<ion-avatar  item-start ><img src="assets/icon/list.png"></ion-avatar>
+						Création Employé
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
 					<button ion-item (tap)="listWorkers()" >
 						<ion-avatar  item-start ><img src="assets/icon/list.png"></ion-avatar>
-						Liste des employés
+						Liste des equipages
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 
 					<button ion-item (tap)="addWorkers()" >
 						<ion-avatar  item-start ><img src="assets/icon/journey-add.png"></ion-avatar>
-						Ajouter employés
+						Affecter des équipages
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 

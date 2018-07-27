@@ -16,7 +16,7 @@ import { Car } from '../../models/car.model';
 import { WorkerType } from '../../models/worker-type.model';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { PhoneProvider } from '../../providers/phone/phone';
-import { WorkerProvider } from '../../providers/worker/worker'
+import { WorkerProvider } from '../../providers/worker/worker';
 
 /**
  * Generated class for the TripAffectPage page.
@@ -41,66 +41,70 @@ import { WorkerProvider } from '../../providers/worker/worker'
  	arrivalstation: Station = new Station();
  	cooperative: Cooperative = new Cooperative();
  	constructor(private workerProvider: WorkerProvider, private phoneProvider: PhoneProvider, private workerTypeProvider: WorkerTypeProvider, private cooperativeProvider: CooperativeProvider, private stationProvider: StationProvider, private tripProvider: TripProvider, private carProvider: CarProvider, private voyageProvider: VoyageProvider, public navCtrl: NavController, public navParams: NavParams, public notif: NotificationProvider) {
- 	}
+		this.toConstruct();
+	}
 
- 	ionViewDidLoad() {
- 		this.cars = [];
- 		this.key = this.navParams.get('key');
- 		this.coop = this.navParams.get('coop');
-
- 		this.voyageProvider.fetch(this.key).then((voyage: Voyage)=>{
- 			this.voyage = voyage;
-
- 			let cooperative$ = this.voyage.cooperative;
-
- 			let path = `cooperative/${cooperative$}/car`;
-
- 			this.carProvider.customPath(path);
-
- 			this.carProvider.fetcAll().subscribe((cars)=>{
-
- 				let path = `trip/${this.key}`;
- 				this.tripProvider.customPath(path);
-
- 				this.tripProvider.fetcAll().subscribe((tripCars)=>{
-
- 					if (!tripCars) {
- 						for(let key in cars){
- 							this.cars.push(cars[key]);
- 						}
- 					}
- 					else{
- 						for(let key in cars){
-
- 							let exist = false
- 							for(let _key in tripCars){
-
- 								if (cars[key].matricule == tripCars[_key].car) {
- 									exist = true;
- 									break;
- 								}
- 							}
-
- 							if (!exist) {
- 								this.cars.push(cars[key])
- 							}
-
- 						}
- 					}
-
- 				})
- 				
- 			})
- 		})
+ 	ionViewWillEnter() {
+ 		
 
 
- 	}
+	 }
+	 
+	 toConstruct(){
+		this.cars = [];
+		this.key = this.navParams.get('key');
+		this.coop = this.navParams.get('coop');
+
+		this.voyageProvider.fetch(this.key).then((voyage: Voyage)=>{
+			this.voyage = voyage;
+
+			let cooperative$ = this.voyage.cooperative;
+
+			let path = `cooperative/${cooperative$}/car`;
+
+			this.carProvider.customPath(path);
+
+			this.carProvider.fetcAll().subscribe((cars)=>{
+
+				let path = `trip/${this.key}`;
+				this.tripProvider.customPath(path);
+
+				this.tripProvider.fetcAll().subscribe((tripCars)=>{
+
+					if (!tripCars) {
+						for(let key in cars){
+							this.cars.push(cars[key]);
+						}
+					}
+					else{
+						for(let key in cars){
+
+							let exist = false
+							for(let _key in tripCars){
+
+								if (cars[key].matricule == tripCars[_key].car) {
+									exist = true;
+									break;
+								}
+							}
+
+							if (!exist) {
+								this.cars.push(cars[key])
+							}
+
+						}
+					}
+
+				})
+				
+			})
+		})
+	 }
 
  	save(){
 
- 		console.log(this.selectedCar)
  		
- 		let message = "Voulez vous affecter ces voiture à ce voyage";
+ 		let message = "Voulez vous affecter ces voitures à ce voyage";
  		let title = "Affection de voiture";
 
  		this.notif.presentConfirm(message, title).then((confirm)=>{
@@ -136,11 +140,14 @@ import { WorkerProvider } from '../../providers/worker/worker'
  							}
  						}
 
+ 						
+
  					});
 
  				}
 
  			}
+ 			this.navCtrl.push(TripListPage, {key:this.key});
 
  		},()=>{});
  	}

@@ -21,10 +21,10 @@ import { ConfirmationPage } from '../confirmation/confirmation';
 export class QrScannerPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private qrscannerProvider: QrScannerProvider) {
+    this.prepareScanner();
   }
 
-  ionViewDidLoad() {
-    this.prepareScanner();
+  ionViewWillEnter() {
   }
 
   prepareScanner(){

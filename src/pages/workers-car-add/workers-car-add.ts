@@ -27,56 +27,61 @@ import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
  	workersList: any;
  	workers = [];
  	constructor(private workerTypeProvider: WorkerTypeProvider, private workerProvider: WorkerProvider, private carProvider: CarProvider, public navCtrl: NavController, public navParams: NavParams) {
- 	}
+		this.toConstruct();
+	}
 
- 	ionViewDidLoad() {
- 		this.key = this.navParams.get('key');
- 		this.coop = this.navParams.get('coop');
+ 	ionViewWillEnter() {
+		 
+	}
+	
+	toConstruct(){
+		this.key = this.navParams.get('key');
+		this.coop = this.navParams.get('coop');
+	
+		this.workersList = [];
+	
+		let path = `cooperative/${this.coop}/car`;
+	
+		this.carProvider.customPath(path);
+	
+		this.carProvider.fetch(this.key).then((car: Car)=>{
+			this.car = car;
+	
+			let wpath = `cooperative/${this.coop}/worker`;
+	
+			this.workerProvider.customPath(wpath);
+	
+			this.workerProvider.fetcAll().subscribe((workers)=>{
+	
+				
+				let myWorkers = [];
+	
+				if(this.car.workers){
+					myWorkers = JSON.parse(this.car.workers);
+				}
+	
+	
+				for(let w in workers){
+	
+					workers[w].key = w;
+	
+					let in_workers = myWorkers.find( key => key == workers[w].key );
+	
+					if (!in_workers) {
+	
+						this.workerTypeProvider.fetch(workers[w].type).then((type)=>{
+							workers[w].type = type;
+							this.workersList.push(workers[w]);
+						})
+	
+					}     			
+				}
+	
+			})
+	
+		});
 
- 		this.workersList = [];
-
- 		let path = `cooperative/${this.coop}/car`;
-
- 		this.carProvider.customPath(path);
-
- 		this.carProvider.fetch(this.key).then((car: Car)=>{
- 			this.car = car;
-
- 			let wpath = `cooperative/${this.coop}/worker`;
-
- 			this.workerProvider.customPath(wpath);
-
- 			this.workerProvider.fetcAll().subscribe((workers)=>{
-
-				 
-				 let myWorkers = [];
-
-				 if(this.car.workers){
-					 myWorkers = JSON.parse(this.car.workers);
-				 }
-
-
- 				for(let w in workers){
-
- 					workers[w].key = w;
-
- 					let in_workers = myWorkers.find( key => key == workers[w].key );
-
- 					if (!in_workers) {
-
- 						this.workerTypeProvider.fetch(workers[w].type).then((type)=>{
- 							workers[w].type = type;
- 							this.workersList.push(workers[w]);
- 						})
-
- 					}     			
- 				}
-
- 			})
-
- 		});
-
- 	}
+	 }
 
  	save(){
 

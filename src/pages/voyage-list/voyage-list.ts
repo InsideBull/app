@@ -20,71 +20,75 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
  export class VoyageListPage {
 
  	param: string;
- 	voyages: any;
-	 stations : any;
-	private loading: Loading;
+ 	voyages = [];
+ 	stations : any;
+ 	private loading: Loading;
+ 	empty: boolean = false;
 
  	constructor(public navCtrl: NavController, 
  		public navParams: NavParams,
  		public stationProvider: StationProvider,
-		public voyageProvider: VoyageProvider,
-		private loadingCtrl: LoadingController) {
+ 		public voyageProvider: VoyageProvider,
+ 		private loadingCtrl: LoadingController) {
+			 this.loading = this.loadingCtrl.create();
+			 this.loading.present();
+		
+			 this.param = this.navParams.get('key');
+		
+			 this.voyageFilter();
  	}
 
- 	ionViewDidLoad() {
-		this.loading = this.loadingCtrl.create();
-		this.loading.present();
+ 	ionViewWillEnter() {
 
- 		this.param = this.navParams.get('key');
 
-		 this.voyageFilter();
-		 
-		 
-		}
-		
-		
-		
-		voyageFilter(){
-			this.voyages = [];
+ 	}
 
-			
-			this.voyageProvider.fetcAll().subscribe((voyages)=>{
-				
-				
 
-				for(let key in voyages){
 
-					voyages[key].key = key;
+ 	voyageFilter(){
+ 		this.voyages = [];
 
-					let voyage = voyages[key];
+ 		this.voyageProvider.fetcAll().subscribe((voyages)=>{
 
-					if (voyage.cooperative == this.param) {
+ 			if (voyages) {
+ 				for(let key in voyages){
 
-						
- 					this.stationProvider.fetch(voyage.arrivalstation).then((arrival)=>{
-						 
- 						voyage.arrivalstation = arrival;
-					})
-					.then(()=>{
-						this.stationProvider.fetch(voyage.startstation).then((start)=>{
-							voyage.startstation = start;
-						})
-					})
-					.then(()=>{
-						this.voyages.push(voyage)
-					})
-				}
-				
-			}
-			
-			this.loading.dismiss();
-		})
-		
+ 					voyages[key].key = key;
+
+ 					let voyage = voyages[key];
+
+ 					if (voyage.cooperative == this.param) {
+
+
+ 						this.stationProvider.fetch(voyage.arrivalstation).then((arrival)=>{
+
+ 							voyage.arrivalstation = arrival;
+ 						})
+ 						.then(()=>{
+ 							this.stationProvider.fetch(voyage.startstation).then((start)=>{
+ 								voyage.startstation = start;
+ 							})
+ 						})
+ 						.then(()=>{
+ 							this.voyages.push(voyage);
+ 						})
+ 					}
+
+
+ 				}
+ 			}
+ 			else{
+ 				this.empty = true;
+ 			}
+
+ 			this.loading.dismiss();
+ 		})
+
  	}
 
  	onClickItem(i: any) {
  		this.navCtrl.push(VoyageDetailPage, {key: i, coop: this.param});
-	 }
+ 	}
 
  }
 

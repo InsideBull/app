@@ -44,14 +44,14 @@ import { Coordinate } from '../../classes/coordinate.class';
      public voyageProvider: VoyageProvider,
      public cooperativeProvider: CooperativeProvider,
      public notif: NotificationProvider) {
+       this.param = this.navParams.get('key');
+       this.coop = this.navParams.get('coop');
+    
+       this.showDetails();
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
 
-     this.param = this.navParams.get('key');
-     this.coop = this.navParams.get('coop');
-
-     this.showDetails();
 
    }
 

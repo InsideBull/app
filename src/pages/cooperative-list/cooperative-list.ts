@@ -24,6 +24,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    coop: any;
    loading: Loading;
    uid: any;
+   empty: boolean = false;
    constructor(
      public navCtrl: NavController, 
      public navParams: NavParams,
@@ -31,56 +32,53 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
      public facebookProvider: FacebookProvider,
      private loadingCtrl: LoadingController
      ){
-
-
-
-
+        this.toConstruct();
    }
 
+   
+   ionViewWillEnter() {
+ 
+   }
 
+   toConstruct(){
+    this.showLoading();
 
-   ionViewDidLoad() {
+    this.uid = this.navParams.get('uid');
+    this.cooperativeProvider.fetcAll().subscribe((cooperatives) => {
 
-     this.showLoading();
+      this.cooperatives = [];
+        if (cooperatives) {
+          for(let key in cooperatives){
 
-     this.uid = this.navParams.get('uid');
+          cooperatives[key].key = key;           
 
-     this.cooperatives = [];
+          if (cooperatives[key].admins) {
 
-     this.cooperativeProvider.fetcAll().subscribe(
-       (cooperatives) => {
+            let admins = [];
+            admins = JSON.parse(cooperatives[key].admins);
 
+            let in_admins = admins.find( me => me == "2186409438249498" );
 
-         for(let key in cooperatives){
+            if (in_admins) {  
+              if (!cooperatives[key].logo) {
+                cooperatives[key].logo = "assets/icon/copyright.png"
+              } 
 
-           cooperatives[key].key = key;           
+              this.cooperatives.push(cooperatives[key]);
+            } 
 
+          }
+          
+        }
+        }
+        else{
+          this.empty = true;
+        }
 
-           if (cooperatives[key].admins) {
+        this.dismissLoading();
+        
 
-             let admins = [];
-
-             admins = JSON.parse(cooperatives[key].admins);
-
-             let in_admins = admins.find( me => me == this.uid );
-
-             if (in_admins) {  
-               if (!cooperatives[key].logo) {
-                 cooperatives[key].logo = "assets/icon/copyright.png"
-               } 
-
-               this.cooperatives.push(cooperatives[key]);
-             } 
-
-           }
-           
-         }
-
-         this.dismissLoading();
-         
-
-       });
-     
+      });
    }
 
    onClickItem(i: any) {

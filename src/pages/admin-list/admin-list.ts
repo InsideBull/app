@@ -30,9 +30,14 @@ import { Administrator } from '../../models/administrator.model';
 		public navCtrl: NavController, 
 		public navParams: NavParams,
 		private loadingCtrl: LoadingController) {
+			this.toConstruct();
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
+		
+	 }
+	 
+	 toConstruct(){
 		this.loading = this.loadingCtrl.create();
 		this.loading.present();
  		this.key = this.navParams.get('key');
@@ -49,15 +54,13 @@ import { Administrator } from '../../models/administrator.model';
  				for(let key in admins){
  					this.adminProvider.fetch(admins[key]).then((admin)=>{					
 
- 						this.admins.push(admin)
+ 						this.admins.push(admin);
 
  					})
  				}
 
 				 this.loading.dismiss();
 			 });
-	
-
- 	}
+	 }
 
  }

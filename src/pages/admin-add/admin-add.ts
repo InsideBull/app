@@ -6,6 +6,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { AdminListPage } from '../admin-list/admin-list'
 
 
 /**
@@ -33,25 +34,30 @@ import { NotificationProvider } from '../../providers/notification/notification'
     public navCtrl: NavController, 
     public navParams: NavParams,
     public notificationProvider: NotificationProvider) {
+      this.toConstruct();
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
 
-     this.key = this.navParams.get('key');
-     this.cooperativeProvider.fetch(this.key).then(
-       (data: Cooperative) => {
-         this.cooperative = data;
-       });
+ 
+   }
 
-     this.myFriends = [];
-     this.facebookProvider.getUserFriends().then((friends)=>{
+   toConstruct(){
+    this.key = this.navParams.get('key');
+    this.cooperativeProvider.fetch(this.key).then(
+      (data: Cooperative) => {
+        this.cooperative = data;
+      });
 
-       for(let key in friends){
-         this.myFriends.push(friends[key])
-       }
+    this.myFriends = [];
+    this.facebookProvider.getUserFriends().then((friends)=>{
+
+      for(let key in friends){
+        this.myFriends.push(friends[key])
+      }
 
 
-     })
+    })
    }
 
    addToAdmins(uid, uname){
@@ -59,6 +65,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
      let title = 'Administrateur';
     this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
       this.confirm(uid, uname);
+      this.navCtrl.push(AdminListPage, {key:this.key})
     },
     (cancel)=>{});
 

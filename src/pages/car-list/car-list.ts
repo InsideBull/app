@@ -21,6 +21,7 @@ export class CarListPage {
   cars: any;
   cartypes: any;
   private loading: Loading;
+  empty: boolean = false;
 
   constructor(
       public navCtrl: NavController, 
@@ -28,9 +29,15 @@ export class CarListPage {
       public carProvider: CarProvider,
       public cartypeProvider: CarTypeProvider,
       private loadingCtrl: LoadingController
-  ) {}
+  ) {
+    this.toConstruct();
+  }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
+    
+  }
+
+  toConstruct(){
     this.loading = this.loadingCtrl.create();
     this.loading.present();
     this.param = this.navParams.get('key');
@@ -39,7 +46,9 @@ export class CarListPage {
     this.carProvider.customPath(customPath);
     this.carProvider.fetcAll().subscribe(
       (data)=>{
-        for(let key in data){
+        
+        if (data) {
+          for(let key in data){
           data[key].key = key;
           this.cartypeProvider.fetch(data[key].cartype).then((cartype)=>{
             data[key].cartype = cartype;
@@ -50,6 +59,12 @@ export class CarListPage {
             
           });
         }
+        }
+        else{
+          this.empty = true
+        }
+
+
         this.loading.dismiss();
       });
   }

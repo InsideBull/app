@@ -37,37 +37,42 @@ export class VoyageManagePage {
 		public voyageProvider: VoyageProvider,
 		public notif: NotificationProvider,
 	public cooperativeProvider: CooperativeProvider) {
+		this.toConstruct();
   }
  
-  ionViewDidLoad() {
-	this.param = this.navParams.get('key');
-	this.coop = this.navParams.get('coop');
-
-    this.voyageProvider.fetch(this.param).then(
-  		(data: Voyage) => {
-  				this.voyage = data;
-
-  			});
-
-  	this.stations = [];
-    this.stationProvider.fetcAll().subscribe(
-    	(data) => {
-    		for(let key in data){
-  				data[key].key = key;
-  				this.stations.push(data[key]);
-  			}
-
-		});
-
-		this.cooperativeProvider.fetch(this.param).then(
-			(data: Cooperative) => { 
-			  this.cooperative = data;
-			});
+  ionViewWillEnter() {
 		
-		this.min = this.monent().toISOString();
-       let max = this.monent(); 
-       max.setDate(max.getDate()+365);
-       this.max = max.toISOString(); 
+	}
+	
+	toConstruct(){
+		this.param = this.navParams.get('key');
+		this.coop = this.navParams.get('coop');
+	
+			this.voyageProvider.fetch(this.param).then(
+				(data: Voyage) => {
+						this.voyage = data;
+	
+					});
+	
+			this.stations = [];
+			this.stationProvider.fetcAll().subscribe(
+				(data) => {
+					for(let key in data){
+						data[key].key = key;
+						this.stations.push(data[key]);
+					}
+	
+			});
+	
+			this.cooperativeProvider.fetch(this.param).then(
+				(data: Cooperative) => { 
+					this.cooperative = data;
+				});
+			
+			this.min = this.monent().toISOString();
+				 let max = this.monent(); 
+				 max.setDate(max.getDate()+365);
+				 this.max = max.toISOString(); 
 
 	}
 	

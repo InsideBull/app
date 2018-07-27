@@ -40,7 +40,7 @@ import { CarMenuPage } from '../car-menu/car-menu';
  		});
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
 
  	}
 
