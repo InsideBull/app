@@ -37,32 +37,25 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
    }
 
-
-
-   ionViewDidLoad() {
+   
+   ionViewWillEnter() {
 
      this.showLoading();
 
      this.uid = this.navParams.get('uid');
-
      this.cooperatives = [];
-
-     this.cooperativeProvider.fetcAll().subscribe(
-       (cooperatives) => {
-
+     this.cooperativeProvider.fetcAll().subscribe((cooperatives) => {
 
          for(let key in cooperatives){
 
            cooperatives[key].key = key;           
 
-
            if (cooperatives[key].admins) {
 
              let admins = [];
-
              admins = JSON.parse(cooperatives[key].admins);
 
-             let in_admins = admins.find( me => me == '2186409438249498' );
+             let in_admins = admins.find( me => me == "2186409438249498" );
 
              if (in_admins) {  
                if (!cooperatives[key].logo) {

@@ -29,7 +29,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
  	constructor(private workerTypeProvider: WorkerTypeProvider, private workerProvider: WorkerProvider, private carProvider: CarProvider, public navCtrl: NavController, public navParams: NavParams, public notif: NotificationProvider) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
 
  		this.workers = [];
 

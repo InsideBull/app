@@ -36,7 +36,7 @@ export class CooperativeDetailsPage {
     private notif: NotificationProvider) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.param = this.navParams.get('key');
 
     this.cooperativeProvider.fetch(this.param).then(

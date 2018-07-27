@@ -55,7 +55,7 @@ import { ImageWidgetPage } from '../image-widget/image-widget'
  		
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		this.url = "assets/icon/camera.png";
  	}
 

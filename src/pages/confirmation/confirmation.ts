@@ -26,7 +26,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  		
  	}
 
- 	ionViewDidLoad() {		
+ 	ionViewWillEnter() {		
  	}
 
  	confirmAdmin(){

@@ -32,7 +32,7 @@ export class StationDetailPage {
   public notif: NotificationProvider) {
   }
  
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.param = this.navParams.get('key');
     this.stationProvider.fetch(this.param).then(
       (data: Station)=>{

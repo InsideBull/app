@@ -38,7 +38,7 @@ import { StationDetailPage } from '../station-detail/station-detail';
  		});
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		this.prepareAutocompletion();
  	}
 

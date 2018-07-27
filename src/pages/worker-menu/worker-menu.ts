@@ -30,7 +30,7 @@ export class WorkerMenuPage {
   constructor(private cooperativeProvider: CooperativeProvider,private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 	this.cooperativeKey = this.navParams.get('key');
     this.cooperativeProvider.fetch(this.cooperativeKey).then(
       (data: Cooperative) => { 

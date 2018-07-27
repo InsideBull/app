@@ -60,7 +60,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  		}); 
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
 
  		this.workersList = [];
 
@@ -131,8 +131,8 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  				let car = new Car(value);
  				let customPath = `cooperative/${this.key}/car`;
  				this.carProvider.customPath(customPath);
- 				let key = this.carProvider.save(car);
- 				this.navCtrl.push(CarDetailsPage, {key: key, coop: this.key});
+ 				this.carProvider.save(car,car.matricule);
+ 				this.navCtrl.push(CarDetailsPage, {key: car.matricule, coop: this.key});
  			},
  			()=>{});
  		

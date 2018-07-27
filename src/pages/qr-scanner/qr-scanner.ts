@@ -23,7 +23,7 @@ export class QrScannerPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private qrscannerProvider: QrScannerProvider) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.prepareScanner();
   }
 

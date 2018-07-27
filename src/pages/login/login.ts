@@ -20,7 +20,7 @@ import { ConnectedPage } from '../connected/connected';
  	constructor(public facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		
  	}
 

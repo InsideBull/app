@@ -31,7 +31,7 @@ import { VoyageDetailPage } from '../../pages/voyage-detail/voyage-detail';
 		private loadingCtrl: LoadingController) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
 		this.loading = this.loadingCtrl.create();
 		this.loading.present();
 

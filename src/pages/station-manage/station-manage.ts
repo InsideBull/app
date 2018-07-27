@@ -45,7 +45,7 @@ export class StationManagePage extends GoogleGeolocation{
     })
   } 
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.station = {};
     this.param = this.navParams.get('key');
     this.stationProvider.fetch(this.param).then(

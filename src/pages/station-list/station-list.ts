@@ -26,7 +26,7 @@ export class StationListPage {
     public loadingCtrl: LoadingController) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
     this.stations = [];

@@ -16,7 +16,7 @@ import { Car } from '../../models/car.model';
 import { WorkerType } from '../../models/worker-type.model';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { PhoneProvider } from '../../providers/phone/phone';
-import { WorkerProvider } from '../../providers/worker/worker'
+import { WorkerProvider } from '../../providers/worker/worker';
 
 /**
  * Generated class for the TripAffectPage page.
@@ -43,7 +43,7 @@ import { WorkerProvider } from '../../providers/worker/worker'
  	constructor(private workerProvider: WorkerProvider, private phoneProvider: PhoneProvider, private workerTypeProvider: WorkerTypeProvider, private cooperativeProvider: CooperativeProvider, private stationProvider: StationProvider, private tripProvider: TripProvider, private carProvider: CarProvider, private voyageProvider: VoyageProvider, public navCtrl: NavController, public navParams: NavParams, public notif: NotificationProvider) {
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		this.cars = [];
  		this.key = this.navParams.get('key');
  		this.coop = this.navParams.get('coop');
@@ -136,11 +136,14 @@ import { WorkerProvider } from '../../providers/worker/worker'
  							}
  						}
 
+ 						
+
  					});
 
  				}
 
  			}
+ 			this.navCtrl.push(TripListPage, {key:this.key});
 
  		},()=>{});
  	}

@@ -35,7 +35,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 
    }
 
-   ionViewDidLoad() {
+   ionViewWillEnter() {
 
    }
 

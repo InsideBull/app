@@ -25,7 +25,7 @@ export class WorkerListPage {
   public workerTypeProvider: WorkerTypeProvider) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 
     this.workers = [];
 

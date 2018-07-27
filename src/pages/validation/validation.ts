@@ -31,7 +31,7 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
  		
  	}
 
- 	ionViewDidLoad() {
+ 	ionViewWillEnter() {
  		
  		this.facebookProvider.getUser().then((user)=>{
  			this.user = user;

@@ -23,7 +23,7 @@ export class VoyageParametersPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
+  ionViewWillEnter() {
     this.key = this.navParams.get('key');
     this.coop = this.navParams.get('coop');
 

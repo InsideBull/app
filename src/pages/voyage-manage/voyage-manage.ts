@@ -39,7 +39,7 @@ export class VoyageManagePage {
 	public cooperativeProvider: CooperativeProvider) {
   }
  
-  ionViewDidLoad() {
+  ionViewWillEnter() {
 	this.param = this.navParams.get('key');
 	this.coop = this.navParams.get('coop');
 
