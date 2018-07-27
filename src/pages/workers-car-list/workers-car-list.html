@@ -28,7 +28,7 @@
 
 					<ion-item *ngFor="let worker of workers" (tap)="showDetails()">
 						<ion-avatar  item-start ><img [src]="worker?.image" ></ion-avatar>
-						{{worker.matricule}} - {{worker.name }} - {{worker?.typeO.occupation}}
+						{{worker.matricule}} - {{worker.name }} - {{worker?.type.occupation}}
 						<ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(worker.type)"></ion-icon>
 					</ion-item>					
 

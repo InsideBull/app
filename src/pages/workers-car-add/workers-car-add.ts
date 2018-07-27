@@ -4,6 +4,8 @@ import { Car } from '../../models/car.model';
 import { CarProvider } from '../../providers/car/car';
 import { WorkerProvider } from '../../providers/worker/worker';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
+import { WorkerListPage } from '../worker-list/worker-list';
+import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
 
 /**
  * Generated class for the WorkersCarAddPage page.
@@ -46,11 +48,13 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  			this.workerProvider.fetcAll().subscribe((workers)=>{
 
- 				let myWorkers = [];
+				 
+				 let myWorkers = [];
 
- 				if (this.car.workers) {
- 					myWorkers = JSON.parse(this.car.workers);
- 				}
+				 if(this.car.workers){
+					 myWorkers = JSON.parse(this.car.workers);
+				 }
+
 
  				for(let w in workers){
 
@@ -82,10 +86,9 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  		let workers = [];
 
- 		if (this.car.workers) {
- 			workers = JSON.parse(this.car.workers);
- 		}
-
+		 if(this.car.workers){
+			 workers = JSON.parse(this.car.workers);
+		 }
 
  		for(let w in this.workers){
 
@@ -94,7 +97,9 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  		this.car.workers = JSON.stringify(workers);
 
- 		this.carProvider.save(this.car,this.car.matricule);
+		 this.carProvider.save(this.car,this.car.matricule);
+		 
+		 this.navCtrl.push(WorkersCarListPage, {key: this.key, coop: this.coop});
 
  	}
 
