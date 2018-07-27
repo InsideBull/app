@@ -69,6 +69,7 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
 import { WorkerTypePage } from '../pages/worker-type/worker-type';
 import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { WorkersCarPage } from '../pages/workers-car/workers-car';
 import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list';
 import { WorkersCarAddPage } from '../pages/workers-car-add/workers-car-add';
@@ -185,6 +186,7 @@ import { PhoneProvider } from '../providers/phone/phone';
   ],
 
   providers: [
+    AndroidPermissions,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
