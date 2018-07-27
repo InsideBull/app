@@ -60,7 +60,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
  							}
 
  							this.workerTypeProvider.fetch(worker['type']).then((type)=>{
- 								worker['typeO'] = type;
+ 								worker['type'] = type;
  								this.workers.push(worker);
  							})
  						}
