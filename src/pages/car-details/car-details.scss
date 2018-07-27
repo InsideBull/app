@@ -1,23 +1,25 @@
 page-car-details {
-
+	ion-avatar img {
+		border-radius: unset !important;
+	}
 }
 
 
-	.seat {
-		padding-right: 5px;
-		font-size: 45px !important;
-	}
+.seat {
+	padding-right: 5px;
+	font-size: 45px !important;
+}
 
 .reservedSeat {
-		color: #ce4844;
-	}
-	.selectedSeat {
-		color: #5cb85c;
-	}
-	.freeSeat {
-		color: #958f8f;
-	}
+	color: #ce4844;
+}
+.selectedSeat {
+	color: #5cb85c;
+}
+.freeSeat {
+	color: #958f8f;
+}
 
-	.notAvailable{
-		color: #fff;
-	}
+.notAvailable{
+	color: #fff;
+}
