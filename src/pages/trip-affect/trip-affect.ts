@@ -100,7 +100,7 @@ import { WorkerProvider } from '../../providers/worker/worker';
 
  		console.log(this.selectedCar)
  		
- 		let message = "Voulez vous affecter ces voiture à ce voyage";
+ 		let message = "Voulez vous affecter ces voitures à ce voyage";
  		let title = "Affection de voiture";
 
  		this.notif.presentConfirm(message, title).then((confirm)=>{

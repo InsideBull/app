@@ -21,6 +21,7 @@ export class WorkerListPage {
 
   workers: any;
   cooperativeKey: any;
+  empty: boolean = false;
   constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams,
   public workerTypeProvider: WorkerTypeProvider) {
   }
@@ -36,7 +37,8 @@ export class WorkerListPage {
     this.workerProvider.customPath(path);
 
     this.workerProvider.fetcAll().subscribe((workers)=>{
-    	for(let key in workers){
+    	if (workers) {
+        for(let key in workers){
         workers[key].key = key;
         this.workerTypeProvider.fetch(workers[key].type).then((type)=>{
           workers[key].type = type;
@@ -46,8 +48,12 @@ export class WorkerListPage {
           workers[key].image = "assets/icon/man.png";
         }
 
-    		this.workers.push(workers[key]);
-    	}
+        this.workers.push(workers[key]);
+      }
+      }
+      else{
+        this.empty = true;
+      }
     })
 
   }

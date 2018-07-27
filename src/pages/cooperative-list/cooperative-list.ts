@@ -24,6 +24,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    coop: any;
    loading: Loading;
    uid: any;
+   empty: boolean = false;
    constructor(
      public navCtrl: NavController, 
      public navParams: NavParams,
@@ -43,10 +44,11 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
      this.showLoading();
 
      this.uid = this.navParams.get('uid');
-     this.cooperatives = [];
      this.cooperativeProvider.fetcAll().subscribe((cooperatives) => {
 
-         for(let key in cooperatives){
+       this.cooperatives = [];
+         if (cooperatives) {
+           for(let key in cooperatives){
 
            cooperatives[key].key = key;           
 
@@ -67,6 +69,10 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
            }
            
+         }
+         }
+         else{
+           this.empty = true;
          }
 
          this.dismissLoading();

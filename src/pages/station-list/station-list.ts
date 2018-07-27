@@ -10,46 +10,55 @@ import { StationDetailPage } from '../station-detail/station-detail';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-station-list',
-  templateUrl: 'station-list.html',
-})
-export class StationListPage {
+ @IonicPage()
+ @Component({
+   selector: 'page-station-list',
+   templateUrl: 'station-list.html',
+ })
+ export class StationListPage {
 
-  stations: any;
-  private loading: Loading;
+   stations: any;
+   private loading: Loading;
+   empty: boolean = false;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams,
-    public stationProvider: StationProvider,
-    public loadingCtrl: LoadingController) {
-  }
+   constructor(public navCtrl: NavController, 
+     public navParams: NavParams,
+     public stationProvider: StationProvider,
+     public loadingCtrl: LoadingController) {
+   }
 
-  ionViewWillEnter() {
-    this.loading = this.loadingCtrl.create();
-    this.loading.present();
-    this.stations = [];
-    this.stationProvider.fetcAll().subscribe(
-      (data)=>{
-        for(let key in data){
-          data[key].key= key;
-         this.stations.push(data[key]); 
-        }
-        this.loading.dismiss();
-      }
-    );
+   ionViewWillEnter() {
+     this.loading = this.loadingCtrl.create();
+     this.loading.present();
+     this.stations = [];
+     this.stationProvider.fetcAll().subscribe(
+       (data)=>{
+         
+         if (data) {
+           for(let key in data){
+             data[key].key= key;
+             this.stations.push(data[key]); 
+           }
+         }
+         else{
+           this.empty = true;
+         }
 
-  }
 
-  onClickLabel(key){
-    this.navCtrl.push(StationDetailPage, {key: key});
-  }
+         this.loading.dismiss();
+       }
+       );
 
-  onClickIcon(i){
-    this.stations.splice(i, 1);
-    this.stationProvider.deleteStation(i);
-    this.navCtrl.push(StationListPage);
-  }
+   }
 
-}
+   onClickLabel(key){
+     this.navCtrl.push(StationDetailPage, {key: key});
+   }
+
+   onClickIcon(i){
+     this.stations.splice(i, 1);
+     this.stationProvider.deleteStation(i);
+     this.navCtrl.push(StationListPage);
+   }
+
+ }

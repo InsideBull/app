@@ -20,6 +20,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
    key: any;
    trips: any;
    private loading: Loading;
+   empty: boolean = false;
 
    constructor(private tripProvider: TripProvider, 
      public navCtrl: NavController, 
@@ -44,16 +45,17 @@ import { NotificationProvider } from '../../providers/notification/notification'
      this.tripProvider.customPath(path);
 
      this.tripProvider.fetcAll().subscribe((trips)=>{
-       for(let key in trips){
+       if (trips) {
+         for(let key in trips){
          trips[key].key = key;
          this.trips.push(trips[key]);
        }
+       }
+       else{
+         this.empty = true;
+       }
        this.loading.dismiss();
      });
-   }
-
-   ionViewWillEnter() {
-
    }
 
    delete(key: string){

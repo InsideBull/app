@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { VoyageManagePage } from '../voyage-manage/voyage-manage';
 import { TripAffectPage } from '../trip-affect/trip-affect';
-import { TripListPage } from '../trip-list/trip-list'
+import { TripListPage } from '../trip-list/trip-list';
+import { CarAddPage } from '../car-add/car-add'
 
 /**
  * Generated class for the VoyageParametersPage page.
@@ -39,6 +40,10 @@ export class VoyageParametersPage {
 
   listCar(){
     this.navCtrl.push(TripListPage, {key:this.key});
+  }
+
+  goToCarAdd(){
+    this.navCtrl.push(CarAddPage, {key: this.coop});
   }
 
 }

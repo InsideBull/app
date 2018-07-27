@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
 import { WorkersCarAddPage } from '../workers-car-add/workers-car-add' ;
+import {} from '../'
 
 
 /**
@@ -34,6 +35,10 @@ export class WorkersCarPage {
 
   addWorkers(){
     this.navCtrl.push(WorkersCarAddPage, {key: this.key, coop: this.coop});
+  }
+
+  goToWorkerAdd(){
+    
   }
 
 }
