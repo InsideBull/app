@@ -69,11 +69,14 @@ import { ImageWidgetPage } from '../pages/image-widget/image-widget'
 import { WorkerTypePage } from '../pages/worker-type/worker-type';
 import { WorkerTypeProvider } from '../providers/worker-type/worker-type';
 import { WorkerDetailPage } from '../pages/worker-detail/worker-detail';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 import { WorkersCarPage } from '../pages/workers-car/workers-car';
 import { WorkersCarListPage } from '../pages/workers-car-list/workers-car-list';
 import { WorkersCarAddPage } from '../pages/workers-car-add/workers-car-add';
 import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
 import { PhoneProvider } from '../providers/phone/phone';
+import { CallNumber } from '@ionic-native/call-number';
+import { SMS } from '@ionic-native/sms';
 
 @NgModule({
   declarations: [
@@ -126,11 +129,11 @@ import { PhoneProvider } from '../providers/phone/phone';
 
   ],
   imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireDatabaseModule,
-    AngularFireStorageModule,
-    IonicModule.forRoot(MyApp)
+  BrowserModule,
+  AngularFireModule.initializeApp(FIREBASE_CONFIG),
+  AngularFireDatabaseModule,
+  AngularFireStorageModule,
+  IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -185,29 +188,32 @@ import { PhoneProvider } from '../providers/phone/phone';
   ],
 
   providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Facebook,
-    FacebookProvider,
-    CooperativeProvider,
-    AdministratorProvider,
-    QrcodeValidationProvider,
-    QRScanner,
-    QrScannerProvider,
-    VoyageProvider,
-    CarTypeProvider,
-    CarProvider,
-    Camera,
-    CameraProvider,
-    StationProvider,
-    TripProvider,
-    NotificationProvider,
-    GoogleMaps,
-    ScreenOrientation,
-    WorkerProvider,
-    WorkerTypeProvider,
-    PhoneProvider
+  AndroidPermissions,
+  StatusBar,
+  SplashScreen,
+  {provide: ErrorHandler, useClass: IonicErrorHandler},
+  Facebook,
+  FacebookProvider,
+  CooperativeProvider,
+  AdministratorProvider,
+  QrcodeValidationProvider,
+  QRScanner,
+  QrScannerProvider,
+  VoyageProvider,
+  CarTypeProvider,
+  CarProvider,
+  Camera,
+  CameraProvider,
+  StationProvider,
+  TripProvider,
+  NotificationProvider,
+  GoogleMaps,
+  ScreenOrientation,
+  WorkerProvider,
+  WorkerTypeProvider,
+  PhoneProvider,
+  CallNumber,
+  SMS
   ]
 })
 export class AppModule {}

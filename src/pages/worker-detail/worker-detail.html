@@ -21,7 +21,7 @@
     </ion-row>
     
     <ion-row>
-    <ion-col  col-sm col-auto >
+      <ion-col  col-sm col-auto >
         <h2 text-capitalise >{{ workerType?.occupation }}</h2>
       </ion-col>
     </ion-row>
@@ -36,31 +36,31 @@
               <p>Matricule</p><p>{{ worker?.matricule }}</p>
             </ion-label>
           </ion-item>
-          <ion-item>
-              <ion-avatar item-start><img src="assets/icon/phone.png"></ion-avatar>
-              <ion-label>
-                <p>Telephone</p><p>{{ worker?.tel }}</p>
-              </ion-label>
-            </ion-item>
+
+            <button ion-item (click)="callWorker()">
+              <ion-avatar  item-start ><img src="assets/icon/call.png"></ion-avatar>
+              {{ worker?.tel }}
+              <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            </button>
 
 
-          <button ion-item (click)="editer()">
-            <ion-avatar  item-start ><img src="assets/icon/edit.png"></ion-avatar>
-            Modifier
-            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-          </button>
+            <button ion-item (click)="editer()">
+              <ion-avatar  item-start ><img src="assets/icon/edit.png"></ion-avatar>
+              Modifier
+              <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            </button>
 
 
-          <button ion-item (click)="delete()">
-            <ion-avatar  item-start ><img src="assets/icon/trash.png"></ion-avatar>
-            Supprimer
-            <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-          </button>
+            <button ion-item (click)="delete()">
+              <ion-avatar  item-start ><img src="assets/icon/trash.png"></ion-avatar>
+              Supprimer
+              <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            </button>
 
-        </ion-list>
-      </ion-col>
-    </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
 
 
-</ion-grid>
-</ion-content>
+    </ion-grid>
+  </ion-content>
