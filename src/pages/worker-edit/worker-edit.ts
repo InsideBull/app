@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { WorkerProvider } from '../../providers/worker/worker';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -8,6 +8,8 @@ import { WorkerType } from '../../models/worker-type.model';
 import { CameraProvider } from '../../providers/camera/camera';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { WorkerDetailPage } from '../worker-detail/worker-detail';
+import { ImageWidgetPage } from '../image-widget/image-widget'
+
 
 /**
  * Generated class for the WorkerEditPage page.
@@ -32,7 +34,7 @@ export class WorkerEditPage {
   worker: Worker;
   workerType: WorkerType;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public workerProvider: WorkerProvider, public workerTypeProvider: WorkerTypeProvider,
+  constructor(private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams,public workerProvider: WorkerProvider, public workerTypeProvider: WorkerTypeProvider,
   public formBuilder: FormBuilder, public cameraProvider: CameraProvider, public notif: NotificationProvider) {
     this.form = this.formBuilder.group({
       name: ['',Validators.required],			
@@ -66,24 +68,21 @@ export class WorkerEditPage {
     
   }
 
+  imageWidget(){
+     let modal = this.modalCtrl.create(ImageWidgetPage, null, {cssClass:'pricebreakup' });
 
-  fromGallery(){
-    this.cameraProvider.selectPhoto().then((image)=>{
-      this.image = image;
-      this.workerProvider.uploadImage(this.image).then((url)=>{
+     modal.onDidDismiss(image => {
+       if (image) {
+         this.image = image;
+         this.workerProvider.uploadImage(this.image).then((url)=>{
         this.url = url;
       })
-    })
-  }
+       }
+     })
 
-  fromCamera(){
-    this.cameraProvider.takePhoto().then((image)=>{
-      this.image = image;
-      this.workerProvider.uploadImage(this.image).then((url)=>{
-        this.url = url;
-      })
-    })
-  }
+     modal.present();
+
+   }
 
   onSubmit(){
     let message = "Voulez vous vraimment modifier l'employés N° " + this.form.value.matricule;

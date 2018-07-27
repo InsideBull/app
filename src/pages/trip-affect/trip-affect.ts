@@ -28,7 +28,7 @@ import { WorkerProvider } from '../../providers/worker/worker'
  @IonicPage()
  @Component({
  	selector: 'page-trip-affect',
- 	templateUrl: 'trip-affect.html',
+ 	templateUrl: 'trip-affect.html', 
  })
  export class TripAffectPage {
 
