@@ -21,7 +21,7 @@ export class WorkerListPage {
 
   workers: any;
   cooperativeKey: any;
-  empty: boolean = false;
+  empty = false;
   constructor(private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams,
   public workerTypeProvider: WorkerTypeProvider) {
     this.toConstruct();
