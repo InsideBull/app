@@ -30,6 +30,7 @@ import { StationMenuPage } from '../station-menu/station-menu'
    pending: boolean;
 
    user: any;
+   uid:any;
 
    constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
      this.is_admin = false;
@@ -44,6 +45,7 @@ import { StationMenuPage } from '../station-menu/station-menu'
      this.facebookProvider.getUser().then((user)=>{
 
        this.user = user;
+       this.uid = user['id'];
 
        this.adminProvider.fetch(user['id']).then((admin)=>{
 
@@ -72,7 +74,7 @@ import { StationMenuPage } from '../station-menu/station-menu'
    }
 
    cooperatives(){
-     this.navCtrl.push(CooperativeListPage);
+     this.navCtrl.push(CooperativeListPage, {uid: this.uid});
    }
 
    qrcodeRequest(){

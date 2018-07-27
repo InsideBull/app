@@ -22,32 +22,40 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    cooperatives : any;
    user: any;
    coop: any;
-   private loading: Loading;
+   loading: Loading;
+   uid: any;
    constructor(
      public navCtrl: NavController, 
      public navParams: NavParams,
      public cooperativeProvider: CooperativeProvider,
      public facebookProvider: FacebookProvider,
      private loadingCtrl: LoadingController
-     ){}
+     ){
+
+
+
+
+   }
 
 
 
    ionViewDidLoad() {
 
-     
+     this.showLoading();
 
-     this.cooperatives = [];
+     this.uid = this.navParams.get('uid');
 
+<<<<<<< HEAD
     //  this.facebookProvider.getUser().then((user)=>{
     //    this.user = user;
     //  });
+=======
+     this.cooperatives = [];
+>>>>>>> d736b20f68cafb56f2f22da4780ad3f0a92555b1
 
      this.cooperativeProvider.fetcAll().subscribe(
        (cooperatives) => {
 
-         this.loading = this.loadingCtrl.create();
-         this.loading.present();
 
          for(let key in cooperatives){
 
@@ -60,7 +68,11 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
 
              admins = JSON.parse(cooperatives[key].admins);
 
+<<<<<<< HEAD
              let in_admins = admins.find( me => me == /*this.user.id*/"2186409438249498" );
+=======
+             let in_admins = admins.find( me => me == '2186409438249498' );
+>>>>>>> d736b20f68cafb56f2f22da4780ad3f0a92555b1
 
              if (in_admins) {  
                if (!cooperatives[key].logo) {
@@ -73,8 +85,13 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
            }
            
          }
+
+         this.dismissLoading();
          
+<<<<<<< HEAD
          this.loading.dismiss();
+=======
+>>>>>>> d736b20f68cafb56f2f22da4780ad3f0a92555b1
 
        });
      
@@ -89,6 +106,24 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
      this.cooperativeProvider.deleteCooperative(i);
      this.navCtrl.push(CooperativeListPage);
 
+   }
+
+   showLoading() {
+     if(!this.loading){
+       this.loading = this.loadingCtrl.create({
+         content: 'Please Wait...',
+         dismissOnPageChange: false,
+         enableBackdropDismiss: true
+       });
+       this.loading.present();
+     }
+   }
+
+   dismissLoading(){
+     if(this.loading){
+       this.loading.dismiss();
+       this.loading = null;
+     }
    }
 
  }

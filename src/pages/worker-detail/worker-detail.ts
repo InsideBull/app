@@ -7,6 +7,7 @@ import { WorkerType } from '../../models/worker-type.model';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { WorkerEditPage } from '../worker-edit/worker-edit';
 import { WorkerListPage } from '../worker-list/worker-list';
+import { PhoneProvider } from '../../providers/phone/phone'
 
 
 /**
@@ -29,7 +30,7 @@ export class WorkerDetailPage {
   workerType: WorkerType = new WorkerType();
   photo = false;
 
-  constructor(private workerTypeProvider: WorkerTypeProvider, private notificationProvider: NotificationProvider, private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private phoneProvider:PhoneProvider, private workerTypeProvider: WorkerTypeProvider, private notificationProvider: NotificationProvider, private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
 
   }
 
@@ -72,6 +73,10 @@ export class WorkerDetailPage {
   }
   editer(){
     this.navCtrl.push(WorkerEditPage, {key: this.key, cooperativeKey: this.cooperativeKey});
+  }
+
+  callWorker(){
+      this.phoneProvider.call(this.worker.tel + '');
   }
 
 }
