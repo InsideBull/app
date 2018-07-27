@@ -27,23 +27,23 @@
 						
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+								<span class = "input-label">Type</span>
 							</ion-label>
-							<ion-input formControlName="type" id="type" type="text" placeholder="type" stacked required></ion-input>
+							<ion-input formControlName="type" id="type" type="text" stacked required></ion-input>
 						</ion-item>
 
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+								<span class = "input-label">Rangé</span>
 							</ion-label>
-							<ion-input (keyup)="manageSeats(nbRows,nbCols)" [(ngModel)]="nbRows" formControlName="nbRows" id="nbRows" type="text" placeholder="Rangé" stacked required></ion-input>
+							<ion-input (keyup)="manageSeats(nbRows,nbCols)" [(ngModel)]="nbRows" formControlName="nbRows" id="nbRows" type="text" stacked required></ion-input>
 						</ion-item>
 
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<ion-icon ios="ios-create" md="md-create" class="ion-icon-md ion-icon-ios"></ion-icon>
+								<span class = "input-label">Colonne</span>
 							</ion-label>
-							<ion-input (keyup)="manageSeats(nbRows,nbCols)" [(ngModel)]="nbCols" formControlName="nbCols" id="nbCols" type="text" placeholder="Colonne" stacked required></ion-input>
+							<ion-input (keyup)="manageSeats(nbRows,nbCols)" [(ngModel)]="nbCols" formControlName="nbCols" id="nbCols" type="text" stacked required></ion-input>
 						</ion-item>
 
 						<div class="car">
@@ -57,8 +57,6 @@
 								<span *ngSwitchDefault>
 									<ion-icon ios="ios-square" md="md-square" class="ion-icon-md ion-icon-ios freeSeat width-icon-center"></ion-icon>
 								</span>
-
-
 								
 							</span>
 						</div>

@@ -86,9 +86,16 @@ import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
 
  		let workers = [];
 
+<<<<<<< HEAD
 		 if(this.car.workers){
 			 workers = JSON.parse(this.car.workers);
 		 }
+=======
+ 		if (this.car.workers) {
+ 			workers = JSON.parse(this.car.workers);
+ 		}
+
+>>>>>>> a167d097bb2e6cb1d663f26360401f838d4034db
 
  		for(let w in this.workers){
 
