@@ -19,7 +19,7 @@ import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 
 
 
-
+ 
 @Component({
   templateUrl: 'app.html'
 })

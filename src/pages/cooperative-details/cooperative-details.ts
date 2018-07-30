@@ -10,6 +10,7 @@ import { CarMenuPage } from '../car-menu/car-menu';
 import { WorkerMenuPage } from '../worker-menu/worker-menu';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { MenuProvider } from '../../providers/menu/menu';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -34,19 +35,19 @@ export class CooperativeDetailsPage {
     public alertCtrl:AlertController,
     private toastCtrl: ToastController,
     private notif: NotificationProvider) {
-  }
-
-  ionViewWillEnter() {
-    this.param = this.navParams.get('key');
-
-    this.cooperativeProvider.fetch(this.param).then(
-      (data: Cooperative) => {
-          this.cooperative = data;
-          if(!this.cooperative.logo){
-            this.cooperative.logo = "assets/icon/copyright.png";
-          }
-        });
-
+      this.param = this.navParams.get('key');
+    
+      this.cooperativeProvider.fetch(this.param).then(
+        (data: Cooperative) => {
+            this.cooperative = data;
+            if(!this.cooperative.logo){
+              this.cooperative.logo = "assets/icon/copyright.png";
+            }
+          });
+        }
+        
+        ionViewWillEnter() {
+          
   }
 
   goToManage(){
