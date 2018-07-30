@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController,ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, Events } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
@@ -10,7 +10,6 @@ import { CarMenuPage } from '../car-menu/car-menu';
 import { WorkerMenuPage } from '../worker-menu/worker-menu';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 import { NotificationProvider } from '../../providers/notification/notification';
-import { MenuProvider } from '../../providers/menu/menu';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -34,7 +33,8 @@ export class CooperativeDetailsPage {
     public cooperativeProvider: CooperativeProvider,
     public alertCtrl:AlertController,
     private toastCtrl: ToastController,
-    private notif: NotificationProvider) {
+    private notif: NotificationProvider,
+    public events: Events) {
       this.param = this.navParams.get('key');
     
       this.cooperativeProvider.fetch(this.param).then(
@@ -44,6 +44,9 @@ export class CooperativeDetailsPage {
               this.cooperative.logo = "assets/icon/copyright.png";
             }
           });
+
+          this.events.publish('paramWorker', {key: this.param});
+          this.events.publish('paramCar', {key: this.param});
         }
         
         ionViewWillEnter() {
