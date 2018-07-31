@@ -10,6 +10,7 @@ import { CarMenuPage } from '../car-menu/car-menu';
 import { WorkerMenuPage } from '../worker-menu/worker-menu';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 import { NotificationProvider } from '../../providers/notification/notification';
+import { EventProvider } from '../../providers/event/event';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -34,7 +35,8 @@ export class CooperativeDetailsPage {
     public alertCtrl:AlertController,
     private toastCtrl: ToastController,
     private notif: NotificationProvider,
-    public events: Events) {
+    public events: Events,
+    public eventProvider: EventProvider) {
       this.param = this.navParams.get('key');
     
       this.cooperativeProvider.fetch(this.param).then(
@@ -43,10 +45,10 @@ export class CooperativeDetailsPage {
             if(!this.cooperative.logo){
               this.cooperative.logo = "assets/icon/copyright.png";
             }
-          });
+          }); 
 
-          this.events.publish('paramWorker', {key: this.param});
-          this.events.publish('paramCar', {key: this.param});
+          this.eventProvider.setEvent('paramWorker', {key: this.param});
+          this.eventProvider.setEvent('paramCar', {key: this.param});
         }
         
         ionViewWillEnter() {
