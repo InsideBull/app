@@ -29,13 +29,13 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
  	user: any;
  	constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, private qrcvProvider: QrcodeValidationProvider, public navCtrl: NavController, public navParams: NavParams) {
  		
+		 this.facebookProvider.getUser().then((user)=>{
+			 this.user = user;
+		 })
  	}
 
  	ionViewWillEnter() {
  		
- 		this.facebookProvider.getUser().then((user)=>{
- 			this.user = user;
- 		})
  	}
 
  	getQrcode(){

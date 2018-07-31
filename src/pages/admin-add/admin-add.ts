@@ -34,25 +34,30 @@ import { AdminListPage } from '../admin-list/admin-list'
     public navCtrl: NavController, 
     public navParams: NavParams,
     public notificationProvider: NotificationProvider) {
+      this.toConstruct();
    }
 
    ionViewWillEnter() {
 
-     this.key = this.navParams.get('key');
-     this.cooperativeProvider.fetch(this.key).then(
-       (data: Cooperative) => {
-         this.cooperative = data;
-       });
+ 
+   }
 
-     this.myFriends = [];
-     this.facebookProvider.getUserFriends().then((friends)=>{
+   toConstruct(){
+    this.key = this.navParams.get('key');
+    this.cooperativeProvider.fetch(this.key).then(
+      (data: Cooperative) => {
+        this.cooperative = data;
+      });
 
-       for(let key in friends){
-         this.myFriends.push(friends[key])
-       }
+    this.myFriends = [];
+    this.facebookProvider.getUserFriends().then((friends)=>{
+
+      for(let key in friends){
+        this.myFriends.push(friends[key])
+      }
 
 
-     })
+    })
    }
 
    addToAdmins(uid, uname){

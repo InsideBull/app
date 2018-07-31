@@ -43,29 +43,34 @@ export class WorkerEditPage {
       tel: [, Validators.required]
 
     });
+    this.toConstruct();
   }
 
   ionViewWillEnter() {
 
+    
+  }
+  
+  toConstruct(){
     this.key = this.navParams.get('key');
     this.cooperativeKey = this.navParams.get('cooperativeKey');
     
     this.workertypes = [];
     this.workerTypeProvider.fetcAll().subscribe((workertypes)=>{
-
+  
       for(let key in workertypes){
         workertypes[key].key = key;
          this.workertypes.push(workertypes[key]);
       }
     });
-
+  
     this.worker = new Worker();
     let customPath = `cooperative/${this.cooperativeKey}/worker`;
     this.workerProvider.customPath(customPath);
     this.workerProvider.fetch(this.key).then((worker: Worker)=>{
       this.worker = worker;
     });
-    
+
   }
 
   imageWidget(){

@@ -29,9 +29,15 @@ export class CarListPage {
       public carProvider: CarProvider,
       public cartypeProvider: CarTypeProvider,
       private loadingCtrl: LoadingController
-  ) {}
+  ) {
+    this.toConstruct();
+  }
 
   ionViewWillEnter() {
+    
+  }
+
+  toConstruct(){
     this.loading = this.loadingCtrl.create();
     this.loading.present();
     this.param = this.navParams.get('key');

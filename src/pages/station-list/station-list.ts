@@ -25,30 +25,34 @@ import { StationDetailPage } from '../station-detail/station-detail';
      public navParams: NavParams,
      public stationProvider: StationProvider,
      public loadingCtrl: LoadingController) {
-   }
+       this.toConstruct();
+    }
 
    ionViewWillEnter() {
-     this.loading = this.loadingCtrl.create();
-     this.loading.present();
-     this.stations = [];
-     this.stationProvider.fetcAll().subscribe(
-       (data)=>{
-         
-         if (data) {
-           for(let key in data){
-             data[key].key= key;
-             this.stations.push(data[key]); 
-           }
-         }
-         else{
-           this.empty = true;
-         }
-
-
-         this.loading.dismiss();
-       }
-       );
-
+     
+  }
+  toConstruct(){
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+    this.stations = [];
+    this.stationProvider.fetcAll().subscribe(
+      (data)=>{
+        
+        if (data) {
+          for(let key in data){
+            data[key].key= key;
+            this.stations.push(data[key]); 
+          }
+        }
+        else{
+          this.empty = true;
+        }
+  
+  
+        this.loading.dismiss();
+      }
+      );
+    
    }
 
    onClickLabel(key){

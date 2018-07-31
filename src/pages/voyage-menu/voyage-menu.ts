@@ -21,17 +21,17 @@ import { VoyageCreatePage } from '../voyage-create/voyage-create'
  	key:any;
  	cooperative: Cooperative = new Cooperative();
  	constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams) {
+		 this.key = this.navParams.get('key');
+		 this.cooperativeProvider.fetch(this.key).then(
+			 (data: Cooperative) => {
+				 this.cooperative = data;
+				 if(!this.cooperative.logo){
+					 this.cooperative.logo = "assets/icon/copyright.png"
+				 }
+			 });
  	}
 
  	ionViewWillEnter() {
- 		this.key = this.navParams.get('key');
- 		this.cooperativeProvider.fetch(this.key).then(
- 			(data: Cooperative) => {
- 				this.cooperative = data;
- 				if(!this.cooperative.logo){
- 					this.cooperative.logo = "assets/icon/copyright.png"
- 				}
- 			});
  	}
 
  	listVoyage(){

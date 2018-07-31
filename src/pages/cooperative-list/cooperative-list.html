@@ -1,7 +1,13 @@
 <ion-header>
 
   <ion-navbar>
+
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+
     <ion-title>Mes Coopérative</ion-title>
+    
   </ion-navbar>
 
 </ion-header>
@@ -22,7 +28,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row justify-content-center class="row-center content-body" >
+    <ion-row justify-content-center class="row-center content-body" *ngIf="uid">
       <ion-col col-11 col-sm col-auto>
         <ion-list>
         

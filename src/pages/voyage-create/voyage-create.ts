@@ -29,7 +29,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
    param : any;
    cooperative: Cooperative = new Cooperative();
    min: any;
-   max: any;
 
    constructor(public navCtrl: NavController, 
      public navParams: NavParams,
@@ -42,38 +41,40 @@ import { NotificationProvider } from '../../providers/notification/notification'
      this.form = this.formBuilder.group({
        arrivalstation: ['',Validators.required],
        cooperative: ['', ],
-       date: [Date,Validators.required],
+       date: ['',Validators.required],
+       time: '',
        price: [,Validators.required],
        startstation: ['',Validators.required]
      });
-
+     this.toConstruct();
 
    }
 
    ionViewWillEnter() {
-     this.stations = [];    
-
-     this.param = this.navParams.get('key');
-
-     this.cooperativeProvider.fetch(this.param).then(
-       (data: Cooperative) => { 
-         this.cooperative = data;
-       });
-
-     this.stationProvider.fetcAll().subscribe(
-       (data) => {
-         for(let key in data){
-           data[key].key = key;
-           this.stations.push(data[key]);
-         }
-       });
-
-       this.min = this.monent().toISOString();
-       let max = this.monent(); 
-       max.setDate(max.getDate()+365);
-       this.max = max.toISOString(); 
-
-
+     
+     
+  }
+  
+  toConstruct(){
+    this.stations = [];    
+  
+    this.param = this.navParams.get('key');
+  
+    this.cooperativeProvider.fetch(this.param).then(
+      (data: Cooperative) => { 
+        this.cooperative = data;
+      });
+  
+    this.stationProvider.fetcAll().subscribe(
+      (data) => {
+        for(let key in data){
+          data[key].key = key;
+          this.stations.push(data[key]);
+        }
+      });
+  
+      this.min = this.monent();
+    
    }
 
    onSubmit(){

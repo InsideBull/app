@@ -34,23 +34,23 @@ import { ImageWidgetPage } from '../image-widget/image-widget';
  		public cameraProvider: CameraProvider,
  		public notif: NotificationProvider,
  		public modalCtrl: ModalController) {
- 		
+			 
+			 this.param = this.navParams.get('key');
+			 this.cooperativeProvider.fetch(this.param).then(
+				 (data: Cooperative) => {
+					 this.cooperative = data;
+		
+					 if(!this.cooperative.logo){
+						 this.cooperative.logo = "assets/icon/copyright.png"
+					 }
+		
+					 this.url = this.cooperative.logo
+				 });
 
  		
  	}
 
  	ionViewWillEnter() {
- 		this.param = this.navParams.get('key');
- 		this.cooperativeProvider.fetch(this.param).then(
- 			(data: Cooperative) => {
- 				this.cooperative = data;
-
- 				if(!this.cooperative.logo){
- 					this.cooperative.logo = "assets/icon/copyright.png"
- 				}
-
- 				this.url = this.cooperative.logo
- 			});
  		
  	}
 
