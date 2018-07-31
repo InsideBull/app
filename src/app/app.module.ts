@@ -77,6 +77,7 @@ import { WorkerEditPage } from '../pages/worker-edit/worker-edit';
 import { PhoneProvider } from '../providers/phone/phone';
 import { CallNumber } from '@ionic-native/call-number';
 import { SMS } from '@ionic-native/sms';
+import { EventProvider } from '../providers/event/event';
 
 @NgModule({
   declarations: [
@@ -213,7 +214,8 @@ import { SMS } from '@ionic-native/sms';
   WorkerTypeProvider,
   PhoneProvider,
   CallNumber,
-  SMS
+  SMS,
+  EventProvider
   ]
 })
 export class AppModule {}

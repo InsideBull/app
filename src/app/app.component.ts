@@ -17,6 +17,7 @@ import { ModalController, MenuController } from 'ionic-angular';
 import { StationCreatePage } from '../pages/station-create/station-create';
 import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
+import { EventProvider } from '../providers/event/event';
 
 
 
@@ -34,7 +35,7 @@ export class MyApp {
 
   pages: any = [];
 
-  constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events) {
+  constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events, public eventProvider: EventProvider) {
     
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
@@ -53,23 +54,22 @@ export class MyApp {
         if (reponse) {
           this.rootPage = ConnectedPage;
         }
-      })
+      }) 
       
       statusBar.styleDefault();
       let splash = modalCrtl.create(SplashPage) ;
       splash.present() ;
     });
-    this.events.subscribe('paramWorker', (paramWorker)=>{
-          
+
+    this.eventProvider.getEvent('paramWorker').then((paramWorker)=>{
       if(paramWorker){
         this.pages.push({title: 'Menu Employé', component: WorkerMenuPage, param: paramWorker});
       }
     });
 
-    this.events.subscribe('paramCar', (paramCar)=>{
-          
+    this.eventProvider.getEvent('paramCar').then((paramCar)=>{
       if(paramCar){
-        this.pages.push({title: 'Menu Voiture', component: CarMenuPage, param: paramCar});
+        this.pages.push({title: 'Menu Voiture', component: WorkerMenuPage, param: paramCar});
       }
     });
 
