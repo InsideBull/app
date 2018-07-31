@@ -41,12 +41,12 @@ export class CarListPage {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
     this.param = this.navParams.get('key');
-    this.cars = [];
     let customPath = `cooperative/${this.param}/car`;
     this.carProvider.customPath(customPath);
     this.carProvider.fetcAll().subscribe(
       (data)=>{
         
+        this.cars = [];
         if (data) {
           for(let key in data){
           data[key].key = key;
