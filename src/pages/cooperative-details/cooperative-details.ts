@@ -49,6 +49,7 @@ export class CooperativeDetailsPage {
 
           this.eventProvider.setEvent('paramWorker', {key: this.param});
           this.eventProvider.setEvent('paramCar', {key: this.param});
+          this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
         }
         
         ionViewWillEnter() {

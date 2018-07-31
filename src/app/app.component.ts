@@ -34,13 +34,13 @@ export class MyApp {
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
 
   pages: any = [];
+  name: any;
 
   constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events, public eventProvider: EventProvider) {
     
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
     this.pages = [
-      {title: 'Cooperative', component: CooperativeListPage,param:{}},
       {title: 'Station', component: StationMenuPage, param:{}}    
     ]
 
@@ -70,6 +70,19 @@ export class MyApp {
     this.eventProvider.getEvent('paramCar').then((paramCar)=>{
       if(paramCar){
         this.pages.push({title: 'Menu Voiture', component: WorkerMenuPage, param: paramCar});
+      }
+    });
+
+    this.eventProvider.getEvent('uid').then((resolve)=>{
+      if(resolve){
+        this.pages.push({title: 'Mes coopératives', component: CooperativeListPage, param: resolve});
+      }
+    });
+
+    this.eventProvider.getEvent('parmCoopDetail').then((resolve)=>{
+      if(resolve){
+        this.name = resolve['name'];
+        this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
       }
     });
 
