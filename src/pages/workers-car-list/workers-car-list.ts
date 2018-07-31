@@ -6,6 +6,7 @@ import { WorkerProvider } from '../../providers/worker/worker';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type';
 import { CarDetailsPage } from '../car-details/car-details'
 import { NotificationProvider } from '../../providers/notification/notification';
+import { WorkerDetailPage } from '../worker-detail/worker-detail';
 
 
 /**
@@ -96,7 +97,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 	 }
 
  	showDetails(){
- 		this.navCtrl.push(CarDetailsPage, {key: this.key, coop: this.coop})
+ 		this.navCtrl.push(WorkerDetailPage, {key: this.key, cooperativeKey: this.coop})
  	}
 
  }

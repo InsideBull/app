@@ -42,8 +42,4 @@ export class VoyageParametersPage {
     this.navCtrl.push(TripListPage, {key:this.key});
   }
 
-  goToCarAdd(){
-    this.navCtrl.push(CarAddPage, {key: this.coop});
-  }
-
 }

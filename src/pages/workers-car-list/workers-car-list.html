@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Employés</ion-title>
+		<ion-title>Equipage</ion-title>
 		<button ion-button="" menuToggle="">
 				<ion-icon name="menu"></ion-icon>
 			  </button>
@@ -30,9 +30,10 @@
 				<ion-list>
 
 					<ion-item *ngFor="let worker of workers" >
-						<span (tap)="showDetails()"><ion-avatar  item-start ><img [src]="worker?.image" ></ion-avatar>
+						<ion-label (tap)="showDetails()">
+							<ion-avatar  item-start ><img [src]="worker?.image" ></ion-avatar>
 							{{worker.matricule}} - {{worker.name }} - {{worker?.type.occupation}}
-						</span>						
+						</ion-label>						
 						<ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(worker.type)"></ion-icon>
 					</ion-item>		
 

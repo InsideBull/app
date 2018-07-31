@@ -8,6 +8,7 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
 
 import { ValidationPage } from '../validation/validation';
 import { StationMenuPage } from '../station-menu/station-menu'
+import { EventProvider } from '../../providers/event/event';
 
 
 
@@ -32,12 +33,14 @@ import { StationMenuPage } from '../station-menu/station-menu'
    user: any;
    uid:any;
 
-   constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams) {
+   constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams, public eventProvider:EventProvider) {
      this.is_admin = false;
      
      this.pending = false;
 
      this.isAdmin();
+
+     this.eventProvider.setEvent('uid', {uid: this.uid});
    }
 
 

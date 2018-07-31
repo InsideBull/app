@@ -37,8 +37,4 @@ export class WorkersCarPage {
     this.navCtrl.push(WorkersCarAddPage, {key: this.key, coop: this.coop});
   }
 
-  goToWorkerAdd(){
-    this.navCtrl.push(WorkerAddPage, {cooperativeKey: this.coop, carKey: this.key});
-  }
-
 }
