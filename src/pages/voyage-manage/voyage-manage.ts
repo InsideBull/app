@@ -29,7 +29,6 @@ export class VoyageManagePage {
 	voyage: Voyage = new Voyage();
 	stations: any;
 	min: any;
-	max: any;
 
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams,
@@ -69,10 +68,7 @@ export class VoyageManagePage {
 					this.cooperative = data;
 				});
 			
-			this.min = this.monent().toISOString();
-				 let max = this.monent(); 
-				 max.setDate(max.getDate()+365);
-				 this.max = max.toISOString(); 
+			this.min = this.monent();
 
 	}
 	

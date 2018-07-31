@@ -55,9 +55,16 @@
 
             <ion-item class="input-cover-md input-cover-ios" >
                 <ion-label no-padding no-margin>
-                    <span class = "input-label">Date de départ</span>
+                    <span class = "input-label">Date de départ</span> 
                 </ion-label>
-                <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [min]="min" [max]="max" formControlName="date" id="date"></ion-datetime>
+                <ion-datetime displayFormat="DD MM YYYY" [min]="min.getFullYear()" [max]="min.getFullYear() + 1" formControlName="date" id="date"></ion-datetime>
+            </ion-item>
+
+            <ion-item class="input-cover-md input-cover-ios" >
+                <ion-label no-padding no-margin>
+                    <span class = "input-label">Heure de départ</span> 
+                </ion-label>
+                <ion-datetime displayFormat="HH:mm" formControlName="time" id="time"></ion-datetime>
             </ion-item>
 
             <ion-item class="input-cover-md input-cover-ios" >

@@ -29,7 +29,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
    param : any;
    cooperative: Cooperative = new Cooperative();
    min: any;
-   max: any;
 
    constructor(public navCtrl: NavController, 
      public navParams: NavParams,
@@ -42,7 +41,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
      this.form = this.formBuilder.group({
        arrivalstation: ['',Validators.required],
        cooperative: ['', ],
-       date: [Date,Validators.required],
+       date: ['',Validators.required],
+       time: '',
        price: [,Validators.required],
        startstation: ['',Validators.required]
      });
@@ -73,10 +73,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
         }
       });
   
-      this.min = this.monent().toISOString();
-      let max = this.monent(); 
-      max.setDate(max.getFullYear()+1);
-      this.max = max.toISOString(); 
+      this.min = this.monent();
     
    }
 
