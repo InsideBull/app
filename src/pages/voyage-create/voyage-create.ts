@@ -75,7 +75,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
   
       this.min = this.monent().toISOString();
       let max = this.monent(); 
-      max.setDate(max.getDate()+365);
+      max.setDate(max.getFullYear()+1);
       this.max = max.toISOString(); 
     
    }

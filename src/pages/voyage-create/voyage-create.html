@@ -35,17 +35,17 @@
             <ion-col col-12 col-sm col-auto >
                 <ion-list class="list_" padding-top maring-top>
                     
-                    <ion-item>
-                      <ion-label no-padding no-margin>
-                        <span class = "input-label">Ville de départ</span>
-                    </ion-label>
-                    <ion-select formControlName="startstation">
-                        <ion-option  *ngFor="let stat of stations" [value]="stat.key">{{stat.city}}, {{stat.location}}, {{stat.name}}</ion-option>
-                    </ion-select>
-                </ion-item>
+            <ion-item>
+                <ion-label no-padding no-margin>
+                    <span class = "input-label">Ville de départ</span>
+                </ion-label>
+                <ion-select formControlName="startstation">
+                    <ion-option  *ngFor="let stat of stations" [value]="stat.key">{{stat.city}}, {{stat.location}}, {{stat.name}}</ion-option>
+                </ion-select>
+            </ion-item>
 
-                <ion-item>
-                  <ion-label no-padding no-margin>
+            <ion-item>
+                <ion-label no-padding no-margin>
                     <span class = "input-label">Destination</span>
                 </ion-label>
                 <ion-select formControlName="arrivalstation">
@@ -77,4 +77,3 @@
 </ion-grid>
 </form>
 </ion-content>
-
