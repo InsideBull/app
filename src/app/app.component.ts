@@ -42,7 +42,8 @@ export class MyApp {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
     this.pages = [
-      {title: 'Station', component: StationMenuPage, param:{}}    
+      {title: 'Menu Station', component: StationMenuPage, param:{}},    
+      {title: 'Profil', component: ConnectedPage, param:{}},  
     ]
 
     

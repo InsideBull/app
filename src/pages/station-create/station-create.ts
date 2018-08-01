@@ -36,10 +36,11 @@ import { StationDetailPage } from '../station-detail/station-detail';
  			location: ['',Validators.required],		
 
  		});
-		 this.prepareAutocompletion();
- 	}
-
- 	ionViewWillEnter() {
+	}
+	
+	ionViewDidLoad(){
+		this.prepareAutocompletion();
+	  
  	}
 
  	prepareAutocompletion(){
