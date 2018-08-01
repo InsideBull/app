@@ -87,7 +87,7 @@ export class WorkerAddPage {
        if(this.carKey){
         this.navCtrl.push(WorkersCarPage, {key: this.carKey, coop: this.cooperativeKey});
        }
-       this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.cooperativeKey});
+       this.navCtrl.setRoot(WorkerDetailPage, {key: key, cooperativeKey: this.cooperativeKey});
      },
      ()=>{});	
     

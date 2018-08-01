@@ -136,7 +136,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  				let customPath = `cooperative/${this.key}/car`;
  				this.carProvider.customPath(customPath);
  				this.carProvider.save(car,car.matricule);
- 				this.navCtrl.push(CarDetailsPage, {key: car.matricule, coop: this.key});
+ 				this.navCtrl.setRoot(CarDetailsPage, {key: car.matricule, coop: this.key});
  			},
  			()=>{});
  		

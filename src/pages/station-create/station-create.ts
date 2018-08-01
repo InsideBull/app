@@ -77,7 +77,7 @@ import { StationDetailPage } from '../station-detail/station-detail';
 				value.latitude = this.location.latitude;
 				let station = new Station(value);
 				let key = this.stationProvider.save(station);
-				this.navCtrl.push(StationDetailPage, {key: key});
+				this.navCtrl.setRoot(StationDetailPage, {key: key});
 			}
 		}, ()=>{}); 		
  	}

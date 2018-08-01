@@ -103,7 +103,7 @@ import { ImageWidgetPage } from '../image-widget/image-widget';
        }
        let car = new Car(value);
        this.carProvider.save(car, this.key);
-       this.navCtrl.push(CarDetailsPage, {key: this.key, coop: this.coop});
+       this.navCtrl.setRoot(CarDetailsPage, {key: this.key, coop: this.coop});
      },()=>{});
 
 

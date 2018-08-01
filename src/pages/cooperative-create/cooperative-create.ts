@@ -49,8 +49,11 @@ import { ImageWidgetPage } from '../image-widget/image-widget'
 
  		this.form = this.formBuilder.group({
  			name: ['',Validators.required],
-			 logo: '',
-			 desc:['', Validators.required]			
+			logo: '',
+			desc:['', Validators.required],
+			nameContact:['',Validators.required],
+			telContact:['', Validators.required],
+			addrContact: ['', Validators.required]		
  		});
  		
  	}
@@ -79,7 +82,7 @@ import { ImageWidgetPage } from '../image-widget/image-widget'
 
  						let key = this.cooperativeProvider.save(cooperative);
 
- 						this.navCtrl.push(CooperativeDetailsPage, {key:key});
+ 						this.navCtrl.setRoot(CooperativeDetailsPage, {key:key});
  					});		
 
  				}

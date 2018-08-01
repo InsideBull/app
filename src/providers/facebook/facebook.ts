@@ -24,7 +24,7 @@ import { User } from '../../models/user.model';
     login(redirection ?: any){
       this.loading = this.loadingCtrl.create();
       this.loading.present();
-      this.facebook.login(['user_birthday', 'email', 'user_location', 'public_profile','user_friends']).then(()=>{
+      this.facebook.login(['email', 'public_profile']).then(()=>{
         this.logged = true;
         this.loading.dismiss();
         this.app.getActiveNav().setRoot(redirection);
@@ -42,15 +42,13 @@ import { User } from '../../models/user.model';
 
     getUser(fields ?: any){
       return new Promise((resolve)=>{
-        this.facebook.api('me?fields=id,email,name,birthday,picture.width(720).height(720).as(picture_large),location', []).then((profile)=>{
+        this.facebook.api('me?fields=id,email,name,picture.width(720).height(720).as(picture_large)', []).then((profile)=>{
                 
           let _user = {
             id: profile['id'],
             email: profile['email'],
             name: profile['name'],
             picture: profile['picture_large']['data']['url'],
-            birthday: profile['birthday'],
-            city: profile['location'].name,
           };
 
           let user: User;

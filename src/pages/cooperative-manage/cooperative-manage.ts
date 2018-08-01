@@ -63,7 +63,7 @@ import { ImageWidgetPage } from '../image-widget/image-widget';
  			}
  			this.cooperativeProvider.save(this.cooperative, this.param);
  			
- 			this.navCtrl.push(CooperativeDetailsPage, {'key': this.param});
+ 			this.navCtrl.setRoot(CooperativeDetailsPage, {'key': this.param});
  		},()=>{});
  		
  	}

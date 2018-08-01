@@ -77,7 +77,7 @@ export class VoyageManagePage {
     let title = "Modification";
     this.notif.presentConfirm(message, title).then((confirm)=>{
 			this.voyageProvider.save(this.voyage, this.param);
-			this.navCtrl.push(VoyageDetailPage, {key: this.param, coop: this.coop});
+			this.navCtrl.setRoot(VoyageDetailPage, {key: this.param, coop: this.coop});
 		},()=>{});
 	}
 	
