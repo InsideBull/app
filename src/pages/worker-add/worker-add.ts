@@ -45,7 +45,6 @@ export class WorkerAddPage {
        tel: [, Validators.required]	
 
  		});
-     this.url = "assets/icon/camera";
      this.toConstruct();
  	}
 

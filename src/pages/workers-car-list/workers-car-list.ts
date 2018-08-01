@@ -58,7 +58,6 @@ import { WorkerDetailPage } from '../worker-detail/worker-detail';
 		
 						 for(let w in workers){
 		
-		
 							 this.workerProvider.fetch(workers[w]).then((worker)=>{
 		
 								 if (worker) {
@@ -69,6 +68,7 @@ import { WorkerDetailPage } from '../worker-detail/worker-detail';
 		
 									 this.workerTypeProvider.fetch(worker['type']).then((type)=>{
 										 worker['type'] = type;
+										 worker['key'] = w;
 										 this.workers.push(worker);
 									 });
 								 }
@@ -93,11 +93,12 @@ import { WorkerDetailPage } from '../worker-detail/worker-detail';
 			workers.splice(workers.indexOf(i), 1);
 		   this.car.workers = JSON.stringify(workers);
 		   this.carProvider.save(this.car, this.car.matricule);
+		   this.navCtrl.push(WorkersCarListPage, {key: this.key, coop: this.coop});
 		},()=>{});
 	 }
 
- 	showDetails(){
- 		this.navCtrl.push(WorkerDetailPage, {key: this.key, cooperativeKey: this.coop})
+ 	showDetails(key: string){
+ 		this.navCtrl.push(WorkerDetailPage, {key: key, cooperativeKey: this.coop})
  	}
 
  }
