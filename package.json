@@ -25,7 +25,7 @@
     "@ionic-native/call-number": "^4.10.1",
     "@ionic-native/camera": "^4.9.2",
     "@ionic-native/core": "^4.10.0",
-    "@ionic-native/facebook": "^4.9.0",
+    "@ionic-native/facebook": "^4.11.0",
     "@ionic-native/geolocation": "^4.9.2",
     "@ionic-native/google-maps": "^4.9.1",
     "@ionic-native/qr-scanner": "^4.9.1",
@@ -70,9 +70,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-facebook4": {
-        "APP_ID": "566929223661781",
-        "APP_NAME": "Taxibr",
-        "ANDROID_SDK_VERSION": "4.+"
+        "APP_ID": "258721424928872",
+        "APP_NAME": "coo-taxibr"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},

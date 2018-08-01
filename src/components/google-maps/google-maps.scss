@@ -1,12 +1,12 @@
 ion-app._gmaps_cdv_ .nav-decor {
 	background-color: transparent !important;
+	google-maps {
+		#map_canvas {
+			height: 100%;    
+			position: relative;
+			width: 100%;
+		}
+	}
 }
-google-maps {
 
-}
-#map_canvas {
-	height: 100%;    
-	position: relative;
-	width: 100%;
-}
 
