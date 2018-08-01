@@ -39,8 +39,6 @@ import { EventProvider } from '../../providers/event/event';
      this.pending = false;
 
      this.isAdmin();
-
-     this.eventProvider.setEvent('uid', {uid: this.uid});
    }
 
 
@@ -50,6 +48,9 @@ import { EventProvider } from '../../providers/event/event';
        this.user = user;
        this.uid = user['id'];
 
+        if(this.uid){
+          this.eventProvider.setEvent('uid', {uid: this.uid});
+        }
        this.adminProvider.fetch(user['id']).then((admin)=>{
 
          if(admin){

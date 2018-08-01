@@ -18,6 +18,7 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
+import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
 
 
 
@@ -41,7 +42,8 @@ export class MyApp {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
     this.pages = [
-      {title: 'Station', component: StationMenuPage, param:{}}    
+      {title: 'Menu Station', component: StationMenuPage, param:{}},    
+      {title: 'Profil', component: ConnectedPage, param:{}},  
     ]
 
     
@@ -69,8 +71,7 @@ export class MyApp {
 
     this.eventProvider.getEvent('paramCar').then((paramCar)=>{
       if(paramCar){
-        this.pages.push({title: 'Menu Voiture', component: WorkerMenuPage, param: paramCar});
-
+        this.pages.push({title: 'Menu Voiture', component: CarMenuPage, param: paramCar});
       }
     });
 
@@ -84,6 +85,11 @@ export class MyApp {
       if(resolve){
         this.name = resolve['name'];
         this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
+      }
+    });
+    this.eventProvider.getEvent('parmVoyageMenu').then((resolve)=>{
+      if(resolve){
+        this.pages.push({title: "Menu voyage", component: VoyageMenuPage, param: resolve});
       }
     });
 

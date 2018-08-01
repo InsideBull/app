@@ -31,7 +31,8 @@
 				<ion-col col-8 col-sm col-auto  >
 
 					<button class="btn-icon-avatar img-profil" (tap)="imageWidget()">
-						<ion-avatar><img [src]="url" ></ion-avatar>
+							<ion-avatar><img [src]="assets/icon/camera.png" *ngIf="!url"></ion-avatar>
+						<ion-avatar><img [src]="url" *ngIf="url"></ion-avatar>
 						<p>Ajouter une logo</p>
 					</button>
 
