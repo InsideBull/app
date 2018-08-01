@@ -38,7 +38,7 @@
                       <ion-label no-padding no-margin>
                         <span class = "input-label">Station de départ</span>
                     </ion-label>
-                    <ion-select [(ngModel)]="voyage.startstation">
+                    <ion-select [(ngModel)]="voyage.startstation" cancelText="Annuler" okText="Ok">
                         <ion-option  *ngFor="let stat of stations" [value]="stat.key">{{stat.city}}, {{stat.location}}, {{stat.name}}</ion-option>
                     </ion-select>
                 </ion-item>
@@ -47,7 +47,7 @@
                   <ion-label no-padding no-margin>
                     <span class = "input-label">Destination</span>
                 </ion-label>
-                <ion-select [(ngModel)]="voyage.arrivalstation">
+                <ion-select [(ngModel)]="voyage.arrivalstation" cancelText="Annuler" okText="Ok">
                     <ion-option  *ngFor="let station of stations" [value]="station.key">{{station.city}}, {{station.location}}, {{station.name}}</ion-option>
                 </ion-select>
             </ion-item>

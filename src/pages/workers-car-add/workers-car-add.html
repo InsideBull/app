@@ -34,7 +34,7 @@
 
 	<ion-item>
 		<ion-label>Employés</ion-label>
-		<ion-select  multiple="true" [(ngModel)]="workers">
+		<ion-select  multiple="true" [(ngModel)]="workers" cancelText="Annuler" okText="Ok">
 			<ion-option *ngFor="let worker of workersList" [value]="worker.key" >{{worker.name}} - {{worker.type.occupation}}</ion-option>
 		</ion-select>
 	</ion-item>
