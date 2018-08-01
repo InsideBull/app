@@ -29,7 +29,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = CooperativeListPage;
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
 

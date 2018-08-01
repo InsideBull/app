@@ -62,7 +62,7 @@
 							<ion-label no-padding no-margin class="item item-input">
 								<span class = "input-label">Etat</span>
 							</ion-label>
-							<ion-select formControlName="status">
+							<ion-select formControlName="status" cancelText="Annuler" okText="Ok">
 								<ion-option  *ngFor="let status of statusList" [value]="status.en">{{status.fr}}</ion-option>
 							</ion-select>							
 						</ion-item>
