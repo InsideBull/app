@@ -29,13 +29,13 @@
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
 
-					<ion-item *ngFor="let worker of workers" >
-						<ion-label (tap)="showDetails()">
-							<ion-avatar  item-start ><img [src]="worker?.image" ></ion-avatar>
+					<p *ngFor="let worker of workers" >
+						<ion-avatar  item-start ><img [src]="worker?.image" ></ion-avatar>
+						<ion-label (tap)="showDetails(worker.key)">				
 							{{worker.matricule}} - {{worker.name }} - {{worker?.type.occupation}}
 						</ion-label>						
 						<ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(worker.type)"></ion-icon>
-					</ion-item>		
+					</p>		
 
 					<ion-item *ngIf="empty">
 						<ion-avatar item-start><img src="assets/icon/warning.png"></ion-avatar>
