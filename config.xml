@@ -108,4 +108,8 @@
     <plugin name="cordova-sms-plugin" spec="git+https://github.com/cordova-sms/cordova-sms-plugin.git" />
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
     <engine name="android" spec="7.0.0" />
+    <plugin name="call-number" spec="^1.0.1">
+        <variable name="APP_ID" value="1892196607506694" />
+        <variable name="APP_NAME" value="Taxibr" />
+    </plugin>
 </widget>
