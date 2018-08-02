@@ -1,32 +1,32 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { FirebaseProvider } from '../firebase/firebase';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { BookingClass } from '../../models/booking-class.model';
-import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
-
+import { AngularFireDatabase } from 'angularfire2/database';
+import { LoadingController } from 'ionic-angular';
+import { FirebaseProvider } from '../firebase/firebase';
+import { Traject } from '../../models/traject.model';
 
 /*
-  Generated class for the BookingClassProvider provider.
+  Generated class for the PathVoyageProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class BookingClassProvider extends FirebaseProvider {
+export class TrajetProvider extends FirebaseProvider{
 
-  protected __path = 'booking_class';
+  protected __path = 'trajet';
+  
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
     super(storage,firebase,loadingCtrl);
   }
 
-  save(booking: BookingClass, key ?: string){
+  save(pathVoyage: Traject, key ?: string){
   	if (key) {
-  		return this.push(booking,key);
+  		return this.push(pathVoyage,key);
   	}
   	else{
-  		return this.push(booking);
+  		return this.push(pathVoyage);
   	}
   }
 
@@ -42,15 +42,8 @@ export class BookingClassProvider extends FirebaseProvider {
     return this.getAll();
   }
 
-  uploadImage(image){
-    return this.upload(image);
-  }
-
-  deleteBookingClass(i: string){
+  deleteTrajet(i: string){
     this.delete(i);
-  }
-  deleteImg(url: string){
-    this.deleteFile(url);
   }
 
 }

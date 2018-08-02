@@ -23,7 +23,7 @@ export class StationProvider extends FirebaseProvider  {
   		return this.push(station);
   	}
   }
-
+ 
   fetch(key: string){
   	return this.getOneById(key);
   }

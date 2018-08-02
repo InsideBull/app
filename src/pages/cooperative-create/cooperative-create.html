@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Coopérative</ion-title>
+		<ion-title class="title-after-toggle-back">Coopérative</ion-title>
 		<button ion-button="" menuToggle="">
 				<ion-icon name="menu"></ion-icon>
 			  </button>
@@ -30,25 +30,25 @@
 						
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<span class = "input-label">Nom de la coopérative : </span>
+								<span class = "input-label">Nom : </span>
 							</ion-label>
 							<ion-input formControlName="name" id="name" type="text" stacked required></ion-input>
 						</ion-item>
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<span class = "input-label">Nom du contact : </span>
+								<span class = "input-label">Responsable : </span>
 							</ion-label>
 							<ion-input formControlName="nameContact" id="nameContact" type="text" stacked required></ion-input>
 						</ion-item>
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<span class = "input-label">Téléphone du contact : </span>
+								<span class = "input-label">Contact : </span>
 							</ion-label>
 							<ion-input formControlName="telContact" id="telContact" type="text" stacked required></ion-input>
 						</ion-item>
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin>
-								<span class = "input-label">Adresse du contact : </span>
+								<span class = "input-label">Adresse : </span>
 							</ion-label>
 							<ion-input formControlName="addrContact" id="addrContact" type="text" stacked required></ion-input>
 						</ion-item>
@@ -58,7 +58,7 @@
 								<span class = "input-label">Déscription</span>
 							</ion-label>
 
-							<ion-textarea id="desc" type="text" formControlName="desc" placeholder="Description de la coopérative" rows="50" cols="60" stacked required></ion-textarea>
+							<ion-input formControlName="desc" id="desc" type="text" stacked required></ion-input>
 
 							</ion-item>
 
