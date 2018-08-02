@@ -45,7 +45,7 @@ export class TrajetAffectPage {
     
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() { 
     
   }
 
