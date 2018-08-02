@@ -48,7 +48,7 @@ import { User } from '../../models/user.model';
             id: profile['id'],
             email: profile['email'],
             name: profile['name'],
-            picture: profile['picture_large']['data']['url'],
+            picture: profile['picture_large']['data']['url']
           };
 
           let user: User;

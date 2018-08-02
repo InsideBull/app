@@ -1,0 +1,60 @@
+<!--
+  Generated template for the BookingClassMenuPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Booking class</ion-title>
+		<button ion-button="" menuToggle="">
+				<ion-icon name="menu"></ion-icon>
+			</button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-grid class="grid-center-md grid-center-ios">
+		
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 text-capitalise >Booking class</h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<img src="assets/icon/book.png" class="img-top">
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-center">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+					
+					<button ion-item (tap)="addClassType()" >
+						<ion-avatar  item-start ><img src="assets/icon/worker-type.png"></ion-avatar>
+						Ajouter type de classe
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="listBookingClass()" >
+						<ion-avatar  item-start ><img src="assets/icon/list.png"></ion-avatar>
+						Liste 
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="addBookingClass()" >
+						<ion-avatar  item-start ><img src="assets/icon/man.png"></ion-avatar>
+						Ajouter
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -85,9 +85,16 @@ import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { TrajetListPage } from '../pages/trajet-list/trajet-list';
 import { TrajetDetailPage } from '../pages/trajet-detail/trajet-detail';
 import { PriceTrajetProvider } from '../providers/price-trajet/price-trajet';
+import { BookingClassProvider } from '../providers/booking-class/booking-class';
+import { BookingClassTypeProvider } from '../providers/booking-class-type/booking-class-type';
+import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
+import { BookingClassDetailsPage } from '../pages/booking-class-details/booking-class-details';
+import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
+import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-type';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
 import { TrajetParametersPage } from '../pages/trajet-parameters/trajet-parameters';
 import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
+import { BookingClassListePage } from '../pages/booking-class-liste/booking-class-liste';
 
 
 @NgModule({
@@ -145,7 +152,13 @@ import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
   TrajetDetailPage,
   CooperativeMenuPage,
   TrajetParametersPage,
-  TrajetAffectPage
+  TrajetAffectPage,
+  BookingClassListePage,
+  BookingClassAddPage,
+  BookingClassDetailsPage,
+  BookingClassMenuPage,
+  BookingClassTypePage,  
+  CooperativeMenuPage
 
   ],
   imports: [
@@ -211,8 +224,13 @@ import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
   TrajetListPage,
   TrajetDetailPage,
   TrajetParametersPage,
-  TrajetAffectPage
-
+  TrajetAffectPage,
+  BookingClassListePage,
+  BookingClassAddPage,
+  BookingClassDetailsPage,
+  BookingClassMenuPage,
+  BookingClassTypePage,
+  CooperativeMenuPage
   ],
 
   providers: [
@@ -244,7 +262,9 @@ import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
   SMS,
   EventProvider,
     TrajetProvider,
-    PriceTrajetProvider
+    PriceTrajetProvider,
+  BookingClassProvider,
+  BookingClassTypeProvider
   ]
 })
 export class AppModule {}

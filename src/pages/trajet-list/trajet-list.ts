@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TrajetEditPage } from '../trajet-edit/trajet-edit';
-import { TrajetAffectPage } from '../trajet-affect/trajet-affect';
-import { TrajetClasseListPage } from '../trajet-classe-list/trajet-classe-list';
-
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { StationProvider } from '../../providers/station/station';
+import { TrajetProvider } from '../../providers/trajet/trajet';
+import { TrajetDetailPage } from '../trajet-detail/trajet-detail';
 /**
  * Generated class for the TrajetListPage page.
  *
@@ -18,28 +17,46 @@ import { TrajetClasseListPage } from '../trajet-classe-list/trajet-classe-list';
 })
 export class TrajetListPage {
 
-  key: any;
   coop: any;
+  loading: any;
+  trajets = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.key = this.navParams.get('key');
-    this.coop = this.navParams.get('coop');
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public stationProvider: StationProvider,
+    public trajetProvider: TrajetProvider,
+    private loadingCtrl: LoadingController) {
+      this.loading = this.loadingCtrl.create();
+      this.loading.present();
+   
+      this.coop = this.navParams.get('coop');
+
+      let path = `cooperative/${this.coop}/trajet`;
+        this.trajetProvider.customPath(path);
+        this.trajetProvider.fetcAll().subscribe((data)=>{
+          this.trajets = [];
+          for(let key in data){
+            data[key].key = key;
+
+            this.stationProvider.fetch(data[key].depart).then((depart)=>{
+              data[key].depart = depart;
+            });
+
+            this.stationProvider.fetch(data[key].arrive).then((arrive)=>{
+              data[key].arrive = arrive;
+            });
+
+
+            this.trajets.push(data[key]);
+          }
+          this.loading.dismiss();
+        });
+   
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TrajetListPage'); 
+  onClickItem(key){
+    this.navCtrl.push(TrajetDetailPage, {key: key, coop: this.coop});
   }
-
-  editTrajet(){
-  	this.navCtrl.push(TrajetEditPage, {key: this.key, coop: this.navParams.get('coop')})
-  }
-
-  affectClassePrice(){
-    this.navCtrl.push(TrajetAffectPage, {key: this.key, coop:this.coop});
-  }
-
-  listPriceClasse(){
-    this.navCtrl.push(TrajetClasseListPage, {key:this.key});
-  }
+  
 
 }
