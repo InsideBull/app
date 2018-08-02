@@ -79,14 +79,22 @@ import { CallNumber } from '@ionic-native/call-number';
 import { SMS } from '@ionic-native/sms';
 import { EventProvider } from '../providers/event/event';
 import { DeviceScannerPage } from '../pages/device-scanner/device-scanner'
+import { TrajetProvider } from '../providers/trajet/trajet';
+import { TrajetCreatePage } from '../pages/trajet-create/trajet-create';
+import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
+import { TrajetListPage } from '../pages/trajet-list/trajet-list';
+import { TrajetDetailPage } from '../pages/trajet-detail/trajet-detail';
+import { PriceTrajetProvider } from '../providers/price-trajet/price-trajet';
 import { BookingClassProvider } from '../providers/booking-class/booking-class';
 import { BookingClassTypeProvider } from '../providers/booking-class-type/booking-class-type';
-import { BookingClassListePage } from '../pages/booking-class-liste/booking-class-liste';
 import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
 import { BookingClassDetailsPage } from '../pages/booking-class-details/booking-class-details';
 import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
 import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-type';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+import { TrajetParametersPage } from '../pages/trajet-parameters/trajet-parameters';
+import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
+import { BookingClassListePage } from '../pages/booking-class-liste/booking-class-liste';
 
 
 @NgModule({
@@ -138,6 +146,13 @@ import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
   WorkersCarAddPage,
   WorkerEditPage,
   DeviceScannerPage,
+  TrajetMenuPage,
+  TrajetCreatePage,
+  TrajetListPage,
+  TrajetDetailPage,
+  CooperativeMenuPage,
+  TrajetParametersPage,
+  TrajetAffectPage,
   BookingClassListePage,
   BookingClassAddPage,
   BookingClassDetailsPage,
@@ -203,6 +218,13 @@ import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
   WorkersCarAddPage,
   WorkerEditPage,
   DeviceScannerPage,
+  CooperativeMenuPage,
+  TrajetMenuPage,
+  TrajetCreatePage,
+  TrajetListPage,
+  TrajetDetailPage,
+  TrajetParametersPage,
+  TrajetAffectPage,
   BookingClassListePage,
   BookingClassAddPage,
   BookingClassDetailsPage,
@@ -239,6 +261,8 @@ import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
   CallNumber,
   SMS,
   EventProvider,
+    TrajetProvider,
+    PriceTrajetProvider,
   BookingClassProvider,
   BookingClassTypeProvider
   ]

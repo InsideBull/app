@@ -1,0 +1,54 @@
+<!--
+  Generated template for the TrajetListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Liste des trajets</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+	<ion-grid class="grid-center-md grid-center-ios" >
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 text-capitalise >Liste</h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto>
+				<img src="assets/icon/journey.png" class="img-top">
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-center content-body">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+					
+					<button ion-item (tap)="onClickItem(voyage.key)" *ngFor="let trajet of trajets">
+						<!-- <ion-avatar  item-start ><img src="assets"></ion-avatar> -->
+						{{trajet.depart?.city}} - {{trajet.arrive?.city }}
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+
+					<ion-item *ngIf="empty">
+						<ion-avatar item-start><img src="assets/icon/warning.png"></ion-avatar>
+						Aucune trajet
+					</ion-item>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -38,6 +38,7 @@ export class MyApp {
 
   rootPage: any = CooperativeMenuPage;
 
+
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
 
   pages: any = [];

@@ -11,6 +11,7 @@ import { WorkerMenuPage } from '../worker-menu/worker-menu';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { EventProvider } from '../../providers/event/event';
+import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -66,6 +67,10 @@ export class CooperativeDetailsPage {
 
   goToVoyage(){
     this.navCtrl.push(VoyageMenuPage, {key: this.param});
+  }
+
+  goToTrajet(){
+    this.navCtrl.push(TrajetMenuPage, {key: this.param});
   }
 
   goToCar(){
