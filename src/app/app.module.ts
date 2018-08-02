@@ -86,6 +86,8 @@ import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-ad
 import { BookingClassDetailsPage } from '../pages/booking-class-details/booking-class-details';
 import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
 import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-type';
+import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+
 
 @NgModule({
   declarations: [
@@ -140,7 +142,9 @@ import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-
   BookingClassAddPage,
   BookingClassDetailsPage,
   BookingClassMenuPage,
-  BookingClassTypePage  
+  BookingClassTypePage,  
+  CooperativeMenuPage
+
   ],
   imports: [
   BrowserModule,
@@ -203,7 +207,8 @@ import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-
   BookingClassAddPage,
   BookingClassDetailsPage,
   BookingClassMenuPage,
-  BookingClassTypePage
+  BookingClassTypePage,
+  CooperativeMenuPage
   ],
 
   providers: [
