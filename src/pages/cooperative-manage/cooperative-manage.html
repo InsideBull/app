@@ -49,9 +49,28 @@
 
 					<ion-item class="input-cover-md input-cover-ios" >
 						<ion-label no-padding no-margin>
-							<span class = "input-label">Nom</span>
+							<span class = "input-label">Nom de la coopérative : </span>
 						</ion-label>
 						<ion-input id="name" type="text" [(ngModel)]="cooperative.name" stacked required></ion-input>
+					</ion-item>
+
+					<ion-item class="input-cover-md input-cover-ios" >
+						<ion-label no-padding no-margin>
+							<span class = "input-label">Nom du contact : </span>
+						</ion-label>
+						<ion-input [(ngModel)]="cooperative.nameContact" id="nameContact" type="text" stacked required></ion-input>
+					</ion-item>
+					<ion-item class="input-cover-md input-cover-ios" >
+						<ion-label no-padding no-margin>
+							<span class = "input-label">Téléphone du contact : </span>
+						</ion-label>
+						<ion-input [(ngModel)]="cooperative.telContact" id="telContact" type="text" stacked required></ion-input>
+					</ion-item>
+					<ion-item class="input-cover-md input-cover-ios" >
+						<ion-label no-padding no-margin>
+							<span class = "input-label">Adresse du contact : </span>
+						</ion-label>
+						<ion-input [(ngModel)]="cooperative.addrContact" id="addrContact" type="text" stacked required></ion-input>
 					</ion-item>
 
 					<ion-item class="input-cover-md input-cover-ios" >

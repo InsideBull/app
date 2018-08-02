@@ -54,9 +54,11 @@ export class StationManagePage extends GoogleGeolocation{
 
   ionViewWillEnter() {
 
+    this.prepareAutocompletion();
+
   }
 
-  prepareAutocompletionCity(){
+  prepareAutocompletion(){
     this.verifyGoogle().then((verified)=>{
 
       let input_city: any = this.autocomplete('#city input');
@@ -67,30 +69,18 @@ export class StationManagePage extends GoogleGeolocation{
         this.cityGoogle = new Address(place);
       });
 
-    });
-  }
-
-  prepareAutocompletionLocation(){
-    this.verifyGoogle().then((verified)=>{
-
-      let input_location: any = this.autocomplete('#location input');
-      input_location.setComponentRestrictions({'country': ['mg']});
-
-      google.maps.event.addListener(input_location, 'place_changed', () => {
-        let place = input_location.getPlace();
-        this.locationGoogle = new Address(place);
+      this.verifyGoogle().then((verified)=>{
+    
+        let input_location: any = this.autocomplete('#location input');
+        input_location.setComponentRestrictions({'country': ['mg']});
+    
+        google.maps.event.addListener(input_location, 'place_changed', () => {
+          let place = input_location.getPlace();
+          this.locationGoogle = new Address(place);
+        });
+    
       });
-
     });
-  }
-
-  onChange(i){ 
-    if(i==1){
-      this.prepareAutocompletionCity();
-    }else if(i==2){
-      this.prepareAutocompletionLocation();
-    }
-
   }
 
   onSubmit(){
@@ -106,7 +96,7 @@ export class StationManagePage extends GoogleGeolocation{
         value.latitude = this.locationGoogle.latitude;
         let station = new Station(value);
         this.stationProvider.save(station, this.param);
-        this.navCtrl.push(StationDetailPage, {key: this.param});
+        this.navCtrl.setRoot(StationDetailPage, {key: this.param});
       }
     },()=>{});
  

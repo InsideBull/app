@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>worker-edit</ion-title>
+    <ion-title>Employés</ion-title>
     <button ion-button="" menuToggle="">
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -23,7 +23,7 @@
 
       <ion-row justify-content-center class="row-top">
         <ion-col  col-sm col-auto >
-          <h2 text-capitalise >Creation</h2>
+          <h2 text-capitalise >Modification</h2>
         </ion-col>
       </ion-row>
       <ion-row class="" *ngIf="!url">
@@ -65,7 +65,7 @@
                 <ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
               </ion-label>
 
-              <ion-select formControlName="type" [(ngModel)]="worker.type">
+              <ion-select formControlName="type" [(ngModel)]="worker.type" cancelText="Annuler" okText="Ok">
                 <ion-option  *ngFor="let types of workertypes" [value]="types.key" >{{types.occupation}}</ion-option>
               </ion-select>
             </ion-item>

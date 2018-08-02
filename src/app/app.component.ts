@@ -102,7 +102,7 @@ export class MyApp {
   }
 
   onPage(page){
-    this.nav.push(page.component, page.param);
+    this.nav.setRoot(page.component, page.param);
   }
   
 }
