@@ -16,7 +16,7 @@ import { IonicPage, AlertController, LoadingController, ToastController } from '
 @Injectable()
 export class BookingClassProvider extends FirebaseProvider {
 
-  protected __path = 'booking';
+  protected __path = 'booking_class';
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
     super(storage,firebase,loadingCtrl);
   }

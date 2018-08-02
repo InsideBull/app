@@ -60,7 +60,7 @@ export class BookingClassAddPage {
      (confirm)=>{
        let value = this.form.value;
        let book = new BookingClass(value);
-       let customPath = `cooperative/${this.cooperativeKey}/bookingClass`;
+       let customPath = `cooperative/${this.cooperativeKey}/booking_class`;
        this.bookingClassProvider.customPath(customPath);
        let key = this.bookingClassProvider.save(book, this.bookingClasstypes);
        
