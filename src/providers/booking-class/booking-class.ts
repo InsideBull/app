@@ -16,7 +16,7 @@ import { IonicPage, AlertController, LoadingController, ToastController } from '
 @Injectable()
 export class BookingClassProvider extends FirebaseProvider {
 
-  protected __path = 'booking';
+  protected __path = 'bookingClass';
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
     super(storage,firebase,loadingCtrl);
   }
@@ -46,7 +46,7 @@ export class BookingClassProvider extends FirebaseProvider {
     return this.upload(image);
   }
 
-  deleteCar(i: string){
+  deleteBookingClass(i: string){
     this.delete(i);
   }
   deleteImg(url: string){

@@ -87,6 +87,7 @@ import { BookingClassDetailsPage } from '../pages/booking-class-details/booking-
 import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
 import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-type';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+import { BookingClassEditPage } from '../pages/booking-class-edit/booking-class-edit';
 
 
 @NgModule({
@@ -143,7 +144,8 @@ import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
   BookingClassDetailsPage,
   BookingClassMenuPage,
   BookingClassTypePage,  
-  CooperativeMenuPage
+  CooperativeMenuPage,
+  BookingClassEditPage
 
   ],
   imports: [
@@ -208,7 +210,8 @@ import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
   BookingClassDetailsPage,
   BookingClassMenuPage,
   BookingClassTypePage,
-  CooperativeMenuPage
+  CooperativeMenuPage,
+  BookingClassEditPage
   ],
 
   providers: [
