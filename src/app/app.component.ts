@@ -19,8 +19,12 @@ import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
 import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
+import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
+import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
+
 import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+
 
 
 
@@ -32,7 +36,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CooperativeMenuPage;
+  rootPage: any = BookingClassMenuPage;
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
 

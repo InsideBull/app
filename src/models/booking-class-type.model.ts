@@ -1,8 +1,8 @@
-export class BookingClass  {
+export class BookingClassType  {
 	
-	type: string;
-	description: string;
-
+	name: string;
+    description: string
+	
 	constructor(object?: {}) {
 		for (var key in object) {
 			this[key] = object[key];
