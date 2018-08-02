@@ -341,9 +341,9 @@ h3.subtitle-with-icon{
 }
 
 ion-content.no-scroll {
-    scroll-content {
-        overflow-y: hidden;
-    }
+	scroll-content {
+		overflow-y: hidden;
+	}
 }
 
 .content-modal{
@@ -351,5 +351,13 @@ ion-content.no-scroll {
 }
 
 .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
-   color: #696868 !important;
+	color: #696868 !important;
+}
+
+.title-after-toggle{
+	margin-right: 9rem !important;
+}
+
+.title-after-toggle-back{
+	margin-right: 13rem !important;
 }
