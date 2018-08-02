@@ -1,0 +1,48 @@
+<ion-header>
+
+	<ion-navbar hideBackButton class="show-navbar android-attr">
+		<ion-title>Coopérative</ion-title>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>	
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<ion-grid class="grid-center-md grid-center-ios">
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 text-capitalise >Coopérative</h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<img src="assets/icon/copyright.png" class="img-top">
+			</ion-col>
+		</ion-row>
+
+		<ion-row justify-content-center class="row-center">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>
+					
+					<button ion-item (tap)="goToCooperativeList()" >
+						<ion-avatar  item-start ><img src="assets/icon/list.png"></ion-avatar>
+						<p>Liste des coopérative</p>
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="goToCooperativeCreate()" >
+						<ion-avatar  item-start ><img src="assets/icon/add.png"></ion-avatar>
+						<p>Ajouter coopérative</p>
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>
