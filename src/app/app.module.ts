@@ -78,6 +78,7 @@ import { PhoneProvider } from '../providers/phone/phone';
 import { CallNumber } from '@ionic-native/call-number';
 import { SMS } from '@ionic-native/sms';
 import { EventProvider } from '../providers/event/event';
+import { DeviceScannerPage } from '../pages/device-scanner/device-scanner'
 
 @NgModule({
   declarations: [
@@ -126,7 +127,8 @@ import { EventProvider } from '../providers/event/event';
   WorkersCarPage,
   WorkersCarListPage,
   WorkersCarAddPage,
-  WorkerEditPage
+  WorkerEditPage,
+  DeviceScannerPage
 
   ],
   imports: [
@@ -184,7 +186,8 @@ import { EventProvider } from '../providers/event/event';
   WorkersCarPage,
   WorkersCarListPage,
   WorkersCarAddPage,
-  WorkerEditPage
+  WorkerEditPage,
+  DeviceScannerPage
 
   ],
 
