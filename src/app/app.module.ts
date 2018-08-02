@@ -78,6 +78,14 @@ import { PhoneProvider } from '../providers/phone/phone';
 import { CallNumber } from '@ionic-native/call-number';
 import { SMS } from '@ionic-native/sms';
 import { EventProvider } from '../providers/event/event';
+import { DeviceScannerPage } from '../pages/device-scanner/device-scanner'
+import { BookingClassProvider } from '../providers/booking-class/booking-class';
+import { BookingClassTypeProvider } from '../providers/booking-class-type/booking-class-type';
+import { BookingClassListePage } from '../pages/booking-class-liste/booking-class-liste';
+import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
+import { BookingClassDetailsPage } from '../pages/booking-class-details/booking-class-details';
+import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
+import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-type';
 
 @NgModule({
   declarations: [
@@ -126,8 +134,13 @@ import { EventProvider } from '../providers/event/event';
   WorkersCarPage,
   WorkersCarListPage,
   WorkersCarAddPage,
-  WorkerEditPage
-
+  WorkerEditPage,
+  DeviceScannerPage,
+  BookingClassListePage,
+  BookingClassAddPage,
+  BookingClassDetailsPage,
+  BookingClassMenuPage,
+  BookingClassTypePage  
   ],
   imports: [
   BrowserModule,
@@ -184,8 +197,13 @@ import { EventProvider } from '../providers/event/event';
   WorkersCarPage,
   WorkersCarListPage,
   WorkersCarAddPage,
-  WorkerEditPage
-
+  WorkerEditPage,
+  DeviceScannerPage,
+  BookingClassListePage,
+  BookingClassAddPage,
+  BookingClassDetailsPage,
+  BookingClassMenuPage,
+  BookingClassTypePage
   ],
 
   providers: [
@@ -215,7 +233,9 @@ import { EventProvider } from '../providers/event/event';
   PhoneProvider,
   CallNumber,
   SMS,
-  EventProvider
+  EventProvider,
+  BookingClassProvider,
+  BookingClassTypeProvider
   ]
 })
 export class AppModule {}
