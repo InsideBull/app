@@ -104,7 +104,7 @@ import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
 
 		 this.carProvider.save(this.car,this.car.matricule);
 		 
-		 this.navCtrl.push(WorkersCarListPage, {key: this.key, coop: this.coop});
+		 this.navCtrl.setRoot(WorkersCarListPage, {key: this.key, coop: this.coop});
 
  	}
 

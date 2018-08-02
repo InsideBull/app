@@ -102,7 +102,7 @@ export class WorkerEditPage {
        let customPath = `cooperative/${this.cooperativeKey}/worker`;
        this.workerProvider.customPath(customPath);
        this.workerProvider.save(worker, this.key);
-       this.navCtrl.push(WorkerDetailPage, {key: this.key, cooperativeKey: this.cooperativeKey});
+       this.navCtrl.setRoot(WorkerDetailPage, {key: this.key, cooperativeKey: this.cooperativeKey});
      },
      ()=>{});	
     

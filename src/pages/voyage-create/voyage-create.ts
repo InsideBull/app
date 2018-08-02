@@ -88,7 +88,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
         this.voyage = new Voyage(this.form.value);
  
         let key = this.voyageProvider.save(this.voyage);
-        this.navCtrl.push(VoyageDetailPage, {key: key, coop: this.param});
+        this.navCtrl.setRoot(VoyageDetailPage, {key: key, coop: this.param});
       } 
     },()=>{})
    }

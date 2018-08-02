@@ -5,6 +5,9 @@ export class Cooperative {
 	admins ?: string;
 	status: boolean;
 	desc ?: string;
+	nameContact : string;
+	telContact : string;
+	addrContact: string;
 
 	constructor(object?: {}) {
 		for (var key in object) {

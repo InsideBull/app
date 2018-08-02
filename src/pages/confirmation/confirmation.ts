@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Administrator } from '../../models/administrator.model';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { FacebookProvider } from '../../providers/facebook/facebook';
+import { ConnectedPage } from '../connected/connected';
 
 /**
  * Generated class for the ConfirmationPage page.
@@ -37,8 +38,8 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
  				name: user['name']
  			}
 
- 			this.adminProvider.save(new Administrator(admin),user['id']);
-
+			 this.adminProvider.save(new Administrator(admin),user['id']);
+			 this.navCtrl.setRoot(ConnectedPage);
  		})
  	}
 

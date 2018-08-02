@@ -30,7 +30,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CooperativeListPage;
+  rootPage: any = LoginPage;
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
 
@@ -101,7 +101,7 @@ export class MyApp {
   }
 
   onPage(page){
-    this.nav.push(page.component, page.param);
+    this.nav.setRoot(page.component, page.param);
   }
   
 }
