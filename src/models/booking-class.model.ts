@@ -2,7 +2,7 @@ export class BookingClass  {
 	
 	type: string;
 	description: string;
-	price: number;
+	price: number; 
 	
 	constructor(object?: {}) {
 		for (var key in object) {

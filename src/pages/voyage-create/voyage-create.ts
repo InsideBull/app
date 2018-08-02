@@ -73,7 +73,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
         }
       });
   
-      this.min = this.monent();
+      this.min = this.monent(); 
     
    }
 

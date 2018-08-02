@@ -79,6 +79,12 @@ import { CallNumber } from '@ionic-native/call-number';
 import { SMS } from '@ionic-native/sms';
 import { EventProvider } from '../providers/event/event';
 import { DeviceScannerPage } from '../pages/device-scanner/device-scanner'
+import { TrajetProvider } from '../providers/trajet/trajet';
+import { TrajetCreatePage } from '../pages/trajet-create/trajet-create';
+import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
+import { TrajetListPage } from '../pages/trajet-list/trajet-list';
+import { TrajetDetailPage } from '../pages/trajet-detail/trajet-detail';
+import { PriceTrajetProvider } from '../providers/price-trajet/price-trajet';
 
 @NgModule({
   declarations: [
@@ -128,7 +134,11 @@ import { DeviceScannerPage } from '../pages/device-scanner/device-scanner'
   WorkersCarListPage,
   WorkersCarAddPage,
   WorkerEditPage,
-  DeviceScannerPage
+  DeviceScannerPage,
+  TrajetMenuPage,
+  TrajetCreatePage,
+  TrajetListPage,
+  TrajetDetailPage
 
   ],
   imports: [
@@ -218,7 +228,9 @@ import { DeviceScannerPage } from '../pages/device-scanner/device-scanner'
   PhoneProvider,
   CallNumber,
   SMS,
-  EventProvider
+  EventProvider,
+    TrajetProvider,
+    PriceTrajetProvider
   ]
 })
 export class AppModule {}

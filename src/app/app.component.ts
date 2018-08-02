@@ -31,7 +31,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = DeviceScannerPage;
+  rootPage: any = CooperativeListPage;
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
 
