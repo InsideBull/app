@@ -19,7 +19,8 @@ import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
 import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
-import { DeviceScannerPage } from '../pages/device-scanner/device-scanner'
+import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
+import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
 
 
 
@@ -32,6 +33,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = CooperativeListPage;
+
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
 

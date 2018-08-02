@@ -7,12 +7,71 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>trajet-detail</ion-title>
+    <ion-title>Détail trajet</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+      </button>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content *ngIf="coop">
+	<ion-grid class="grid-center-md grid-center-ios" >
 
+		<ion-row justify-content-center class="row-top">
+			<ion-col  col-sm col-auto >
+				<h2 text-capitalise >{{ trajet?.depart.city }} - {{ trajet?.arrive.city }}</h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row class=""> 
+			<ion-col  col-sm col-auto>
+				<img src="assets/icon/route.png" class="img-top">
+				
+			</ion-col>
+		</ion-row>
+
+
+		<ion-row justify-content-center class="row-center">
+			<ion-col col-11 col-sm col-auto>
+				<ion-list>					
+
+					<ion-item>
+						<ion-avatar item-start><img src="assets/icon/marker.png"></ion-avatar>
+						<ion-label>
+							<p>Départ</p><p>{{  trajet?.depart.name }} - {{  trajet?.depart.city }},{{  trajet?.depart.location }}</p>
+						</ion-label>
+					</ion-item>
+
+					<ion-item>
+						<ion-avatar item-start><img src="assets/icon/destination.png"></ion-avatar>
+						<ion-label>
+							<p>Destination</p><p>{{ trajet?.arrive.name }} - {{ trajet?.arrive.city }},{{ trajet?.arrive.location }}</p>
+						</ion-label>
+					</ion-item>
+
+					<button ion-item (click)="showCarte()">
+						<ion-avatar  item-start ><img src="assets/icon/map.png"></ion-avatar>
+						Voir la carte
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					  </button>
+
+
+					 <button ion-item (tap)="goToParameters()" >
+						<ion-avatar  item-start ><img src="assets/icon/parameter.png"></ion-avatar>
+						Paramètres
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="delete()" >
+							<ion-avatar  item-start ><img src="assets/icon/trash.png"></ion-avatar>
+							Supprimer
+							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+				</ion-list>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>

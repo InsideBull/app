@@ -52,28 +52,14 @@
               </ion-select>
           </ion-item>
 
-          <ion-item>
-            <ion-label>Les classes : </ion-label>
-            <ion-select  multiple="true" [(ngModel)]="selectClasse">
-                <ion-option *ngFor="let classe of classes" [value]="classe.key">{{classe.type}}</ion-option>
-            </ion-select>
-        </ion-item>
-
-        <div *ngIf="prices">
-            <ion-item class="input-cover-md input-cover-ios" *ngFor="let price of prices">
-                <ion-label no-padding no-margin>
-                    <span class = "input-label">Prix du voyage de classe {{ price.classe }} : </span>
-                </ion-label>
-                <ion-input id="price" type="number" stacked required [(ngModel)]="price.price"></ion-input>
-            </ion-item>
-        </div>
 
       <div >
           <button ion-button block class="button-and button-ios" type="onSubmit">Enregistrer</button>
       </div>
 
-  </ion-col>
-</ion-row>		
+</ion-list>
+</ion-col>
+</ion-row>
 </ion-grid>
 </form>
 </ion-content>

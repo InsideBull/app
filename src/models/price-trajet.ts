@@ -1,6 +1,7 @@
 export class PriceTrajet{
     classe: string;
-    price?: number;
+	price?: number;
+	key?: any;
 
     constructor(object?: {}) {
 		for (var key in object) {

@@ -9,6 +9,7 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
 import { ValidationPage } from '../validation/validation';
 import { StationMenuPage } from '../station-menu/station-menu'
 import { EventProvider } from '../../providers/event/event';
+import { CooperativeMenuPage } from '../cooperative-menu/cooperative-menu'
 
 
 
@@ -71,14 +72,7 @@ import { EventProvider } from '../../providers/event/event';
 
    logout(){
      this.facebookProvider.logout();
-   }
-
-   addCooperative(){
-     this.navCtrl.push(CooperativeCreatePage);
-   }
-
-   cooperatives(){
-     this.navCtrl.push(CooperativeListPage, {uid: this.uid});
+     this.navCtrl.setRoot(LoginPage);
    }
 
    qrcodeRequest(){
@@ -87,6 +81,10 @@ import { EventProvider } from '../../providers/event/event';
 
    goToStation(){
      this.navCtrl.push(StationMenuPage);
+   }
+
+   goToCooperativeMenu(){
+     this.navCtrl.push(CooperativeMenuPage, {uid: this.uid});
    }
 
  }

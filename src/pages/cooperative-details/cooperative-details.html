@@ -33,9 +33,7 @@
 
 		<ion-row justify-content-center class="row-top">
 			<ion-col  col-sm col-auto >
-				<p>Nom du responsable : {{cooperative?.nameContact}}</p>
-				<p>Son téléphone : {{cooperative?.telContact}}</p>
-				<p>Son adresse : {{cooperative?.addrContact}}</p>
+				<!-- <p>Son adresse : {{cooperative?.addrContact}}</p> -->
 				<p>Description de la coopérative : {{cooperative?.desc}}</p>
 			</ion-col>
 		</ion-row>
@@ -43,6 +41,21 @@
 		<ion-row justify-content-center class="row-center content-body">
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
+
+					<ion-item >
+						<ion-avatar item-start><img src="assets/icon/user.png"></ion-avatar>
+						<ion-label>
+							<p>Responsable</p><p>{{ cooperative.nameContact }}</p>
+						</ion-label>
+					</ion-item>
+
+					<ion-item >
+						<ion-avatar item-start><img src="assets/icon/phone.png"></ion-avatar>
+						<ion-label>
+							<p>Contact</p><p>{{ cooperative.telContact }}</p>
+						</ion-label>
+					</ion-item>
+					
 					
 					<button ion-item (tap)="goToManage()">
 						<ion-avatar  item-start ><img src="assets/icon/reservation.png"></ion-avatar>
@@ -59,6 +72,12 @@
 					<button ion-item (tap)="goToVoyage()">
 						<ion-avatar  item-start ><img src="assets/icon/journey.png"></ion-avatar>
 						Voyages
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="goToTrajet()">
+						<ion-avatar  item-start ><img src="assets/icon/journey.png"></ion-avatar>
+						Trajet
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 

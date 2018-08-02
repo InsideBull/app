@@ -36,14 +36,10 @@
 					</ion-item>
 
 					<div *ngIf="is_admin">
-						<button ion-item (tap)="addCooperative()" >
-							<ion-avatar  item-start ><img src="assets/icon/add.png"></ion-avatar>
-							Créer une coopérative
-							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-						</button>
-						<button ion-item (tap)="cooperatives()">
-							<ion-avatar item-start><img src="assets/icon/list.png"></ion-avatar>
-							Mes coopératives
+
+						<button ion-item (tap)="goToCooperativeMenu()">
+							<ion-avatar item-start><img src="assets/icon/copyright.png"></ion-avatar>
+							Cooperative
 							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 						</button>
 

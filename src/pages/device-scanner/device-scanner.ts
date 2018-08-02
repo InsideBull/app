@@ -32,12 +32,17 @@ import * as $ from 'jquery';
  	getDataToScanner(){
  		window.addEventListener('keypress',(event)=>{
 
+
+
+ 			console.log(event.key,event.which,event.code, event.keyCode, event.charCode);
+
+
  			if (event.keyCode != 13) {
  				if (this.content) {
  					this.content += String.fromCharCode(event.which)
  				}
  				else{
- 					this.content = String.fromCharCode(event.which);
+ 					this.content = String.fromCharCode(65);
  				}
  			}
  			else{
@@ -45,7 +50,11 @@ import * as $ from 'jquery';
  			}
 
 
- 		})
+ 		}, true)
+ 	}
+
+ 	toAzerty(key: KeyboardEvent){
+
  	}
 
 

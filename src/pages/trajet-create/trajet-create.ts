@@ -29,11 +29,8 @@ export class TrajetCreatePage {
   form: FormGroup;
   stations: any;
   cooperative: Cooperative = new Cooperative();
-  classes = [];
-  selectClasse = [];
-  prices: PriceTrajet[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public cooperativeProvider: CooperativeProvider, public stationProvider: StationProvider, public notif: NotificationProvider, public trajetProvider: TrajetProvider, public priceTrajetProvider: PriceTrajetProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder, public cooperativeProvider: CooperativeProvider, public stationProvider: StationProvider, public notif: NotificationProvider, public trajetProvider: TrajetProvider) {
     this.form = this.formBuilder.group({
       depart:['', Validators.required],
       arrive:['', Validators.required]
@@ -53,18 +50,13 @@ export class TrajetCreatePage {
         }
       });
 
-      this.bookingClasseProvider.fetcAll().subscribe((data)=>{
-        for(let key in data){
-          data[key].key = key;
-          this.classes.push(data[key]);
-        }
-      })
+      // this.bookingClasseProvider.fetcAll().subscribe((data)=>{
+      //   for(let key in data){
+      //     data[key].key = key;
+      //     this.classes.push(data[key]);
+      //   }
+      // })
 
-      if(this.selectClasse){
-        for(let key in this.selectClasse){
-          this.prices.push(new PriceTrajet({classe: key}));
-        }
-      }
   }
 
   ionViewDidLoad() {
@@ -81,11 +73,11 @@ export class TrajetCreatePage {
         let trajet = new Traject(this.form.value);
         let key = this.trajetProvider.save(trajet);
 
-        let customPath = `cooperative/${this.coop}/trajet/${key}/price`;
-        this.priceTrajetProvider.customPath(customPath);
-        for(let c in this.prices){
-          this.priceTrajetProvider.save(this.prices[c].price, this.prices[c].classe);
-        }
+        // let customPath = `cooperative/${this.coop}/trajet/${key}/price`;
+        // this.priceTrajetProvider.customPath(customPath);
+        // for(let c in this.prices){
+        //   this.priceTrajetProvider.save(this.prices[c].price, this.prices[c].classe);
+        // }
         this.navCtrl.setRoot(TrajetDetailPage, {key: key, coop: this.coop});
       }
     })

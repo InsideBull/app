@@ -85,6 +85,10 @@ import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { TrajetListPage } from '../pages/trajet-list/trajet-list';
 import { TrajetDetailPage } from '../pages/trajet-detail/trajet-detail';
 import { PriceTrajetProvider } from '../providers/price-trajet/price-trajet';
+import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+import { TrajetParametersPage } from '../pages/trajet-parameters/trajet-parameters';
+import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
+
 
 @NgModule({
   declarations: [
@@ -138,7 +142,10 @@ import { PriceTrajetProvider } from '../providers/price-trajet/price-trajet';
   TrajetMenuPage,
   TrajetCreatePage,
   TrajetListPage,
-  TrajetDetailPage
+  TrajetDetailPage,
+  CooperativeMenuPage,
+  TrajetParametersPage,
+  TrajetAffectPage
 
   ],
   imports: [
@@ -197,7 +204,14 @@ import { PriceTrajetProvider } from '../providers/price-trajet/price-trajet';
   WorkersCarListPage,
   WorkersCarAddPage,
   WorkerEditPage,
-  DeviceScannerPage
+  DeviceScannerPage,
+  CooperativeMenuPage,
+  TrajetMenuPage,
+  TrajetCreatePage,
+  TrajetListPage,
+  TrajetDetailPage,
+  TrajetParametersPage,
+  TrajetAffectPage
 
   ],
 
