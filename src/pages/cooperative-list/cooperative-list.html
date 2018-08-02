@@ -6,7 +6,7 @@
           <ion-icon name="menu"></ion-icon>
       </button>
 
-    <ion-title>Mes Coopérative</ion-title>
+    <ion-title class="title-after-toggle-back">Mes Coopérative</ion-title>
     
   </ion-navbar>
 
@@ -18,7 +18,7 @@
 
     <ion-row justify-content-center class="row-top">
       <ion-col  col-sm col-auto >
-        <h2 text-capitalise >Liste</h2>
+        <h2 text-capitalise >Liste des coopérative</h2>
       </ion-col>
     </ion-row>
 
@@ -30,7 +30,7 @@
 
 
     <ion-row justify-content-center class="row-center content-body">
-      <ion-col col-11 col-sm col-auto>
+      <ion-col col-10 col-sm col-auto>
         <ion-list>
         
            <button ion-item (tap)="onClickItem(coop.key)" *ngFor="let coop of cooperatives">

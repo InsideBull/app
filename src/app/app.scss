@@ -158,7 +158,7 @@ page-login {
 .toolbar-title-md, .toolbar-title-ios {
 	padding: 0 12px;
 	text-align: center;
-	font-size: 3rem;
+	font-size: 2rem;
 	font-weight: 500;
 	color: #FFF;
 	text-transform: capitalize;
@@ -192,7 +192,7 @@ page-login {
 }
 
 .img-top{
-	max-width: 15% !important;
+	max-width: 10% !important;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
@@ -280,7 +280,7 @@ ion-item ,button.item{
 }
 
 h2{
-	font-size: 8rem;
+	font-size: 6rem;
 }
 
 h3{
@@ -341,9 +341,9 @@ h3.subtitle-with-icon{
 }
 
 ion-content.no-scroll {
-    scroll-content {
-        overflow-y: hidden;
-    }
+	scroll-content {
+		overflow-y: hidden;
+	}
 }
 
 .content-modal{
@@ -351,5 +351,13 @@ ion-content.no-scroll {
 }
 
 .item-input .label-md, .item-select .label-md, .item-datetime .label-md {
-   color: #696868 !important;
+	color: #696868 !important;
+}
+
+.title-after-toggle{
+	margin-right: 9rem !important;
+}
+
+.title-after-toggle-back{
+	margin-right: 13rem !important;
 }
