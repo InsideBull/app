@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Voitures</ion-title>
+		<ion-title class="title-after-toggle">Voitures</ion-title>
 		<button ion-button="" menuToggle="">
 				<ion-icon name="menu"></ion-icon>
 			  </button>
@@ -19,9 +19,9 @@
 			</ion-col>
 		</ion-row>
 
-		<ion-row class="img-profil">
+		<ion-row justify-content-center class="row-top">
 			<ion-col  col-sm col-auto >
-				<img [src]="cooperative.logo">
+				<img src="assets/icon/bus.png" class="img-top">
 			</ion-col>
 		</ion-row>
 
@@ -37,7 +37,7 @@
 
 					<button ion-item (tap)="listCar()" >
 						<ion-avatar  item-start ><img src="assets/icon/list.png"></ion-avatar>
-						List des voiture
+						Liste des voitures
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 
