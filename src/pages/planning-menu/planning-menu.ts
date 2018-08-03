@@ -32,7 +32,7 @@ export class PlanningMenuPage {
     this.cooperativeProvider.fetch(this.coop).then(
       (data: Cooperative) => {
         this.cooperative = data;
-        if(!this.cooperative.logo){
+        if(!this.cooperative.logo){ 
           this.cooperative.logo = "assets/icon/copyright.png"
         }
       });
