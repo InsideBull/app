@@ -56,7 +56,7 @@
                 <ion-label no-padding no-margin>
                     <span class = "input-label">Date de départ</span> 
                 </ion-label>
-                <ion-datetime displayFormat="DD MM YYYY" [min]="min.getFullYear()" [max]="min.getFullYear() + 1" formControlName="date" id="date"></ion-datetime>
+                <ion-datetime displayFormat="DD MM YYYY" [min]="min.getFullYear()" [max]="min.getFullYear() + 1" formControlName="date" id="date" cancelText="Annuler" doneText="ok"></ion-datetime>
             </ion-item>
 
             <ion-item class="input-cover-md input-cover-ios" >
@@ -70,7 +70,7 @@
                 <ion-label no-padding no-margin>
                     <span class = "input-label">Prix du voyage</span>
                 </ion-label>
-                <ion-input formControlName="price" id="price" type="text" stacked required></ion-input>
+                <ion-input class="txt" dir="rtl" formControlName="price" id="price" type="text" stacked required></ion-input>
             </ion-item>
 
         </ion-list>

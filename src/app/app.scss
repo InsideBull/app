@@ -112,8 +112,6 @@ ion-img {
 	}
 }
 
-
-
 .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
 	border-bottom-color: #FFF !important;
 	-webkit-box-shadow: unset!important;
@@ -174,6 +172,26 @@ page-login {
 	transform: translateZ(0);
 	pointer-events: none;
 }
+
+ion-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 90px 1px;
+	width: 100%;
+	height: 100%;
+	transform: translateZ(0);
+	pointer-events: none;
+}
+
+.details{
+	float: right;
+}
+
+.txt{
+	direction: rtl;
+}
+
 .title_header{
 	font-size: 1.6rem;
 	text-align: center;
