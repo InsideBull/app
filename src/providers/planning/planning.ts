@@ -20,6 +20,10 @@ export class PlanningProvider extends FirebaseProvider {
     super(storage,firebase,loadingCtrl);
   }
 
+  customPath(path:string){
+    this.setPath(path)
+  }
+
   save(station: Planning, key ?: string){
   	if (key) {
   		return this.push(station,key);
@@ -36,7 +40,7 @@ export class PlanningProvider extends FirebaseProvider {
   fetcAll(){
   	return this.getAll();
   }
-  deleteStation(i: string){
+  deletePlanning(i: string){
     this.delete(i);
   }
 
