@@ -26,8 +26,7 @@ export class BookingClassMenuPage {
   cooperative: Cooperative = new Cooperative();
 
   constructor(private bookingProvider: BookingClassProvider, private cooperativeProvider: CooperativeProvider,public navCtrl: NavController, public navParams: NavParams) {
-    //this.cooperativeKey = this.navParams.get('key');
-    this.cooperativeKey = 'azerty';
+    this.cooperativeKey = this.navParams.get('key');
     this.cooperativeProvider.fetch(this.cooperativeKey).then((data: Cooperative) => {
         this.cooperative = data;
     });

@@ -35,7 +35,7 @@ export class BookingClassDetailsPage {
     this.key = this.navParams.get('key');
     this.cooperativeKey = this.navParams.get('cooperativeKey');
   
-    let customPath = `cooperative/${this.cooperativeKey}/bookingClass`;
+    let customPath = `cooperative/${this.cooperativeKey}/booking_class`;
   
     this.bookingClassProvider.customPath(customPath);
   

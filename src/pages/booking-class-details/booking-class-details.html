@@ -7,7 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>booking-class-details</ion-title>
+    <ion-title>Classe</ion-title>
+		<button ion-button="" menuToggle="">
+				<ion-icon name="menu"></ion-icon>
+		</button>
   </ion-navbar>
 
 </ion-header>
@@ -27,16 +30,16 @@
           <ion-list>
   
             <ion-item>
-              <ion-avatar item-start><img src="assets/icon/matricule.png"></ion-avatar>
+              <ion-avatar item-start><img src="assets/icon/class.png"></ion-avatar>
               <ion-label>
                 <p>Type</p><p>{{ bookingClass?.type }}</p>
               </ion-label>
             </ion-item>
 
             <ion-item>
-                <ion-avatar item-start><img src="assets/icon/matricule.png"></ion-avatar>
+                <ion-avatar item-start><img src="assets/icon/book.png"></ion-avatar>
                 <ion-label>
-                  <p>Type</p><p>{{ bookingClass?.description }}</p>
+                  <p>Description</p><p>{{ bookingClass?.description }}</p>
                 </ion-label>
               </ion-item>
   

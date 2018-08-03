@@ -63,7 +63,6 @@ export class BookingClassAddPage {
        let customPath = `cooperative/${this.cooperativeKey}/booking_class`;
        this.bookingClassProvider.customPath(customPath);
        let key = this.bookingClassProvider.save(book);
-       console.log("Msg"+book);
        this.navCtrl.setRoot(BookingClassDetailsPage, {key: key, cooperativeKey: this.cooperativeKey});
      },
      ()=>{});	

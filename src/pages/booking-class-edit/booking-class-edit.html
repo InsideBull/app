@@ -7,12 +7,50 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>booking-class-edit</ion-title>
+    <ion-title>Classe</ion-title>
+		<button ion-button="" menuToggle="">
+				<ion-icon name="menu"></ion-icon>
+		</button>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <form (ngSubmit)=[onSubmit()] [formGroup]="form">
+    <ion-grid class="grid-center-md grid-center-ios" *ngIf="key && cooperativeKey">
 
+
+      <ion-row justify-content-center class="row-top">
+        <ion-col  col-sm col-auto >
+          <h2 text-capitalise >Modification</h2>
+        </ion-col>
+      </ion-row>
+
+      <ion-row justify-content-center class="center-block-reservation">
+        <ion-col col-12 col-sm col-auto >
+          <ion-list class="list_" padding-top maring-top>
+            <ion-item class="input-cover-md input-cover-ios" >
+              <ion-label no-padding no-margin>
+                <ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="type" id="type" type="text" placeholder="Type" [(ngModel)]="bookingClass.type" stacked required></ion-input>
+            </ion-item>
+
+            <ion-item class="input-cover-md input-cover-ios" >
+              <ion-label no-padding no-margin>
+                <ion-icon ios="ios-pin" md="md-pin" class="ion-icon-md ion-icon-ios"></ion-icon>
+              </ion-label>
+              <ion-input formControlName="description" id="description" type="text" placeholder="Description" [(ngModel)]="bookingClass.description" stacked required></ion-input>
+            </ion-item>
+
+          </ion-list>
+          <div >
+            <button ion-button block class="button-and button-ios">Enregistrer</button>
+          </div>
+        </ion-col>
+      </ion-row>		
+    </ion-grid>
+  </form>
 </ion-content>
+
