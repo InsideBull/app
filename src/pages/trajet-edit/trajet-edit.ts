@@ -15,7 +15,7 @@ import { TrajetDetailPage } from '../trajet-detail/trajet-detail';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage() 
 @Component({
   selector: 'page-trajet-edit',
   templateUrl: 'trajet-edit.html',

@@ -20,6 +20,7 @@ export class TrajetListPage {
   coop: any;
   loading: any;
   trajets = [];
+  empty = false;
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
@@ -34,22 +35,26 @@ export class TrajetListPage {
       let path = `cooperative/${this.coop}/trajet`;
         this.trajetProvider.customPath(path);
         this.trajetProvider.fetcAll().subscribe((data)=>{
-          this.trajets = [];
-          for(let key in data){
-            data[key].key = key;
-
-            this.stationProvider.fetch(data[key].depart).then((depart)=>{
-              data[key].depart = depart;
-            });
-
-            this.stationProvider.fetch(data[key].arrive).then((arrive)=>{
-              data[key].arrive = arrive;
-            });
-
-
-            this.trajets.push(data[key]);
+          if(data){
+            this.trajets = [];
+            for(let key in data){
+              data[key].key = key;
+  
+              this.stationProvider.fetch(data[key].depart).then((depart)=>{
+                data[key].depart = depart;
+              });
+  
+              this.stationProvider.fetch(data[key].arrive).then((arrive)=>{
+                data[key].arrive = arrive;
+              });
+  
+  
+              this.trajets.push(data[key]);
+            }
+            this.loading.dismiss();
+          }else{
+            this.empty = true;
           }
-          this.loading.dismiss();
         });
    
   }

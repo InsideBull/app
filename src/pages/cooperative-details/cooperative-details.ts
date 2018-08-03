@@ -13,6 +13,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 import { EventProvider } from '../../providers/event/event';
 import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
 import { BookingClassMenuPage } from '../booking-class-menu/booking-class-menu';
+import { PlanningMenuPage } from '../planning-menu/planning-menu';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -52,6 +53,7 @@ import { BookingClassMenuPage } from '../booking-class-menu/booking-class-menu';
               this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
               this.eventProvider.setEvent('parmVoyageMenu', {key: this.param});
               this.eventProvider.setEvent('parmTrajetMenu', {key: this.param});
+              this.eventProvider.setEvent('parmPlannigMenu', {key: this.param});
           }); 
         }
         
@@ -86,6 +88,9 @@ import { BookingClassMenuPage } from '../booking-class-menu/booking-class-menu';
    goToWorker(){
      this.navCtrl.push(WorkerMenuPage, {key: this.param});
    }
+   goToPlannig (){
+    this.navCtrl.push(PlanningMenuPage, {key: this.param});
+  }
 
    delete(){
      let title = 'Suppression';

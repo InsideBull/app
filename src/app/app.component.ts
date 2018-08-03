@@ -25,6 +25,7 @@ import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-ad
 import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
+import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 
 
 
@@ -103,6 +104,11 @@ export class MyApp {
     this.eventProvider.getEvent('parmTrajetMenu').then((resolve)=>{
       if(resolve){
         this.pages.push({title: "Menu Trajet", component: TrajetMenuPage, param: resolve});
+      }
+    });
+    this.eventProvider.getEvent('parmPlannigMenu').then((resolve)=>{
+      if(resolve){
+        this.pages.push({title: "Menu Plannification", component: PlanningMenuPage, param: resolve});
       }
     });
 

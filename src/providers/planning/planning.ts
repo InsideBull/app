@@ -19,18 +19,19 @@ export class PlanningProvider extends FirebaseProvider {
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
     super(storage,firebase,loadingCtrl);
   }
+  
+  save(planning: Planning, key ?: string){
+
+  	if (key) {
+  		return this.push(planning,key);
+  	}
+  	else{
+  		return this.push(planning);
+  	}
+  }
 
   customPath(path:string){
     this.setPath(path)
-  }
-
-  save(station: Planning, key ?: string){
-  	if (key) {
-  		return this.push(station,key);
-  	}
-  	else{
-  		return this.push(station);
-  	}
   }
  
   fetch(key: string){
