@@ -1,7 +1,7 @@
 export class Traject  {
 	
-	origin: string;
-	destination: string; 
+	depart: any;
+	arrive: any; 
 	price?: {};
 	
 	constructor(object?: {}) {

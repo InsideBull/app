@@ -96,6 +96,8 @@ import { BookingClassEditPage } from '../pages/booking-class-edit/booking-class-
 import { TrajetParametersPage } from '../pages/trajet-parameters/trajet-parameters';
 import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
 import { BookingClassListePage } from '../pages/booking-class-liste/booking-class-liste';
+import { TrajetClasseListPage } from '../pages/trajet-classe-list/trajet-classe-list';
+import { TrajetEditPage } from '../pages/trajet-edit/trajet-edit';
 
 import { PlanningCreatePage } from '../pages/planning-create/planning-create';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
@@ -170,6 +172,9 @@ import { PlanningDetailsPage } from '../pages/planning-details/planning-details'
   PlanningMenuPage,
   PlanningListPage,
   PlanningDetailsPage,
+  TrajetClasseListPage,
+  TrajetEditPage,
+  BookingClassEditPage
 
   ],
   imports: [
@@ -247,6 +252,9 @@ import { PlanningDetailsPage } from '../pages/planning-details/planning-details'
   PlanningMenuPage,
   PlanningListPage,
   PlanningDetailsPage,
+  TrajetClasseListPage,
+  TrajetEditPage,
+  BookingClassEditPage
   ],
 
   providers: [

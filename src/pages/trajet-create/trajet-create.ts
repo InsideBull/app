@@ -50,12 +50,6 @@ export class TrajetCreatePage {
         }
       });
 
-      // this.bookingClasseProvider.fetcAll().subscribe((data)=>{
-      //   for(let key in data){
-      //     data[key].key = key;
-      //     this.classes.push(data[key]);
-      //   }
-      // })
 
   }
 
@@ -64,7 +58,7 @@ export class TrajetCreatePage {
   }
 
   onSubmit(){
-    let message = "Voulez vous ce trajet ?";
+    let message = "Voulez vous enregistrer ce trajet ?";
     let title = "Création de trajet";
     this.notif.presentConfirm(message, title).then((confirm)=>{
       if(this.form.valid){
@@ -72,12 +66,6 @@ export class TrajetCreatePage {
         this.trajetProvider.customPath(path);
         let trajet = new Traject(this.form.value);
         let key = this.trajetProvider.save(trajet);
-
-        // let customPath = `cooperative/${this.coop}/trajet/${key}/price`;
-        // this.priceTrajetProvider.customPath(customPath);
-        // for(let c in this.prices){
-        //   this.priceTrajetProvider.save(this.prices[c].price, this.prices[c].classe);
-        // }
         this.navCtrl.setRoot(TrajetDetailPage, {key: key, coop: this.coop});
       }
     })

@@ -8,11 +8,46 @@
 
   <ion-navbar>
     <ion-title>TrajetClasseList</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content *ngIf="key">
+  <ion-grid class="grid-center-md grid-center-ios" >
 
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto >
+        <h2 text-capitalise ></h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto>
+        <img src="assets/icon/list.png" class="img-top">
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="row-center">
+      <ion-col col-11 col-sm col-auto>
+        <ion-list>
+        
+           <ion-item *ngFor="let classe of classes"> 
+            <!-- <ion-avatar  item-start ><img [src]="admin.picture"></ion-avatar> -->
+            {{ classe.classe?.type }} - {{ classe?.price }}
+            <ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(classe.key)"></ion-icon>
+           </ion-item>
+
+           <ion-item *ngIf="empty">
+            <ion-avatar item-start><img src="assets/icon/warning.png"></ion-avatar>
+            Aucune classe encore affectée
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

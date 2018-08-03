@@ -16,7 +16,7 @@ import { TrajetClasseListPage } from '../trajet-classe-list/trajet-classe-list';
 @Component({
   selector: 'page-trajet-affect',
   templateUrl: 'trajet-affect.html',
-})
+}) 
 export class TrajetAffectPage {
 
   coop: any;
@@ -30,7 +30,8 @@ export class TrajetAffectPage {
 
     let customPath = `cooperative/${this.coop}/trajet/${this.key}/price`;
     this.priceTrajetProvider.customPath(customPath);
-
+    let pathBooking = `cooperative/${this.coop}/booking_class`;
+    this.bookingClassProvider.customPath(pathBooking);
     this.bookingClassProvider.fetcAll().subscribe((classes)=>{
       for(let key in classes){
         classes[key].key = key;
@@ -50,7 +51,7 @@ export class TrajetAffectPage {
   }
 
   save(){
-    this.priceTrajetProvider.save(this.priceClasse.price, this.priceClasse.classe);
+    this.priceTrajetProvider.save(this.priceClasse, this.priceClasse.classe);
     this.navCtrl.setRoot(TrajetClasseListPage, {key:this.key, coop: this.coop});
   }
 
