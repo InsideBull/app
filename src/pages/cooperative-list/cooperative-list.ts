@@ -96,7 +96,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
    showLoading() {
      if(!this.loading){
        this.loading = this.loadingCtrl.create({
-         content: 'Please Wait...',
+         content: 'Veuillez attendre...',
          dismissOnPageChange: false,
          enableBackdropDismiss: true
        });
