@@ -1,7 +1,7 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>Voiture</ion-title>
+		<ion-title class="title-after-toggle-back">Voiture</ion-title>
 		<button ion-button="" menuToggle="">
 			<ion-icon name="menu"></ion-icon>
 		</button>
@@ -37,14 +37,14 @@
 						
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin class="item item-input">
-								<span class = "input-label">Matricule</span>
+								<span class = "input-label">Matricule : </span>
 							</ion-label>
 							<ion-input formControlName="matricule" id="matricule" type="text" stacked required></ion-input>
 						</ion-item>
 
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin class="item item-input">
-								<span class = "input-label">Modèle</span>
+								<span class = "input-label">Modèle : </span>
 							</ion-label>
 							<ion-select formControlName="cartype" (ionChange)="getNbplace($event)" >
 								<ion-option *ngFor="let cartype of cartypes" [value]="cartype.key">{{cartype.type}}</ion-option>
@@ -53,14 +53,14 @@
 
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin class="item item-input">
-								<span class = "input-label">Nombre de place</span>
+								<span class = "input-label">Nombre de place : </span>
 							</ion-label>
 							<ion-input formControlName="nbplace" id="nbplace" type="text" stacked required [(ngModel)]="nbplace"></ion-input>
 						</ion-item>
 
 						<ion-item class="input-cover-md input-cover-ios" >
 							<ion-label no-padding no-margin class="item item-input">
-								<span class = "input-label">Etat</span>
+								<span class = "input-label">Etat : </span>
 							</ion-label>
 							<ion-select formControlName="status" cancelText="Annuler" okText="Ok">
 								<ion-option  *ngFor="let status of statusList" [value]="status.en">{{status.fr}}</ion-option>
@@ -68,7 +68,7 @@
 						</ion-item>
 
 						<ion-item>
-							<ion-label>Employés</ion-label>
+							<ion-label>Employés : </ion-label>
 							<ion-select  multiple="true" [(ngModel)]="workers" id="workers" formControlName="workers">
 								<ion-option *ngFor="let worker of workersList" [value]="worker.key">{{worker.name}} - {{worker.type.occupation}}</ion-option>
 							</ion-select>

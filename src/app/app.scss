@@ -361,3 +361,17 @@ ion-content.no-scroll {
 .title-after-toggle-back{
 	margin-right: 13rem !important;
 }
+
+
+
+.img-logo,img.img-logo{
+	text-align: center;
+	margin: auto;
+	img {
+		border-radius: 50% !important;
+		height: 150px !important;
+		width: 150px !important;
+		max-width: 100%;
+		margin: auto;
+	}
+}

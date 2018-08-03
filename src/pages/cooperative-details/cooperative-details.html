@@ -6,7 +6,7 @@
 		<ion-icon name="menu"></ion-icon>
 	</button>
 
-	<ion-title>Details</ion-title>
+	<ion-title class="title-after-toggle-back">Details</ion-title>
 		
 	</ion-navbar>
 
@@ -20,7 +20,7 @@
 				<h2 text-capitalise >{{ cooperative.name }}</h2>
 			</ion-col>
 		</ion-row>
-		<ion-row class="img-profil">
+		<ion-row class="img-logo">
 			<ion-col  col-sm col-auto>
 				<img [src]="cooperative.logo">
 			</ion-col>
@@ -72,6 +72,12 @@
 					<button ion-item (tap)="goToVoyage()">
 						<ion-avatar  item-start ><img src="assets/icon/journey.png"></ion-avatar>
 						Voyages
+						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+					</button>
+
+					<button ion-item (tap)="goToPlanningMenu()">
+						<ion-avatar  item-start ><img src="assets/icon/calendar.png"></ion-avatar>
+						Plannification
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
 					</button>
 

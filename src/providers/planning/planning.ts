@@ -1,49 +1,42 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../firebase/firebase';
+import { Planning } from '../../models/planning.model';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { BookingClass } from '../../models/booking-class.model';
 import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
 
-
 /*
-  Generated class for the BookingClassProvider provider.
+  Generated class for the PlanningProvider provider.
 
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
 @Injectable()
-export class BookingClassProvider extends FirebaseProvider {
+export class PlanningProvider extends FirebaseProvider {
 
-  protected __path = 'booking_class';
+  protected __path = 'planning';
+  
   constructor(public storage: AngularFireStorage, public firebase: AngularFireDatabase, public loadingCtrl : LoadingController) {
     super(storage,firebase,loadingCtrl);
   }
 
-  save(booking: BookingClass, key ?: string){
+  save(station: Planning, key ?: string){
   	if (key) {
-  		return this.push(booking,key);
+  		return this.push(station,key);
   	}
   	else{
-  		return this.push(booking);
+  		return this.push(station);
   	}
   }
-
-  customPath(path:string){
-    this.setPath(path)
-  }
-
+ 
   fetch(key: string){
-    return this.getOneById(key);
+  	return this.getOneById(key);
   }
 
   fetcAll(){
-    return this.getAll();
+  	return this.getAll();
   }
-
-
-  deleteBookingClass(i: string){
+  deleteStation(i: string){
     this.delete(i);
   }
 
