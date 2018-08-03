@@ -103,6 +103,7 @@ import { PlanningCreatePage } from '../pages/planning-create/planning-create';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 import { PlanningListPage } from '../pages/planning-list/planning-list';
 import { PlanningDetailsPage } from '../pages/planning-details/planning-details'
+import { PlanningProvider } from '../providers/planning/planning';
 
 
 @NgModule({
@@ -288,7 +289,8 @@ import { PlanningDetailsPage } from '../pages/planning-details/planning-details'
   TrajetProvider,
   PriceTrajetProvider,
   BookingClassProvider,
-  BookingClassTypeProvider
+  BookingClassTypeProvider,
+    PlanningProvider
   ]
 })
 export class AppModule {}
