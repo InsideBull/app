@@ -20,78 +20,82 @@ import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-cooperative-details',
-  templateUrl: 'cooperative-details.html',
-})
-export class CooperativeDetailsPage {
+ @IonicPage()
+ @Component({
+   selector: 'page-cooperative-details',
+   templateUrl: 'cooperative-details.html',
+ })
+ export class CooperativeDetailsPage {
 
-	cooperative: Cooperative = new Cooperative();
-	param: string;
+   cooperative: Cooperative = new Cooperative();
+   param: string;
 
-  constructor(public navCtrl: NavController, 
-  	public navParams: NavParams, 
-    public cooperativeProvider: CooperativeProvider,
-    public alertCtrl:AlertController,
-    private toastCtrl: ToastController,
-    private notif: NotificationProvider,
-    public events: Events,
-    public eventProvider: EventProvider) {
-      this.param = this.navParams.get('key');
-    
-      this.cooperativeProvider.fetch(this.param).then(
-        (data: Cooperative) => {
-            this.cooperative = data; 
-            if(!this.cooperative.logo){
-              this.cooperative.logo = "assets/icon/copyright.png";
-            }
-              this.eventProvider.setEvent('paramWorker', {key: this.param});
-              this.eventProvider.setEvent('paramCar', {key: this.param});
-              this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
-              this.eventProvider.setEvent('parmVoyageMenu', {key: this.param});
-          }); 
-        }
-        
-        ionViewWillEnter() {
-          
-  }
+   constructor(public navCtrl: NavController, 
+     public navParams: NavParams, 
+     public cooperativeProvider: CooperativeProvider,
+     public alertCtrl:AlertController,
+     private toastCtrl: ToastController,
+     private notif: NotificationProvider,
+     public events: Events,
+     public eventProvider: EventProvider) {
+     this.param = this.navParams.get('key');
+     
+     this.cooperativeProvider.fetch(this.param).then(
+       (data: Cooperative) => {
+         this.cooperative = data; 
+         if(!this.cooperative.logo){
+           this.cooperative.logo = "assets/icon/copyright.png";
+         }
+         this.eventProvider.setEvent('paramWorker', {key: this.param});
+         this.eventProvider.setEvent('paramCar', {key: this.param});
+         this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
+         this.eventProvider.setEvent('parmVoyageMenu', {key: this.param});
+       }); 
+   }
+   
+   ionViewWillEnter() {
+     
+   }
 
-  goToManage(){
-  	this.navCtrl.push(CooperativeManagePage, {key: this.param});
-  }
+   goToManage(){
+     this.navCtrl.push(CooperativeManagePage, {key: this.param});
+   }
 
-  goToParams(){
-    this.navCtrl.push(ParametersPage, {key: this.param});
-  }
+   goToParams(){
+     this.navCtrl.push(ParametersPage, {key: this.param});
+   }
 
-  goToVoyage(){
-    this.navCtrl.push(VoyageMenuPage, {key: this.param});
-  }
+   goToVoyage(){
+     this.navCtrl.push(VoyageMenuPage, {key: this.param});
+   }
 
-  goToTrajet(){
-    this.navCtrl.push(TrajetMenuPage, {key: this.param});
-  }
+   goToTrajet(){
+     this.navCtrl.push(TrajetMenuPage, {key: this.param});
+   }
 
-  goToCar(){
-    this.navCtrl.push(CarMenuPage, {key: this.param});
-  }
+   goToCar(){
+     this.navCtrl.push(CarMenuPage, {key: this.param});
+   }
 
-  goToWorker(){
-    this.navCtrl.push(WorkerMenuPage, {key: this.param});
-  }
+   goToWorker(){
+     this.navCtrl.push(WorkerMenuPage, {key: this.param});
+   }
 
-  delete(){
-    let title = 'Suppression';
-    let message = 'Voulez vous supprimer la cooperative ' + this.cooperative.name + ' ?';
-    this.notif.presentConfirm(message, title).then((confirm)=>{
-      if(this.cooperative.logo == "assets/icon/copyright.png"){
-        this.cooperativeProvider.deleteLogo(this.cooperative.logo);
-      }
-      this.cooperativeProvider.deleteCooperative(this.param);
-      this.navCtrl.push(CooperativeListPage);
-    },()=>{})
-  
-}
+   delete(){
+     let title = 'Suppression';
+     let message = 'Voulez vous supprimer la cooperative ' + this.cooperative.name + ' ?';
+     this.notif.presentConfirm(message, title).then((confirm)=>{
+       if(this.cooperative.logo == "assets/icon/copyright.png"){
+         this.cooperativeProvider.deleteLogo(this.cooperative.logo);
+       }
+       this.cooperativeProvider.deleteCooperative(this.param);
+       this.navCtrl.push(CooperativeListPage);
+     },()=>{})
+     
+   }
 
-}
+   goToPlanningMenu(){
+     
+   }
+
+ }
