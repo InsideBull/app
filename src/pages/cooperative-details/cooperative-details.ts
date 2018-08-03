@@ -30,34 +30,6 @@ import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
    cooperative: Cooperative = new Cooperative();
    param: string;
 
-<<<<<<< HEAD
-   constructor(public navCtrl: NavController, 
-     public navParams: NavParams, 
-     public cooperativeProvider: CooperativeProvider,
-     public alertCtrl:AlertController,
-     private toastCtrl: ToastController,
-     private notif: NotificationProvider,
-     public events: Events,
-     public eventProvider: EventProvider) {
-     this.param = this.navParams.get('key');
-     
-     this.cooperativeProvider.fetch(this.param).then(
-       (data: Cooperative) => {
-         this.cooperative = data; 
-         if(!this.cooperative.logo){
-           this.cooperative.logo = "assets/icon/copyright.png";
-         }
-         this.eventProvider.setEvent('paramWorker', {key: this.param});
-         this.eventProvider.setEvent('paramCar', {key: this.param});
-         this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
-         this.eventProvider.setEvent('parmVoyageMenu', {key: this.param});
-       }); 
-   }
-   
-   ionViewWillEnter() {
-     
-   }
-=======
   constructor(public navCtrl: NavController, 
   	public navParams: NavParams, 
     public cooperativeProvider: CooperativeProvider,
@@ -85,7 +57,6 @@ import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
         ionViewWillEnter() {
           
   }
->>>>>>> 80c10c5faa58e8328a61a807c691383877478bee
 
    goToManage(){
      this.navCtrl.push(CooperativeManagePage, {key: this.param});
