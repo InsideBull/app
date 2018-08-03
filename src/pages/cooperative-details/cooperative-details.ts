@@ -12,6 +12,7 @@ import { CooperativeListPage } from '../cooperative-list/cooperative-list';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { EventProvider } from '../../providers/event/event';
 import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
+import { BookingClassMenuPage } from '../booking-class-menu/booking-class-menu';
 import { PlanningMenuPage } from '../planning-menu/planning-menu';
 
 /**
@@ -74,6 +75,10 @@ import { PlanningMenuPage } from '../planning-menu/planning-menu';
 
    goToTrajet(){
      this.navCtrl.push(TrajetMenuPage, {key: this.param});
+   }
+
+   goToBookingClass(){
+     this.navCtrl.push(BookingClassMenuPage, {key: this.param});
    }
 
    goToCar(){
