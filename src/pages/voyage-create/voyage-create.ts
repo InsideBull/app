@@ -56,7 +56,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
   }
   
   toConstruct(){
-    this.stations = [];    
+    this.stations = [];     
   
     this.param = this.navParams.get('key');
   

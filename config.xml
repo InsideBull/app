@@ -107,10 +107,9 @@
         <variable name="APP_ID" value="1892196607506694" />
         <variable name="APP_NAME" value="Taxibr" />
     </plugin>
-    <engine name="android" spec="7.0.0" />
-
     <plugin name="cordova-plugin-facebook4" spec="^2.2.0">
         <variable name="APP_ID" value="1892196607506694" />
         <variable name="APP_NAME" value="Taxibr" />
     </plugin>
+    <engine name="android" spec="7.0.0" />
 </widget>

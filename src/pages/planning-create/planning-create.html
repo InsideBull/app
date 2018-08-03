@@ -8,11 +8,80 @@
 
   <ion-navbar>
     <ion-title>planning-create</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content *ngIf="coop">
+  <form (ngSubmit)=[onSubmit()] [formGroup]="form">
 
+      <ion-grid class="grid-center-md grid-center-ios">
+        <ion-row justify-content-center class="row-top">
+          <ion-col  col-sm col-auto >
+              <h2 text-capitalise >Création</h2>
+          </ion-col>
+      </ion-row>
+      <ion-row justify-content-center class="row-top">
+          <ion-col  col-sm col-auto>
+              <img src="assets/icon/add.png" class="img-top">
+          </ion-col>
+      </ion-row>
+
+      <ion-row justify-content-center class="center-block-reservation">
+          <ion-col col-12 col-sm col-auto >
+              <ion-list class="list_" padding-top maring-top>
+
+                  <ion-item>
+                      <ion-label no-padding no-margin>
+                          <span class = "input-label">Trajet</span>
+                      </ion-label>
+                      <ion-select formControlName="trajet" cancelText="Annuler" okText="Ok" [(ngModel)]="ok">
+                          <ion-option  *ngFor="let trajet of trajets" [value]="trajet.key" (ionChange)="onChange($event)">
+                            {{trajet.depart?.city}}, {{trajet.arrive?.city}}
+                          </ion-option>
+                      </ion-select>
+                  </ion-item>
+
+                  <ion-item>
+                    <ion-label no-padding no-margin>
+                      <span class = "input-label">Jour de départ</span>
+                  </ion-label>
+                  <ion-select formControlName="day" cancelText="Annuler" okText="Ok">
+                      <ion-option  *ngFor="let d of days" [value]="d.id">{{d.day}}</ion-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item class="input-cover-md input-cover-ios" >
+                  <ion-label no-padding no-margin>
+                      <span class = "input-label">Heure de départ</span> 
+                  </ion-label>
+                  <ion-datetime displayFormat="HH:mm" formControlName="time" id="time" cancelText="Annuler" doneText="ok"></ion-datetime>
+                </ion-item>
+
+                <ion-item *ngIf="ok">
+                    <ion-label>Classe</ion-label>
+                    <ion-select formControlName="classe">
+                      <ion-option *ngFor="let classe of priceClasse" [value]="classe.key">{{classe.classe.type}}</ion-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Les voiture</ion-label>
+                    <ion-select formControlName="car" multiple="true" [(ngModel)]="selectedCar" cancelText="Annuler" okText="Ok">
+                      <ion-option *ngFor="let car of cars" [value]="car.key" >{{car.matricule}}</ion-option>
+                    </ion-select>
+                </ion-item>
+    
+      <div >
+          <button ion-button block class="button-and button-ios" type="onSubmit">Enregistrer</button>
+      </div>
+
+</ion-list>
+</ion-col>
+</ion-row>
+</ion-grid>
+</form>
 </ion-content>
