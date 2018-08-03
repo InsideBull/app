@@ -46,7 +46,7 @@ export class BookingClassProvider extends FirebaseProvider {
     return this.upload(image);
   }
 
-  deleteCar(i: string){
+  deleteBookingClass(i: string){
     this.delete(i);
   }
   deleteImg(url: string){

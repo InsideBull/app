@@ -1,6 +1,5 @@
 import { Component, HostListener, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import * as $ from 'jquery';
 
 
 /**

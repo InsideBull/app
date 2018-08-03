@@ -91,7 +91,8 @@ import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-ad
 import { BookingClassDetailsPage } from '../pages/booking-class-details/booking-class-details';
 import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
 import { BookingClassTypePage } from '../pages/booking-class-type/booking-class-type';
-import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu';
+import { BookingClassEditPage } from '../pages/booking-class-edit/booking-class-edit';
 import { TrajetParametersPage } from '../pages/trajet-parameters/trajet-parameters';
 import { TrajetAffectPage } from '../pages/trajet-affect/trajet-affect';
 import { BookingClassListePage } from '../pages/booking-class-liste/booking-class-liste';
@@ -158,7 +159,8 @@ import { BookingClassListePage } from '../pages/booking-class-liste/booking-clas
   BookingClassDetailsPage,
   BookingClassMenuPage,
   BookingClassTypePage,  
-  CooperativeMenuPage
+  CooperativeMenuPage,
+  BookingClassEditPage
 
   ],
   imports: [
@@ -230,7 +232,8 @@ import { BookingClassListePage } from '../pages/booking-class-liste/booking-clas
   BookingClassDetailsPage,
   BookingClassMenuPage,
   BookingClassTypePage,
-  CooperativeMenuPage
+  CooperativeMenuPage,
+  BookingClassEditPage
   ],
 
   providers: [

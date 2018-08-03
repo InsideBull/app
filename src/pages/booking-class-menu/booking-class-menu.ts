@@ -36,10 +36,6 @@ export class BookingClassMenuPage {
   ionViewDidLoad() {
   }
 
-  addClassType(){
-    this.navCtrl.push(BookingClassTypePage, {cooperativeKey: this.cooperativeKey})
-  }
-
   listBookingClass(){
     this.navCtrl.push(BookingClassListePage, {cooperativeKey: this.cooperativeKey})
   }

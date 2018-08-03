@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PriceTrajet } from '../../models/price-trajet';
 
 /**
- * Generated class for the TrajetClasseListPage page.
+ * Generated class for the BookingClassEditPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,20 +10,16 @@ import { PriceTrajet } from '../../models/price-trajet';
 
 @IonicPage()
 @Component({
-  selector: 'page-trajet-classe-list',
-  templateUrl: 'trajet-classe-list.html',
+  selector: 'page-booking-class-edit',
+  templateUrl: 'booking-class-edit.html',
 })
-export class TrajetClasseListPage {
-
-  coop: any;
-  key: any;
-  classes: [PriceTrajet];
+export class BookingClassEditPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TrajetClasseListPage');
+    console.log('ionViewDidLoad BookingClassEditPage');
   }
 
 }

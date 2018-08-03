@@ -35,7 +35,7 @@
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
 					
-					<button ion-item (tap)="onClickItem(voyage.key)" *ngFor="let trajet of trajets">
+					<button ion-item (tap)="onClickItem(trajet.key)" *ngFor="let trajet of trajets">
 						<!-- <ion-avatar  item-start ><img src="assets"></ion-avatar> -->
 						{{trajet.depart?.city}} - {{trajet.arrive?.city }}
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>

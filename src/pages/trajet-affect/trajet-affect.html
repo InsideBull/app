@@ -13,6 +13,36 @@
 </ion-header>
 
 
-<ion-content padding>
-
-</ion-content>
+<ion-content padding *ngIf="key">
+  <ion-grid class="grid-center-md grid-center-ios" *ngIf="key">
+  
+    <ion-row justify-content-center class="row-top">
+        <ion-col  col-sm col-auto >
+          <h2 text-capitalise ></h2>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row justify-content-center class="row-top">
+        <ion-col  col-sm col-auto >
+          <img src="assets/icon/car-plannification.png" class="img-top">
+        </ion-col>
+      </ion-row>
+  
+  
+    <ion-item>
+      <ion-label>Les classes</ion-label>
+      <ion-select [(ngModel)]="priceClasse.classe">
+        <ion-option *ngFor="let classe of classes" [value]="classe.key">{{car.type}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="input-cover-md input-cover-ios" >
+      <ion-label no-padding no-margin>
+          <span class = "input-label">Prix du voyage</span>
+      </ion-label>
+      <ion-input id="price" type="number" [(ngModel)]="priceClasse.price"></ion-input>
+  </ion-item>
+    <div >
+      <button ion-button block class="button-and button-ios" type="onSubmit" (click)="save()" >Enregistrer</button>
+    </div>
+  </ion-grid>
+  </ion-content>
