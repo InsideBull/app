@@ -50,6 +50,7 @@ export class CooperativeDetailsPage {
               this.eventProvider.setEvent('paramCar', {key: this.param});
               this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
               this.eventProvider.setEvent('parmVoyageMenu', {key: this.param});
+              this.eventProvider.setEvent('parmTrajetMenu', {key: this.param});
           }); 
         }
         

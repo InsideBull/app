@@ -24,6 +24,7 @@ import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-ad
 
 import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 
 
 
@@ -69,6 +70,12 @@ export class MyApp {
       splash.present() ;
     });
 
+    this.eventProvider.getEvent('parmCoopDetail').then((resolve)=>{
+      if(resolve){
+        this.name = resolve['name'];
+        this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
+      }
+    });
     this.eventProvider.getEvent('paramWorker').then((paramWorker)=>{
       if(paramWorker){
         this.pages.push({title: 'Menu Employé', component: WorkerMenuPage, param: paramWorker});
@@ -87,15 +94,14 @@ export class MyApp {
       }
     });
 
-    this.eventProvider.getEvent('parmCoopDetail').then((resolve)=>{
-      if(resolve){
-        this.name = resolve['name'];
-        this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
-      }
-    });
     this.eventProvider.getEvent('parmVoyageMenu').then((resolve)=>{
       if(resolve){
         this.pages.push({title: "Menu voyage", component: VoyageMenuPage, param: resolve});
+      }
+    });
+    this.eventProvider.getEvent('parmTrajetMenu').then((resolve)=>{
+      if(resolve){
+        this.pages.push({title: "Menu Trajet", component: TrajetMenuPage, param: resolve});
       }
     });
 

@@ -4,6 +4,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { FirebaseProvider } from '../firebase/firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { LoadingController } from 'ionic-angular';
+import { PriceTrajet } from '../../models/price-trajet';
 
 /*
   Generated class for the PriceTrajetProvider provider.
@@ -20,7 +21,7 @@ export class PriceTrajetProvider extends FirebaseProvider{
     super(storage,firebase,loadingCtrl);
   }
 
-  save(price: number, key ?: string){
+  save(price: PriceTrajet, key ?: string){
   	if (key) {
   		return this.push(price,key);
   	}

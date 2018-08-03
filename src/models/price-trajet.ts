@@ -1,6 +1,6 @@
 export class PriceTrajet{
     classe: string;
-	price?: number;
+	price?: string;
 	key?: any;
 
     constructor(object?: {}) {

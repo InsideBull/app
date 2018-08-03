@@ -31,7 +31,7 @@ export class TrajetParametersPage {
   }
 
   editTrajet(){
-  	this.navCtrl.push(TrajetEditPage, {key: this.key, coop: this.navParams.get('coop')});
+  	this.navCtrl.push(TrajetEditPage, {key: this.key, coop: this.coop});
   }
 
   affectClassePrice(){
@@ -39,7 +39,7 @@ export class TrajetParametersPage {
   }
 
   listPriceClasse(){
-    this.navCtrl.push(TrajetClasseListPage, {key:this.key});
+    this.navCtrl.push(TrajetClasseListPage, {key:this.key, coop: this.coop});
   }
 
 }
