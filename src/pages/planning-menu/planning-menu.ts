@@ -38,7 +38,7 @@ export class PlanningMenuPage {
       });
   }
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() {} 
 
   listPlannig(){
     this.navCtrl.push(PlanningListPage, {coop: this.coop });
