@@ -108,7 +108,7 @@ export class MyApp {
     });
     this.eventProvider.getEvent('parmPlannigMenu').then((resolve)=>{
       if(resolve){
-        this.pages.push({title: "Menu Plannification", component: PlanningMenuPage, param: resolve});
+        this.pages.push({title: "Menu Planification", component: PlanningMenuPage, param: resolve});
       }
     });
 

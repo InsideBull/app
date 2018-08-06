@@ -49,7 +49,7 @@
 
 					<ion-item class="input-cover-md input-cover-ios" >
 						<ion-label no-padding no-margin>
-							<span class = "input-label">Nom de la coopérative : </span>
+							<span class = "input-label">Coopérative : </span>
 						</ion-label>
 						<ion-input id="name" type="text" [(ngModel)]="cooperative.name" stacked required></ion-input>
 					</ion-item>
@@ -62,7 +62,7 @@
 					</ion-item>
 					<ion-item class="input-cover-md input-cover-ios" >
 						<ion-label no-padding no-margin>
-							<span class = "input-label">Téléphone du contact : </span>
+							<span class = "input-label">Tél du contact : </span>
 						</ion-label>
 						<ion-input [(ngModel)]="cooperative.telContact" id="telContact" type="text" stacked required></ion-input>
 					</ion-item>
@@ -74,7 +74,7 @@
 					</ion-item>
 
 					<ion-item class="input-cover-md input-cover-ios" >
-						<ion-label no-padding no-margin>
+						<ion-label >
 							<span class = "input-label">Déscription</span>
 						</ion-label>
 						<ion-textarea id="desc" type="text" rows="50" cols="60" [(ngModel)]="cooperative.desc" stacked required></ion-textarea>
