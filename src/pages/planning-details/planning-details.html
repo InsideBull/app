@@ -7,12 +7,98 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>planning-details</ion-title>
+      <button ion-button="" menuToggle="">
+        <ion-icon name="menu"></ion-icon>
+      </button> 
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content *ngIf="key">
+    <ion-grid class="grid-center-md grid-center-ios" >
+  
+      <ion-row justify-content-center class="row-top">
+        <ion-col  col-sm col-auto >
+          <h2 text-capitalise >{{ trajetObj.depart?.city }} - {{ trajetObj.arrive?.city }}</h2>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class=""> 
+        <ion-col  col-sm col-auto>
+          <img src="assets/icon/route.png" class="img-top">
+          
+        </ion-col>
+      </ion-row>
+  
+      <ion-row justify-content-center class="row-top">
+        <ion-col  col-sm col-auto >
+          <h3>{{ dayString.day }} à {{ time }}</h3>
+        </ion-col>
+      </ion-row>
+  
+  
+      <ion-row justify-content-center class="row-center">
+        <ion-col col-11 col-sm col-auto>
+          <ion-list>
+            
+  
+            <ion-item>
+              <ion-avatar item-start><img src="assets/icon/marker.png"></ion-avatar>
+              <ion-label>
+                <b>Départ</b><span class="details">{{ trajetObj.depart?.name }} - {{ trajetObj.depart?.city }},{{ trajetObj.depart?.location }}</span>
+              </ion-label>
+            </ion-item>
+  
+            <ion-item>
+              <ion-avatar item-start><img src="assets/icon/destination.png"></ion-avatar>
+              <ion-label>
+                <b>Destination</b><span class="details">{{ trajetObj.arrive?.name }} - {{ trajetObj.arrive?.city }},{{ trajetObj.arrive?.location }}</span>
+              </ion-label>
+            </ion-item>
+  
+            <ion-item>
+              <ion-avatar item-start><img src="assets/icon/calendar.png"></ion-avatar>
+              <ion-label>
+                <b>Date et Heure</b><span class="details">{{ dayString.day }}, {{ time }}</span>
+              </ion-label>
+            </ion-item>
+  
+            <ion-item>
+              <ion-avatar item-start><img src="assets/icon/tag.png"></ion-avatar>
+              <ion-label>
+                <b>Classe et Prix</b><span class="details"> {{ classeObj.classe?.type }} - {{ classeObj.price }} </span>
+              </ion-label>
+            </ion-item>
 
-</ion-content>
+            <ion-item>
+                <ion-avatar item-start><img src="assets/icon/matricule.png"></ion-avatar>
+                <ion-label>
+                  <b>Les voitures : </b><span class="details" *ngFor="let car of cars">{{ car }} - </span>
+                </ion-label>
+              </ion-item>
+  
+            <button ion-item (click)="showCarte()">
+              <ion-avatar  item-start ><img src="assets/icon/map.png"></ion-avatar>
+              Voir la carte
+              <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+              </button>
+  
+  
+             <button ion-item (tap)="goToParameters()" >
+              <ion-avatar  item-start ><img src="assets/icon/parameter.png"></ion-avatar>
+              Modifier
+              <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            </button>
+  
+            <button ion-item (tap)="delete()" >
+                <ion-avatar  item-start ><img src="assets/icon/trash.png"></ion-avatar>
+                Supprimer
+                <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            </button>
+  
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
