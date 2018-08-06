@@ -120,7 +120,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
 
  	onSubmit(){
  		let message = "Voulez vous vraiment ajouter la voiture N° " + this.form.value.matricule + " dans " + this.cooperative.name;
- 		let title = "Ajout de voiture"
+ 		let title = "Ajout d'une voiture"
  		this.notif.presentConfirm(message, title).then(
  			(confirm)=>{
  				let value = this.form.value;

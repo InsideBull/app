@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>TrajetAffect</ion-title>
+    <ion-title>Trajet Affectation</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -39,7 +39,7 @@
       <ion-label no-padding no-margin>
           <span class = "input-label">Prix du voyage</span>
       </ion-label>
-      <ion-input id="price" type="text" [(ngModel)]="priceClasse.price"></ion-input>
+      <ion-input dir="rtl" id="price" type="text" [(ngModel)]="priceClasse.price"></ion-input>
   </ion-item>
     <div >
       <button ion-button block class="button-and button-ios" type="onSubmit" (click)="save()" >Enregistrer</button>
