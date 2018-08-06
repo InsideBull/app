@@ -25,11 +25,13 @@
       </ion-col>
     </ion-row>
 
+    <ion-searchbar [(ngModel)]="myInput" placeholder="Recherche de voiture"></ion-searchbar>
+
     <ion-row justify-content-center class="row-center content-body">
       <ion-col col-11 col-sm col-auto>
         <ion-list>
           
-          <button ion-item *ngFor="let car of cars" (click)="goToDetail(car.key)">
+          <button ion-item *ngFor="let car of cars | searchCar: myInput" (click)="goToDetail(car.key)">
             <ion-avatar  item-start ><img [src]="car?.image"></ion-avatar>
             {{ car.matricule }} - {{ car.cartype?.type }}
             <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>

@@ -25,11 +25,13 @@
 			</ion-col>
 		</ion-row>
 
+		<ion-searchbar [(ngModel)]="myInput" placeholder="Recherche d'employé "></ion-searchbar>
+
 		<ion-row justify-content-center class="row-center content-body">
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
 					
-					<button ion-item (tap)="showDetails(worker.key)" *ngFor="let worker of workers">
+					<button ion-item (tap)="showDetails(worker.key)" *ngFor="let worker of workers | searchWorker: myInput">
 						<ion-avatar  item-start ><img [src]="worker.image" ></ion-avatar>
 						{{worker.matricule}} - {{worker.name }} - {{worker?.type.occupation}}
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
