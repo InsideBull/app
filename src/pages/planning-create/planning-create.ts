@@ -10,6 +10,8 @@ import { NotificationProvider } from '../../providers/notification/notification'
 import { PriceTrajetProvider } from '../../providers/price-trajet/price-trajet';
 import { DayPlanning } from '../../models/day-planning.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PlanningDetailsPage } from '../planning-details/planning-details';
+import { Planning } from '../../models/planning.model';
 
 /**
  * Generated class for the PlanningCreatePage page.
@@ -77,24 +79,42 @@ export class PlanningCreatePage {
   ionViewDidLoad() {
   }
 
+  
+  onChange(classe){
+    let pathPriceTrajet = `cooperative/${this.coop}/trajet/${classe}/price`;
+    this.priceTrajetProvider.customPath(pathPriceTrajet);
+    this.priceTrajetProvider.fetcAll().subscribe((data)=>{
+      this.priceClasse = [];
+      for(let key in data){
+        data[key].key = key;
+        this.bookingClassProvider.fetch(key).then((result) => {
+          data[key].classe = result;
+        });
+        this.priceClasse.push(data[key]);
+      }
+    });
+  }
+
   onSubmit(){
 
-  }
+    let message = "Voulez vous vraiment ajouter cette plannification";
+     let title = "Ajout de plannification";
+     this.notif.presentConfirm(message, title).then(
+      (confirm)=>{
+        if(this.form.valid){
+          let value = this.form.value;
+          let pathPlanning = `cooperative/${this.coop}/planning/${value.day}/${value.time}/${value.trajet}`;
+          this.plannigProvider.customPath(pathPlanning);
 
-  onChange(classe){
-    console.log("on change");
-      let pathPriceTrajet = `cooperative/${this.coop}/trajet/${classe}/price`;
-      this.priceTrajetProvider.customPath(pathPriceTrajet);
-      this.priceTrajetProvider.fetcAll().subscribe((data)=>{
-          this.priceClasse = [];
-          for(let key in data){
-            data[key].key = key;
-            this.bookingClassProvider.fetch(key).then((result) => {
-              data[key].classe = result;
-            });
-            this.priceClasse.push(data[key]);
+          let cars = [];
+          for(let w in this.selectedCar){
+            cars.push(this.selectedCar[w]);
           }
-      });
+          let planning = new Planning();
+          planning.cars = JSON.stringify(cars);
+          let key = this.plannigProvider.save(planning, value.classe);
+          this.navCtrl.setRoot(PlanningDetailsPage, {key: key, trajet: value.trajet, day: value.day, time: value.time});
+        }
+      },()=>{});
   }
-
 }
