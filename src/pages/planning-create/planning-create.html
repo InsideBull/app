@@ -65,7 +65,7 @@
                 <ion-item *ngIf="selectTraject">
                     <ion-label>Classe</ion-label>
                     <ion-select formControlName="classe">
-                      <ion-option *ngFor="let classe of priceClasse" [value]="classe.key">{{classe.classe.type}}</ion-option>
+                      <ion-option *ngFor="let classe of priceClasse" [value]="classe.key">{{classe.classe.type}}, {{classe.price}} Ar</ion-option>
                     </ion-select>
                 </ion-item>
                 <ion-item>
