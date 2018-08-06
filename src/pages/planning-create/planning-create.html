@@ -39,8 +39,8 @@
                       <ion-label no-padding no-margin>
                           <span class = "input-label">Trajet</span>
                       </ion-label>
-                      <ion-select formControlName="trajet" cancelText="Annuler" okText="Ok" [(ngModel)]="ok">
-                          <ion-option  *ngFor="let trajet of trajets" [value]="trajet.key" (ionChange)="onChange($event)">
+                      <ion-select formControlName="trajet" cancelText="Annuler" okText="Ok" (ionChange)="onChange($event)" [(ngModel)]="selectTraject">
+                          <ion-option  *ngFor="let trajet of trajets" [value]="trajet.key" >
                             {{trajet.depart?.city}}, {{trajet.arrive?.city}}
                           </ion-option>
                       </ion-select>
@@ -62,7 +62,7 @@
                   <ion-datetime displayFormat="HH:mm" formControlName="time" id="time" cancelText="Annuler" doneText="ok"></ion-datetime>
                 </ion-item>
 
-                <ion-item *ngIf="ok">
+                <ion-item *ngIf="selectTraject">
                     <ion-label>Classe</ion-label>
                     <ion-select formControlName="classe">
                       <ion-option *ngFor="let classe of priceClasse" [value]="classe.key">{{classe.classe.type}}</ion-option>

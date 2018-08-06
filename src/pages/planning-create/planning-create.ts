@@ -31,7 +31,7 @@ export class PlanningCreatePage {
   form: FormGroup;
   cars = [];
   selectedCar = [];
-  ok: any;
+  selectTraject = false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public plannigProvider: PlanningProvider, public cooperativeProvider: CooperativeProvider, public trajetProvider: TrajetProvider, public stationProvider: StationProvider, public bookingClassProvider: BookingClassProvider, public carProvider: CarProvider,public notif: NotificationProvider, public priceTrajetProvider: PriceTrajetProvider, public formBuilder: FormBuilder)  {
@@ -75,9 +75,15 @@ export class PlanningCreatePage {
   }
 
   ionViewDidLoad() {
-    if(this.ok){
-      console.log("on change");
-      let pathPriceTrajet = `cooperative/${this.coop}/trajet/${this.ok}/price`;
+  }
+
+  onSubmit(){
+
+  }
+
+  onChange(classe){
+    console.log("on change");
+      let pathPriceTrajet = `cooperative/${this.coop}/trajet/${classe}/price`;
       this.priceTrajetProvider.customPath(pathPriceTrajet);
       this.priceTrajetProvider.fetcAll().subscribe((data)=>{
           this.priceClasse = [];
@@ -89,15 +95,6 @@ export class PlanningCreatePage {
             this.priceClasse.push(data[key]);
           }
       });
-    }
-  }
-
-  onSubmit(){
-
-  }
-
-  onChange(car){
-    console.log(this.ok);
   }
 
 }
