@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, StaticProvider } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PlanningProvider } from '../../providers/planning/planning';
 import { Planning } from '../../models/planning.model'
+import { TrajetProvider } from '../../providers/trajet/trajet';
+import { StationProvider } from '../../providers/station/station';
+import { BookingClassProvider } from '../../providers/booking-class/booking-class';
+import { DayPlanning } from '../../models/day-planning.model';
 
 /**
  * Generated class for the PlanningListPage page.
@@ -17,12 +21,17 @@ import { Planning } from '../../models/planning.model'
  })
  export class PlanningListPage {
 
- 	plannings = [];
- 	coop: string;
+ 	plannings: any;
+	 coop: string;
+	 days = new DayPlanning().days;
+	 
  	constructor(
  		public navCtrl: NavController,
  		public navParams: NavParams,
- 		private planningProvider: PlanningProvider
+		private planningProvider: PlanningProvider,
+		public trajetProvider: TrajetProvider,
+		public stationProvider: StationProvider,
+		public bookingClassProvider: BookingClassProvider
 
  		) {
  		this.init()
@@ -33,42 +42,61 @@ import { Planning } from '../../models/planning.model'
  		this.coop = this.navParams.get('coop');
 
  		let ppath = `cooperative/${this.coop}/planning`;
- 		this.planningProvider.customPath(ppath);
+		this.planningProvider.customPath(ppath);
+		let pathTrajet = `cooperative/${this.coop}/trajet`;
+		this.trajetProvider.customPath(pathTrajet);
+		let pathBooking = `cooperative/${this.coop}/booking_class`;
+		this.bookingClassProvider.customPath(pathBooking);
+
+
  		this.planningProvider.fetcAll().subscribe((plannings)=>{
  			
- 			this.plannings = [];
+			 this.plannings = [];
+			  for(let a in plannings){
 
- 			for(let p in plannings){
+				  
+				  for(let b in plannings[a]){
+					  
+					for(let c in plannings[a][b]){
 
- 				let planningDay = plannings[p];
+						for(let d in plannings[a][b][c]){
 
- 				for(let d in planningDay){
+							let planning = {}
 
- 						let planningHour = planningDay[d];
+							planning['day'] = this.days.find(day=> day.id.toString() == a);					
+							planning['time'] = b;
 
- 						for(let h in planningHour){
+							this.trajetProvider.fetch(c).then((traject)=>{
+								planning['traject'] = traject;
+								planning['traject'].key = c;
 
- 							let planningTraject = planningHour[h];
+								this.stationProvider.fetch(traject['depart']).then((depart)=>{
+									planning['traject'].depart = depart;
+								});
+								this.stationProvider.fetch(traject['arrive']).then((arrive)=>{
+									planning['traject'].arrive = arrive;
+								});
+							});
 
- 							for(let t in planningTraject){
+							this.bookingClassProvider.fetch(d).then((classe)=>{
+								planning['class'] = classe;
+								planning['class'].key = d;
+								
+							})
+							// planning['cars'] = plannings[a][b][c][d].cars;
 
- 								let planningClass = planningTraject[t];
+		
+							this.plannings.push(planning);
 
- 								let plan = new Planning(planningClass);
+						}
 
- 								let cars = JSON.parse(plan.cars);
- 							}
- 						}
+					}
+				}
+					
+			}
+		 });
 
-
-
- 				}
-
- 			}
-
-
-
- 		})
+		 
 
 
 

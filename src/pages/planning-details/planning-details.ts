@@ -46,7 +46,7 @@ export class PlanningDetailsPage {
   origin: any;
   destination: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public plannigProvider: PlanningProvider, public cooperativeProvider: CooperativeProvider, public trajetProvider: TrajetProvider, public stationProvider: StationProvider, public bookingClassProvider: BookingClassProvider, public carProvider: CarProvider,public notif: NotificationProvider, public priceTrajetProvider: PriceTrajetProvider, public formBuilder: FormBuilder)  {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public plannigProvider: PlanningProvider, public trajetProvider: TrajetProvider, public stationProvider: StationProvider, public bookingClassProvider: BookingClassProvider, public carProvider: CarProvider,public notif: NotificationProvider, public priceTrajetProvider: PriceTrajetProvider, public formBuilder: FormBuilder)  {
     this.key = this.navParams.get('key');
     this.trajet = this.navParams.get('trajet');
     this.day = this.navParams.get('day');
@@ -62,17 +62,17 @@ export class PlanningDetailsPage {
     let pathTrajet = `cooperative/${this.coop}/trajet`;
     let pathBooking = `cooperative/${this.coop}/booking_class`;
     let pathPrice = `cooperative/${this.coop}/trajet/${this.key}/price`;
-    this.priceTrajetProvider.customPath(customPath);
+    this.priceTrajetProvider.customPath(pathPrice);
     this.bookingClassProvider.customPath(pathBooking);
     this.trajetProvider.customPath(pathTrajet);
 
     this.trajetProvider.fetch(this.trajet).then((trajet)=>{
       this.trajetObj = trajet;
-      this.stationProvider.fetch(this.trajet.depart).then((data)=>{
+      this.stationProvider.fetch(this.trajetObj.depart).then((data)=>{
         this.trajetObj.depart = data;
         this.origin = new Coordinate({lat: data['latitude'], lng: data['latitude']});
       });
-      this.stationProvider.fetch(this.trajet.arrive).then((data)=>{
+      this.stationProvider.fetch(this.trajetObj.arrive).then((data)=>{
         this.trajetObj.arrive = data;
         this.destination = new Coordinate({lat: data['latitude'], lng: data['latitude']});
       });
