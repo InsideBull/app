@@ -104,6 +104,12 @@ import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 import { PlanningListPage } from '../pages/planning-list/planning-list';
 import { PlanningDetailsPage } from '../pages/planning-details/planning-details'
 import { PlanningProvider } from '../providers/planning/planning';
+import { SearchPipe } from '../pipes/search/search';
+import { SearchBookingClassPipe } from '../pipes/search-booking-class/search-booking-class';
+import { SearchCarPipe } from '../pipes/search-car/search-car';
+import { SearchTrajetPipe } from '../pipes/search-trajet/search-trajet';
+import { SearchWorkerPipe } from '../pipes/search-worker/search-worker';
+import { SearchVoyagePipe } from '../pipes/search-voyage/search-voyage';
 
 
 @NgModule({
@@ -175,7 +181,13 @@ import { PlanningProvider } from '../providers/planning/planning';
   PlanningDetailsPage,
   TrajetClasseListPage,
   TrajetEditPage,
-  BookingClassEditPage
+  BookingClassEditPage,
+  SearchPipe,
+  SearchBookingClassPipe,
+  SearchCarPipe,
+  SearchTrajetPipe,
+  SearchWorkerPipe,
+  SearchVoyagePipe
 
   ],
   imports: [

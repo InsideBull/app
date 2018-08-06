@@ -53,6 +53,14 @@ ion-header {
 	}
 }
 
+ion-searchbar{        
+    .searchbar-input-container{            
+        .searchbar-input{
+            background-color: transparent;
+        }
+    }
+ }
+
 .img-lock , .img-mail {
 	background-color: transparent;
 }

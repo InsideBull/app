@@ -25,11 +25,13 @@
 			</ion-col>
 		</ion-row>
 
+		<ion-searchbar [(ngModel)]="myInput" class="search" placeholder="Recherche de voyage"></ion-searchbar>
+
 		<ion-row justify-content-center class="row-center content-body">
 			<ion-col col-11 col-sm col-auto>
 				<ion-list>
 					
-					<button ion-item (tap)="onClickItem(voyage.key)" *ngFor="let voyage of voyages">
+					<button ion-item (tap)="onClickItem(voyage.key)" *ngFor="let voyage of voyages | searchVoyage: myInput">
 						<!-- <ion-avatar  item-start ><img src="assets"></ion-avatar> -->
 						{{voyage.startstation?.city}} - {{voyage.arrivalstation?.city }}, {{ voyage.date }} - {{ voyage.price }},
 						<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
