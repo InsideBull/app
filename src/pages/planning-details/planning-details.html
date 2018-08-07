@@ -7,6 +7,8 @@
 <ion-header>
 
   <ion-navbar>
+      <ion-title>Détail planification</ion-title>
+
       <button ion-button="" menuToggle="">
         <ion-icon name="menu"></ion-icon>
       </button> 
@@ -15,7 +17,7 @@
 </ion-header>
 
 
-<ion-content *ngIf="key">
+<ion-content *ngIf="traject">
     <ion-grid class="grid-center-md grid-center-ios" >
   
       <ion-row justify-content-center class="row-top">
@@ -67,7 +69,7 @@
             <ion-item>
               <ion-avatar item-start><img src="assets/icon/tag.png"></ion-avatar>
               <ion-label>
-                <b>Classe et Prix</b><span class="details"> {{ classeObj.classe?.type }} - {{ classeObj.price }} </span>
+                <b>Classe et Prix</b><span class="details"> {{ classeObj.classe?.type }} - {{ classeObj?.price }} Ariary</span>
               </ion-label>
             </ion-item>
 

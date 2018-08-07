@@ -38,7 +38,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CooperativeMenuPage;
+  rootPage: any = LoginPage;
 
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
@@ -72,12 +72,12 @@ export class MyApp {
       splash.present() ;
     });
 
-    this.eventProvider.getEvent('parmCoopDetail').then((resolve)=>{
-      if(resolve){
-        this.name = resolve['name'];
-        this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
-      }
-    });
+    // this.eventProvider.getEvent('parmCoopDetail').then((resolve)=>{
+    //   if(resolve){
+    //     this.name = resolve['name'];
+    //     this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
+    //   }
+    // });
     this.eventProvider.getEvent('paramWorker').then((paramWorker)=>{
       if(paramWorker){
         this.pages.push({title: 'Menu Employé', component: WorkerMenuPage, param: paramWorker});

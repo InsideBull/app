@@ -110,6 +110,8 @@ import { SearchCarPipe } from '../pipes/search-car/search-car';
 import { SearchTrajetPipe } from '../pipes/search-trajet/search-trajet';
 import { SearchWorkerPipe } from '../pipes/search-worker/search-worker';
 import { SearchVoyagePipe } from '../pipes/search-voyage/search-voyage';
+import { SearchPlanningPipe } from '../pipes/search-planning/search-planning';
+import { PlanningEditPage } from '../pages/planning-edit/planning-edit';
 
 
 @NgModule({
@@ -187,7 +189,9 @@ import { SearchVoyagePipe } from '../pipes/search-voyage/search-voyage';
   SearchCarPipe,
   SearchTrajetPipe,
   SearchWorkerPipe,
-  SearchVoyagePipe
+  SearchVoyagePipe,
+  SearchPlanningPipe,
+  PlanningEditPage
 
   ],
   imports: [
@@ -267,7 +271,8 @@ import { SearchVoyagePipe } from '../pipes/search-voyage/search-voyage';
   PlanningDetailsPage,
   TrajetClasseListPage,
   TrajetEditPage,
-  BookingClassEditPage
+  BookingClassEditPage,
+  PlanningEditPage
   ],
 
   providers: [

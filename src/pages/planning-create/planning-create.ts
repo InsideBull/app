@@ -113,7 +113,7 @@ export class PlanningCreatePage {
           let planning = new Planning();
           planning.cars = JSON.stringify(cars);
           let key = this.plannigProvider.save(planning, value.classe);
-          this.navCtrl.setRoot(PlanningDetailsPage, {key: key, trajet: value.trajet, day: value.day, time: value.time, coop: this.coop});
+          this.navCtrl.setRoot(PlanningDetailsPage, {keyClass: key, traject: value.trajet, day: value.day, time: value.time, coop: this.coop});
         }
       },()=>{});
   }
