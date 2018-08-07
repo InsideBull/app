@@ -78,7 +78,6 @@ export class PlanningDetailsPage {
         this.trajetObj.arrive = data;
         this.destination = new Coordinate({lat: data['latitude'], lng: data['latitude']});
       });
-      console.log(this.trajetObj);
     });
 
     
@@ -98,7 +97,7 @@ export class PlanningDetailsPage {
   }
 
   goToParameters(){
-    this.navCtrl.push(PlanningEditPage, {keyClass: this.keyClass, trajet: this.traject, day: this.day, time: this.time, coop: this.coop});
+    this.navCtrl.push(PlanningEditPage, {keyClass: this.keyClass, traject: this.traject, day: this.day, time: this.time, coop: this.coop});
   }
 
   delete(){
@@ -109,7 +108,7 @@ export class PlanningDetailsPage {
       let customPath = `cooperative/${this.coop}/planning/${this.day}/${this.time}/${this.traject}`;
       this.plannigProvider.customPath(customPath);
       this.plannigProvider.deletePlanning(this.keyClass);
-      this.navCtrl.push(PlanningEditPage, {keyClass: this.keyClass, trajet: this.traject, day: this.day, time: this.time, coop: this.coop});
+      this.navCtrl.push(PlanningListPage, {coop: this.coop});
     },()=>{});
   }
 

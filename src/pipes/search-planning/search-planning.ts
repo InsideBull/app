@@ -17,7 +17,7 @@ export class SearchPlanningPipe implements PipeTransform {
     if(!terms) return items;
     terms = terms.toLowerCase();
     return items.filter( it => {
-      return it.day.day.toLowerCase().includes(terms);
+      return it.day.day.toLowerCase().includes(terms) || it.time.toLowerCase().includes(terms) || it.traject.depart.city.toLowerCase().includes(terms) || it.traject.arrive.city.toLowerCase().includes(terms) || it.class.type.toLowerCase().includes(terms);
     });
   }
 }

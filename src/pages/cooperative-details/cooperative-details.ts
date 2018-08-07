@@ -50,7 +50,7 @@ import { PlanningMenuPage } from '../planning-menu/planning-menu';
             }
               this.eventProvider.setEvent('paramWorker', {key: this.param});
               this.eventProvider.setEvent('paramCar', {key: this.param});
-              this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
+              // this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
               this.eventProvider.setEvent('parmVoyageMenu', {key: this.param});
               this.eventProvider.setEvent('parmTrajetMenu', {key: this.param});
               this.eventProvider.setEvent('parmPlannigMenu', {key: this.param});
@@ -69,9 +69,9 @@ import { PlanningMenuPage } from '../planning-menu/planning-menu';
      this.navCtrl.push(ParametersPage, {key: this.param});
    }
 
-   goToVoyage(){
-     this.navCtrl.push(VoyageMenuPage, {key: this.param});
-   }
+  //  goToVoyage(){
+  //    this.navCtrl.push(VoyageMenuPage, {key: this.param});
+  //  }
 
    goToTrajet(){
      this.navCtrl.push(TrajetMenuPage, {key: this.param});
