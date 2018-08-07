@@ -40,12 +40,11 @@ export class PlanningEditPage {
 
   days = new DayPlanning().days;
 
-  cars = [];
   trajects = [];
   priceClasse = [];
   dayString: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public plannigProvider: PlanningProvider, public trajetProvider: TrajetProvider, public stationProvider: StationProvider, public bookingClassProvider: BookingClassProvider, public carProvider: CarProvider,public notif: NotificationProvider, public priceTrajetProvider: PriceTrajetProvider, public formBuilder: FormBuilder)  {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public plannigProvider: PlanningProvider, public trajetProvider: TrajetProvider, public stationProvider: StationProvider, public bookingClassProvider: BookingClassProvider, public notif: NotificationProvider, public priceTrajetProvider: PriceTrajetProvider, public formBuilder: FormBuilder)  {
 
     this.form = this.formBuilder.group({
       day: ['', Validators.required],//idday
@@ -80,15 +79,6 @@ export class PlanningEditPage {
       }
     });
 
-    let customPath = `cooperative/${this.coop}/car`;
-    this.carProvider.customPath(customPath);
-    this.carProvider.fetcAll().subscribe((data)=>{
-      let cars = [];
-      for(let key in data){
-        data[key].key= key;
-        this.cars.push(data[key]);
-      }
-    });
 
     let pathPriceTrajet = `cooperative/${this.coop}/trajet/${this.traject}/price`;
     this.priceTrajetProvider.customPath(pathPriceTrajet);
@@ -115,7 +105,7 @@ export class PlanningEditPage {
 
   onSubmit(){
 
-    let message = "Voulez vous Modifier cette plannification";
+    let message = "Voulez vous modifier cette plannification";
      let title = "Modification";
      this.notif.presentConfirm(message, title).then(
       (confirm)=>{
@@ -124,15 +114,10 @@ export class PlanningEditPage {
           let pathPlanning = `cooperative/${this.coop}/planning/${this.day}/${this.time}/${this.traject}`;
           this.plannigProvider.customPath(pathPlanning);
 
-          let cars = [];
-          for(let w in this.selectedCar){
-            cars.push(this.selectedCar[w]);
-          }
           let planning = new Planning();
-          planning.cars = JSON.stringify(cars);
+          planning.cars = JSON.stringify(this.selectedCar);
           let key = this.plannigProvider.save(planning, value.classe);
-          let search = value.time;
-          this.navCtrl.setRoot(PlanningListPage, { coop: this.coop, search: search});
+          this.navCtrl.setRoot(PlanningDetailsPage, {keyClass: this.keyClass, traject: this.traject, day: this.day, time: this.time, coop: this.coop});
         }
       },()=>{});
   }

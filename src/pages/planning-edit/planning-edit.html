@@ -69,11 +69,11 @@
                     </ion-select>
                 </ion-item>
                 <ion-item>
-                    <ion-label>Les voitures</ion-label>
-                    <ion-select formControlName="car" multiple="true" cancelText="Annuler" okText="Ok" [(ngModel)]="selectedCar">
-                      <ion-option *ngFor="let car of cars" [value]="car.key" >{{car.matricule}}</ion-option>
-                    </ion-select>
-                </ion-item>
+                    <ion-avatar item-start><img src="assets/icon/matricule.png"></ion-avatar>
+                    <ion-label>
+                      <b>Les voitures : </b><span class="details" *ngFor="let car of selectedCar">{{ car }} - </span>
+                    </ion-label>
+                  </ion-item>
     
       <div >
           <button ion-button block class="button-and button-ios" type="onSubmit">Enregistrer la modification</button>

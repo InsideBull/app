@@ -96,11 +96,11 @@ export class MyApp {
       }
     });
 
-    this.eventProvider.getEvent('parmVoyageMenu').then((resolve)=>{
-      if(resolve){
-        this.pages.push({title: "Menu voyage", component: VoyageMenuPage, param: resolve});
-      }
-    });
+    // this.eventProvider.getEvent('parmVoyageMenu').then((resolve)=>{
+    //   if(resolve){
+    //     this.pages.push({title: "Menu voyage", component: VoyageMenuPage, param: resolve});
+    //   }
+    // });
     this.eventProvider.getEvent('parmTrajetMenu').then((resolve)=>{
       if(resolve){
         this.pages.push({title: "Menu Trajet", component: TrajetMenuPage, param: resolve});

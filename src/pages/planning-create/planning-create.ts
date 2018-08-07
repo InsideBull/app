@@ -28,6 +28,7 @@ import { PlanningListPage } from '../planning-list/planning-list';
 })
 export class PlanningCreatePage {
   coop: any;
+  keyClass: any;
   trajets = [];
   priceClasse = [];
   days = new DayPlanning().days;
@@ -114,8 +115,7 @@ export class PlanningCreatePage {
           let planning = new Planning();
           planning.cars = JSON.stringify(cars);
           let key = this.plannigProvider.save(planning, value.classe);
-          let search = value.time;
-          this.navCtrl.setRoot(PlanningListPage, { coop: this.coop, search: search});
+          this.navCtrl.setRoot(PlanningDetailsPage, {keyClass: this.keyClass, traject: this.selectTraject, day: value.day, time: value.time, coop: this.coop});
         }
       },()=>{});
   }
