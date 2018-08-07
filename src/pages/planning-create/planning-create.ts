@@ -12,6 +12,7 @@ import { DayPlanning } from '../../models/day-planning.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PlanningDetailsPage } from '../planning-details/planning-details';
 import { Planning } from '../../models/planning.model';
+import { PlanningListPage } from '../planning-list/planning-list';
 
 /**
  * Generated class for the PlanningCreatePage page.
@@ -113,7 +114,7 @@ export class PlanningCreatePage {
           let planning = new Planning();
           planning.cars = JSON.stringify(cars);
           let key = this.plannigProvider.save(planning, value.classe);
-          this.navCtrl.setRoot(PlanningDetailsPage, {keyClass: key, traject: value.trajet, day: value.day, time: value.time, coop: this.coop});
+          this.navCtrl.setRoot(PlanningListPage, { coop: this.coop});
         }
       },()=>{});
   }

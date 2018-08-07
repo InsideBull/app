@@ -13,6 +13,7 @@ import { PriceTrajetProvider } from '../../providers/price-trajet/price-trajet';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Planning } from '../../models/planning.model';
 import { PlanningDetailsPage } from '../planning-details/planning-details';
+import { PlanningListPage } from '../planning-list/planning-list';
 
 /**
  * Generated class for the PlanningEditPage page.
@@ -130,7 +131,7 @@ export class PlanningEditPage {
           let planning = new Planning();
           planning.cars = JSON.stringify(cars);
           let key = this.plannigProvider.save(planning, value.classe);
-          this.navCtrl.setRoot(PlanningDetailsPage, {keyClass: key, traject: this.traject, day: this.day, time: this.time, coop: this.coop});
+          this.navCtrl.setRoot(PlanningListPage, {coop: this.coop});
         }
       },()=>{});
   }
