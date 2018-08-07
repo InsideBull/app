@@ -113,6 +113,10 @@ import { SearchVoyagePipe } from '../pipes/search-voyage/search-voyage';
 import { SearchPlanningPipe } from '../pipes/search-planning/search-planning';
 import { PlanningEditPage } from '../pages/planning-edit/planning-edit';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { PlanningParameterPage } from '../pages/planning-parameter/planning-parameter';
+import { PlanningAffectCarPage } from '../pages/planning-affect-car/planning-affect-car';
+import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/planning-affect-car-list';
+
 
 @NgModule({
   declarations: [
@@ -192,8 +196,10 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
   SearchVoyagePipe,
   SearchPlanningPipe,
   PlanningEditPage,
-  DashboardPage  
-
+  DashboardPage,  
+  PlanningParameterPage,
+  PlanningAffectCarPage,
+  PlanningAffectCarListPage
   ],
   imports: [
   BrowserModule,
@@ -274,7 +280,10 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
   TrajetEditPage,
   BookingClassEditPage,
   PlanningEditPage,
-  DashboardPage
+  DashboardPage,
+  PlanningParameterPage,
+  PlanningAffectCarPage,
+  PlanningAffectCarListPage
   ],
 
   providers: [

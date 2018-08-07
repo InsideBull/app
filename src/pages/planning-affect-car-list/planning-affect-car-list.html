@@ -1,0 +1,52 @@
+<!--
+  Generated template for the PlanningAffectCarListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Liste des voitures affectées</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="traject">
+  <ion-grid class="grid-center-md grid-center-ios" >
+
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto >
+        <h2 text-capitalise ></h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="row-top">
+      <ion-col  col-sm col-auto>
+        <img src="assets/icon/list.png" class="img-top">
+      </ion-col>
+    </ion-row>
+
+    <ion-row justify-content-center class="row-center">
+      <ion-col col-11 col-sm col-auto>
+        <ion-list>
+        
+           <ion-item *ngFor="let car of cars"> 
+            {{ car }}
+            <ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(car)"></ion-icon>
+           </ion-item>
+
+           <ion-item *ngIf="empty">
+            <ion-avatar item-start><img src="assets/icon/warning.png"></ion-avatar>
+            Aucune voiture
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
