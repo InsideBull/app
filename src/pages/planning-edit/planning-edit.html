@@ -64,12 +64,12 @@
 
                 <ion-item>
                     <ion-label>Classe</ion-label>
-                    <ion-select formControlName="classe" [(ngModel)]="keyClass">
+                    <ion-select formControlName="classe" cancelText="Annuler" okText="Ok" [(ngModel)]="keyClass">
                       <ion-option *ngFor="let classe of priceClasse" [value]="classe.key">{{classe.classe.type}}, {{classe.price}} Ar</ion-option>
                     </ion-select>
                 </ion-item>
                 <ion-item>
-                    <ion-label>Les voiture</ion-label>
+                    <ion-label>Les voitures</ion-label>
                     <ion-select formControlName="car" multiple="true" cancelText="Annuler" okText="Ok" [(ngModel)]="selectedCar">
                       <ion-option *ngFor="let car of cars" [value]="car.key" >{{car.matricule}}</ion-option>
                     </ion-select>

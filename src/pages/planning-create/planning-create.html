@@ -69,7 +69,7 @@
                     </ion-select>
                 </ion-item>
                 <ion-item>
-                    <ion-label>Les voiture</ion-label>
+                    <ion-label>Les voitures</ion-label>
                     <ion-select formControlName="car" multiple="true" [(ngModel)]="selectedCar" cancelText="Annuler" okText="Ok">
                       <ion-option *ngFor="let car of cars" [value]="car.key" >{{car.matricule}}</ion-option>
                     </ion-select>

@@ -38,7 +38,7 @@
           <ion-list>
             
             <button ion-item (tap)="showDetails(bookingClass.key)" *ngFor="let bookingClass of bookingClasses | searchBookingClass: myInput">
-              <ion-avatar  item-start ></ion-avatar>
+              <ion-avatar  item-start ><img src="assets/icon/class.png"></ion-avatar>
               {{ bookingClass.type }} - {{ bookingClass.description }}
               <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
             </button>
