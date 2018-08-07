@@ -6,6 +6,7 @@ import { TrajetProvider } from '../../providers/trajet/trajet';
 import { StationProvider } from '../../providers/station/station';
 import { BookingClassProvider } from '../../providers/booking-class/booking-class';
 import { DayPlanning } from '../../models/day-planning.model';
+import { PlanningDetailsPage } from '../planning-details/planning-details';
 
 /**
  * Generated class for the PlanningListPage page.
@@ -104,6 +105,11 @@ import { DayPlanning } from '../../models/day-planning.model';
 
  	ionViewDidLoad() {
 
- 	}
+	 }
+	 
+	 onClickItem(planning){
+		this.navCtrl.push(PlanningDetailsPage, {keyClass: planning.class.key, traject: planning.traject.key, day: planning.day.id, time: planning.time, coop: this.coop});
+
+	 }
 
  }
