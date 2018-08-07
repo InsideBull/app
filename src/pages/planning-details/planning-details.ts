@@ -95,8 +95,6 @@ export class PlanningDetailsPage {
   }
 
   ionViewDidLoad() {
-
-    console.log(this.keyClass, this.traject);
   }
 
   goToParameters(){
@@ -104,13 +102,13 @@ export class PlanningDetailsPage {
   }
 
   delete(){
-    let message : 'Voulez vous supprimer cette plannification ?'; 
+    let message = 'Voulez vous supprimer cette plannification du' + this.day + ' à '+ this.time +'?'; 
     let title = 'Suppression';
 
     this.notif.presentConfirm(message, title).then((confirm)=>{
-      let customPath = `cooperative/${this.coop}/planning`;
+      let customPath = `cooperative/${this.coop}/planning/${this.day}/${this.time}/${this.traject}`;
       this.plannigProvider.customPath(customPath);
-      this.plannigProvider.deletePlanning(this.day);
+      this.plannigProvider.deletePlanning(this.keyClass);
       this.navCtrl.push(PlanningEditPage, {keyClass: this.keyClass, trajet: this.traject, day: this.day, time: this.time, coop: this.coop});
     },()=>{});
   }
