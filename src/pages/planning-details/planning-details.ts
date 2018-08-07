@@ -18,6 +18,7 @@ import { PlanningEditPage } from '../planning-edit/planning-edit';
 import { PlanningListPage } from '../planning-list/planning-list';
 import { MapPage } from '../map/map';
 import { Traject } from '../../models/traject.model';
+import { PlanningParameterPage } from '../planning-parameter/planning-parameter';
 
 /**
  * Generated class for the PlanningDetailsPage page.
@@ -97,7 +98,7 @@ export class PlanningDetailsPage {
   }
 
   goToParameters(){
-    this.navCtrl.push(PlanningEditPage, {keyClass: this.keyClass, traject: this.traject, day: this.day, time: this.time, coop: this.coop});
+    this.navCtrl.push(PlanningParameterPage, {keyClass: this.keyClass, traject: this.traject, day: this.day, time: this.time, coop: this.coop});
   }
 
   delete(){

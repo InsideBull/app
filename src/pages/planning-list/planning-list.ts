@@ -25,6 +25,7 @@ import { PlanningDetailsPage } from '../planning-details/planning-details';
  	plannings: any;
 	 coop: string;
 	 days = new DayPlanning().days;
+	 myInput: any;
 	 
  	constructor(
  		public navCtrl: NavController,
@@ -40,7 +41,8 @@ import { PlanningDetailsPage } from '../planning-details/planning-details';
 
  	init(){
 
- 		this.coop = this.navParams.get('coop');
+		 this.coop = this.navParams.get('coop');
+		 this.myInput = this.navParams.get('search');
 
  		let ppath = `cooperative/${this.coop}/planning`;
 		this.planningProvider.customPath(ppath);

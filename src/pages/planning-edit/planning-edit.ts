@@ -131,7 +131,8 @@ export class PlanningEditPage {
           let planning = new Planning();
           planning.cars = JSON.stringify(cars);
           let key = this.plannigProvider.save(planning, value.classe);
-          this.navCtrl.setRoot(PlanningListPage, {coop: this.coop});
+          let search = value.time;
+          this.navCtrl.setRoot(PlanningListPage, { coop: this.coop, search: search});
         }
       },()=>{});
   }

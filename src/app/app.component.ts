@@ -23,7 +23,7 @@ import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-
 import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
 
 import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
-import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
+import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu';
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 
@@ -38,7 +38,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = CooperativeMenuPage;
 
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;

@@ -112,6 +112,9 @@ import { SearchWorkerPipe } from '../pipes/search-worker/search-worker';
 import { SearchVoyagePipe } from '../pipes/search-voyage/search-voyage';
 import { SearchPlanningPipe } from '../pipes/search-planning/search-planning';
 import { PlanningEditPage } from '../pages/planning-edit/planning-edit';
+import { PlanningParameterPage } from '../pages/planning-parameter/planning-parameter';
+import { PlanningAffectCarPage } from '../pages/planning-affect-car/planning-affect-car';
+import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/planning-affect-car-list';
 
 
 @NgModule({
@@ -191,7 +194,10 @@ import { PlanningEditPage } from '../pages/planning-edit/planning-edit';
   SearchWorkerPipe,
   SearchVoyagePipe,
   SearchPlanningPipe,
-  PlanningEditPage
+  PlanningEditPage,
+  PlanningParameterPage,
+  PlanningAffectCarPage,
+  PlanningAffectCarListPage
 
   ],
   imports: [
@@ -272,7 +278,10 @@ import { PlanningEditPage } from '../pages/planning-edit/planning-edit';
   TrajetClasseListPage,
   TrajetEditPage,
   BookingClassEditPage,
-  PlanningEditPage
+  PlanningEditPage,
+  PlanningParameterPage,
+  PlanningAffectCarPage,
+  PlanningAffectCarListPage
   ],
 
   providers: [
