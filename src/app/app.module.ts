@@ -203,7 +203,6 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   PlanningAffectCarPage,
   PlanningAffectCarListPage,
   AdminRequestPage
-  AdminRequestPage
 ],
   imports: [
   BrowserModule,

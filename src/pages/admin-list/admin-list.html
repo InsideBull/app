@@ -33,6 +33,7 @@
             <!-- <ion-avatar  item-start ><img [src]="admin.picture"></ion-avatar> -->
             {{ admin.name }} - {{admin.email}}
             <ion-icon item-end ios="ios-arrow-eye" md="ios-arrow-eye"></ion-icon>
+            <ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(admin.key)"></ion-icon>
           </button>
 
         </ion-list>

@@ -5,6 +5,7 @@ import { Cooperative } from '../../models/cooperative.model';
 
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { Administrator } from '../../models/administrator.model';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
  * Generated class for the AdminListPage page.
@@ -23,13 +24,15 @@ import { Administrator } from '../../models/administrator.model';
  	key: any;
  	cooperative: Cooperative = new Cooperative();
 	admins: any;
+	adminsKey: any;
 	private loading: Loading;
 
 	 constructor(private adminProvider: AdministratorProvider, 
 		private cooperativeProvider: CooperativeProvider, 
 		public navCtrl: NavController, 
 		public navParams: NavParams,
-		private loadingCtrl: LoadingController) {
+		private loadingCtrl: LoadingController,
+		public notif: NotificationProvider) {
 			this.toConstruct();
  	}
 
@@ -41,19 +44,19 @@ import { Administrator } from '../../models/administrator.model';
 		this.loading = this.loadingCtrl.create();
 		this.loading.present();
  		this.key = this.navParams.get('key');
- 		this.admins = [];
-
+		 
  		this.cooperativeProvider.fetch(this.key).then(
- 			(data: Cooperative) => {
- 				this.cooperative = data;
+			 (data: Cooperative) => {
+				 this.cooperative = data;
+				 this.admins = [];
 
- 				let admins = [];
+ 				this.adminsKey = [];
 
- 				admins = JSON.parse(data.admins);
+ 				this.adminsKey = JSON.parse(data.admins);
 
- 				for(let key in admins){
- 					this.adminProvider.fetch(admins[key]).then((admin)=>{					
-
+ 				for(let key in this.adminsKey){
+ 					this.adminProvider.fetch(this.adminsKey[key]).then((admin)=>{					
+						admin['key'] = this.adminsKey[key]
  						this.admins.push(admin);
 
  					})
@@ -62,5 +65,19 @@ import { Administrator } from '../../models/administrator.model';
 				 this.loading.dismiss();
 			 });
 	 }
+
+	 delete(i: any){
+		let message = "Voulez vous enlever cet administrateur du coopérative " + this.cooperative.name;
+		let title = "Suppression";
+	   this.notif.presentConfirm(message, title).then((confirm)=>{
+
+		 this.adminsKey.splice(this.adminsKey.indexOf(i), 1);
+		 
+		 this.cooperative.admins = JSON.stringify(this.adminsKey);
+
+		 this.cooperativeProvider.save(this.cooperative,this.key);
+		 this.navCtrl.setRoot(AdminListPage, {key: this.key});
+	   },()=>{});
+	  }
 
  }
