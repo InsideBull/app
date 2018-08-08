@@ -31,7 +31,7 @@
       <ion-col col-11 col-sm col-auto>
         <ion-list>
         
-           <button ion-item (tap)="onClickLabel(station.key)" *ngFor="let station of stations | search: myInput">
+           <button ion-item (tap)="onClickLabel(station.key)" *ngFor="let station of stations | searchStation: myInput">
             <!-- <ion-avatar  item-start ><img [src]="coop.logo"></ion-avatar> -->
             {{ this.station.name }} - {{ this.station.location }},{{ this.station.city }}
             <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>

@@ -6,6 +6,7 @@ import { SearchTrajetPipe } from './search-trajet/search-trajet';
 import { SearchWorkerPipe } from './search-worker/search-worker';
 import { SearchVoyagePipe } from './search-voyage/search-voyage';
 import { SearchPlanningPipe } from './search-planning/search-planning';
+import { SearchStationPipe } from './search-station/search-station';
 
 @NgModule({
 	declarations: [SearchPipe,
@@ -14,7 +15,8 @@ import { SearchPlanningPipe } from './search-planning/search-planning';
     SearchTrajetPipe,
     SearchWorkerPipe,
     SearchVoyagePipe,
-    SearchPlanningPipe],
+    SearchPlanningPipe,
+    SearchStationPipe],
 	imports: [],
 	exports: [SearchPipe,
     SearchBookingClassPipe,
@@ -22,6 +24,7 @@ import { SearchPlanningPipe } from './search-planning/search-planning';
     SearchTrajetPipe,
     SearchWorkerPipe,
     SearchVoyagePipe,
-    SearchPlanningPipe]
+    SearchPlanningPipe,
+    SearchStationPipe]
 })
 export class PipesModule {}

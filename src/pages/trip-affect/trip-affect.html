@@ -34,7 +34,7 @@
 
 	<ion-item>
 		<ion-label>Voiture</ion-label>
-		<ion-select  multiple="true" [(ngModel)]="selectedCar">
+		<ion-select  multiple="true" [(ngModel)]="selectedCar" cancelText="Annuler" okText="Ok">
 			<ion-option *ngFor="let car of cars" [value]="car.matricule">{{car.matricule}}</ion-option>
 		</ion-select>
 	</ion-item>

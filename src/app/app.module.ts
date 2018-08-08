@@ -116,7 +116,7 @@ import { DashboardPage } from '../pages/dashboard/dashboard';
 import { PlanningParameterPage } from '../pages/planning-parameter/planning-parameter';
 import { PlanningAffectCarPage } from '../pages/planning-affect-car/planning-affect-car';
 import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/planning-affect-car-list';
-
+import { SearchStationPipe } from '../pipes/search-station/search-station';
 
 @NgModule({
   declarations: [
@@ -199,7 +199,8 @@ import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/pla
   DashboardPage,  
   PlanningParameterPage,
   PlanningAffectCarPage,
-  PlanningAffectCarListPage
+  PlanningAffectCarListPage,
+  SearchStationPipe
   ],
   imports: [
   BrowserModule,

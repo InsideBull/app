@@ -52,7 +52,7 @@ export class MyApp {
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
     this.pages = [
-      {title: 'Menu Station', component: StationMenuPage, param:{}},    
+      {title: 'Station', component: StationMenuPage, param:{}},    
       {title: 'Profil', component: ConnectedPage, param:{}},  
     ]
 
@@ -81,13 +81,13 @@ export class MyApp {
     // });
     this.eventProvider.getEvent('paramWorker').then((paramWorker)=>{
       if(paramWorker){
-        this.pages.push({title: 'Menu Employé', component: WorkerMenuPage, param: paramWorker});
+        this.pages.push({title: 'Employés', component: WorkerMenuPage, param: paramWorker});
       }
     });
 
     this.eventProvider.getEvent('paramCar').then((paramCar)=>{
       if(paramCar){
-        this.pages.push({title: 'Menu Voiture', component: CarMenuPage, param: paramCar});
+        this.pages.push({title: 'Voitures', component: CarMenuPage, param: paramCar});
       }
     });
 
@@ -104,12 +104,12 @@ export class MyApp {
     // });
     this.eventProvider.getEvent('parmTrajetMenu').then((resolve)=>{
       if(resolve){
-        this.pages.push({title: "Menu Trajet", component: TrajetMenuPage, param: resolve});
+        this.pages.push({title: "Trajets", component: TrajetMenuPage, param: resolve});
       }
     });
     this.eventProvider.getEvent('parmPlannigMenu').then((resolve)=>{
       if(resolve){
-        this.pages.push({title: "Menu Planification", component: PlanningMenuPage, param: resolve});
+        this.pages.push({title: "Planifications", component: PlanningMenuPage, param: resolve});
       }
     });
 
@@ -121,7 +121,7 @@ export class MyApp {
   }
 
   onPage(page){
-    this.nav.setRoot(page.component, page.param);
+    this.nav.push(page.component, page.param);
   }
   
 }
