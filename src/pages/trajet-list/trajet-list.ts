@@ -47,14 +47,12 @@ export class TrajetListPage {
               this.stationProvider.fetch(data[key].arrive).then((arrive)=>{
                 data[key].arrive = arrive;
               });
-  
-  
-              this.trajets.push(data[key]);
             }
-            this.loading.dismiss();
           }else{
+            this.loading.dismiss();
             this.empty = true;
           }
+          this.loading.dismiss();
         });
    
   }

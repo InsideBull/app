@@ -6,6 +6,7 @@ import { NotificationProvider } from '../../providers/notification/notification'
 import { CooperativeMenuPage } from '../cooperative-menu/cooperative-menu';
 import { FacebookProvider } from '../../providers/facebook/facebook';
 import { User } from '../../models/user.model';
+import { Administrator } from '../../models/administrator.model';
 
 /**
  * Generated class for the AdminRequestPage page.
@@ -41,10 +42,9 @@ export class AdminRequestPage {
       }
     });
     this.facebookProvider.getUser().then((user)=>{
-      this.user = {
-        email: user['email'],
-        name: user['name']
-      }
+      this.user = new Administrator();
+			 this.user.name = user['name'];
+			 this.user.email = user['email'];
     });
   }
 
