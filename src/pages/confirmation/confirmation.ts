@@ -33,12 +33,11 @@ import { ConnectedPage } from '../connected/connected';
  	confirmAdmin(){
  		this.facebookProvider.getUser().then((user)=>{
  			
- 			let admin = {
- 				email: user['email'],
- 				name: user['name']
- 			}
+ 			let admin = new Administrator();
+			 admin.name = user['name'];
+			 admin.email = user['email'];
 
-			 this.adminProvider.save(new Administrator(admin),user['id']);
+			 this.adminProvider.save(admin,user['id']);
 			 this.navCtrl.setRoot(ConnectedPage);
  		})
  	}
