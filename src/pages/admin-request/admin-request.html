@@ -1,11 +1,15 @@
+<!--
+  Generated template for the AdminRequestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
 
   <ion-navbar>
-
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
+    <ion-title>Demande d'administrateur</ion-title>
+    <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title class="title-after-toggle-back">Mes coopératives</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,7 +20,7 @@
 
     <ion-row justify-content-center class="row-top">
       <ion-col  col-sm col-auto >
-        <h2 text-capitalise >Liste des coopératives</h2>
+        <h2 text-capitalise >Veuillez sélectionner une coopérative</h2>
       </ion-col>
     </ion-row>
 
@@ -32,7 +36,7 @@
       <ion-col col-10 col-sm col-auto>
         <ion-list>
         
-           <button ion-item (tap)="onClickItem(coop.key)" *ngFor="let coop of cooperatives | search : myInput">
+           <button ion-item (tap)="onClickItem(coop)" *ngFor="let coop of cooperatives | search : myInput">
             <ion-avatar  item-start ><img [src]="coop.logo"></ion-avatar>
             {{ coop?.name }} - {{coop?.desc}}
             <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
@@ -41,11 +45,6 @@
           <ion-item *ngIf="empty">
             <ion-avatar item-start><img src="assets/icon/warning.png"></ion-avatar>
             <ion-label>Aucune coopérative</ion-label>
-            <button ion-item (tap)="requestAdmin()">
-							<ion-avatar item-start><img src="assets/icon/admin-add.png"></ion-avatar>
-							  Demande être administreur d'une cooperative
-							<ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
-						</button>
           </ion-item>
 
         </ion-list>

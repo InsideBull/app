@@ -117,6 +117,9 @@ import { PlanningParameterPage } from '../pages/planning-parameter/planning-para
 import { PlanningAffectCarPage } from '../pages/planning-affect-car/planning-affect-car';
 import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/planning-affect-car-list';
 import { SearchStationPipe } from '../pipes/search-station/search-station';
+import { AdminRequestProvider } from '../providers/admin-request/admin-request';
+import { AdminRequestPage } from '../pages/admin-request/admin-request';
+
 
 @NgModule({
   declarations: [
@@ -200,8 +203,9 @@ import { SearchStationPipe } from '../pipes/search-station/search-station';
   PlanningParameterPage,
   PlanningAffectCarPage,
   PlanningAffectCarListPage,
-  SearchStationPipe
-  ],
+  SearchStationPipe,
+  AdminRequestPage
+],
   imports: [
   BrowserModule,
   AngularFireModule.initializeApp(FIREBASE_CONFIG),
@@ -284,7 +288,9 @@ import { SearchStationPipe } from '../pipes/search-station/search-station';
   DashboardPage,
   PlanningParameterPage,
   PlanningAffectCarPage,
-  PlanningAffectCarListPage
+  PlanningAffectCarListPage,
+  AdminRequestPage
+
   ],
 
   providers: [
@@ -319,7 +325,8 @@ import { SearchStationPipe } from '../pipes/search-station/search-station';
   PriceTrajetProvider,
   BookingClassProvider,
   BookingClassTypeProvider,
-    PlanningProvider
+    PlanningProvider,
+    AdminRequestProvider
   ]
 })
 export class AppModule {}

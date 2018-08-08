@@ -7,6 +7,7 @@ import { Cooperative } from '../../models/cooperative.model';
 import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { AdminListPage } from '../admin-list/admin-list'
+import { AdminRequestProvider } from '../../providers/admin-request/admin-request';
 
 
 /**
@@ -23,14 +24,15 @@ import { AdminListPage } from '../admin-list/admin-list'
  })
  export class AdminAddPage {
 
-   myFriends: any;
+   adminRequests: any;
    key: any;
    cooperative: Cooperative = new Cooperative();
+   empty = false;
 
    constructor(private adminProvider: AdministratorProvider, 
     private cooperativeProvider: 
     CooperativeProvider, 
-    private facebookProvider: FacebookProvider, 
+    public adminRequestProvider: AdminRequestProvider, 
     public navCtrl: NavController, 
     public navParams: NavParams,
     public notificationProvider: NotificationProvider) {
@@ -49,15 +51,20 @@ import { AdminListPage } from '../admin-list/admin-list'
         this.cooperative = data;
       });
 
-    this.myFriends = [];
-    this.facebookProvider.getUserFriends().then((friends)=>{
-
-      for(let key in friends){
-        this.myFriends.push(friends[key])
+    let path = `cooperative/${this.key}/admin-request`;
+    this.adminRequestProvider.customPath(path);
+    this.adminRequestProvider.fetcAll().subscribe((data)=>{
+      this.adminRequests = [];
+      if(!data){
+        this.empty = true;
+      }else{
+        for(let key in data){
+          data[key].key = key;
+          this.adminRequests.push(data[key]);
+        }
       }
+    });
 
-
-    })
    }
 
    addToAdmins(uid, uname){
@@ -65,6 +72,7 @@ import { AdminListPage } from '../admin-list/admin-list'
      let title = 'Administrateur';
     this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
       this.confirm(uid, uname);
+      this.adminRequestProvider.deleteAdminRequest(uid);
       this.navCtrl.push(AdminListPage, {key:this.key})
     },
     (cancel)=>{});

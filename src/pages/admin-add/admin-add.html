@@ -15,7 +15,7 @@
 
     <ion-row justify-content-center class="row-top">
       <ion-col  col-sm col-auto >
-        <h2 text-capitalise >Amis sur Facebook</h2>
+        <h2 text-capitalise >Les demandeurs</h2>
       </ion-col>
     </ion-row>
 
@@ -29,9 +29,9 @@
       <ion-col col-11 col-sm col-auto>
         <ion-list>
         
-           <button ion-item *ngFor="let friend of myFriends" (tap)="addToAdmins(friend.id,friend.name,friend?.email)" >
-            <ion-avatar  item-start ><img [src]="friend?.picture"></ion-avatar>
-            {{ friend.name }} - {{friend?.email}}
+           <button ion-item *ngFor="let admin of adminRequests" (tap)="addToAdmins(admin.key,admin.name,admin?.email)" >
+            <ion-avatar  item-start ><img [src]="admin?.picture"></ion-avatar>
+            {{ admin.name }} - {{admin?.email}}
             <ion-icon item-end ios="ios-add" md="md-add"></ion-icon>
           </button>
 
