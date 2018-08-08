@@ -111,7 +111,6 @@ import { PlanningDetailsPage } from '../planning-details/planning-details';
 	 
 	 onClickItem(planning){
 		this.navCtrl.push(PlanningDetailsPage, {keyClass: planning.class.key, traject: planning.traject.key, day: planning.day.id, time: planning.time, coop: this.coop});
-
 	 }
 
  }
