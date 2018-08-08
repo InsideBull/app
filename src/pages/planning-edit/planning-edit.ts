@@ -1,19 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DayPlanning } from '../../models/day-planning.model';
-import { Traject } from '../../models/traject.model';
-import { PriceTrajet } from '../../models/price-trajet';
 import { PlanningProvider } from '../../providers/planning/planning';
 import { TrajetProvider } from '../../providers/trajet/trajet';
 import { StationProvider } from '../../providers/station/station';
 import { BookingClassProvider } from '../../providers/booking-class/booking-class';
-import { CarProvider } from '../../providers/car/car';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { PriceTrajetProvider } from '../../providers/price-trajet/price-trajet';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Planning } from '../../models/planning.model';
 import { PlanningDetailsPage } from '../planning-details/planning-details';
-import { PlanningListPage } from '../planning-list/planning-list';
 
 /**
  * Generated class for the PlanningEditPage page.
@@ -34,8 +29,12 @@ export class PlanningEditPage {
   day: any;
   time: any;
   coop: any;
+  
+  lastClass: any;
+  lastTraject: any;
+  lastDay: any;
+  lastTime: any;
 
-  form: FormGroup;
   selectedCar = [];
 
   days = new DayPlanning().days;
@@ -44,21 +43,19 @@ export class PlanningEditPage {
   priceClasse = [];
   dayString: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public plannigProvider: PlanningProvider, public trajetProvider: TrajetProvider, public stationProvider: StationProvider, public bookingClassProvider: BookingClassProvider, public notif: NotificationProvider, public priceTrajetProvider: PriceTrajetProvider, public formBuilder: FormBuilder)  {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public plannigProvider: PlanningProvider, public trajetProvider: TrajetProvider, public stationProvider: StationProvider, public bookingClassProvider: BookingClassProvider, public notif: NotificationProvider, public priceTrajetProvider: PriceTrajetProvider)  {
 
-    this.form = this.formBuilder.group({
-      day: ['', Validators.required],//idday
-      trajet: ['',Validators.required],//idtrajet
-      time: ['',Validators.required],
-      classe: ['',Validators.required],//idclasse
-      car:[, Validators.required]
-    });
 
     this.coop = this.navParams.get('coop');
     this.keyClass = this.navParams.get('keyClass');
     this.traject = this.navParams.get('traject');
     this.day = this.navParams.get('day');
     this.time = this.navParams.get('time');
+
+    this.lastClass = this.keyClass;
+    this.lastDay = this.day;
+    this.lastTime = this.time;
+    this.lastTraject = this.traject
 
     let pathBooking = `cooperative/${this.coop}/booking_class`;
     this.bookingClassProvider.customPath(pathBooking);
@@ -108,17 +105,17 @@ export class PlanningEditPage {
     let message = "Voulez vous modifier cette plannification";
      let title = "Modification";
      this.notif.presentConfirm(message, title).then(
-      (confirm)=>{
-        if(this.form.valid){
-          let value = this.form.value;
-          let pathPlanning = `cooperative/${this.coop}/planning/${this.day}/${this.time}/${this.traject}`;
+       (confirm)=>{
+          let pathPlanning = `cooperative/${this.coop}/planning/${this.lastDay}/${this.lastTime}/${this.lastTraject}`;
           this.plannigProvider.customPath(pathPlanning);
+          this.plannigProvider.deletePlanning(this.lastClass);
 
+          pathPlanning = `cooperative/${this.coop}/planning/${this.day}/${this.time}/${this.traject}`;
+          this.plannigProvider.customPath(pathPlanning);
           let planning = new Planning();
           planning.cars = JSON.stringify(this.selectedCar);
-          let key = this.plannigProvider.save(planning, value.classe);
+          let key = this.plannigProvider.save(planning, this.keyClass);
           this.navCtrl.setRoot(PlanningDetailsPage, {keyClass: this.keyClass, traject: this.traject, day: this.day, time: this.time, coop: this.coop});
-        }
       },()=>{});
   }
 
