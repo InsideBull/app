@@ -52,7 +52,7 @@ export class TrajetAffectPage {
 
   save(){
     this.priceTrajetProvider.save(this.priceClasse, this.priceClasse.classe);
-    this.navCtrl.setRoot(TrajetClasseListPage, {key:this.key, coop: this.coop});
+    this.navCtrl.push(TrajetClasseListPage, {key:this.key, coop: this.coop});
   }
 
 

@@ -51,7 +51,7 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
         this.cooperative = data;
       });
 
-    let path = `cooperative/${this.key}/admin-request`;
+    let path = `cooperative/${this.key}/admin_request`;
     this.adminRequestProvider.customPath(path);
     this.adminRequestProvider.fetcAll().subscribe((data)=>{
       this.adminRequests = [];
@@ -103,12 +103,19 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
      else{
       let message = name + ' est déjà administrateur de ' + this.cooperative.name + ' !';
       let title = 'Administrateur';
-      
+      this.adminRequestProvider.deleteAdminRequest(uid);      
       this.notificationProvider.presentAlert(message, title);
    }
-
-
-
   }
+
+  delete(i: any){
+		let message = "Voulez vous enlever cette demande d'administrateur à cette coopérative " + this.cooperative.name;
+		let title = "Suppression";
+	   this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
+
+		  this.adminRequestProvider.deleteAdminRequest(i);
+		 this.navCtrl.setRoot(AdminAddPage, {key: this.key});
+	   },()=>{});
+	  }
 
  }
