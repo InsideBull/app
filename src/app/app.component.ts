@@ -26,6 +26,7 @@ import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu';
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 
 
 

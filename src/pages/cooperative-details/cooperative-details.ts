@@ -14,6 +14,7 @@ import { EventProvider } from '../../providers/event/event';
 import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
 import { BookingClassMenuPage } from '../booking-class-menu/booking-class-menu';
 import { PlanningMenuPage } from '../planning-menu/planning-menu';
+import { DashboardPage } from '../dashboard/dashboard';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -90,6 +91,10 @@ import { PlanningMenuPage } from '../planning-menu/planning-menu';
    }
    goToPlannig (){
     this.navCtrl.push(PlanningMenuPage, {key: this.param});
+  }
+
+  goToDashboard(){
+    this.navCtrl.push(DashboardPage, {key: this.param});
   }
 
    delete(){

@@ -112,6 +112,7 @@ import { SearchWorkerPipe } from '../pipes/search-worker/search-worker';
 import { SearchVoyagePipe } from '../pipes/search-voyage/search-voyage';
 import { SearchPlanningPipe } from '../pipes/search-planning/search-planning';
 import { PlanningEditPage } from '../pages/planning-edit/planning-edit';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { PlanningParameterPage } from '../pages/planning-parameter/planning-parameter';
 import { PlanningAffectCarPage } from '../pages/planning-affect-car/planning-affect-car';
 import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/planning-affect-car-list';
@@ -195,10 +196,10 @@ import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/pla
   SearchVoyagePipe,
   SearchPlanningPipe,
   PlanningEditPage,
+  DashboardPage,  
   PlanningParameterPage,
   PlanningAffectCarPage,
   PlanningAffectCarListPage
-
   ],
   imports: [
   BrowserModule,
@@ -279,6 +280,7 @@ import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/pla
   TrajetEditPage,
   BookingClassEditPage,
   PlanningEditPage,
+  DashboardPage,
   PlanningParameterPage,
   PlanningAffectCarPage,
   PlanningAffectCarListPage
