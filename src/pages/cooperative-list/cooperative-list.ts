@@ -4,6 +4,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { FacebookProvider } from '../../providers/facebook/facebook';
+import { AdminRequestPage } from '../admin-request/admin-request';
 
 /**
  * Generated class for the CooperativeListPage page.
@@ -57,7 +58,7 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
             let admins = [];
             admins = JSON.parse(cooperatives[key].admins);
 
-            let in_admins = admins.find( me => me == "2186409438249498"
+            let in_admins = admins.find( me => me == this.uid
             );
 
             if (in_admins) {  
@@ -102,6 +103,10 @@ import { FacebookProvider } from '../../providers/facebook/facebook';
        });
        this.loading.present();
      }
+   }
+
+   requestAdmin(){
+     this.navCtrl.push(AdminRequestPage, {uid: this.uid});
    }
 
    dismissLoading(){

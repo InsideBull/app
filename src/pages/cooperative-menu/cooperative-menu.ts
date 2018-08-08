@@ -23,7 +23,7 @@ export class CooperativeMenuPage {
   }
 
   init(){
-  	this.uid = '2186409438249498';
+  	this.uid = this.navParams.get('uid'); //2186409438249498
   }
 
   ionViewDidLoad() {
@@ -35,7 +35,7 @@ export class CooperativeMenuPage {
   }
 
   goToCooperativeCreate(){
-  	this.navCtrl.push(CooperativeCreatePage)
+  	this.navCtrl.push(CooperativeCreatePage);
   }
 
 }
