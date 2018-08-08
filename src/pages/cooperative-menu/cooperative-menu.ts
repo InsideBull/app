@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{ CooperativeCreatePage } from '../cooperative-create/cooperative-create';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list'
+import { AdminRequestPage } from '../admin-request/admin-request';
 
 /**
  * Generated class for the CooperativeMenuPage page.
@@ -23,7 +24,7 @@ export class CooperativeMenuPage {
   }
 
   init(){
-  	this.uid = this.navParams.get('uid'); //2186409438249498
+  	this.uid = '2186409438249498'; //this.navParams.get('uid')
   }
 
   ionViewDidLoad() {
@@ -36,6 +37,10 @@ export class CooperativeMenuPage {
 
   goToCooperativeCreate(){
   	this.navCtrl.push(CooperativeCreatePage);
+  }
+
+  requestAdmin(){
+    this.navCtrl.push(AdminRequestPage, {uid: this.uid});
   }
 
 }

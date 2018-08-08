@@ -51,10 +51,10 @@ export class AdminRequestPage {
   ionViewDidLoad() {}
 
   onClickItem(coop){
-    let message = "Voulez vous envoyer cette demande d'administrateur à la coopérative " + coop.name + " ?";
+    let message = "Voulez vous envoyer une demande d'administrateur à la coopérative " + coop.name + " ?";
  		let title = "Demande";
  		this.notif.presentConfirm(message, title).then((confirm)=>{
-      let path = `cooperative/${coop.key}/admin-request`;
+      let path = `cooperative/${coop.key}/admin_request`;
       this.adminRequestProvider.customPath(path);
       this.adminRequestProvider.save(this.user, this.uid);
  			this.navCtrl.setRoot(CooperativeMenuPage, {uid: this.uid});
