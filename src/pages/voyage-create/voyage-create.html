@@ -36,7 +36,7 @@
                 <ion-list class="list_" padding-top maring-top>
                     <ion-item>
                       <ion-label no-padding no-margin>
-                        <span class = "input-label">Station de départ</span>
+                        <span class = "input-label">Station de départ : </span>
                     </ion-label>
                     <ion-select formControlName="startstation" cancelText="Annuler" okText="Ok">
                         <ion-option  *ngFor="let stat of stations" [value]="stat.key">{{stat.city}}, {{stat.location}}, {{stat.name}}</ion-option>
@@ -45,7 +45,7 @@
 
             <ion-item>
                 <ion-label no-padding no-margin>
-                    <span class = "input-label">Destination</span>
+                    <span class = "input-label">Destination : </span>
                 </ion-label>
                 <ion-select formControlName="arrivalstation" cancelText="Annuler" okText="Ok">
                     <ion-option  *ngFor="let station of stations" [value]="station.key">{{station.city}}, {{station.location}}, {{station.name}}</ion-option>
@@ -54,21 +54,21 @@
 
             <ion-item class="input-cover-md input-cover-ios" >
                 <ion-label no-padding no-margin>
-                    <span class = "input-label">Date de départ</span> 
+                    <span class = "input-label">Date de départ : </span> 
                 </ion-label>
                 <ion-datetime displayFormat="DD MM YYYY" [min]="min.getFullYear()" [max]="min.getFullYear() + 1" formControlName="date" id="date" cancelText="Annuler" doneText="ok"></ion-datetime>
             </ion-item>
 
             <ion-item class="input-cover-md input-cover-ios" >
                 <ion-label no-padding no-margin>
-                    <span class = "input-label">Heure de départ</span> 
+                    <span class = "input-label">Heure de départ : </span> 
                 </ion-label>
                 <ion-datetime displayFormat="HH:mm" formControlName="time" id="time" cancelText="Annuler" doneText="ok"></ion-datetime>
             </ion-item>
 
             <ion-item class="input-cover-md input-cover-ios" >
                 <ion-label no-padding no-margin>
-                    <span class = "input-label">Prix du voyage</span>
+                    <span class = "input-label">Prix du voyage : </span>
                 </ion-label>
                 <ion-input class="txt" dir="rtl" formControlName="price" id="price" type="text" placeholder="En Ariary" stacked required></ion-input>
             </ion-item>

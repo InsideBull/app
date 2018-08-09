@@ -73,7 +73,7 @@ import { AdminRequestPage } from '../admin-request/admin-request';
           
         }
         }
-        else{
+        else if(!this.cooperatives) {
           this.empty = true;
         }
 

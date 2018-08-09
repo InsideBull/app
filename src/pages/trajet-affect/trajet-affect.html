@@ -31,7 +31,7 @@
   
     <ion-item>
       <ion-label>Les classes</ion-label>
-      <ion-select [(ngModel)]="priceClasse.classe">
+      <ion-select [(ngModel)]="priceClasse.classe" cancelText="Annuler" okText="Ok">
         <ion-option *ngFor="let classe of classes" [value]="classe.key">{{classe.type}}</ion-option>
       </ion-select>
     </ion-item>

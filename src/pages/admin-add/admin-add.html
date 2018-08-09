@@ -31,7 +31,7 @@
         
            <button ion-item *ngFor="let admin of adminRequests"  >
             <ion-avatar  item-start ><img [src]="admin?.picture"></ion-avatar>
-            <ion-label (tap)="addToAdmins(admin.key,admin.name,admin?.email)">{{ admin.name }} - {{admin?.email}}</ion-label>
+            <ion-label (tap)="addToAdmins(admin.key,admin)">{{ admin.name }} - {{admin?.email}}</ion-label>
             <ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(admin.key)"></ion-icon>
             
           </button>

@@ -10,7 +10,6 @@
 </ion-header>
 
 <ion-content >
-  <form (ngSubmit)=[onSubmit()] [formGroup]="form">
     <ion-grid class="grid-center-md grid-center-ios">
 
 
@@ -36,29 +35,28 @@
               <ion-label no-padding no-margin>
                 <span class = "input-label">Nom</span>
               </ion-label>
-              <ion-input formControlName="name" id="name" type="text" [(ngModel)]="station.name" stacked required></ion-input>
+              <ion-input id="name" type="text" [(ngModel)]="station.name" stacked required></ion-input>
             </ion-item>
             
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
                 <span class = "input-label">Ville</span>
               </ion-label>
-              <ion-input formControlName="city" id="city" type="text" [(ngModel)]="station.city" stacked required></ion-input>
+              <ion-input id="city" type="text" [(ngModel)]="station.city" (tap)="tapCity()" stacked required></ion-input>
             </ion-item>
             
             <ion-item class="input-cover-md input-cover-ios" >
               <ion-label no-padding no-margin>
                 <span class = "input-label">Emplacement</span>
               </ion-label>
-              <ion-input formControlName="location" id="location" type="text" [(ngModel)]="station.location" stacked required></ion-input>
+              <ion-input id="location" type="text" [(ngModel)]="station.location" (tap)="tapLocation()" stacked required></ion-input>
             </ion-item>
             
           </ion-list>
           <div >
-            <button ion-button block class="button-and button-ios">Modifier</button>
+            <button ion-button block class="button-and button-ios" (click)="onSubmit()">Modifier</button>
           </div>
         </ion-col>
       </ion-row>		
     </ion-grid>
-  </form>
 </ion-content>

@@ -68,7 +68,7 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
    }
 
    addToAdmins(uid, uname){
-     let message = 'Voulez vous ajouter ' + uname + ' comme administateur de ' + this.cooperative.name + ' ?';
+     let message = 'Voulez vous ajouter ' + uname.name + ' comme administateur de ' + this.cooperative.name + ' ?';
      let title = 'Administrateur';
     this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
       this.confirm(uid, uname);
@@ -79,7 +79,7 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
 
    }
 
-   protected confirm(uid: any ,name: string, email?: string){
+   protected confirm(uid: any ,uname){
      let admins = []
      admins = JSON.parse(this.cooperative.admins);
 
@@ -90,10 +90,10 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
        this.cooperative.admins = JSON.stringify(admins);
        this.cooperativeProvider.save(this.cooperative,this.key);
 
-       let admin = new Administrator({name: name});
+       let admin = new Administrator({name: uname.name});
 
-       if (email) {
-         admin.email = email
+       if (uname.email) {
+         admin.email = uname.email
        }
        
        this.adminProvider.save(admin,uid);
@@ -101,7 +101,7 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
      }
 
      else{
-      let message = name + ' est déjà administrateur de ' + this.cooperative.name + ' !';
+      let message = uname.name + ' est déjà administrateur de ' + this.cooperative.name + ' !';
       let title = 'Administrateur';
       this.adminRequestProvider.deleteAdminRequest(uid);      
       this.notificationProvider.presentAlert(message, title);

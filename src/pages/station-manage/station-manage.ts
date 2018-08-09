@@ -27,7 +27,6 @@ export class StationManagePage extends GoogleGeolocation{
   station: any;
   cityGoogle: any;
   locationGoogle: any;
-  form: FormGroup;
 
 
   constructor(public navCtrl: NavController, 
@@ -38,11 +37,6 @@ export class StationManagePage extends GoogleGeolocation{
     public formBuilder: FormBuilder,
     public notif: NotificationProvider) {
     super(alertCtrl, platform);
-    this.form = this.formBuilder.group({
-      name: ['',Validators.required],			
- 			city: ['',Validators.required],	
- 			location: ['',Validators.required]
-    })
     this.station = {};
     this.param = this.navParams.get('key');
     this.stationProvider.fetch(this.param).then(
@@ -54,11 +48,10 @@ export class StationManagePage extends GoogleGeolocation{
 
   ionViewWillEnter() {
 
-    this.prepareAutocompletion();
-
   }
 
-  prepareAutocompletion(){
+
+  tapCity(){
     this.verifyGoogle().then((verified)=>{
 
       let input_city: any = this.autocomplete('#city input');
@@ -69,18 +62,22 @@ export class StationManagePage extends GoogleGeolocation{
         this.cityGoogle = new Address(place);
       });
 
-      this.verifyGoogle().then((verified)=>{
-    
-        let input_location: any = this.autocomplete('#location input');
-        input_location.setComponentRestrictions({'country': ['mg']});
-    
-        google.maps.event.addListener(input_location, 'place_changed', () => {
-          let place = input_location.getPlace();
-          this.locationGoogle = new Address(place);
-        });
-    
-      });
     });
+  }
+
+  tapLocation(){
+    this.verifyGoogle().then((verified)=>{ 
+    
+      let input_location: any = this.autocomplete('#location input');
+      input_location.setComponentRestrictions({'country': ['mg']});
+  
+      google.maps.event.addListener(input_location, 'place_changed', () => {
+        let place = input_location.getPlace();
+        this.locationGoogle = new Address(place);
+      });
+  
+    });
+    
   }
 
   onSubmit(){
@@ -88,16 +85,20 @@ export class StationManagePage extends GoogleGeolocation{
     let message = "Voulez vous enregistrer les modifications de la station " + this.station.name + " ?";
     let title = "Modification";
     this.notif.presentConfirm(message, title).then((confirm)=>{
-      if(this.form.valid){
-        let value = this.form.value;
-        value.city = this.cityGoogle.location;
-        value.location = this.locationGoogle.location;
-        value.longitude = this.locationGoogle.longitude;
-        value.latitude = this.locationGoogle.latitude;
-        let station = new Station(value);
+
+      if(this.cityGoogle){
+        this.station.city = this.cityGoogle.location;       
+      }
+      if(this.locationGoogle){
+        this.station.location = this.locationGoogle.location;
+        this.station.longitude = this.locationGoogle.longitude;
+        this.station.latitude = this.locationGoogle.latitude;
+      }
+
+        let station = new Station(this.station);
         this.stationProvider.save(station, this.param);
         this.navCtrl.setRoot(StationDetailPage, {key: this.param});
-      }
+
     },()=>{});
  
       
