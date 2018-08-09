@@ -32,6 +32,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
      of: string ;
      months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ];
      month:string;
+     selectedMonth: number;
 
      constructor(
          public navCtrl: NavController,
@@ -138,7 +139,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
                  labels: this.labels,
                  datasets: [
                  {
-                     label: "Réservation",
+                     label: "Nombre de réservation",
                      backgroundColor: "#ffdb83",
                      borderColor: "#f9cc0f",
                      borderWidth: 3, 
