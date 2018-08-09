@@ -46,10 +46,14 @@ export class MyApp {
 
   pages: any = [];
   name: any;
+  platform: any;
+  isRound = true;
 
   constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events, public eventProvider: EventProvider) {
     
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+
+    this.platform = platform;
 
     this.pages = [
       {title: 'Station', component: StationMenuPage, param:{}},    
@@ -122,6 +126,10 @@ export class MyApp {
 
   onPage(page){
     this.nav.push(page.component, page.param);
+  }
+
+  exitApp(){
+    this.platform.exitApp();
   }
   
 }
