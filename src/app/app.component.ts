@@ -18,7 +18,7 @@ import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 import { NotificationProvider } from '../providers/notification/notification';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html' 
 })
 export class MyApp {
 
