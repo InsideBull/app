@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StationProvider } from '../../providers/station/station';
 import { TrajetProvider } from '../../providers/trajet/trajet';
-import { Traject } from '../../models/traject.model';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { TrajetListPage } from '../trajet-list/trajet-list';
 import { TrajetParametersPage } from '../trajet-parameters/trajet-parameters';

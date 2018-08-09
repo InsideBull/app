@@ -25,7 +25,7 @@ export class BookingClassEditPage {
   bookingClasses: any;
   bookingClass: BookingClass;
 
-  constructor(private bookingClassProvider: BookingClassProvider,private modalCtrl: ModalController, public navCtrl: NavController, public navParams: NavParams,
+  constructor(private bookingClassProvider: BookingClassProvider, public navCtrl: NavController, public navParams: NavParams,
   public formBuilder: FormBuilder, public notif: NotificationProvider) {
     this.form = this.formBuilder.group({
       type: ['',Validators.required],			

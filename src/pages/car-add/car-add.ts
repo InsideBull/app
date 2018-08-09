@@ -40,8 +40,7 @@ import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
  	workers = [];
  	workersList: any;
 
- 	constructor(private cameraProvider: CameraProvider, 
- 		private workerTypeProvider: WorkerTypeProvider,
+ 	constructor(private workerTypeProvider: WorkerTypeProvider,
  		private workerProvider: WorkerProvider,
  		private modalCtrl: ModalController,
  		private carProvider: CarProvider, 

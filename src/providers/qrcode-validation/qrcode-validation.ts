@@ -4,7 +4,7 @@ import { FirebaseProvider } from '../firebase/firebase';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { QRCodeValidation } from '../../models/qrcode-validation.model';
-import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import {LoadingController } from 'ionic-angular';
 
 /*
   Generated class for the QrcodeValidationProvider provider.

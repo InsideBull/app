@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, CardTitle, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CarProvider } from '../../providers/car/car';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { Car } from '../../models/car.model';
-import { CarType } from '../../models/car-type.model';
 import { CarDetailsPage } from '../car-details/car-details';
 import { CameraProvider } from '../../providers/camera/camera';
 import { NotificationProvider } from '../../providers/notification/notification';

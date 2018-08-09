@@ -5,7 +5,6 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
 import { NotificationProvider } from '../../providers/notification/notification';
 import { CooperativeMenuPage } from '../cooperative-menu/cooperative-menu';
 import { FacebookProvider } from '../../providers/facebook/facebook';
-import { User } from '../../models/user.model';
 import { Administrator } from '../../models/administrator.model';
 
 /**

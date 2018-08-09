@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PlanningProvider } from '../../providers/planning/planning';
-import { TrajetProvider } from '../../providers/trajet/trajet';
 import { CarProvider } from '../../providers/car/car';
 import { NotificationProvider } from '../../providers/notification/notification';
-import { PriceTrajetProvider } from '../../providers/price-trajet/price-trajet';
 import { Planning } from '../../models/planning.model';
 import { PlanningAffectCarListPage } from '../planning-affect-car-list/planning-affect-car-list';
 
@@ -48,7 +46,6 @@ export class PlanningAffectCarPage {
     let customPath = `cooperative/${this.coop}/car`;
     this.carProvider.customPath(customPath);
     this.carProvider.fetcAll().subscribe((data)=>{
-      let cars = [];
       for(let key in data){
         data[key].key= key;
         if(!this.defaultCar){

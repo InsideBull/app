@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { Cooperative } from '../../models/cooperative.model'
 import { CameraProvider } from '../../providers/camera/camera';

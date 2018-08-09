@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Facebook } from '@ionic-native/facebook';
-import { App, IonicPage, NavController, LoadingController, Loading } from 'ionic-angular';
+import { App, LoadingController, Loading } from 'ionic-angular';
 import { User } from '../../models/user.model';
 
 /*

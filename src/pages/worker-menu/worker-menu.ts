@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Worker } from '../../models/worker.model';
 import { WorkerProvider } from '../../providers/worker/worker';
 import { WorkerListPage } from '../worker-list/worker-list';
@@ -27,7 +27,7 @@ export class WorkerMenuPage {
   worker: Worker = new Worker();
 
   cooperative: Cooperative = new Cooperative();
-  constructor(private cooperativeProvider: CooperativeProvider,private workerProvider: WorkerProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private cooperativeProvider: CooperativeProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.cooperativeKey = this.navParams.get('key');
       this.cooperativeProvider.fetch(this.cooperativeKey).then(
         (data: Cooperative) => { 

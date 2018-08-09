@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FacebookProvider } from '../../providers/facebook/facebook';
 import { Administrator } from '../../models/administrator.model'
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
@@ -58,7 +57,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     let path = `cooperative/${this.key}/admin_request`;
     this.adminRequestProvider.customPath(path);
     this.adminRequestProvider.fetcAll().subscribe((data)=>{
-      let date = new Date();
       this.adminRequests = [];
       if(!data){
         this.empty = true;

@@ -5,7 +5,6 @@ import { GoogleGeolocation } from '../../classes/google-geolocation.class';
 import { Address } from '../../classes/address.class';
 import { StationDetailPage } from '../station-detail/station-detail';
 import { Station } from '../../models/station.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NotificationProvider } from '../../providers/notification/notification';
 
 /**
@@ -34,7 +33,6 @@ export class StationManagePage extends GoogleGeolocation{
     public stationProvider: StationProvider, 
     public alertCtrl: AlertController, 
     public platform: Platform,
-    public formBuilder: FormBuilder,
     public notif: NotificationProvider) {
     super(alertCtrl, platform);
     this.station = {};

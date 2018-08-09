@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
-import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { FacebookProvider } from '../../providers/facebook/facebook';
 import { AdminRequestPage } from '../admin-request/admin-request';

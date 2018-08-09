@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { AngularFireDatabase } from 'angularfire2/database';

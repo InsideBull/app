@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../firebase/firebase';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { BookingClass } from '../../models/booking-class.model';
-import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 
 /*
