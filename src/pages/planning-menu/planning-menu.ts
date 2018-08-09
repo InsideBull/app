@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PlanningProvider } from '../../providers/planning/planning';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
-import { TrajetProvider } from '../../providers/trajet/trajet';
-import { StationProvider } from '../../providers/station/station';
 import { Cooperative } from '../../models/cooperative.model';
 import { PlanningListPage } from '../planning-list/planning-list';
 import { PlanningCreatePage } from '../planning-create/planning-create';

@@ -2,11 +2,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { finalize } from 'rxjs/operators';
-import { storage } from 'firebase';
 import 'firebase/storage';
 import * as firebase from 'firebase';
-import { IonicPage, LoadingController, Loading } from 'ionic-angular';
+import { LoadingController, Loading } from 'ionic-angular';
 
 
 

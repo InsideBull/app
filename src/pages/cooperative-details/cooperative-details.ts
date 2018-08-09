@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController, Events, Platform } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Events, Platform } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
@@ -37,7 +37,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   	public navParams: NavParams, 
     public cooperativeProvider: CooperativeProvider,
     public alertCtrl:AlertController,
-    private toastCtrl: ToastController,
     private notif: NotificationProvider,
     public events: Events,
     public eventProvider: EventProvider,

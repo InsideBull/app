@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { BookingClass } from '../../models/booking-class.model';
 import { Cooperative } from '../../models/cooperative.model';
 import { BookingClassProvider } from '../../providers/booking-class/booking-class';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { BookingClassAddPage } from '../../pages/booking-class-add/booking-class-add';
-import { BookingClassTypePage } from '../../pages/booking-class-type/booking-class-type';
 import { BookingClassListePage } from '../booking-class-liste/booking-class-liste';
 
 /**

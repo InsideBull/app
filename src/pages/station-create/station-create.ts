@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { GoogleGeolocation } from '../../classes/google-geolocation.class';
-import { Platform, Events, ViewController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { Address } from '../../classes/address.class';
 import { StationProvider } from '../../providers/station/station';
 import { Station } from '../../models/station.model';

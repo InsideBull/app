@@ -3,7 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../firebase/firebase';
 import { Station } from '../../models/station.model';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 
 @Injectable()

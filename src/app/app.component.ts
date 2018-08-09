@@ -1,31 +1,23 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, NavController, Platform, Events } from 'ionic-angular';
+import { Nav, Platform, Events } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ConnectedPage } from '../pages/connected/connected';
 import { LoginPage } from '../pages/login/login';
-import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-create';
 import { FacebookProvider } from '../providers/facebook/facebook';
 import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
-import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
-import { StationListPage } from '../pages/station-list/station-list';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { SplashPage } from '../pages/splash/splash';
-import { ModalController, MenuController } from 'ionic-angular';
-import { StationCreatePage } from '../pages/station-create/station-create';
+import { ModalController } from 'ionic-angular';
 import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
-import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
-import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
-import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu';
+
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
-import { DashboardPage } from '../pages/dashboard/dashboard';
 import { NotificationProvider } from '../providers/notification/notification';
 
- 
 @Component({
   templateUrl: 'app.html'
 })

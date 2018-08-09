@@ -15,7 +15,6 @@ import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-c
 import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
 import { ValidationPage } from '../pages/validation/validation';
 import { Facebook } from '@ionic-native/facebook';
-import { FirebaseProvider } from '../providers/firebase/firebase';
 import { CooperativeProvider } from '../providers/cooperative/cooperative';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AdministratorProvider } from '../providers/administrator/administrator';
@@ -41,13 +40,10 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { StationProvider } from '../providers/station/station';
 import { StationListPage } from '../pages/station-list/station-list';
 import { StationDetailPage } from '../pages/station-detail/station-detail';
-import { TripAffectPage } from '../pages/trip-affect/trip-affect';
-import { TripProvider } from '../providers/trip/trip';
 import { StationManagePage } from '../pages/station-manage/station-manage';
 import { CarTypePage } from '../pages/car-type/car-type' ;
 import { CarListPage } from '../pages/car-list/car-list';
 import { CarEditPage } from '../pages/car-edit/car-edit';
-import { TripListPage } from '../pages/trip-list/trip-list'
 import { NotificationProvider } from '../providers/notification/notification';
 import { GoogleMapsComponent } from '../components/google-maps/google-maps'
 import { GoogleMaps } from '@ionic-native/google-maps';
@@ -137,12 +133,10 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   StationCreatePage,
   StationListPage,
   StationDetailPage,
-  TripAffectPage,
   StationManagePage,
   CarTypePage,
   CarListPage,
   CarEditPage,
-  TripListPage,
   GoogleMapsComponent,
   MapPage,
   WorkerMenuPage,
@@ -228,11 +222,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   StationCreatePage,
   StationMenuPage,StationListPage,
   StationDetailPage,
-  TripAffectPage,
   StationManagePage,
   CarTypePage,CarListPage, 
   CarEditPage,
-  TripListPage,
   GoogleMapsComponent,
   MapPage,
   WorkerMenuPage,
@@ -296,7 +288,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   Camera,
   CameraProvider,
   StationProvider,
-  TripProvider,
   NotificationProvider,
   GoogleMaps,
   ScreenOrientation,

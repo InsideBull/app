@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { PriceTrajet } from '../../models/price-trajet';
 import { PriceTrajetProvider } from '../../providers/price-trajet/price-trajet';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { BookingClassProvider } from '../../providers/booking-class/booking-class';

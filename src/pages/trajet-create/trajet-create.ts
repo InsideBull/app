@@ -1,4 +1,4 @@
-                       import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
@@ -8,8 +8,6 @@ import { NotificationProvider } from '../../providers/notification/notification'
 import { TrajetProvider } from '../../providers/trajet/trajet';
 import { Traject } from '../../models/traject.model';
 import { TrajetDetailPage } from '../trajet-detail/trajet-detail';
-import { PriceTrajet } from '../../models/price-trajet';
-import { PriceTrajetProvider } from '../../providers/price-trajet/price-trajet';
 
 /**
  * Generated class for the TrajetCreatePage page.

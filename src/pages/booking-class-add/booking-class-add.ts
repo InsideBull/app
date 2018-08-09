@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
-import { Platform, Events, ViewController } from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { BookingClass } from '../../models/booking-class.model';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';

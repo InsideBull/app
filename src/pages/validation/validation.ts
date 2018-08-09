@@ -8,9 +8,6 @@ import { QRCodeValidation } from '../../models/qrcode-validation.model';
 
 import { QrScannerPage } from '../qr-scanner/qr-scanner';
 
-import { Administrator } from '../../models/administrator.model';
-
-import { AdministratorProvider } from '../../providers/administrator/administrator';
 
 /**
  * Generated class for the ValidationPage page.
@@ -27,7 +24,7 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
  export class ValidationPage {
 
  	user: any;
- 	constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, private qrcvProvider: QrcodeValidationProvider, public navCtrl: NavController, public navParams: NavParams) {
+ 	constructor(private facebookProvider: FacebookProvider, private qrcvProvider: QrcodeValidationProvider, public navCtrl: NavController, public navParams: NavParams) {
  		
 		 this.facebookProvider.getUser().then((user)=>{
 			 this.user = user;

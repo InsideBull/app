@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FirebaseProvider } from '../firebase/firebase';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Worker } from '../../models/worker.model';
 

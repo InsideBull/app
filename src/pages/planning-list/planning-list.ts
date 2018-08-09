@@ -1,7 +1,6 @@
-import { Component, StaticProvider } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PlanningProvider } from '../../providers/planning/planning';
-import { Planning } from '../../models/planning.model'
 import { TrajetProvider } from '../../providers/trajet/trajet';
 import { StationProvider } from '../../providers/station/station';
 import { BookingClassProvider } from '../../providers/booking-class/booking-class';

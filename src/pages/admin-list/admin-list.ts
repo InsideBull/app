@@ -4,7 +4,6 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { Cooperative } from '../../models/cooperative.model';
 
 import { AdministratorProvider } from '../../providers/administrator/administrator';
-import { Administrator } from '../../models/administrator.model';
 import { NotificationProvider } from '../../providers/notification/notification';
 
 /**

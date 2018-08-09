@@ -1,4 +1,4 @@
-import { AlertController, Platform, Events, ViewController } from 'ionic-angular';
+import { AlertController, Platform } from 'ionic-angular';
 
 import { Address } from '../classes/address.class';
  

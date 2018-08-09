@@ -3,7 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../firebase/firebase';
 import { Planning } from '../../models/planning.model';
 import { AngularFireStorage } from 'angularfire2/storage';
-import { IonicPage, AlertController, LoadingController, ToastController } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
 
 /*
   Generated class for the PlanningProvider provider.
