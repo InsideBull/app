@@ -39,7 +39,7 @@
         
            <ion-item *ngFor="let classe of classes"> 
             <!-- <ion-avatar  item-start ><img [src]="admin.picture"></ion-avatar> -->
-            {{ classe.classe?.type }} - {{ classe?.price }}
+            {{ classe.classe?.type }} - {{ classe?.price }} Ariary
             <ion-icon item-end ios="ios-close" md="md-close" (tap)="delete(classe.key)"></ion-icon>
            </ion-item>
 
