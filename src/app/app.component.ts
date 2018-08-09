@@ -13,7 +13,6 @@ import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu';
-
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 import { NotificationProvider } from '../providers/notification/notification';
