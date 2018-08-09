@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
+import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 
 /**
  * Generated class for the DashboardPage page.
@@ -9,55 +10,160 @@ import { Chart } from 'chart.js';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
-@Component({
-  selector: 'page-dashboard',
-  templateUrl: 'dashboard.html',
-})
-export class DashboardPage {
+ @IonicPage()
+ @Component({
+     selector: 'page-dashboard',
+     templateUrl: 'dashboard.html',
+ })
+ export class DashboardPage {
 
 
-  @ViewChild('barCanvas') barCanvas;
- 
-  barChart: any;
+     @ViewChild('barCanvas') barCanvas;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+     barChart: any;
+     key: string;
+     labels = [];
+     data = [];
+     now = new Date(); 
+     totalUnpaidReservation: number = 0;
+     totalPaidReservation: number = 0;
+     amountUnpaid: number = 0;
+     amountPaid: number = 0;
 
-  ionViewDidLoad() {
-    this.barChart = new Chart(this.barCanvas.nativeElement, {
- 
-        type: 'line',
-        data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fill: false,
-                    lineTension: 0.1,
-                    backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,192,192,1)",
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: "rgba(75,192,192,1)",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    spanGaps: false,
-                }
-            ]
-        }
 
-    });
+     constructor(
+         public navCtrl: NavController,
+         public navParams: NavParams,
+         private cooperativeProvider: CooperativeProvider
+         ) {
+         this.key = this.navParams.get('key');
+         
+         this.getMonthReservation();      
+     }
 
-}
+     ionViewDidLoad() {
+     }
 
-}
+     getMonthReservation(){
+         this.cooperativeProvider.fetch(this.key).then((cooperative)=>{
+             this.labels = [];
+             this.data = [];
+             let plannigs = [];
+             let dates = [];
+             let count: number = 0;
+             let currentMonth = new Date().getMonth();
+             plannigs = cooperative['planning'];
+             for(let p in plannigs){
+                 for(let d in plannigs[p]){
+                     for(let h in plannigs[p][d]){
+                         for(let t in plannigs[p][d][h]){
+                             for(let c in plannigs[p][d][h]){
+                                 let reservations = plannigs[p][d][h][c]['reservation'];
+                                 for(let r in reservations){
+                                     for(let key in reservations[r]){
+                                         if (reservations[r][key].date) {
+                                             let date = reservations[r][key].date;
+                                             let month = new Date(date).getMonth();
+                                             if (currentMonth == month) {
+                                                 let item = dates.find( value => value == date );
+                                                 if (item) {
+                                                     let nb = item.nb + reservations[r][key].nbplace;
+                                                     dates[date] = nb;
+                                                 }
+                                                 else{
+                                                     let value = {
+                                                         date: date,
+                                                         nb: reservations[r][key].nbplace
+                                                     }
+                                                     dates[date] = reservations[r][key].nbplace
+                                                 }
+
+                                                 if (reservations[r][key].status == "pending") {
+                                                     this.totalUnpaidReservation += reservations[r][key].nbplace;
+                                                     this.amountUnpaid += reservations[r][key].amount
+                                                 }
+                                                 else{
+                                                     this.totalPaidReservation += reservations[r][key].nbplace;
+                                                     this.amountPaid += reservations[r][key].amount
+                                                 }                                                 
+                                             }                                             
+                                         }
+                                     }
+                                 }
+                             }                       
+                         }
+                     }
+                 }
+
+             }            
+             for(let key in dates){
+                 this.labels.push(key);
+                 this.labels = this.labels.sort();
+             }
+
+             for(let date in this.labels){
+                 this.data.push(dates[this.labels[date]]);
+             }            
+
+             this.preparChart();            
+         })
+     }
+
+
+
+
+     calculStepSize(){
+         let maxValue = Math.max.apply(null,this.data);
+         let step = Math.round(maxValue/10);
+         return step;
+     }
+
+
+
+     preparChart(){
+         this.barChart = new Chart(this.barCanvas.nativeElement, {
+
+             type: 'bar',
+             data: {
+                 labels: this.labels,
+                 datasets: [
+                 {
+                     label: "Réservation",
+                     backgroundColor: "#ffdb83",
+                     borderColor: "#f9cc0f",
+                     borderWidth: 3, 
+                     data: this.data,
+                     spanGaps: false
+                 }
+                 ]
+             },
+             options: {
+                 scales: {
+                     yAxes: [{
+                         ticks: {
+                             beginAtZero:true,
+                             stepSize: this.calculStepSize(),
+                         },
+                         scaleLabel: {
+                             display: true,
+                             labelString: "Nombre des places réservées",
+                             fontColor: "#fc7390",
+                             fontSize: 20
+                         }
+                     }],
+                     xAxes: [{
+                         scaleLabel: {
+                             display: true,
+                             labelString: "Date de réservation",
+                             fontColor: "#fc7390",
+                             fontSize: 20
+                         }
+                     }],
+
+                 }
+             }
+
+         });
+     }
+
+ }

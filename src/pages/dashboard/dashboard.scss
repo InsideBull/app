@@ -1,3 +1,24 @@
 page-dashboard {
+	ion-avatar img{
+		width: 6rem;
+		margin: auto
+	}
+
+	.card-md h2 {
+		font-size: 3.6rem;
+		color: #0a5284;
+		text-align: center;
+	}
+
+	.card-md p {
+		font-size: 1.8rem;
+	}
+
+	.grid{
+		background-color: #f4f5f5;
+
+		border-radius: 5px 5px 5px 5px;
+	}
+
 
 }

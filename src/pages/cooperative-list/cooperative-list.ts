@@ -58,7 +58,7 @@ import { AdminRequestPage } from '../admin-request/admin-request';
             let admins = [];
             admins = JSON.parse(cooperatives[key].admins);
 
-            let in_admins = admins.find( me => me == this.uid
+            let in_admins = admins.find( me => me == "2231547363735705"
             );
 
             if (in_admins) {  

@@ -16,13 +16,46 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding *ngIf="key">
+
   <ion-card>
     <ion-card-header>
-      Line Chart
+      <h2>Réservation du mois {{now | date : 'MMMM'}}</h2>
     </ion-card-header>
+
     <ion-card-content>
-      <canvas #barCanvas></canvas>
-    </ion-card-content>
-  </ion-card>
+
+     <ion-grid class="">
+      <ion-row justify-content-center margin-top class="content-center">
+        <ion-col col-12 col-sm col-auto >
+          <ion-grid>
+            <ion-row>
+              <ion-col class="icon-center">
+                <ion-avatar item-start> <img src="assets/icon/seats-reserved.png"></ion-avatar>
+                <p style="color: #ff8da5" class="label-icon">Réservations: {{totalPaidReservation + totalUnpaidReservation}}</p>
+                <p style="color: #ff8da5" class="label-icon">Montant : {{amountPaid + amountUnpaid}} Ar</p>
+              </ion-col>
+
+              <ion-col class="icon-center">
+                <ion-avatar item-start><img src="assets/icon/wallets.png"></ion-avatar>
+                <p style="color: #7bd1d1" class="label-icon">Réservations payés: {{totalPaidReservation}}</p>
+                <p style="color: #7bd1d1" class="label-icon">Montant : {{amountPaid}} Ar</p>
+              </ion-col>
+
+              <ion-col class="icon-center">
+                <ion-avatar item-start><img src="assets/icon/pending.png"></ion-avatar>
+                <p style="color: #b58fff" class="label-icon">Réservations en attente de paiement: {{totalUnpaidReservation}}</p>
+                <p style="color: #b58fff" class="label-icon">Montant: {{amountUnpaid}} Ar</p>
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <canvas #barCanvas></canvas>
+  </ion-card-content>
+</ion-card>
 </ion-content>
