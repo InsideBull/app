@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BookingClass } from '../../models/booking-class.model';
 import { NotificationProvider } from '../../providers/notification/notification';
 import { BookingClassProvider } from '../../providers/booking-class/booking-class';

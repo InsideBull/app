@@ -60,7 +60,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
               let path = `cooperative/${this.param}/admin_request`;
               this.adminRequestProvider.customPath(path);
               this.adminRequestProvider.fetcAll().subscribe((data)=>{
-                let date = new Date();
                 if(!data){
                   
                 }else{

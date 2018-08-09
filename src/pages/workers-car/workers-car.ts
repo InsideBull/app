@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
 import { WorkersCarAddPage } from '../workers-car-add/workers-car-add' ;
-import { WorkerAddPage } from '../worker-add/worker-add';
-
 
 /**
  * Generated class for the WorkersCarPage page.

@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Planning } from '../../models/planning.model';
 import { PlanningProvider } from '../../providers/planning/planning';
-import { TrajetProvider } from '../../providers/trajet/trajet';
-import { CarProvider } from '../../providers/car/car';
 import { PriceTrajetProvider } from '../../providers/price-trajet/price-trajet';
 import { NotificationProvider } from '../../providers/notification/notification';
 

@@ -4,7 +4,6 @@ import { Car } from '../../models/car.model';
 import { CarProvider } from '../../providers/car/car';
 import { WorkerProvider } from '../../providers/worker/worker';
 import { WorkerTypeProvider } from '../../providers/worker-type/worker-type'
-import { WorkerListPage } from '../worker-list/worker-list';
 import { WorkersCarListPage } from '../workers-car-list/workers-car-list';
 
 /**

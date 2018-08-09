@@ -4,7 +4,6 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CarTypeProvider } from '../../providers/car-type/car-type';
 import { CarType } from '../../models/car-type.model'
 import { NotificationProvider } from '../../providers/notification/notification';
-import { CarListPage } from '../car-list/car-list';
 import { CarMenuPage } from '../car-menu/car-menu';
 /**
  * Generated class for the CarTypePage page.
