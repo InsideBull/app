@@ -8,6 +8,7 @@ import { AdministratorProvider } from '../../providers/administrator/administrat
 import { NotificationProvider } from '../../providers/notification/notification';
 import { AdminListPage } from '../admin-list/admin-list'
 import { AdminRequestProvider } from '../../providers/admin-request/admin-request';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 /**
@@ -35,12 +36,15 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
     public adminRequestProvider: AdminRequestProvider, 
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public notificationProvider: NotificationProvider) {
+    public notificationProvider: NotificationProvider,
+    public localNotification: LocalNotifications) {
       this.toConstruct();
    }
 
    ionViewWillEnter() {
-
+     if(this.adminRequests){
+       
+     }
  
    }
 
@@ -54,13 +58,21 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
     let path = `cooperative/${this.key}/admin_request`;
     this.adminRequestProvider.customPath(path);
     this.adminRequestProvider.fetcAll().subscribe((data)=>{
+      let date = new Date();
       this.adminRequests = [];
       if(!data){
         this.empty = true;
       }else{
         for(let key in data){
-          data[key].key = key;
+          data[key].key = key; 
           this.adminRequests.push(data[key]);
+
+          this.localNotification.schedule({    
+          title: "Demande d'admin",
+          text: data[key].name + " demande d'être administrateur à la coopérative " + this.cooperative.name,
+          icon: "assets/icon/admins.png",
+          sound: null
+          });
         }
       }
     });
@@ -70,6 +82,7 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
    addToAdmins(uid, uname){
      let message = 'Voulez vous ajouter ' + uname.name + ' comme administateur de ' + this.cooperative.name + ' ?';
      let title = 'Administrateur';
+     this.localNotification.cancelAll();
     this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
       this.confirm(uid, uname);
       this.adminRequestProvider.deleteAdminRequest(uid);
@@ -110,7 +123,8 @@ import { AdminRequestProvider } from '../../providers/admin-request/admin-reques
 
   delete(i: any){
 		let message = "Voulez vous enlever cette demande d'administrateur à cette coopérative " + this.cooperative.name;
-		let title = "Suppression";
+    let title = "Suppression";
+    this.localNotification.cancelAll();
 	   this.notificationProvider.presentConfirm(message, title).then((confirm)=>{
 
 		  this.adminRequestProvider.deleteAdminRequest(i);

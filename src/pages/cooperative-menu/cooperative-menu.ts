@@ -24,7 +24,7 @@ export class CooperativeMenuPage {
   }
 
   init(){
-  	this.uid = "2186409438249498";//this.navParams.get('uid');
+  	this.uid = this.navParams.get('uid');
   }
 
   ionViewDidLoad() {

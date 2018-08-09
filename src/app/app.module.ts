@@ -119,7 +119,7 @@ import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/pla
 import { SearchStationPipe } from '../pipes/search-station/search-station';
 import { AdminRequestProvider } from '../providers/admin-request/admin-request';
 import { AdminRequestPage } from '../pages/admin-request/admin-request';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -327,7 +327,8 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   BookingClassProvider,
   BookingClassTypeProvider,
     PlanningProvider,
-    AdminRequestProvider
+    AdminRequestProvider,
+    LocalNotifications
   ]
 })
 export class AppModule {}

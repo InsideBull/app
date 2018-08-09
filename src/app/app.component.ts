@@ -40,7 +40,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = CooperativeMenuPage;
+  rootPage: any = LoginPage;
 
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
@@ -56,8 +56,8 @@ export class MyApp {
     this.platform = platform;
 
     this.pages = [
-      {title: 'Station', component: StationMenuPage, param:{}},    
       {title: 'Profil', component: ConnectedPage, param:{}},  
+      {title: 'Station', component: StationMenuPage, param:{}}   
     ]
 
     
@@ -133,6 +133,14 @@ export class MyApp {
     let title = "Quitter";
     this.notif.presentConfirm(message, title).then((confirm)=>{
       this.platform.exitApp();
+    },()=>{});
+  }
+  logout(){
+    let message = "Voulez-vouz vraimment se déconnecter ?";
+    let title = "Déconnexion";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      this.facebookProvider.logout();
+      this.nav.setRoot(LoginPage);
     },()=>{});
   }
 }

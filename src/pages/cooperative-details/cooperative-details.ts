@@ -15,6 +15,8 @@ import { TrajetMenuPage } from '../trajet-menu/trajet-menu';
 import { BookingClassMenuPage } from '../booking-class-menu/booking-class-menu';
 import { PlanningMenuPage } from '../planning-menu/planning-menu';
 import { DashboardPage } from '../dashboard/dashboard';
+import { AdminRequestProvider } from '../../providers/admin-request/admin-request';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 /**
  * Generated class for the CooperativeDetailsPage page.
@@ -40,7 +42,9 @@ import { DashboardPage } from '../dashboard/dashboard';
     private toastCtrl: ToastController,
     private notif: NotificationProvider,
     public events: Events,
-    public eventProvider: EventProvider) {
+    public eventProvider: EventProvider,
+    public adminRequestProvider: AdminRequestProvider,
+    public localNotification: LocalNotifications) {
       this.param = this.navParams.get('key');
     
       this.cooperativeProvider.fetch(this.param).then(
@@ -56,6 +60,25 @@ import { DashboardPage } from '../dashboard/dashboard';
               this.eventProvider.setEvent('parmTrajetMenu', {key: this.param});
               this.eventProvider.setEvent('parmPlannigMenu', {key: this.param});
           }); 
+
+              let path = `cooperative/${this.param}/admin_request`;
+              this.adminRequestProvider.customPath(path);
+              this.adminRequestProvider.fetcAll().subscribe((data)=>{
+                let date = new Date();
+                if(!data){
+                  
+                }else{
+                  for(let key in data){
+                    data[key].key = key; 
+                    this.localNotification.schedule({
+                    title: "Demande d'admin",
+                    text: data[key].name + " demande d'être administrateur à la coopérative " + this.cooperative.name,
+                    icon: "assets/icon/admins.png",
+                    sound: null
+                    });
+                  }
+              }
+              });
         }
         
         ionViewWillEnter() {
