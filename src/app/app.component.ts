@@ -27,6 +27,7 @@ import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { NotificationProvider } from '../providers/notification/notification';
 
 
 
@@ -39,7 +40,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = CooperativeMenuPage;
 
 
   // pages: Array<{title: string, component: any, param?: any, status: false}>;
@@ -47,9 +48,8 @@ export class MyApp {
   pages: any = [];
   name: any;
   platform: any;
-  isRound = true;
 
-  constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events, public eventProvider: EventProvider) {
+  constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events, public eventProvider: EventProvider, public notif: NotificationProvider) {
     
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
@@ -129,8 +129,11 @@ export class MyApp {
   }
 
   exitApp(){
-    this.platform.exitApp();
+    let message = "Voulez-vous quitter l'application ?";
+    let title = "Quitter";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      this.platform.exitApp();
+    },()=>{});
   }
-  
 }
 

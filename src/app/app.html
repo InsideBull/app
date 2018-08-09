@@ -11,10 +11,14 @@
             <button menuClose ion-item *ngFor="let p of pages" (click) = "onPage(p)">
                 {{ p.title }}
             </button>
+            <button menuClose ion-item (click)="exitApp()" >
+                <ion-icon ios="ios-exit" md="md-exit"></ion-icon>
+                Quitter l'application
+            </button>
         </ion-list>
-        <ion-buttons end>
-            <button (click)="exitApp()" ion-button color="danger" [round]="isRound">Quitter</button>
-        </ion-buttons>
+              
+
+
     </ion-content>
 </ion-menu>
 <ion-nav [root]="rootPage" #content swipebackEnabled="false" class="bar-positive"></ion-nav>
