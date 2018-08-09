@@ -66,13 +66,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
         for(let key in data){
           data[key].key = key; 
           this.adminRequests.push(data[key]);
-
-          this.localNotification.schedule({    
-          title: "Demande d'admin",
-          text: data[key].name + " demande d'être administrateur à la coopérative " + this.cooperative.name,
-          icon: "assets/icon/admins.png",
-          sound: null
-          });
         }
       }
     });

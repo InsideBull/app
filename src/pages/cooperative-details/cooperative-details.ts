@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ToastController, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ToastController, Events, Platform } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
@@ -44,7 +44,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     public events: Events,
     public eventProvider: EventProvider,
     public adminRequestProvider: AdminRequestProvider,
-    public localNotification: LocalNotifications) {
+    public localNotification: LocalNotifications,
+    public platform : Platform) {
       this.param = this.navParams.get('key');
     
       this.cooperativeProvider.fetch(this.param).then(
@@ -74,7 +75,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
                     title: "Demande d'admin",
                     text: data[key].name + " demande d'être administrateur à la coopérative " + this.cooperative.name,
                     icon: "assets/icon/admins.png",
-                    sound: null
+                    sound: 'file://assets/sounds/Rooster.mp3'
                     });
                   }
               }
