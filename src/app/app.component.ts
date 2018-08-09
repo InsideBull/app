@@ -7,8 +7,6 @@ import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-c
 import { FacebookProvider } from '../providers/facebook/facebook';
 import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
-import { VoyageListPage } from '../pages/voyage-list/voyage-list';
-import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationListPage } from '../pages/station-list/station-list';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -18,7 +16,6 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
-import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
 import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
 import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
 
@@ -27,6 +24,7 @@ import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu'
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 import { DashboardPage } from '../pages/dashboard/dashboard';
+import { NotificationProvider } from '../providers/notification/notification';
 
 
 
@@ -41,26 +39,24 @@ export class MyApp {
 
   rootPage: any = CooperativeMenuPage;
 
-
-  // pages: Array<{title: string, component: any, param?: any, status: false}>;
-
   pages: any = [];
   name: any;
+  platform: any;
 
-  constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events, public eventProvider: EventProvider) {
+  constructor(public modalCrtl : ModalController, private screenOrientation: ScreenOrientation, private facebookProvider: FacebookProvider, platform: Platform, statusBar: StatusBar, public events: Events, public eventProvider: EventProvider, public notif: NotificationProvider) {
     
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
 
+    this.platform = platform;
+
     this.pages = [
-      {title: 'Station', component: StationMenuPage, param:{}},    
       {title: 'Profil', component: ConnectedPage, param:{}},  
+      {title: 'Station', component: StationMenuPage, param:{}}   
     ]
 
     
     
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       
       this.facebookProvider.status().then((reponse)=>{
         if (reponse) {
@@ -73,12 +69,6 @@ export class MyApp {
       splash.present() ;
     });
 
-    // this.eventProvider.getEvent('parmCoopDetail').then((resolve)=>{
-    //   if(resolve){
-    //     this.name = resolve['name'];
-    //     this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
-    //   }
-    // });
     this.eventProvider.getEvent('paramWorker').then((paramWorker)=>{
       if(paramWorker){
         this.pages.push({title: 'Employés', component: WorkerMenuPage, param: paramWorker});
@@ -97,11 +87,6 @@ export class MyApp {
       }
     });
 
-    // this.eventProvider.getEvent('parmVoyageMenu').then((resolve)=>{
-    //   if(resolve){
-    //     this.pages.push({title: "Menu voyage", component: VoyageMenuPage, param: resolve});
-    //   }
-    // });
     this.eventProvider.getEvent('parmTrajetMenu').then((resolve)=>{
       if(resolve){
         this.pages.push({title: "Trajets", component: TrajetMenuPage, param: resolve});
@@ -123,6 +108,21 @@ export class MyApp {
   onPage(page){
     this.nav.push(page.component, page.param);
   }
-  
+
+  exitApp(){
+    let message = "Voulez-vous quitter l'application ?";
+    let title = "Quitter";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      this.platform.exitApp();
+    },()=>{});
+  }
+  logout(){
+    let message = "Voulez-vouz vraimment se déconnecter ?";
+    let title = "Déconnexion";
+    this.notif.presentConfirm(message, title).then((confirm)=>{
+      this.facebookProvider.logout();
+      this.nav.setRoot(LoginPage);
+    },()=>{});
+  }
 }
 

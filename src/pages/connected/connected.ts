@@ -10,6 +10,7 @@ import { ValidationPage } from '../validation/validation';
 import { StationMenuPage } from '../station-menu/station-menu'
 import { EventProvider } from '../../providers/event/event';
 import { CooperativeMenuPage } from '../cooperative-menu/cooperative-menu'
+import { NotificationProvider } from '../../providers/notification/notification';
 
 
 
@@ -34,7 +35,7 @@ import { CooperativeMenuPage } from '../cooperative-menu/cooperative-menu'
    user: any;
    uid:any;
 
-   constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams, public eventProvider:EventProvider) {
+   constructor(private adminProvider: AdministratorProvider, private facebookProvider: FacebookProvider, public navCtrl: NavController, public navParams: NavParams, public eventProvider:EventProvider, public notif: NotificationProvider) {
      this.is_admin = false;
      
      this.pending = false;
@@ -71,8 +72,12 @@ import { CooperativeMenuPage } from '../cooperative-menu/cooperative-menu'
    }
 
    logout(){
-     this.facebookProvider.logout();
-     this.navCtrl.setRoot(LoginPage);
+     let message = "Voulez-vouz vraimment se déconnecter ?";
+     let title = "Déconnexion";
+     this.notif.presentConfirm(message, title).then((confirm)=>{
+       this.facebookProvider.logout();
+       this.navCtrl.setRoot(LoginPage);
+     },()=>{});
    }
 
    qrcodeRequest(){

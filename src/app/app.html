@@ -10,8 +10,22 @@
         <ion-list>
             <button menuClose ion-item *ngFor="let p of pages" (click) = "onPage(p)">
                 {{ p.title }}
+                <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            </button>
+            <button ion-item (tap)="logout()">
+                <ion-avatar  item-start ><img src="assets/icon/logout.png"></ion-avatar>
+                Déconnexion
+                <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
+            </button>
+            <button menuClose ion-item (click)="exitApp()" >
+                <ion-icon ios="ios-exit" md="md-exit"></ion-icon>
+                Quitter l'application
+                <ion-icon item-end ios="ios-arrow-forward" md="ios-arrow-forward"></ion-icon>
             </button>
         </ion-list>
+              
+
+
     </ion-content>
 </ion-menu>
 <ion-nav [root]="rootPage" #content swipebackEnabled="false" class="bar-positive"></ion-nav>

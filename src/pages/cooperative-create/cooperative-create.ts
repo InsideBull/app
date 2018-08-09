@@ -63,7 +63,8 @@ import { ImageWidgetPage } from '../image-widget/image-widget'
  	}
 
  	onSubmit(){
- 		let message = "Voulez vous créer la cooperative " + this.form.value.name + " ?";
+ 		let message = "Voulez-vous créer la cooperative " + this.form.value.name + " ?";
+
  		let title = "Ajout cooperative";
  		this.notif.presentConfirm(message, title).then(
  			(confirm)=>{

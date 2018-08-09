@@ -29,6 +29,8 @@ export class AdminRequestPage {
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public cooperativeProvider: CooperativeProvider, public adminRequestProvider: AdminRequestProvider, public notif: NotificationProvider, private facebookProvider: FacebookProvider) {
+    this.uid = this.navParams.get('uid');
+    
     this.cooperativeProvider.fetcAll().subscribe((cooperatives) => {
       if(!cooperatives){
         this.empty = true;

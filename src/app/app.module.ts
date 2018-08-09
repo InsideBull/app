@@ -26,16 +26,10 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
 import { ConfirmationPage } from '../pages/confirmation/confirmation';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
-import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
-import { VoyageListPage } from '../pages/voyage-list/voyage-list';
-import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
-import { VoyageManagePage } from '../pages/voyage-manage/voyage-manage';
 import { ParametersPage } from '../pages/parameters/parameters';
 import { AdminListPage } from '../pages/admin-list/admin-list';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
-import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
-import { VoyageProvider } from '../providers/voyage/voyage';
 import { CarTypeProvider } from '../providers/car-type/car-type';
 import { CarAddPage } from '../pages/car-add/car-add';
 import { CarProvider } from '../providers/car/car';
@@ -47,7 +41,6 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { StationProvider } from '../providers/station/station';
 import { StationListPage } from '../pages/station-list/station-list';
 import { StationDetailPage } from '../pages/station-detail/station-detail';
-import { VoyageParametersPage } from '../pages/voyage-parameters/voyage-parameters';
 import { TripAffectPage } from '../pages/trip-affect/trip-affect';
 import { TripProvider } from '../providers/trip/trip';
 import { StationManagePage } from '../pages/station-manage/station-manage';
@@ -119,7 +112,7 @@ import { PlanningAffectCarListPage } from '../pages/planning-affect-car-list/pla
 import { SearchStationPipe } from '../pipes/search-station/search-station';
 import { AdminRequestProvider } from '../providers/admin-request/admin-request';
 import { AdminRequestPage } from '../pages/admin-request/admin-request';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -134,14 +127,9 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   CooperativeManagePage,
   QrScannerPage,
   ConfirmationPage,
-  VoyageCreatePage,
-  VoyageListPage,
-  VoyageDetailPage,
-  VoyageManagePage,
   ParametersPage,
   AdminListPage,
   AdminAddPage,
-  VoyageMenuPage,
   CarMenuPage,
   CarAddPage,
   CarDetailsPage,
@@ -149,7 +137,6 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   StationCreatePage,
   StationListPage,
   StationDetailPage,
-  VoyageParametersPage,
   TripAffectPage,
   StationManagePage,
   CarTypePage,
@@ -231,14 +218,9 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   CooperativeManagePage,
   QrScannerPage,
   ConfirmationPage,
-  VoyageCreatePage,
-  VoyageListPage,
-  VoyageDetailPage,
-  VoyageManagePage,
   ParametersPage,
   AdminListPage,
   AdminAddPage,
-  VoyageMenuPage,
   CarMenuPage,
   CarAddPage,
   CarDetailsPage,
@@ -246,7 +228,6 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   StationCreatePage,
   StationMenuPage,StationListPage,
   StationDetailPage,
-  VoyageParametersPage,
   TripAffectPage,
   StationManagePage,
   CarTypePage,CarListPage, 
@@ -310,7 +291,6 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   QrcodeValidationProvider,
   QRScanner,
   QrScannerProvider,
-  VoyageProvider,
   CarTypeProvider,
   CarProvider,
   Camera,
@@ -330,8 +310,14 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   PriceTrajetProvider,
   BookingClassProvider,
   BookingClassTypeProvider,
+<<<<<<< HEAD
   PlanningProvider,
   AdminRequestProvider
+=======
+    PlanningProvider,
+    AdminRequestProvider,
+    LocalNotifications
+>>>>>>> af0038504e81c374e55e60e056f1ebfb096af08c
   ]
 })
 export class AppModule {}
