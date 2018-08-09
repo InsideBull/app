@@ -4,8 +4,6 @@ import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { CooperativeManagePage } from '../../pages/cooperative-manage/cooperative-manage';
 import { ParametersPage } from '../parameters/parameters';
-
-import { VoyageMenuPage } from '../voyage-menu/voyage-menu';
 import { CarMenuPage } from '../car-menu/car-menu';
 import { WorkerMenuPage } from '../worker-menu/worker-menu';
 import { CooperativeListPage } from '../cooperative-list/cooperative-list';
@@ -56,8 +54,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
             }
               this.eventProvider.setEvent('paramWorker', {key: this.param});
               this.eventProvider.setEvent('paramCar', {key: this.param});
-              // this.eventProvider.setEvent('parmCoopDetail', {key: this.param, name: this.cooperative.name});
-              // this.eventProvider.setEvent('parmVoyageMenu', {key: this.param});
               this.eventProvider.setEvent('parmTrajetMenu', {key: this.param});
               this.eventProvider.setEvent('parmPlannigMenu', {key: this.param});
           }); 
@@ -93,10 +89,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
    goToParams(){
      this.navCtrl.push(ParametersPage, {key: this.param});
    }
-
-  //  goToVoyage(){
-  //    this.navCtrl.push(VoyageMenuPage, {key: this.param});
-  //  }
 
    goToTrajet(){
      this.navCtrl.push(TrajetMenuPage, {key: this.param});

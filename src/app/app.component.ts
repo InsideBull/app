@@ -7,8 +7,6 @@ import { CooperativeCreatePage } from '../pages/cooperative-create/cooperative-c
 import { FacebookProvider } from '../providers/facebook/facebook';
 import { CooperativeListPage } from '../pages/cooperative-list/cooperative-list';
 import { CooperativeDetailsPage } from '../pages/cooperative-details/cooperative-details';
-import { VoyageListPage } from '../pages/voyage-list/voyage-list';
-import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
 import { StationMenuPage } from '../pages/station-menu/station-menu';
 import { StationListPage } from '../pages/station-list/station-list';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -18,7 +16,6 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { WorkerMenuPage } from '../pages/worker-menu/worker-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
-import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
 import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
 import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
 
@@ -42,9 +39,6 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-
-  // pages: Array<{title: string, component: any, param?: any, status: false}>;
-
   pages: any = [];
   name: any;
   platform: any;
@@ -63,8 +57,6 @@ export class MyApp {
     
     
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       
       this.facebookProvider.status().then((reponse)=>{
         if (reponse) {
@@ -77,12 +69,6 @@ export class MyApp {
       splash.present() ;
     });
 
-    // this.eventProvider.getEvent('parmCoopDetail').then((resolve)=>{
-    //   if(resolve){
-    //     this.name = resolve['name'];
-    //     this.pages.push({title: this.name, component: CooperativeDetailsPage, param: resolve});
-    //   }
-    // });
     this.eventProvider.getEvent('paramWorker').then((paramWorker)=>{
       if(paramWorker){
         this.pages.push({title: 'Employés', component: WorkerMenuPage, param: paramWorker});
@@ -101,11 +87,6 @@ export class MyApp {
       }
     });
 
-    // this.eventProvider.getEvent('parmVoyageMenu').then((resolve)=>{
-    //   if(resolve){
-    //     this.pages.push({title: "Menu voyage", component: VoyageMenuPage, param: resolve});
-    //   }
-    // });
     this.eventProvider.getEvent('parmTrajetMenu').then((resolve)=>{
       if(resolve){
         this.pages.push({title: "Trajets", component: TrajetMenuPage, param: resolve});

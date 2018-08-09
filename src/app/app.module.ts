@@ -26,16 +26,10 @@ import { QrScannerPage } from '../pages/qr-scanner/qr-scanner';
 import { ConfirmationPage } from '../pages/confirmation/confirmation';
 import { QRScanner } from '@ionic-native/qr-scanner';
 import { QrScannerProvider } from '../providers/qr-scanner/qr-scanner';
-import { VoyageCreatePage } from '../pages/voyage-create/voyage-create';
-import { VoyageListPage } from '../pages/voyage-list/voyage-list';
-import { VoyageDetailPage } from '../pages/voyage-detail/voyage-detail';
-import { VoyageManagePage } from '../pages/voyage-manage/voyage-manage';
 import { ParametersPage } from '../pages/parameters/parameters';
 import { AdminListPage } from '../pages/admin-list/admin-list';
 import { AdminAddPage } from '../pages/admin-add/admin-add';
-import { VoyageMenuPage } from '../pages/voyage-menu/voyage-menu';
 import { CarMenuPage } from '../pages/car-menu/car-menu';
-import { VoyageProvider } from '../providers/voyage/voyage';
 import { CarTypeProvider } from '../providers/car-type/car-type';
 import { CarAddPage } from '../pages/car-add/car-add';
 import { CarProvider } from '../providers/car/car';
@@ -47,7 +41,6 @@ import { StationCreatePage } from '../pages/station-create/station-create';
 import { StationProvider } from '../providers/station/station';
 import { StationListPage } from '../pages/station-list/station-list';
 import { StationDetailPage } from '../pages/station-detail/station-detail';
-import { VoyageParametersPage } from '../pages/voyage-parameters/voyage-parameters';
 import { TripAffectPage } from '../pages/trip-affect/trip-affect';
 import { TripProvider } from '../providers/trip/trip';
 import { StationManagePage } from '../pages/station-manage/station-manage';
@@ -134,14 +127,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   CooperativeManagePage,
   QrScannerPage,
   ConfirmationPage,
-  VoyageCreatePage,
-  VoyageListPage,
-  VoyageDetailPage,
-  VoyageManagePage,
   ParametersPage,
   AdminListPage,
   AdminAddPage,
-  VoyageMenuPage,
   CarMenuPage,
   CarAddPage,
   CarDetailsPage,
@@ -149,7 +137,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   StationCreatePage,
   StationListPage,
   StationDetailPage,
-  VoyageParametersPage,
   TripAffectPage,
   StationManagePage,
   CarTypePage,
@@ -227,14 +214,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   CooperativeManagePage,
   QrScannerPage,
   ConfirmationPage,
-  VoyageCreatePage,
-  VoyageListPage,
-  VoyageDetailPage,
-  VoyageManagePage,
   ParametersPage,
   AdminListPage,
   AdminAddPage,
-  VoyageMenuPage,
   CarMenuPage,
   CarAddPage,
   CarDetailsPage,
@@ -242,7 +224,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   StationCreatePage,
   StationMenuPage,StationListPage,
   StationDetailPage,
-  VoyageParametersPage,
   TripAffectPage,
   StationManagePage,
   CarTypePage,CarListPage, 
@@ -306,7 +287,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   QrcodeValidationProvider,
   QRScanner,
   QrScannerProvider,
-  VoyageProvider,
   CarTypeProvider,
   CarProvider,
   Camera,
