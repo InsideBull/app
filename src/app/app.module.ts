@@ -310,14 +310,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   PriceTrajetProvider,
   BookingClassProvider,
   BookingClassTypeProvider,
-<<<<<<< HEAD
   PlanningProvider,
-  AdminRequestProvider
-=======
-    PlanningProvider,
-    AdminRequestProvider,
-    LocalNotifications
->>>>>>> af0038504e81c374e55e60e056f1ebfb096af08c
+  AdminRequestProvider,
+  LocalNotifications
   ]
 })
 export class AppModule {}

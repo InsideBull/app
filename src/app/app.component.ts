@@ -18,16 +18,12 @@ import { CarMenuPage } from '../pages/car-menu/car-menu';
 import { EventProvider } from '../providers/event/event';
 import { BookingClassMenuPage } from '../pages/booking-class-menu/booking-class-menu';
 import { BookingClassAddPage } from '../pages/booking-class-add/booking-class-add';
-
 import { DeviceScannerPage } from '../pages/device-scanner/device-scanner';
 import { CooperativeMenuPage } from '../pages/cooperative-menu/cooperative-menu';
 import { TrajetMenuPage } from '../pages/trajet-menu/trajet-menu';
 import { PlanningMenuPage } from '../pages/planning-menu/planning-menu';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { NotificationProvider } from '../providers/notification/notification';
-
-
-
 
  
 @Component({
