@@ -32,7 +32,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
      of: string ;
      months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ];
      month:string;
-     selectedMonth: number;
+     selectedMonth = new Date().getMonth();
 
      constructor(
          public navCtrl: NavController,
@@ -47,6 +47,12 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
      ionViewDidLoad() {
      }
 
+     showGraph(event){
+           let selectedMonth = this.month.indexOf(event.value);
+           this.selectedMonth = selectedMonth; 
+           this.getMonthReservation();          
+     }
+
      getMonthReservation(){
          this.cooperativeProvider.fetch(this.key).then((cooperative)=>{
              this.labels = [];
@@ -54,7 +60,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
              let plannigs = [];
              let dates = [];
              let count: number = 0;
-             let currentMonth = new Date().getMonth();
+             let currentMonth = this.selectedMonth;
              if ((currentMonth === 4) || (currentMonth === 7)) {
                  this.of = "d'";
              }
@@ -82,10 +88,6 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
                                                      dates[date] = nb;
                                                  }
                                                  else{
-                                                     let value = {
-                                                         date: date,
-                                                         nb: reservations[r][key].nbplace
-                                                     }
                                                      dates[date] = reservations[r][key].nbplace
                                                  }
 

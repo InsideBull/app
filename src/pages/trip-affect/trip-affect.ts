@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Voyage } from '../../models/voyage.model';
-import { VoyageProvider } from '../../providers/voyage/voyage';
 import { CarProvider } from '../../providers/car/car';
 import { TripProvider } from '../../providers/trip/trip';
 import { Trip } from '../../models/trip.model'

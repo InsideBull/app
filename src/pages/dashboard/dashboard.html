@@ -18,45 +18,63 @@
 
 <ion-content padding *ngIf="key">
 
-  <ion-grid class="">
-      <ion-row justify-content-center margin-top class="content-center">
-        <ion-col col-12 col-sm col-auto >
-          <ion-grid>
-              <ion-row>
-                <h2 style="padding-bottom: 2rem !important; font-size: 2.6rem !important;margin: auto;color: #0a5284;" >Total des réservations du mois {{of}} {{month}}</h2>
-              </ion-row>
 
-            <ion-row style="margin-right: 3rem !important">
-              <ion-col class="icon-center">
-                <ion-avatar item-start> <img src="assets/icon/seats-reserved.png"></ion-avatar>
-                <p style="color: #ff8da5" class="label-icon">Réservations: {{totalPaidReservation + totalUnpaidReservation}}</p>
-                <p style="color: #ff8da5" class="label-icon">Montant : {{amountPaid + amountUnpaid}} Ar</p>
-              </ion-col>
+ <ion-row justify-content-center class="center-block-reservation">
+  <ion-col col-12 col-sm col-auto >
+    <ion-list class="list_" padding-top maring-top>
+      <ion-item>
+        <ion-label no-padding no-margin>
+          <span class = "input-label">Mois</span>
+        </ion-label>
+        <ion-select cancelText="Annuler" okText="Ok" (ionChange)="showGraph($event)">
+          <ion-option  *ngFor="let month of months" [value]="month">{{month}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-col>
+</ion-row>
 
-              <ion-col class="icon-center">
-                <ion-avatar item-start><img src="assets/icon/wallets.png"></ion-avatar>
-                <p style="color: #4bc0c0" class="label-icon">Réservations payés: {{totalPaidReservation}}</p>
-                <p style="color: #4bc0c0" class="label-icon">Montant : {{amountPaid}} Ar</p>
-              </ion-col>
 
-              <ion-col class="icon-center">
-                <ion-avatar item-start><img src="assets/icon/pending.png"></ion-avatar>
-                <p style="color: #b58fff" class="label-icon">Réservations en attente de paiement: {{totalUnpaidReservation}}</p>
-                <p style="color: #b58fff" class="label-icon">Montant: {{amountUnpaid}} Ar</p>
-              </ion-col>
 
-            </ion-row>
-          </ion-grid>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+<ion-grid class="">
+  <ion-row justify-content-center margin-top class="content-center">
+    <ion-col col-12 col-sm col-auto >
+      <ion-grid>
+        <ion-row>
+          <h2 style="padding-bottom: 2rem !important; font-size: 2.6rem !important;margin: auto;color: #0a5284;" >Total des réservations du mois {{of}} {{month}}</h2>
+        </ion-row>
 
-  <ion-card>
-    <ion-card-header>
-      <h2>Réservations par date</h2>
-    </ion-card-header>
+        <ion-row style="margin-right: 3rem !important">
+          <ion-col class="icon-center">
+            <ion-avatar item-start> <img src="assets/icon/seats-reserved.png"></ion-avatar>
+            <p style="color: #ff8da5" class="label-icon">Réservations: {{totalPaidReservation + totalUnpaidReservation}}</p>
+            <p style="color: #ff8da5" class="label-icon">Montant : {{amountPaid + amountUnpaid}} Ar</p>
+          </ion-col>
 
-    <ion-card-content>   
+          <ion-col class="icon-center">
+            <ion-avatar item-start><img src="assets/icon/wallets.png"></ion-avatar>
+            <p style="color: #4bc0c0" class="label-icon">Réservations payés: {{totalPaidReservation}}</p>
+            <p style="color: #4bc0c0" class="label-icon">Montant : {{amountPaid}} Ar</p>
+          </ion-col>
+
+          <ion-col class="icon-center">
+            <ion-avatar item-start><img src="assets/icon/pending.png"></ion-avatar>
+            <p style="color: #b58fff" class="label-icon">Réservations en attente de paiement: {{totalUnpaidReservation}}</p>
+            <p style="color: #b58fff" class="label-icon">Montant: {{amountUnpaid}} Ar</p>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-card>
+  <ion-card-header>
+    <h2>Réservations par date</h2>
+  </ion-card-header>
+
+  <ion-card-content>   
     <canvas #barCanvas></canvas>
   </ion-card-content>
 </ion-card>
