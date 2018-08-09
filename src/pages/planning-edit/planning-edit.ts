@@ -114,7 +114,7 @@ export class PlanningEditPage {
           this.plannigProvider.customPath(pathPlanning);
           let planning = new Planning();
           planning.cars = JSON.stringify(this.selectedCar);
-          let key = this.plannigProvider.save(planning, this.keyClass);
+          this.plannigProvider.save(planning, this.keyClass);
           this.navCtrl.setRoot(PlanningDetailsPage, {keyClass: this.keyClass, traject: this.traject, day: this.day, time: this.time, coop: this.coop});
       },()=>{});
   }

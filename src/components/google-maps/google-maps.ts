@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, MarkerOptions, MarkerIcon, LatLng } from '@ionic-native/google-maps';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, MarkerOptions, MarkerIcon } from '@ionic-native/google-maps';
 import { Coordinate } from '../../classes/coordinate.class';
-import { Platform, LoadingController, Loading } from 'ionic-angular';
+import { LoadingController, Loading } from 'ionic-angular';
 /**
  * Generated class for the GoogleMapsComponent component.
  *

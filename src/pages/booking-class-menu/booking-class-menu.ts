@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
-import { BookingClassProvider } from '../../providers/booking-class/booking-class';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
 import { BookingClassAddPage } from '../../pages/booking-class-add/booking-class-add';
 import { BookingClassListePage } from '../booking-class-liste/booking-class-liste';
@@ -23,7 +22,7 @@ export class BookingClassMenuPage {
   cooperativeKey: any;
   cooperative: Cooperative = new Cooperative();
 
-  constructor(private bookingProvider: BookingClassProvider, private cooperativeProvider: CooperativeProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private cooperativeProvider: CooperativeProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.cooperativeKey = this.navParams.get('key');
     this.cooperativeProvider.fetch(this.cooperativeKey).then((data: Cooperative) => {
         this.cooperative = data;

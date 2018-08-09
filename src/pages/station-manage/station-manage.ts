@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Platform, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Platform } from 'ionic-angular';
 import { StationProvider } from '../../providers/station/station';
 import { GoogleGeolocation } from '../../classes/google-geolocation.class';
 import { Address } from '../../classes/address.class';

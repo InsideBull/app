@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Cooperative } from '../../models/cooperative.model';
 import { CooperativeProvider } from '../../providers/cooperative/cooperative';
-import { AdministratorProvider } from '../../providers/administrator/administrator';
 import { FacebookProvider } from '../../providers/facebook/facebook';
 import { CooperativeDetailsPage } from '../../pages/cooperative-details/cooperative-details';
 import { CameraProvider } from '../../providers/camera/camera';

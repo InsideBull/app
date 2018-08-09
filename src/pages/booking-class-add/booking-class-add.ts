@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { Cooperative } from '../../models/cooperative.model';
 import { Platform } from 'ionic-angular';
 import { NotificationProvider } from '../../providers/notification/notification';
@@ -29,7 +29,7 @@ export class BookingClassAddPage {
   bookingClasstypes: any;
   cooperative: Cooperative = new Cooperative();
 
-  constructor(private modalCtrl : ModalController, private workertypeProvider: BookingClassProvider,private cooperativeProvider: CooperativeProvider, private bookingClassProvider: BookingClassProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
+  constructor(private cooperativeProvider: CooperativeProvider, private bookingClassProvider: BookingClassProvider, public notif: NotificationProvider, public platform:Platform, public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder,public alertCtrl: AlertController) {
     this.form = this.formBuilder.group({	
       type: ['',Validators.required],	
       description: ['', Validators.required]	
