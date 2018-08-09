@@ -206,13 +206,17 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   SearchStationPipe,
 
   AdminRequestPage
-],
+  ],
   imports: [
   BrowserModule,
   AngularFireModule.initializeApp(FIREBASE_CONFIG),
   AngularFireDatabaseModule,
   AngularFireStorageModule,
-  IonicModule.forRoot(MyApp)
+  IonicModule.forRoot(MyApp,  {
+    monthNames: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'décembre' ],
+    monthShortNames: ['jan', 'fev', 'mar', 'avr', 'mai', 'jui', 'jui', 'aou', 'sep', 'oct', 'nov', 'dec' ],
+    dayNames:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'],
+  })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -326,8 +330,8 @@ import { AdminRequestPage } from '../pages/admin-request/admin-request';
   PriceTrajetProvider,
   BookingClassProvider,
   BookingClassTypeProvider,
-    PlanningProvider,
-    AdminRequestProvider
+  PlanningProvider,
+  AdminRequestProvider
   ]
 })
 export class AppModule {}

@@ -29,7 +29,9 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
      totalPaidReservation: number = 0;
      amountUnpaid: number = 0;
      amountPaid: number = 0;
-
+     of: string ;
+     months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre' ];
+     month:string;
 
      constructor(
          public navCtrl: NavController,
@@ -52,6 +54,14 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
              let dates = [];
              let count: number = 0;
              let currentMonth = new Date().getMonth();
+             if ((currentMonth === 4) || (currentMonth === 7)) {
+                 this.of = "d'";
+             }
+             else{
+                 this.of = "de";
+             }
+             this.month = this.months[currentMonth];
+
              plannigs = cooperative['planning'];
              for(let p in plannigs){
                  for(let d in plannigs[p]){

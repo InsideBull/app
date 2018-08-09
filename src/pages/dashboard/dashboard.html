@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Tableau de bord</ion-title>
+    <ion-title>Tableau des ventes</ion-title>
     <button ion-button="" menuToggle="">
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -18,18 +18,15 @@
 
 <ion-content padding *ngIf="key">
 
-  <ion-card>
-    <ion-card-header>
-      <h2>Réservation du mois {{now | date : 'MMMM'}}</h2>
-    </ion-card-header>
-
-    <ion-card-content>
-
-     <ion-grid class="">
+  <ion-grid class="">
       <ion-row justify-content-center margin-top class="content-center">
         <ion-col col-12 col-sm col-auto >
           <ion-grid>
-            <ion-row>
+              <ion-row>
+                <h2 style="padding-bottom: 2rem !important; font-size: 2.6rem !important;margin: auto;color: #0a5284;" >Total des réservations du mois {{of}} {{month}}</h2>
+              </ion-row>
+
+            <ion-row style="margin-right: 3rem !important">
               <ion-col class="icon-center">
                 <ion-avatar item-start> <img src="assets/icon/seats-reserved.png"></ion-avatar>
                 <p style="color: #ff8da5" class="label-icon">Réservations: {{totalPaidReservation + totalUnpaidReservation}}</p>
@@ -38,8 +35,8 @@
 
               <ion-col class="icon-center">
                 <ion-avatar item-start><img src="assets/icon/wallets.png"></ion-avatar>
-                <p style="color: #7bd1d1" class="label-icon">Réservations payés: {{totalPaidReservation}}</p>
-                <p style="color: #7bd1d1" class="label-icon">Montant : {{amountPaid}} Ar</p>
+                <p style="color: #4bc0c0" class="label-icon">Réservations payés: {{totalPaidReservation}}</p>
+                <p style="color: #4bc0c0" class="label-icon">Montant : {{amountPaid}} Ar</p>
               </ion-col>
 
               <ion-col class="icon-center">
@@ -54,8 +51,14 @@
       </ion-row>
     </ion-grid>
 
+  <ion-card>
+    <ion-card-header>
+      <h2>Réservations par date</h2>
+    </ion-card-header>
 
+    <ion-card-content>   
     <canvas #barCanvas></canvas>
   </ion-card-content>
 </ion-card>
 </ion-content>
+
