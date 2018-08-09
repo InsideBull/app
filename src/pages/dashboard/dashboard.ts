@@ -48,8 +48,11 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
      }
 
      showGraph(event){
-           let selectedMonth = this.month.indexOf(event.value);
+           let selectedMonth = this.months.indexOf(event);
            this.selectedMonth = selectedMonth; 
+           
+           console.log(event,this.selectedMonth);
+
            this.getMonthReservation();          
      }
 
