@@ -62,12 +62,7 @@ import { CooperativeProvider } from '../../providers/cooperative/cooperative';
              this.data = [];
              let plannigs = [];
              let dates = [];
-<<<<<<< HEAD
-             let count: number = 0;
-             let currentMonth = this.selectedMonth;
-=======
              let currentMonth = new Date().getMonth();
->>>>>>> 17aee45086005fe64871bda3042ccb5391a8901f
              if ((currentMonth === 4) || (currentMonth === 7)) {
                  this.of = "d'";
              }
